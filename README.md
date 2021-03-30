@@ -6,7 +6,7 @@ nx generate @nrwl/node:app myapp
 npm install fastify-cli --global
 npm i fastify --save
 
-``` json
+```json
 {
   "name": "ticket-auth-service",
   "version": "1.0.0",
@@ -44,6 +44,7 @@ typeorm and pg
 ```
 npm install typeorm pg reflect-metadata --save
 ```
+
 docker run -d --name ok-scoring -p 5432:5432 -e POSTGRES_PASSWORD=ok-scoring-dev postgres:11.5
 
 docker exec -it ok-scoring psql -U postgres -c "create database ok-scoring"
@@ -63,3 +64,7 @@ stats
 game-templates
 
 `/Users/letheras/Desktop/Dev/repos/udemy/ok-scoring-web/node_modules/.bin/tsc -p /Users/letheras/Desktop/Dev/repos/udemy/ok-scoring-web/tools/tsconfig.tools.json`
+
+## Deploying to netlify
+
+<https://www.netlify.com/blog/2020/04/21/deploying-nx-monorepos-to-netlify/>
