@@ -11,7 +11,7 @@ export default function PrivacyPolicy() {
             <h2>Privacy Policy</h2>
             <p>
                 This Privacy Policy describes how your personal information is handled in OK Scoring for iOS.
-                We Collect No Personal Information Using Our Application
+                We Collect No Personal Information Using Our Application.
             </p>
 
             <p>
@@ -19,7 +19,7 @@ export default function PrivacyPolicy() {
             </p>
 
             <p>
-                Individual settings and data relating to the OK Scoring app are not personal and are stored only on your device
+                Individual settings and data relating to the OK Scoring app are not personal and are stored only on your device.
             </p>
 
             <p>
