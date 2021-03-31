@@ -24,6 +24,7 @@ body {
   font-family: var(--font-body);
   font-size: var(--fontSize-1);
   color: var(--color-text);
+  padding: 0 20px 20px 20px;
 }
 
 .page {
@@ -31,6 +32,7 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  flex-wrap: wrap;
 }
 
 header {
