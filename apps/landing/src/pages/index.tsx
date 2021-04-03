@@ -6,7 +6,6 @@ import Img from 'gatsby-image';
 import styles from './index.module.scss';
 import PrivacyPolicy from './privacy-policy/PrivacyPolicy';
 
-
 export function Index({ data }) {
   /*
    * Replace the elements below with your own.
@@ -23,10 +22,18 @@ export function Index({ data }) {
       </header>
       <main>
         <p style={{ margin: '50px' }}>
-          Check out our app on the IOS App Store for all of your game scoring needs!
+          Check out our app on the <a href="https://apps.apple.com/us/app/ok-scoring/id1534520395">iOS App Store</a> for all of your game scoring needs!
         </p>
         <div>
-          <Img fixed={data.appHomeImage.childImageSharp.fixed} alt='ok scoring app home screen' />
+          <iframe
+            width="700"
+            height="550"
+            src="https://www.youtube.com/embed/wouTGmPmTpg"
+            title="YouTube video player"
+            frameBorder={0}
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowFullScreen>
+          </iframe>
         </div>
         <PrivacyPolicy />
       </main>
@@ -44,14 +51,6 @@ export const pageQuery = graphql`
       }
     }
     splashImage: file(relativePath: { eq: "splash.png" }) {
-      childImageSharp {
-        fixed {
-          ...GatsbyImageSharpFixed
-        }
-      }
-    }
-
-    appHomeImage: file(relativePath: { eq: "app-home.png" }) {
       childImageSharp {
         fixed {
           ...GatsbyImageSharpFixed
