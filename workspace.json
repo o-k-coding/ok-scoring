@@ -369,6 +369,27 @@
           }
         }
       }
+    },
+    "jsonfire": {
+      "root": "libs/jsonfire",
+      "sourceRoot": "libs/jsonfire/src",
+      "projectType": "library",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/jsonfire/**/*.ts"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/jsonfire"],
+          "options": {
+            "jestConfig": "libs/jsonfire/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
     }
   }
 }

@@ -97,3 +97,9 @@ Looking for more guidance? Full documentation for Gatsby lives [on the website](
 [![Deploy with ZEIT Now](https://zeit.co/button)](https://zeit.co/import/project?template=https://github.com/gatsbyjs/gatsby-starter-default)
 
 <!-- AUTO-GENERATED-CONTENT:END -->
+
+## Adding netlify cms
+
+identity widget in react:
+
+<https://www.netlify.com/blog/2017/10/30/how-to-add-netlify-identity-service-to-react-projects/>

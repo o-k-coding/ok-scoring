@@ -3,16 +3,18 @@ backend:
   repo: okeefem2/ok-scoring
   branch: main
 
-media_folder: static/iamges
-public_folder: /images
+media_folder: apps/landing/static/images/uploads
+# Folder in the build that contains the above ^^
+public_folder: /images/uploads
 
 collections:
   - name: 'blog'
     label: 'Blog'
     folder: 'content/blog'
     create: true
+    slug: '{{year}}-{{month}}-{{day}}-{{slug}}'
     fields:
+      - { label: 'Layout', name: 'layout', widget: 'hidden', default: 'blog' }
       - { label: 'Title', name: 'title', widget: 'string' }
       - { label: 'Publish Date', name: 'date', widget: 'datetime' }
-      - { label: 'Description', name: 'description', widget: 'string' }
       - { label: 'Body', name: 'body', widget: 'markdown' }

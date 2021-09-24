@@ -17,7 +17,9 @@
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
-    "paths": {}
+    "paths": {
+      "@ok-scoring-web/jsonfire": ["libs/jsonfire/src/index.ts"]
+    }
   },
   "exclude": ["node_modules", "tmp"]
 }

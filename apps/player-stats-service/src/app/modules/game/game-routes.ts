@@ -13,7 +13,7 @@ type GameStatePostRequest = {
 };
 
 function preValidatePost(request: FastifyRequest<GameStatePostRequest>, reply, done: HookHandlerDoneFunction) {
-    const validate = ajv.compile(GameStateBodySchema)
+    const validate = ajv.compile(GameStateBodySchema);
     const isValid = validate(request.body);
     console.log(validate.errors)
     done(!isValid ? { statusCode: 400, validation: validate.errors } as FastifyError : undefined)
