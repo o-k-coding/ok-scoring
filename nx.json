@@ -5,24 +5,49 @@
     "tslint.json": "*",
     "nx.json": "*"
   },
-  "affected": { "defaultBase": "master" },
+  "affected": {
+    "defaultBase": "master"
+  },
   "npmScope": "ok-scoring-web",
   "tasksRunnerOptions": {
     "default": {
       "runner": "@nrwl/workspace/tasks-runners/default",
-      "options": { "cacheableOperations": ["build", "lint", "test", "e2e"] }
+      "options": {
+        "cacheableOperations": ["build", "lint", "test", "e2e"]
+      }
     }
   },
   "projects": {
-    "player-stats-service": { "tags": [] },
-    "game-rules-service": { "tags": [] },
-    "ok-scoring-web-client": { "tags": [] },
+    "game-rules-service": {
+      "tags": []
+    },
+    "jsonfire": {
+      "tags": []
+    },
+    "landing": {
+      "tags": []
+    },
+    "landing-e2e": {
+      "tags": [],
+      "implicitDependencies": ["landing"]
+    },
+    "ok-scoring-web-client": {
+      "tags": []
+    },
     "ok-scoring-web-client-e2e": {
       "tags": [],
       "implicitDependencies": ["ok-scoring-web-client"]
     },
-    "landing": { "tags": [] },
-    "landing-e2e": { "tags": [], "implicitDependencies": ["landing"] },
-    "jsonfire": { "tags": [] }
+    "player-stats-service": {
+      "tags": []
+    }
+  },
+  "targetDependencies": {
+    "build": [
+      {
+        "target": "build",
+        "projects": "dependencies"
+      }
+    ]
   }
 }

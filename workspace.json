@@ -75,72 +75,6 @@
     }
   },
   "projects": {
-    "player-stats-service": {
-      "root": "apps/player-stats-service",
-      "sourceRoot": "apps/player-stats-service/src",
-      "projectType": "application",
-      "prefix": "player-stats-service",
-      "schematics": {},
-      "architect": {
-        "build": {
-          "builder": "@nrwl/node:build",
-          "options": {
-            "outputPath": "dist/apps/player-stats-service",
-            "main": "apps/player-stats-service/src/main.ts",
-            "tsConfig": "apps/player-stats-service/tsconfig.app.json",
-            "assets": [
-              "apps/player-stats-service/src/assets"
-            ]
-          },
-          "configurations": {
-            "production": {
-              "optimization": true,
-              "extractLicenses": true,
-              "inspect": false,
-              "fileReplacements": [
-                {
-                  "replace": "apps/player-stats-service/src/environments/environment.ts",
-                  "with": "apps/player-stats-service/src/environments/environment.prod.ts"
-                }
-              ]
-            }
-          },
-          "outputs": [
-            "{options.outputPath}"
-          ]
-        },
-        "serve": {
-          "builder": "@nrwl/node:execute",
-          "options": {
-            "buildTarget": "player-stats-service:build"
-          }
-        },
-        "lint": {
-          "builder": "@nrwl/linter:lint",
-          "options": {
-            "linter": "eslint",
-            "tsConfig": [
-              "apps/player-stats-service/tsconfig.app.json",
-              "apps/player-stats-service/tsconfig.spec.json"
-            ],
-            "exclude": [
-              "**/node_modules/**",
-              "!apps/player-stats-service/**/*"
-            ]
-          }
-        },
-        "test": {
-          "builder": "@nrwl/jest:jest",
-          "options": {
-            "jestConfig": "apps/player-stats-service/jest.config.js",
-            "passWithNoTests": true
-          },
-          "outputs": [
-            "coverage/apps/player-stats-service"
-          ]
-        }
-      }
-    },
     "game-rules-service": {
       "root": "apps/game-rules-service",
       "sourceRoot": "apps/game-rules-service/src",
@@ -154,9 +88,7 @@
             "outputPath": "dist/apps/game-rules-service",
             "main": "apps/game-rules-service/src/main.ts",
             "tsConfig": "apps/game-rules-service/tsconfig.app.json",
-            "assets": [
-              "apps/game-rules-service/src/assets"
-            ]
+            "assets": ["apps/game-rules-service/src/assets"]
           },
           "configurations": {
             "production": {
@@ -171,9 +103,7 @@
               ]
             }
           },
-          "outputs": [
-            "{options.outputPath}"
-          ]
+          "outputs": ["{options.outputPath}"]
         },
         "serve": {
           "builder": "@nrwl/node:execute",
@@ -189,10 +119,7 @@
               "apps/game-rules-service/tsconfig.app.json",
               "apps/game-rules-service/tsconfig.spec.json"
             ],
-            "exclude": [
-              "**/node_modules/**",
-              "!apps/game-rules-service/**/*"
-            ]
+            "exclude": ["**/node_modules/**", "!apps/game-rules-service/**/*"]
           }
         },
         "test": {
@@ -201,130 +128,27 @@
             "jestConfig": "apps/game-rules-service/jest.config.js",
             "passWithNoTests": true
           },
-          "outputs": [
-            "coverage/apps/game-rules-service"
-          ]
+          "outputs": ["coverage/apps/game-rules-service"]
         }
       }
     },
-    "ok-scoring-web-client": {
-      "root": "apps/ok-scoring-web-client",
-      "sourceRoot": "apps/ok-scoring-web-client/src",
-      "projectType": "application",
-      "schematics": {},
+    "jsonfire": {
+      "root": "libs/jsonfire",
+      "sourceRoot": "libs/jsonfire/src",
+      "projectType": "library",
       "architect": {
-        "build": {
-          "builder": "@nrwl/web:build",
-          "options": {
-            "outputPath": "dist/apps/ok-scoring-web-client",
-            "index": "apps/ok-scoring-web-client/src/index.html",
-            "main": "apps/ok-scoring-web-client/src/main.tsx",
-            "polyfills": "apps/ok-scoring-web-client/src/polyfills.ts",
-            "tsConfig": "apps/ok-scoring-web-client/tsconfig.app.json",
-            "assets": [
-              "apps/ok-scoring-web-client/src/favicon.ico",
-              "apps/ok-scoring-web-client/src/assets"
-            ],
-            "styles": [
-              "apps/ok-scoring-web-client/src/styles.scss"
-            ],
-            "scripts": [],
-            "webpackConfig": "@nrwl/react/plugins/webpack"
-          },
-          "configurations": {
-            "production": {
-              "fileReplacements": [
-                {
-                  "replace": "apps/ok-scoring-web-client/src/environments/environment.ts",
-                  "with": "apps/ok-scoring-web-client/src/environments/environment.prod.ts"
-                }
-              ],
-              "optimization": true,
-              "outputHashing": "all",
-              "sourceMap": false,
-              "extractCss": true,
-              "namedChunks": false,
-              "extractLicenses": true,
-              "vendorChunk": false,
-              "budgets": [
-                {
-                  "type": "initial",
-                  "maximumWarning": "2mb",
-                  "maximumError": "5mb"
-                }
-              ]
-            }
-          },
-          "outputs": [
-            "{options.outputPath}"
-          ]
-        },
-        "serve": {
-          "builder": "@nrwl/web:dev-server",
-          "options": {
-            "buildTarget": "ok-scoring-web-client:build"
-          },
-          "configurations": {
-            "production": {
-              "buildTarget": "ok-scoring-web-client:build:production"
-            }
-          }
-        },
         "lint": {
-          "builder": "@nrwl/linter:lint",
+          "builder": "@nrwl/linter:eslint",
           "options": {
-            "linter": "eslint",
-            "tsConfig": [
-              "apps/ok-scoring-web-client/tsconfig.app.json",
-              "apps/ok-scoring-web-client/tsconfig.spec.json"
-            ],
-            "exclude": [
-              "**/node_modules/**",
-              "!apps/ok-scoring-web-client/**/*"
-            ]
+            "lintFilePatterns": ["libs/jsonfire/**/*.ts"]
           }
         },
         "test": {
           "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/jsonfire"],
           "options": {
-            "jestConfig": "apps/ok-scoring-web-client/jest.config.js",
+            "jestConfig": "libs/jsonfire/jest.config.js",
             "passWithNoTests": true
-          },
-          "outputs": [
-            "coverage/apps/ok-scoring-web-client"
-          ]
-        }
-      }
-    },
-    "ok-scoring-web-client-e2e": {
-      "root": "apps/ok-scoring-web-client-e2e",
-      "sourceRoot": "apps/ok-scoring-web-client-e2e/src",
-      "projectType": "application",
-      "architect": {
-        "e2e": {
-          "builder": "@nrwl/cypress:cypress",
-          "options": {
-            "cypressConfig": "apps/ok-scoring-web-client-e2e/cypress.json",
-            "tsConfig": "apps/ok-scoring-web-client-e2e/tsconfig.e2e.json",
-            "devServerTarget": "ok-scoring-web-client:serve"
-          },
-          "configurations": {
-            "production": {
-              "devServerTarget": "ok-scoring-web-client:serve:production"
-            }
-          }
-        },
-        "lint": {
-          "builder": "@nrwl/linter:lint",
-          "options": {
-            "linter": "eslint",
-            "tsConfig": [
-              "apps/ok-scoring-web-client-e2e/tsconfig.e2e.json"
-            ],
-            "exclude": [
-              "**/node_modules/**",
-              "!apps/ok-scoring-web-client-e2e/**/*"
-            ]
           }
         }
       }
@@ -360,16 +184,12 @@
         "lint": {
           "builder": "@nrwl/linter:eslint",
           "options": {
-            "lintFilePatterns": [
-              "apps/landing/**/*.{ts,tsx,js,jsx}"
-            ]
+            "lintFilePatterns": ["apps/landing/**/*.{ts,tsx,js,jsx}"]
           }
         },
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": [
-            "coverage/apps/landing"
-          ],
+          "outputs": ["coverage/apps/landing"],
           "options": {
             "jestConfig": "apps/landing/jest.config.js",
             "passWithNoTests": true
@@ -398,35 +218,179 @@
         "lint": {
           "builder": "@nrwl/linter:eslint",
           "options": {
-            "lintFilePatterns": [
-              "apps/landing-e2e/**/*.{js,ts}"
-            ]
+            "lintFilePatterns": ["apps/landing-e2e/**/*.{js,ts}"]
           }
         }
       }
     },
-    "jsonfire": {
-      "root": "libs/jsonfire",
-      "sourceRoot": "libs/jsonfire/src",
-      "projectType": "library",
+    "ok-scoring-web-client": {
+      "root": "apps/ok-scoring-web-client",
+      "sourceRoot": "apps/ok-scoring-web-client/src",
+      "projectType": "application",
+      "schematics": {},
       "architect": {
-        "lint": {
-          "builder": "@nrwl/linter:eslint",
+        "build": {
+          "builder": "@nrwl/web:build",
           "options": {
-            "lintFilePatterns": [
-              "libs/jsonfire/**/*.ts"
+            "outputPath": "dist/apps/ok-scoring-web-client",
+            "index": "apps/ok-scoring-web-client/src/index.html",
+            "main": "apps/ok-scoring-web-client/src/main.tsx",
+            "polyfills": "apps/ok-scoring-web-client/src/polyfills.ts",
+            "tsConfig": "apps/ok-scoring-web-client/tsconfig.app.json",
+            "assets": [
+              "apps/ok-scoring-web-client/src/favicon.ico",
+              "apps/ok-scoring-web-client/src/assets"
+            ],
+            "styles": ["apps/ok-scoring-web-client/src/styles.scss"],
+            "scripts": [],
+            "webpackConfig": "@nrwl/react/plugins/webpack"
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "apps/ok-scoring-web-client/src/environments/environment.ts",
+                  "with": "apps/ok-scoring-web-client/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                }
+              ]
+            }
+          },
+          "outputs": ["{options.outputPath}"]
+        },
+        "serve": {
+          "builder": "@nrwl/web:dev-server",
+          "options": {
+            "buildTarget": "ok-scoring-web-client:build"
+          },
+          "configurations": {
+            "production": {
+              "buildTarget": "ok-scoring-web-client:build:production"
+            }
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:lint",
+          "options": {
+            "linter": "eslint",
+            "tsConfig": [
+              "apps/ok-scoring-web-client/tsconfig.app.json",
+              "apps/ok-scoring-web-client/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**",
+              "!apps/ok-scoring-web-client/**/*"
             ]
           }
         },
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": [
-            "coverage/libs/jsonfire"
-          ],
           "options": {
-            "jestConfig": "libs/jsonfire/jest.config.js",
+            "jestConfig": "apps/ok-scoring-web-client/jest.config.js",
             "passWithNoTests": true
+          },
+          "outputs": ["coverage/apps/ok-scoring-web-client"]
+        }
+      }
+    },
+    "ok-scoring-web-client-e2e": {
+      "root": "apps/ok-scoring-web-client-e2e",
+      "sourceRoot": "apps/ok-scoring-web-client-e2e/src",
+      "projectType": "application",
+      "architect": {
+        "e2e": {
+          "builder": "@nrwl/cypress:cypress",
+          "options": {
+            "cypressConfig": "apps/ok-scoring-web-client-e2e/cypress.json",
+            "tsConfig": "apps/ok-scoring-web-client-e2e/tsconfig.e2e.json",
+            "devServerTarget": "ok-scoring-web-client:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "ok-scoring-web-client:serve:production"
+            }
           }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:lint",
+          "options": {
+            "linter": "eslint",
+            "tsConfig": ["apps/ok-scoring-web-client-e2e/tsconfig.e2e.json"],
+            "exclude": [
+              "**/node_modules/**",
+              "!apps/ok-scoring-web-client-e2e/**/*"
+            ]
+          }
+        }
+      }
+    },
+    "player-stats-service": {
+      "root": "apps/player-stats-service",
+      "sourceRoot": "apps/player-stats-service/src",
+      "projectType": "application",
+      "prefix": "player-stats-service",
+      "schematics": {},
+      "architect": {
+        "build": {
+          "builder": "@nrwl/node:build",
+          "options": {
+            "outputPath": "dist/apps/player-stats-service",
+            "main": "apps/player-stats-service/src/main.ts",
+            "tsConfig": "apps/player-stats-service/tsconfig.app.json",
+            "assets": ["apps/player-stats-service/src/assets"]
+          },
+          "configurations": {
+            "production": {
+              "optimization": true,
+              "extractLicenses": true,
+              "inspect": false,
+              "fileReplacements": [
+                {
+                  "replace": "apps/player-stats-service/src/environments/environment.ts",
+                  "with": "apps/player-stats-service/src/environments/environment.prod.ts"
+                }
+              ]
+            }
+          },
+          "outputs": ["{options.outputPath}"]
+        },
+        "serve": {
+          "builder": "@nrwl/node:execute",
+          "options": {
+            "buildTarget": "player-stats-service:build"
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:lint",
+          "options": {
+            "linter": "eslint",
+            "tsConfig": [
+              "apps/player-stats-service/tsconfig.app.json",
+              "apps/player-stats-service/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!apps/player-stats-service/**/*"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "apps/player-stats-service/jest.config.js",
+            "passWithNoTests": true
+          },
+          "outputs": ["coverage/apps/player-stats-service"]
         }
       }
     }
