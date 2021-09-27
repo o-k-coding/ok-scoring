@@ -224,6 +224,141 @@
         }
       }
     },
+    "ok-scoring-mobile": {
+      "root": "apps/ok-scoring-mobile",
+      "sourceRoot": "apps/ok-scoring-mobile/src",
+      "projectType": "application",
+      "architect": {
+        "start": {
+          "builder": "@nrwl/react-native:start",
+          "options": {
+            "port": 8081
+          }
+        },
+        "serve": {
+          "builder": "@nrwl/workspace:run-commands",
+          "options": {
+            "command": "nx start ok-scoring-mobile"
+          }
+        },
+        "run-ios": {
+          "builder": "@nrwl/react-native:run-ios",
+          "options": {}
+        },
+        "bundle-ios": {
+          "builder": "@nrwl/react-native:bundle",
+          "outputs": ["apps/ok-scoring-mobile/build"],
+          "options": {
+            "entryFile": "apps/ok-scoring-mobile/src/main.tsx",
+            "platform": "ios",
+            "bundleOutput": "dist/apps/ok-scoring-mobile/ios/main.jsbundle"
+          }
+        },
+        "run-android": {
+          "builder": "@nrwl/react-native:run-android",
+          "options": {}
+        },
+        "build-android": {
+          "builder": "@nrwl/react-native:build-android",
+          "outputs": [
+            "apps/ok-scoring-mobile/android/app/build/outputs/bundle",
+            "apps/ok-scoring-mobile/android/app/build/outputs/apk"
+          ],
+          "options": {}
+        },
+        "bundle-android": {
+          "builder": "@nrwl/react-native:bundle",
+          "options": {
+            "entryFile": "apps/ok-scoring-mobile/src/main.tsx",
+            "platform": "android",
+            "bundleOutput": "dist/apps/ok-scoring-mobile/android/main.jsbundle"
+          }
+        },
+        "sync-deps": {
+          "builder": "@nrwl/react-native:sync-deps",
+          "options": {}
+        },
+        "ensure-symlink": {
+          "builder": "@nrwl/react-native:ensure-symlink",
+          "options": {}
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "outputs": ["{options.outputFile}"],
+          "options": {
+            "lintFilePatterns": ["apps/ok-scoring-mobile/**/*.{ts,tsx,js,jsx}"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/apps/ok-scoring-mobile"],
+          "options": {
+            "jestConfig": "apps/ok-scoring-mobile/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "ok-scoring-mobile-e2e": {
+      "root": "apps/ok-scoring-mobile-e2e",
+      "sourceRoot": "apps/ok-scoring-mobile-e2e/src",
+      "projectType": "application",
+      "architect": {
+        "build-ios": {
+          "builder": "@nrwl/detox:build",
+          "options": {
+            "detoxConfiguration": "ios.sim.debug"
+          },
+          "configurations": {
+            "production": {
+              "detoxConfiguration": "ios.sim.release"
+            }
+          }
+        },
+        "test-ios": {
+          "builder": "@nrwl/detox:test",
+          "options": {
+            "detoxConfiguration": "ios.sim.debug"
+          },
+          "configurations": {
+            "production": {
+              "detoxConfiguration": "ios.sim.release"
+            }
+          }
+        },
+        "build-android": {
+          "builder": "@nrwl/detox:build",
+          "options": {
+            "detoxConfiguration": "android.emu.debug"
+          },
+          "configurations": {
+            "production": {
+              "detoxConfiguration": "android.emu.release"
+            }
+          }
+        },
+        "test-android": {
+          "builder": "@nrwl/detox:test",
+          "options": {
+            "detoxConfiguration": "android.emu.debug"
+          },
+          "configurations": {
+            "production": {
+              "detoxConfiguration": "android.emu.release"
+            }
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "outputs": ["{options.outputFile}"],
+          "options": {
+            "lintFilePatterns": [
+              "apps/ok-scoring-mobile-e2e/**/*.{ts,tsx,js,jsx}"
+            ]
+          }
+        }
+      }
+    },
     "ok-scoring-web": {
       "root": "apps/ok-scoring-web",
       "sourceRoot": "apps/ok-scoring-web",

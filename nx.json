@@ -31,6 +31,13 @@
       "tags": [],
       "implicitDependencies": ["landing"]
     },
+    "ok-scoring-mobile": {
+      "tags": []
+    },
+    "ok-scoring-mobile-e2e": {
+      "tags": [],
+      "implicitDependencies": ["ok-scoring-mobile"]
+    },
     "ok-scoring-web": {
       "tags": []
     },
