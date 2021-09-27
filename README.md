@@ -68,3 +68,17 @@ game-templates
 ## Deploying to netlify
 
 <https://www.netlify.com/blog/2020/04/21/deploying-nx-monorepos-to-netlify/>
+
+## Useful nx commands
+
+Installing nx cli globally
+
+```bash
+npm i -g @nrwl/cli
+```
+
+Creating a library
+
+```bash
+nx g lib my-lib
+```

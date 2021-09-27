@@ -76,6 +76,72 @@
     }
   },
   "projects": {
+    "array-fns": {
+      "root": "libs/array-fns",
+      "sourceRoot": "libs/array-fns/src",
+      "projectType": "library",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "outputs": ["{options.outputFile}"],
+          "options": {
+            "lintFilePatterns": ["libs/array-fns/**/*.ts"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/array-fns"],
+          "options": {
+            "jestConfig": "libs/array-fns/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "game-models": {
+      "root": "libs/game-models",
+      "sourceRoot": "libs/game-models/src",
+      "projectType": "library",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "outputs": ["{options.outputFile}"],
+          "options": {
+            "lintFilePatterns": ["libs/game-models/**/*.ts"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/game-models"],
+          "options": {
+            "jestConfig": "libs/game-models/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "game-rules-fns": {
+      "root": "libs/game-rules-fns",
+      "sourceRoot": "libs/game-rules-fns/src",
+      "projectType": "library",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "outputs": ["{options.outputFile}"],
+          "options": {
+            "lintFilePatterns": ["libs/game-rules-fns/**/*.ts"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/game-rules-fns"],
+          "options": {
+            "jestConfig": "libs/game-rules-fns/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
     "game-rules-service": {
       "root": "apps/game-rules-service",
       "sourceRoot": "apps/game-rules-service/src",
@@ -130,6 +196,50 @@
             "passWithNoTests": true
           },
           "outputs": ["coverage/apps/game-rules-service"]
+        }
+      }
+    },
+    "game-ui-store": {
+      "root": "libs/game-ui-store",
+      "sourceRoot": "libs/game-ui-store/src",
+      "projectType": "library",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "outputs": ["{options.outputFile}"],
+          "options": {
+            "lintFilePatterns": ["libs/game-ui-store/**/*.ts"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/game-ui-store"],
+          "options": {
+            "jestConfig": "libs/game-ui-store/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "hooks": {
+      "root": "libs/hooks",
+      "sourceRoot": "libs/hooks/src",
+      "projectType": "library",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "outputs": ["{options.outputFile}"],
+          "options": {
+            "lintFilePatterns": ["libs/hooks/**/*.ts"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/hooks"],
+          "options": {
+            "jestConfig": "libs/hooks/jest.config.js",
+            "passWithNoTests": true
+          }
         }
       }
     },
@@ -492,6 +602,50 @@
             "passWithNoTests": true
           },
           "outputs": ["coverage/apps/player-stats-service"]
+        }
+      }
+    },
+    "sqlite-fns": {
+      "root": "libs/sqlite-fns",
+      "sourceRoot": "libs/sqlite-fns/src",
+      "projectType": "library",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "outputs": ["{options.outputFile}"],
+          "options": {
+            "lintFilePatterns": ["libs/sqlite-fns/**/*.ts"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/sqlite-fns"],
+          "options": {
+            "jestConfig": "libs/sqlite-fns/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "timer-provider": {
+      "root": "libs/timer-provider",
+      "sourceRoot": "libs/timer-provider/src",
+      "projectType": "library",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "outputs": ["{options.outputFile}"],
+          "options": {
+            "lintFilePatterns": ["libs/timer-provider/**/*.{ts,tsx,js,jsx}"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/timer-provider"],
+          "options": {
+            "jestConfig": "libs/timer-provider/jest.config.js",
+            "passWithNoTests": true
+          }
         }
       }
     }

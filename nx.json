@@ -18,7 +18,22 @@
     }
   },
   "projects": {
+    "array-fns": {
+      "tags": []
+    },
+    "game-models": {
+      "tags": []
+    },
+    "game-rules-fns": {
+      "tags": []
+    },
     "game-rules-service": {
+      "tags": []
+    },
+    "game-ui-store": {
+      "tags": []
+    },
+    "hooks": {
       "tags": []
     },
     "jsonfire": {
@@ -46,6 +61,12 @@
       "implicitDependencies": ["ok-scoring-web"]
     },
     "player-stats-service": {
+      "tags": []
+    },
+    "sqlite-fns": {
+      "tags": []
+    },
+    "timer-provider": {
       "tags": []
     }
   },
