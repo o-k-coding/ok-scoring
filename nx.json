@@ -41,13 +41,6 @@
     "ok-scoring-web": {
       "tags": []
     },
-    "ok-scoring-web-client": {
-      "tags": []
-    },
-    "ok-scoring-web-client-e2e": {
-      "tags": [],
-      "implicitDependencies": ["ok-scoring-web-client"]
-    },
     "ok-scoring-web-e2e": {
       "tags": [],
       "implicitDependencies": ["ok-scoring-web"]
