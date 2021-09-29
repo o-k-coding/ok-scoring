@@ -8,7 +8,7 @@
   "affected": {
     "defaultBase": "master"
   },
-  "npmScope": "ok-scoring-web",
+  "npmScope": "ok-scoring",
   "tasksRunnerOptions": {
     "default": {
       "runner": "@nrwl/workspace/tasks-runners/default",
@@ -19,6 +19,21 @@
   },
   "projects": {
     "array-fns": {
+      "tags": []
+    },
+    "components-react-timer-provider": {
+      "tags": []
+    },
+    "data-sqlite-fns": {
+      "tags": []
+    },
+    "features-game-models": {
+      "tags": []
+    },
+    "features-game-rules-fns": {
+      "tags": []
+    },
+    "features-game-ui-store": {
       "tags": []
     },
     "game-models": {
@@ -66,7 +81,7 @@
     "sqlite-fns": {
       "tags": []
     },
-    "timer-provider": {
+    "utils-array-fns": {
       "tags": []
     }
   },

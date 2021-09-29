@@ -18,15 +18,20 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@ok-scoring-web/array-fns": ["libs/array-fns/src/index.ts"],
-      "@ok-scoring-web/array-utils": ["libs/array-utils/src/index.ts"],
-      "@ok-scoring-web/game-models": ["libs/game-models/src/index.ts"],
-      "@ok-scoring-web/game-rules-fns": ["libs/game-rules-fns/src/index.ts"],
-      "@ok-scoring-web/game-ui-store": ["libs/game-ui-store/src/index.ts"],
-      "@ok-scoring-web/hooks": ["libs/hooks/src/index.ts"],
-      "@ok-scoring-web/jsonfire": ["libs/jsonfire/src/index.ts"],
-      "@ok-scoring-web/sqlite-fns": ["libs/sqlite-fns/src/index.ts"],
-      "@ok-scoring-web/timer-provider": ["libs/timer-provider/src/index.ts"]
+      "@ok-scoring/components/react/timer-provider": [
+        "libs/components/react/timer-provider/src/index.ts"
+      ],
+      "@ok-scoring/data/sqlite-fns": ["libs/data/sqlite-fns/src/index.ts"],
+      "@ok-scoring/features/game-models": [
+        "libs/features/game-models/src/index.ts"
+      ],
+      "@ok-scoring/features/game-rules-fns": [
+        "libs/features/game-rules-fns/src/index.ts"
+      ],
+      "@ok-scoring/features/game-ui-store": [
+        "libs/features/game-ui-store/src/index.ts"
+      ],
+      "@ok-scoring/utils/array-fns": ["libs/utils/array-fns/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]
