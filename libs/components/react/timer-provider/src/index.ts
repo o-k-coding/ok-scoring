@@ -1,1 +1,1 @@
-export * from './lib/components-react-timer-provider';
+export * from './lib/timer-provider';
