@@ -1,6 +1,6 @@
 import React, { useEffect, useContext } from 'react';
 import { View, Text, Image, StatusBar } from 'react-native';
-// import { useFonts } from 'expo-font';
+import { useFonts } from 'expo-font';
 // TODO <https://docs.swmansion.com/react-native-gesture-handler/docs/#installation>
 import 'react-native-gesture-handler';
 import { NavigationContainer } from '@react-navigation/native';
@@ -26,9 +26,9 @@ function App() {
   // const { loadPlayers } = useContext(playerHistoryContext);
   // const { loadFavoriteGames } = useContext(favoriteGamesContext);
 
-  // const [fontsLoaded, error] = useFonts({
-  //   Quicksand: require('./assets/fonts/Quicksand/static/Quicksand-Regular.ttf'),
-  // });
+  const [fontsLoaded, error] = useFonts({
+    Quicksand: require('./assets/fonts/Quicksand/static/Quicksand-Regular.ttf'),
+  });
 
   // const initDbAndData = async () => {
   //   await initLocalDb();
@@ -37,17 +37,18 @@ function App() {
   //   loadFavoriteGames();
   // }
 
-  // useEffect(() => {
-  //   if (fontsLoaded) {
-  //     initDbAndData();
-  //   }
-  //   return () => {
-  //     // TODO clean up db?
-  //   }
-  // }, [fontsLoaded]);
+  useEffect(() => {
+    if (fontsLoaded) {
+      // initDbAndData();
+      console.log('HELLO FONTS ARE LOADED!');
+    }
+    return () => {
+      // TODO clean up db?
+    }
+  }, [fontsLoaded]);
 
-  const fontsLoaded = true;
   const dbInitialized = true;
+
 
   if (!fontsLoaded || !dbInitialized) {
     return <>
