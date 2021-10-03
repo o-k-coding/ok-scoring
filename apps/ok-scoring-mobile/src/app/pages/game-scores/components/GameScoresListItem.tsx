@@ -1,4 +1,4 @@
-// import { MaterialCommunityIcons } from '@expo/vector-icons';
+import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { IconButton } from '@ok-scoring/components/react/mobile';
 import { Player, PlayerScoreHistory } from '@ok-scoring/features/game-models';
 import { playerHistoryContext } from '@ok-scoring/features/game-ui-store';
@@ -24,9 +24,9 @@ const GameScoreListItem = ({ player, playerScoreHistory, winning, playerUpdated 
             <View style={sharedMobileStyles.rowGroup}>
                 <IconButton size={28} clickHandler={toggleFavorite} icon={player.favorite ? 'star' : 'star-outline'} />
                 <Text style={[sharedMobileStyles.bodyText, sharedMobileStyles.mr5]}>{player.name}</Text>
-                {/* {
+                {
                     winning && <MaterialCommunityIcons name='crown' size={28} color={colors.tertiary} />
-                } */}
+                }
             </View>
             <View>
                 <Text style={[sharedMobileStyles.bodyText, sharedMobileStyles.ml5]}>{playerScoreHistory?.currentScore ?? 0} points</Text>

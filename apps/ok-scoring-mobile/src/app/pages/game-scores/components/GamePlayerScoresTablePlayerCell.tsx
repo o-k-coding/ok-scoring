@@ -1,7 +1,7 @@
 import { useActionSheet } from '@expo/react-native-action-sheet';
 import React, { useContext } from 'react';
 import { Text, TouchableOpacity, View } from 'react-native';
-// import { MaterialCommunityIcons } from '@expo/vector-icons';
+import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { Player } from '@ok-scoring/features/game-models';
 import { gameContext } from '@ok-scoring/features/game-ui-store';
 import { colors, sharedMobileStyles } from '@ok-scoring/styles';
@@ -50,14 +50,14 @@ const GamePlayerScoresTablePlayerCell = ({
                         }]}>
                             {displayName}
                         </Text>
-                        {/* {winning && <MaterialCommunityIcons
+                        {winning && <MaterialCommunityIcons
                             name={'crown'} size={18}
                             style={sharedMobileStyles.ml5}
                             color={winning ? colors.tertiary : colors.white} />}
                         {isDealer && <MaterialCommunityIcons
                             name={'cards'} size={18}
                             style={sharedMobileStyles.ml5}
-                            color={isDealer ? colors.tertiary : colors.white} />} */}
+                            color={isDealer ? colors.tertiary : colors.white} />}
                     </TouchableOpacity> :
                     <Text style={[sharedMobileStyles.scoreTabelTopCell]}>
                         {displayName}

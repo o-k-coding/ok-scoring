@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useContext, useRef } from 'react'
 import { StyleSheet, Text, View, TextInput, Animated } from 'react-native'
-// import { MaterialCommunityIcons } from '@expo/vector-icons';
+import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { observer } from 'mobx-react';
 import { GameRoute, GameScoresRoute, PageNavigationProps } from '../../navigation';
 import GamePlayerScoresTable from '../game-scores/components/GamePlayerScoresTable';
@@ -102,16 +102,14 @@ const Game = ({ navigation }: PageNavigationProps<typeof GameRoute>) => {
                     </View>
 
                     <Animated.View style={[sharedMobileStyles.mt25, { width: '100%', display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'center' }, { opacity: fadeAnim }]}>
-                        {/* <MaterialCommunityIcons name={'crown'} size={28} color={winningPlayerKey === activeGamePlayerScore.player.key ? colors.tertiary : colors.white} /> */}
+                        <MaterialCommunityIcons name={'crown'} size={28} color={winningPlayerKey === activeGamePlayerScore.player.key ? colors.tertiary : colors.white} />
                         <Text style={[styles.turnDetails, sharedMobileStyles.ml15, sharedMobileStyles.mr15]}>
                             Turn {activeGamePlayerScore.scoreIndex + 1}
                         </Text>
                         {
                             canSetDealer ?
                                 <IconButton icon={dealingPlayerKey === activeGamePlayerScore.player.key ? 'cards' : 'cards-outline'} clickHandler={() => setDealer(activeGamePlayerScore.player.key)} size={28} color={colors.primary} /> :
-                                <Text>Hello</Text>
-                            // <MaterialCommunityIcons name='cards' size={28} color={dealingPlayerKey === activeGamePlayerScore.player.key ? colors.tertiary : colors.white} />
-
+                                <MaterialCommunityIcons name='cards' size={28} color={dealingPlayerKey === activeGamePlayerScore.player.key ? colors.tertiary : colors.white} />
                         }
                     </Animated.View>
                     <Animated.View style={[styles.scoreContainer, { opacity: fadeAnim }]}>

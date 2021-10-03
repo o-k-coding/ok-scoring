@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from 'react'
 import { Animated, Text, View } from 'react-native'
-// import { MaterialCommunityIcons } from '@expo/vector-icons';
+import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { useDiceIcon, formatDate } from '@ok-scoring/components/react/hooks';
 import { IconButton, MatIcons } from '@ok-scoring/components/react/mobile';
 import { GameState, Player, Settings } from '@ok-scoring/features/game-models';
@@ -47,13 +47,13 @@ const GameHistoryListItem = ({ sort, index, game, copyGameSetup, continueGame, s
                     </Text>
                 </View>
                 <View style={sharedMobileStyles.plainRow}>
-                    {/* <MaterialCommunityIcons name='calendar-outline' size={28} color={colors.tertiary} /> */}
+                    <MaterialCommunityIcons name='calendar-outline' size={28} color={colors.tertiary} />
                     <Text style={[sharedMobileStyles.ml5, sharedMobileStyles.subHeaderText]}>
                         {formattedDate}
                     </Text>
                 </View>
                 <View style={[sharedMobileStyles.plainRow]}>
-                    {/* <MaterialCommunityIcons name='crown' size={18} color={colors.tertiary} /> */}
+                    <MaterialCommunityIcons name='crown' size={18} color={colors.tertiary} />
                     <Text style={[sharedMobileStyles.ml5, sharedMobileStyles.bodyText]}>
                         {game.playerNamesForDisplay}
                     </Text>

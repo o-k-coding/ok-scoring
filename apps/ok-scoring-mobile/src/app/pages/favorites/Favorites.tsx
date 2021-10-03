@@ -1,7 +1,7 @@
 import { NavigationContainer } from '@react-navigation/native';
 import React from 'react'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-// import { MaterialCommunityIcons } from '@expo/vector-icons';
+import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { colors } from '@ok-scoring/styles';
 import Games, { TabNavIcons as GamesTabNavIcons } from './components/Games';
 import Players, { TabNavIcons as PlayersTabNavIcons } from './components/Players';
@@ -17,12 +17,12 @@ const Favorites = () => {
         <NavigationContainer independent={true}>
             <Tab.Navigator
                 screenOptions={({ route }) => ({
-                    // tabBarIcon: ({ focused, color }) => {
-                    //     const tabIcons = favoriteTabs[route.name];
-                    //     const iconName = focused ? tabIcons.active : tabIcons.inactive;
-                    //     // You can return any component that you like here!
-                    //     return <MaterialCommunityIcons name={iconName} size={28} color={color} />;
-                    // },
+                    tabBarIcon: ({ focused, color }) => {
+                        const tabIcons = favoriteTabs[route.name];
+                        const iconName = focused ? tabIcons.active : tabIcons.inactive;
+                        // You can return any component that you like here!
+                        return <MaterialCommunityIcons name={iconName} size={28} color={color} />;
+                    },
                     tabBarActiveTintColor: colors.white,
                     tabBarInactiveTintColor: colors.primary,
                     tabBarActiveBackgroundColor: colors.primary,
