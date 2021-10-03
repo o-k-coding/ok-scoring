@@ -1,5 +1,5 @@
 import { createContext } from 'react';
-import { observable, action, computed, reaction } from 'mobx';
+import { observable, action, computed, reaction, makeObservable } from 'mobx';
 import { localDbStore } from './local-db.store';
 import { Player } from '@ok-scoring/features/game-models';
 import { addOrReplaceByKey, sort, Sort } from '@ok-scoring/utils/array-fns';
@@ -12,6 +12,7 @@ class PlayerHistoryStore {
     @observable playersList: Player[] = [];
 
     constructor() {
+        makeObservable(this);
         reaction(() => this.favoritesSort, () => this.sortAndSetFavoritePlayers([...this.playerHistory]));
         reaction(() => this.playerHistory, () => this.sortAndSetFavoritePlayers([...this.playerHistory]));
     }

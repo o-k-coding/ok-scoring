@@ -1,10 +1,14 @@
 import { createContext } from 'react';
-import { observable, action } from 'mobx';
+import { observable, action, makeObservable } from 'mobx';
 import { initSQLLiteDb } from '@ok-scoring/data/sqlite-fns';
 
 class LocalDbStore {
     @observable dbInitialized = false;
     @observable dbError = false;
+
+    constructor() {
+        makeObservable(this);
+    }
 
     @action setDbInitialized = (initialized: boolean) => {
         this.dbInitialized = initialized;

@@ -26,9 +26,10 @@ const Favorites = () => {
                     tabBarActiveTintColor: colors.white,
                     tabBarInactiveTintColor: colors.primary,
                     tabBarActiveBackgroundColor: colors.primary,
-                    tabBarStyle: {
-                        paddingVertical: 5
-                    }
+                    tabBarItemStyle: {
+                        paddingVertical: 5,
+                    },
+                    headerShown: false,
                 })}
             >
                 <Tab.Screen name='Players' component={Players} />

@@ -1,5 +1,5 @@
 import { createContext } from 'react';
-import { observable, action, computed, reaction, toJS } from 'mobx';
+import { observable, action, computed, reaction, toJS, makeObservable } from 'mobx';
 import { localDbStore } from './local-db.store';
 import { favoriteGamesStore } from './favorite-games.store';
 import { playerHistoryStore } from './players-history.store';
@@ -22,6 +22,7 @@ class GameHistoryStore {
     @observable gamesList: GamesListItem[] = [];
 
     constructor() {
+        makeObservable(this);
         reaction(() => this.sort, () => this.sortAndSetGameHistory([...this.gameHistory]));
         reaction(() => this.favoritesSort, () => this.sortAndSetFavoriteGames(
             this.gamesList.slice()

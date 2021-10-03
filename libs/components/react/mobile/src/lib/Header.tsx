@@ -1,3 +1,4 @@
+import React from 'react';
 import { Text, View } from 'react-native'
 import { sharedMobileStyles } from '@ok-scoring/styles';
 

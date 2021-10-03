@@ -1,5 +1,5 @@
 import { createContext } from 'react';
-import { action, observable, computed, reaction } from 'mobx';
+import { action, observable, computed, reaction, makeObservable } from 'mobx';
 import { GameState, Player, GameScoreHistory, PlayerScore, Settings, DealerSettings, PlayerScoreMode, DealerSettingsText } from '@ok-scoring/features/game-models';
 import { addOrReplaceByKey, swap } from '@ok-scoring/utils/array-fns';
 import { favoriteGamesStore } from './favorite-games.store';
@@ -51,6 +51,7 @@ class GameStore implements GameState {
     editingPlayerScore?: PlayerScore;
 
     constructor() {
+        makeObservable(this);
         reaction(() => this.activePlayerScore, () => {
             this.setWinningPlayerKey(determineWinner(this.scoreHistory, this.settings.highScoreWins));
         });

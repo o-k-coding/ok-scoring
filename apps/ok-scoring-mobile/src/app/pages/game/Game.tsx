@@ -136,6 +136,7 @@ const Game = ({ navigation }: PageNavigationProps<typeof GameRoute>) => {
                                 placeholder='Turn Score'
                                 value={turnScore?.toString()}
                                 clearTextOnFocus={true}
+                                selectTextOnFocus={true} // This is needed for Android
                                 keyboardType='number-pad'
                                 returnKeyType="done"
                                 ref={(input: TextInput) => { turnScoreInputRef = input; }}

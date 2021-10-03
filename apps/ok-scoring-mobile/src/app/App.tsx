@@ -42,6 +42,8 @@ function App() {
       initDbAndData();
     }
 
+    console.log('INIT?', fontsLoaded, dbInitialized);
+
     return () => {
       // TODO clean up db?
     }

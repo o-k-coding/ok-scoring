@@ -18,12 +18,15 @@ const Players = ({ navigation }: PageNavigationProps<typeof FavoritesRoute>) => 
     return (
         <SafeAreaView style={sharedMobileStyles.pageContainer}>
             <NavBar
-                leftButton={{ icon: 'chevron-left', title: 'Back', clickHandler: () => navigation.canGoBack ? navigation.goBack() : navigation.navigate(NewGameRoute) }}
+                leftButton={{ icon: 'chevron-left', title: 'Back', clickHandler: () => navigation.navigate(NewGameRoute) }}
                 rightButton={{ icon: favoritesSort.asc ? 'sort-descending' : 'sort-ascending', title: 'Sort Favorites', clickHandler: () => setFavoriteSort({ ...favoritesSort, asc: !favoritesSort.asc }) }}
             />
             <FlatList
                 style={[sharedMobileStyles.scroll, sharedMobileStyles.mb25]}
                 data={playersList}
+                ListEmptyComponent={
+                    <Text style={[sharedMobileStyles.bodyText, sharedMobileStyles.centeredText, sharedMobileStyles.mt25]}>No Players Favorited Yet!</Text>
+                }
                 renderItem={
                     ({ item: player }) =>
                         <TouchableOpacity onPress={() => toggleFavorite(player)}>
