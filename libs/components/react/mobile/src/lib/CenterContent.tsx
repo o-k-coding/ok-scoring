@@ -1,3 +1,4 @@
+import React from 'react';
 import { View } from 'react-native';
 import { sharedMobileStyles } from '@ok-scoring/styles';
 import { WrapperComponentProps } from './WrapperComponentProps';

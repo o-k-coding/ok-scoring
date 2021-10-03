@@ -21,6 +21,7 @@
     "react-native-safe-area-context": "*",
     "@react-navigation/bottom-tabs": "*",
     "date-fns": "*",
-    "react-native-modal-selector": "*"
+    "react-native-modal-selector": "*",
+    "react-native-swipe-gestures": "*"
   }
 }

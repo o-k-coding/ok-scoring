@@ -1,11 +1,10 @@
-import React, { useContext, useEffect, useState } from 'react'
-import { Text, StyleSheet } from 'react-native'
+import React, { useContext, useEffect, useState } from 'react';
+import { Text } from 'react-native';
 import { TouchableOpacity } from 'react-native-gesture-handler';
-import { sharedMobileStyles } from '../../../styles/shared';
-import { gameContext } from '../../../state/game.store';
 import { connectActionSheet, useActionSheet } from '@expo/react-native-action-sheet';
-import { colors } from '../../../styles/colors';
-import { abbreviateNumber } from '../../../hooks/abbreviateNumber';
+import { abbreviateNumber } from '@ok-scoring/components/react/hooks';
+import { gameContext } from '@ok-scoring/features/game-ui-store';
+import { colors, sharedMobileStyles } from '@ok-scoring/styles';
 
 type GamePlayerScoresTableScoreCellProps = {
     playerKey: string;

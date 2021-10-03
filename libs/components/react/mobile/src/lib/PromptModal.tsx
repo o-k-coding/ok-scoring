@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import React, { useState } from 'react'
 import { Modal, StyleSheet, Text, TextInput, TextInputProps, View } from 'react-native'
 import IconButton from './IconButton'
 import { sharedMobileStyles, colors } from '@ok-scoring/styles';

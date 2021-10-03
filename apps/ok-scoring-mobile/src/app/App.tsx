@@ -1,6 +1,6 @@
 import React, { useEffect, useContext } from 'react';
 import { View, Text, Image, StatusBar } from 'react-native';
-import { useFonts } from 'expo-font';
+// import { useFonts } from 'expo-font';
 // TODO <https://docs.swmansion.com/react-native-gesture-handler/docs/#installation>
 import 'react-native-gesture-handler';
 import { NavigationContainer } from '@react-navigation/native';
@@ -15,44 +15,46 @@ import GameScoreHistory from './pages/game-score-history/GameScoreHistory';
 import Favorites from './pages/favorites/Favorites';
 import { ActionSheetProvider } from '@expo/react-native-action-sheet'
 import { NewGameRoute, GameRoute, GameHistoryRoute, GameScoresRoute, GameSettingsRoute, GameScoreHistoryRoute, FavoritesRoute } from './navigation';
-import { favoriteGamesContext, gameHistoryContext, localDbContext, playerHistoryContext } from '@ok-scoring/features/game-ui-store';
-import { sharedMobileStyles } from './styles/shared';
+// import { favoriteGamesContext, gameHistoryContext, localDbContext, playerHistoryContext } from '@ok-scoring/features/game-ui-store';
 import { CenterContent } from '@ok-scoring/components/react/mobile';
-
+import { sharedMobileStyles } from '@ok-scoring/styles';
+const icon = require('./assets/icon.png');
 function App() {
 
-  const { dbInitialized, initLocalDb } = useContext(localDbContext);
-  const { loadGames } = useContext(gameHistoryContext);
-  const { loadPlayers } = useContext(playerHistoryContext);
-  const { loadFavoriteGames } = useContext(favoriteGamesContext);
+  // const { dbInitialized, initLocalDb } = useContext(localDbContext);
+  // const { loadGames } = useContext(gameHistoryContext);
+  // const { loadPlayers } = useContext(playerHistoryContext);
+  // const { loadFavoriteGames } = useContext(favoriteGamesContext);
 
-  const [fontsLoaded, error] = useFonts({
-    Quicksand: require('./assets/fonts/Quicksand/static/Quicksand-Regular.ttf'),
-  });
+  // const [fontsLoaded, error] = useFonts({
+  //   Quicksand: require('./assets/fonts/Quicksand/static/Quicksand-Regular.ttf'),
+  // });
 
-  const initDbAndData = async () => {
-    await initLocalDb();
-    loadGames();
-    loadPlayers();
-    loadFavoriteGames();
-  }
+  // const initDbAndData = async () => {
+  //   await initLocalDb();
+  //   loadGames();
+  //   loadPlayers();
+  //   loadFavoriteGames();
+  // }
 
-  useEffect(() => {
-    if (fontsLoaded) {
-      initDbAndData();
-    }
-    return () => {
-      // TODO clean up db?
-    }
-  }, [fontsLoaded]);
+  // useEffect(() => {
+  //   if (fontsLoaded) {
+  //     initDbAndData();
+  //   }
+  //   return () => {
+  //     // TODO clean up db?
+  //   }
+  // }, [fontsLoaded]);
 
+  const fontsLoaded = true;
+  const dbInitialized = true;
 
   if (!fontsLoaded || !dbInitialized) {
     return <>
       <View style={sharedMobileStyles.column}>
         <CenterContent>
           <Image
-            source={require('./assets/icon.png')}
+            source={icon}
             style={sharedMobileStyles.logoImage}
             resizeMode='contain'
           />
@@ -63,9 +65,9 @@ function App() {
   }
 
   // TODO set some backup global font family?
-  if (error) {
-    console.error('error loading fonts!!', error);
-  }
+  // if (error) {
+  //   console.error('error loading fonts!!', error);
+  // }
 
   const Stack = createStackNavigator();
 

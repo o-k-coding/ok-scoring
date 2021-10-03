@@ -1,5 +1,6 @@
+import React from 'react';
 import { StyleSheet, Text, View, TouchableOpacity } from 'react-native'
-import { MaterialCommunityIcons } from '@expo/vector-icons';
+// import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { colors } from '@ok-scoring/styles';
 import { MatIcons } from './material-community-icons';
 
@@ -37,9 +38,9 @@ export const IconButton = ({
         <View style={{ alignSelf: alignSelf, display: 'flex', width: width, backgroundColor, padding: 6 }}>
             <TouchableOpacity onPress={() => !disabled && clickHandler()} disabled={disabled} style={{ width: width, }}>
                 <View style={styles.buttonRow}>
-                    {!!icon && iconSide === 'left' ? <MaterialCommunityIcons name={icon} size={size} color={disabled ? colors.greyMid : color} /> : <></>}
+                    {/* {!!icon && iconSide === 'left' ? <MaterialCommunityIcons name={icon} size={size} color={disabled ? colors.greyMid : color} /> : <></>} */}
                     {!!title ? <Text style={[textStyles, { color: disabled ? colors.greyMid : color }]}>{title}</Text> : <></>}
-                    {!!icon && iconSide === 'right' ? <MaterialCommunityIcons name={icon} size={size} color={disabled ? colors.greyMid : color} /> : <></>}
+                    {/* {!!icon && iconSide === 'right' ? <MaterialCommunityIcons name={icon} size={size} color={disabled ? colors.greyMid : color} /> : <></>} */}
                 </View>
             </TouchableOpacity>
         </View>
