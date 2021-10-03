@@ -4,7 +4,7 @@ import { useFonts } from 'expo-font';
 // TODO <https://docs.swmansion.com/react-native-gesture-handler/docs/#installation>
 import 'react-native-gesture-handler';
 import { NavigationContainer } from '@react-navigation/native';
-import { createStackNavigator } from '@react-navigation/stack';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { observer } from 'mobx-react';
 import NewGame from './pages/new-game/NewGame';
 import Game from './pages/game/Game';
@@ -15,40 +15,38 @@ import GameScoreHistory from './pages/game-score-history/GameScoreHistory';
 import Favorites from './pages/favorites/Favorites';
 import { ActionSheetProvider } from '@expo/react-native-action-sheet'
 import { NewGameRoute, GameRoute, GameHistoryRoute, GameScoresRoute, GameSettingsRoute, GameScoreHistoryRoute, FavoritesRoute } from './navigation';
-// import { favoriteGamesContext, gameHistoryContext, localDbContext, playerHistoryContext } from '@ok-scoring/features/game-ui-store';
+import { favoriteGamesContext, gameHistoryContext, localDbContext, playerHistoryContext } from '@ok-scoring/features/game-ui-store';
 import { CenterContent } from '@ok-scoring/components/react/mobile';
 import { sharedMobileStyles } from '@ok-scoring/styles';
 const icon = require('./assets/icon.png');
 function App() {
 
-  // const { dbInitialized, initLocalDb } = useContext(localDbContext);
-  // const { loadGames } = useContext(gameHistoryContext);
-  // const { loadPlayers } = useContext(playerHistoryContext);
-  // const { loadFavoriteGames } = useContext(favoriteGamesContext);
+  const { dbInitialized, initLocalDb } = useContext(localDbContext);
+  const { loadGames } = useContext(gameHistoryContext);
+  const { loadPlayers } = useContext(playerHistoryContext);
+  const { loadFavoriteGames } = useContext(favoriteGamesContext);
 
   const [fontsLoaded, error] = useFonts({
     Quicksand: require('./assets/fonts/Quicksand/static/Quicksand-Regular.ttf'),
   });
 
-  // const initDbAndData = async () => {
-  //   await initLocalDb();
-  //   loadGames();
-  //   loadPlayers();
-  //   loadFavoriteGames();
-  // }
+  const initDbAndData = async () => {
+    await initLocalDb();
+    loadGames();
+    loadPlayers();
+    loadFavoriteGames();
+  }
 
   useEffect(() => {
-    if (fontsLoaded) {
-      // initDbAndData();
-      console.log('HELLO FONTS ARE LOADED!');
+    if (fontsLoaded && !dbInitialized) {
+      initDbAndData();
     }
+
     return () => {
       // TODO clean up db?
     }
-  }, [fontsLoaded]);
-
-  const dbInitialized = true;
-
+    // It seems that I need to listen to dbInitialized
+  }, [fontsLoaded, dbInitialized]);
 
   if (!fontsLoaded || !dbInitialized) {
     return <>
@@ -66,11 +64,11 @@ function App() {
   }
 
   // TODO set some backup global font family?
-  // if (error) {
-  //   console.error('error loading fonts!!', error);
-  // }
+  if (error) {
+    console.error('error loading fonts!!', error);
+  }
 
-  const Stack = createStackNavigator();
+  const Stack = createNativeStackNavigator();
 
   return (
     <>

@@ -10,7 +10,6 @@
     "expo-font": "*",
     "react-native-gesture-handler": "*",
     "@react-navigation/native": "*",
-    "@react-navigation/stack": "*",
     "mobx-react": "*",
     "@expo/react-native-action-sheet": "*",
     "mobx": "*",
@@ -22,6 +21,8 @@
     "@react-navigation/bottom-tabs": "*",
     "date-fns": "*",
     "react-native-modal-selector": "*",
-    "react-native-swipe-gestures": "*"
+    "react-native-swipe-gestures": "*",
+    "@react-navigation/native-stack": "*",
+    "react-native-screens": "*"
   }
 }

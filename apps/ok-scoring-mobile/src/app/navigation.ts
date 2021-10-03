@@ -1,5 +1,5 @@
 import { GameScoreProps } from './pages/game-scores/GameScores';
-import { StackNavigationProp } from '@react-navigation/stack';
+import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { RouteProp } from '@react-navigation/native';
 
 export const NewGameRoute = 'NewGame';
@@ -23,5 +23,5 @@ export type RootStackParamList = {
 
 export type PageNavigationProps<TRouteName extends keyof RootStackParamList> = {
     route: RouteProp<RootStackParamList, TRouteName>,
-    navigation: StackNavigationProp<RootStackParamList, TRouteName>
+    navigation: NativeStackNavigationProp<RootStackParamList, TRouteName>,
 };
