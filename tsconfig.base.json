@@ -18,8 +18,17 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
+      "@ok-scoring/components/react/hooks": [
+        "libs/components/react/hooks/src/index.ts"
+      ],
+      "@ok-scoring/components/react/mobile": [
+        "libs/components/react/mobile/src/index.ts"
+      ],
       "@ok-scoring/components/react/timer-provider": [
         "libs/components/react/timer-provider/src/index.ts"
+      ],
+      "@ok-scoring/data/generate-uuid": [
+        "libs/data/generate-uuid/src/index.ts"
       ],
       "@ok-scoring/data/sqlite-fns": ["libs/data/sqlite-fns/src/index.ts"],
       "@ok-scoring/features/game-models": [
@@ -31,7 +40,9 @@
       "@ok-scoring/features/game-ui-store": [
         "libs/features/game-ui-store/src/index.ts"
       ],
-      "@ok-scoring/utils/array-fns": ["libs/utils/array-fns/src/index.ts"]
+      "@ok-scoring/styles": ["libs/styles/index.ts"],
+      "@ok-scoring/utils/array-fns": ["libs/utils/array-fns/src/index.ts"],
+      "@ok-scoring/assets": ["libs/assets/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

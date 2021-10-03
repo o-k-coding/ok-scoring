@@ -18,10 +18,16 @@
     }
   },
   "projects": {
-    "array-fns": {
+    "components-react-hooks": {
+      "tags": []
+    },
+    "components-react-mobile": {
       "tags": []
     },
     "components-react-timer-provider": {
+      "tags": []
+    },
+    "data-generate-uuid": {
       "tags": []
     },
     "data-sqlite-fns": {
@@ -34,24 +40,6 @@
       "tags": []
     },
     "features-game-ui-store": {
-      "tags": []
-    },
-    "game-models": {
-      "tags": []
-    },
-    "game-rules-fns": {
-      "tags": []
-    },
-    "game-rules-service": {
-      "tags": []
-    },
-    "game-ui-store": {
-      "tags": []
-    },
-    "hooks": {
-      "tags": []
-    },
-    "jsonfire": {
       "tags": []
     },
     "landing": {
@@ -76,9 +64,6 @@
       "implicitDependencies": ["ok-scoring-web"]
     },
     "player-stats-service": {
-      "tags": []
-    },
-    "sqlite-fns": {
       "tags": []
     },
     "utils-array-fns": {

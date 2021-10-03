@@ -1,136 +1,92 @@
-import React from 'react';
-import {
-  SafeAreaView,
-  StyleSheet,
-  ScrollView,
-  Image,
-  View,
-  Text,
-  StatusBar,
-  TouchableOpacity,
-} from 'react-native';
+import React, { useEffect, useContext } from 'react';
+import { View, Text, Image, StatusBar } from 'react-native';
+import { useFonts } from 'expo-font';
+// TODO <https://docs.swmansion.com/react-native-gesture-handler/docs/#installation>
+import 'react-native-gesture-handler';
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
+import { observer } from 'mobx-react';
+import NewGame from './pages/new-game/NewGame';
+import Game from './pages/game/Game';
+import GameHistory from './pages/game-history/GameHistory';
+import GameScores from './pages/game-scores/GameScores';
+import GameSettings from './pages/game-settings/GameSettings';
+import GameScoreHistory from './pages/game-score-history/GameScoreHistory';
+import Favorites from './pages/favorites/Favorites';
+import { ActionSheetProvider } from '@expo/react-native-action-sheet'
+import { NewGameRoute, GameRoute, GameHistoryRoute, GameScoresRoute, GameSettingsRoute, GameScoreHistoryRoute, FavoritesRoute } from './navigation';
+import { favoriteGamesContext, gameHistoryContext, localDbContext, playerHistoryContext } from '@ok-scoring/features/game-ui-store';
+import { sharedMobileStyles } from './styles/shared';
+import { CenterContent } from '@ok-scoring/components/react/mobile';
 
-import {
-  Colors,
-  DebugInstructions,
-  ReloadInstructions,
-} from 'react-native/Libraries/NewAppScreen';
-// @ts-ignore
-import openURLInBrowser from 'react-native/Libraries/Core/Devtools/openURLInBrowser';
+function App() {
 
-const App = () => {
+  const { dbInitialized, initLocalDb } = useContext(localDbContext);
+  const { loadGames } = useContext(gameHistoryContext);
+  const { loadPlayers } = useContext(playerHistoryContext);
+  const { loadFavoriteGames } = useContext(favoriteGamesContext);
+
+  const [fontsLoaded, error] = useFonts({
+    Quicksand: require('./assets/fonts/Quicksand/static/Quicksand-Regular.ttf'),
+  });
+
+  const initDbAndData = async () => {
+    await initLocalDb();
+    loadGames();
+    loadPlayers();
+    loadFavoriteGames();
+  }
+
+  useEffect(() => {
+    if (fontsLoaded) {
+      initDbAndData();
+    }
+    return () => {
+      // TODO clean up db?
+    }
+  }, [fontsLoaded]);
+
+
+  if (!fontsLoaded || !dbInitialized) {
+    return <>
+      <View style={sharedMobileStyles.column}>
+        <CenterContent>
+          <Image
+            source={require('./assets/icon.png')}
+            style={sharedMobileStyles.logoImage}
+            resizeMode='contain'
+          />
+        </CenterContent>
+        <Text style={[sharedMobileStyles.centeredText]}>...Loading</Text>
+      </View>
+    </>;
+  }
+
+  // TODO set some backup global font family?
+  if (error) {
+    console.error('error loading fonts!!', error);
+  }
+
+  const Stack = createStackNavigator();
+
   return (
     <>
-      <StatusBar barStyle="dark-content" />
-      <SafeAreaView>
-        <ScrollView
-          contentInsetAdjustmentBehavior="automatic"
-          style={styles.scrollView}
-        >
-          <View style={styles.header}>
-            <Image style={styles.logo} source={require('./logo.png')} />
-            <Text style={styles.heading} testID="heading">
-              Welcome to OkScoringMobile
-            </Text>
-          </View>
-          <View style={styles.body}>
-            <View style={styles.sectionContainer}>
-              <Text style={styles.sectionTitle}>Step One</Text>
-              <Text style={styles.sectionDescription}>
-                Edit{' '}
-                <Text style={styles.highlight}>
-                  apps/ok-scoring-mobile/App.tsx
-                </Text>{' '}
-                to change this screen and then come back to see your edits.
-              </Text>
-            </View>
-            <View style={styles.sectionContainer}>
-              <Text style={styles.sectionTitle}>See Your Changes</Text>
-              <Text style={styles.sectionDescription}>
-                <ReloadInstructions /> Alternatively, press{' '}
-                <Text style={styles.highlight}>R</Text> in the bundler terminal
-                window.
-              </Text>
-            </View>
-            <View style={styles.sectionContainer}>
-              <Text style={styles.sectionTitle}>Debug</Text>
-              <Text style={styles.sectionDescription}>
-                <DebugInstructions />
-              </Text>
-            </View>
-            <View style={styles.sectionContainer}>
-              <Text style={styles.sectionTitle}>Learn More</Text>
-              <TouchableOpacity
-                accessibilityRole="button"
-                onPress={() => openURLInBrowser('https://nx.dev')}
-                testID="nx-link"
-              >
-                <Text style={styles.sectionDescription}>
-                  Visit <Text style={styles.link}>nx.dev</Text> for more info
-                  about Nx.
-                </Text>
-              </TouchableOpacity>
-            </View>
-          </View>
-        </ScrollView>
-      </SafeAreaView>
+      <StatusBar barStyle="dark-content" translucent={true} />
+      <ActionSheetProvider>
+        <NavigationContainer>
+          <Stack.Navigator initialRouteName={NewGameRoute} screenOptions={{ headerShown: false, gestureEnabled: false }}>
+            <Stack.Screen name={NewGameRoute} component={NewGame} />
+            <Stack.Screen name={GameRoute} component={Game} />
+            <Stack.Screen name={GameHistoryRoute} component={GameHistory} />
+            <Stack.Screen name={GameScoresRoute} component={GameScores} />
+            <Stack.Screen name={GameSettingsRoute} component={GameSettings} />
+            <Stack.Screen name={GameScoreHistoryRoute} component={GameScoreHistory} />
+            <Stack.Screen name={FavoritesRoute} component={Favorites} />
+          </Stack.Navigator>
+        </NavigationContainer>
+      </ActionSheetProvider>
     </>
   );
-};
+}
 
-const styles = StyleSheet.create({
-  scrollView: {
-    backgroundColor: Colors.lighter,
-  },
-  header: {
-    backgroundColor: '#143055',
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
-    paddingVertical: 24,
-  },
-  logo: {
-    width: 200,
-    height: 180,
-    resizeMode: 'contain',
-  },
-  heading: {
-    fontSize: 24,
-    fontWeight: '600',
-    color: Colors.lighter,
-  },
-  body: {
-    backgroundColor: Colors.white,
-  },
-  sectionContainer: {
-    marginTop: 32,
-    paddingHorizontal: 24,
-  },
-  sectionTitle: {
-    fontSize: 24,
-    fontWeight: '600',
-    color: Colors.black,
-  },
-  sectionDescription: {
-    marginTop: 8,
-    fontSize: 18,
-    fontWeight: '400',
-    color: Colors.dark,
-  },
-  highlight: {
-    fontWeight: '700',
-  },
-  footer: {
-    color: Colors.dark,
-    fontSize: 12,
-    fontWeight: '600',
-    padding: 4,
-    paddingRight: 12,
-    textAlign: 'right',
-  },
-  link: {
-    color: '#45bc98',
-  },
-});
-
-export default App;
+export default observer(App);

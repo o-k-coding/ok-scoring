@@ -76,6 +76,52 @@
     }
   },
   "projects": {
+    "components-react-hooks": {
+      "root": "libs/components/react/hooks",
+      "sourceRoot": "libs/components/react/hooks/src",
+      "projectType": "library",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "outputs": ["{options.outputFile}"],
+          "options": {
+            "lintFilePatterns": ["libs/components/react/hooks/**/*.ts"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/components/react/hooks"],
+          "options": {
+            "jestConfig": "libs/components/react/hooks/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "components-react-mobile": {
+      "root": "libs/components/react/mobile",
+      "sourceRoot": "libs/components/react/mobile/src",
+      "projectType": "library",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "outputs": ["{options.outputFile}"],
+          "options": {
+            "lintFilePatterns": [
+              "libs/components/react/mobile/**/*.{ts,tsx,js,jsx}"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/components/react/mobile"],
+          "options": {
+            "jestConfig": "libs/components/react/mobile/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
     "components-react-timer-provider": {
       "root": "libs/components/react/timer-provider",
       "sourceRoot": "libs/components/react/timer-provider/src",
@@ -95,6 +141,28 @@
           "outputs": ["coverage/libs/components/react/timer-provider"],
           "options": {
             "jestConfig": "libs/components/react/timer-provider/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "data-generate-uuid": {
+      "root": "libs/data/generate-uuid",
+      "sourceRoot": "libs/data/generate-uuid/src",
+      "projectType": "library",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "outputs": ["{options.outputFile}"],
+          "options": {
+            "lintFilePatterns": ["libs/data/generate-uuid/**/*.ts"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/data/generate-uuid"],
+          "options": {
+            "jestConfig": "libs/data/generate-uuid/jest.config.js",
             "passWithNoTests": true
           }
         }
@@ -161,6 +229,28 @@
           "outputs": ["coverage/libs/features/game-rules-fns"],
           "options": {
             "jestConfig": "libs/features/game-rules-fns/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "features-game-ui-store": {
+      "root": "libs/features/game-ui-store",
+      "sourceRoot": "libs/features/game-ui-store/src",
+      "projectType": "library",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "outputs": ["{options.outputFile}"],
+          "options": {
+            "lintFilePatterns": ["libs/features/game-ui-store/**/*.ts"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/features/game-ui-store"],
+          "options": {
+            "jestConfig": "libs/features/game-ui-store/jest.config.js",
             "passWithNoTests": true
           }
         }

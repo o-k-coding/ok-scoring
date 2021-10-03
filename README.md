@@ -79,6 +79,26 @@ npm i -g @nrwl/cli
 
 Creating a library
 
+Vanilla
 ```bash
 nx g lib my-lib
+```
+
+React
+```bash
+nx g @nrwl/react:library
+```
+
+## React native dependencies that might require work
+
+- `@expo/vector-icons`
+- react-native-responsive-screen
+- react-native-svg?
+
+
+## Running Ok scoring mobile
+
+```bash
+npx nx run-ios ok-scoring-mobile
+npx nx run-android ok-scoring-mobile
 ```

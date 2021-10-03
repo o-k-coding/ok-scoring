@@ -1,1 +1,1 @@
-export * from './lib/utils-array-fns';
+export * from './lib/array-fns';

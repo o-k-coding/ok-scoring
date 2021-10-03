@@ -9,6 +9,7 @@ export const DealerSettingsText = {
     'newPerRound': 'New Dealer Per Round',
     'manual': 'Set Dealer Manually',
 }
+
 export interface Settings {
     key: string;
     gameKey?: string;

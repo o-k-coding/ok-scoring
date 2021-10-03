@@ -1,1 +1,1 @@
-export * from './lib/features-game-rules-fns';
+export * from './lib/game-rules-fns';

@@ -1,1 +1,1 @@
-export * from './lib/data-sqlite-fns';
+export * from './lib/sqlite-fns';
