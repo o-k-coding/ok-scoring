@@ -14,7 +14,7 @@ import GameSettings from './pages/game-settings/GameSettings';
 import GameScoreHistory from './pages/game-score-history/GameScoreHistory';
 import Favorites from './pages/favorites/Favorites';
 import { ActionSheetProvider } from '@expo/react-native-action-sheet'
-import { NewGameRoute, GameRoute, GameHistoryRoute, GameScoresRoute, GameSettingsRoute, GameScoreHistoryRoute, FavoritesRoute } from './navigation';
+import { NewGameRoute, GameRoute, GameHistoryRoute, GameScoresRoute, GameSettingsRoute, GameScoreHistoryRoute, FavoritesRoute, navigationRef } from './navigation';
 import { favoriteGamesContext, gameHistoryContext, localDbContext, playerHistoryContext } from '@ok-scoring/features/game-ui-store';
 import { CenterContent } from '@ok-scoring/components/react/mobile';
 import { sharedMobileStyles } from '@ok-scoring/styles';
@@ -76,7 +76,7 @@ function App() {
     <>
       <StatusBar barStyle="dark-content" translucent={true} />
       <ActionSheetProvider>
-        <NavigationContainer>
+        <NavigationContainer ref={navigationRef}>
           <Stack.Navigator initialRouteName={NewGameRoute} screenOptions={{ headerShown: false, gestureEnabled: false }}>
             <Stack.Screen name={NewGameRoute} component={NewGame} />
             <Stack.Screen name={GameRoute} component={Game} />

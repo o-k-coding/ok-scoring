@@ -28,7 +28,7 @@ class PlayerHistoryStore {
 
     @action savePlayers = (players: Player[]) => {
         this.playerHistory = players.reduce((newPlayers: Player[], player) => {
-            this.savePlayerToDb(player);
+            // this.savePlayerToDb(player);
             return addOrReplaceByKey(newPlayers, player);
         }, [...this.playerHistory]);
     }

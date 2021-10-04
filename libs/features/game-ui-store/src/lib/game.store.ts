@@ -177,10 +177,6 @@ class GameStore implements GameState {
             const existingPlayer = playerHistoryStore.getPlayerByName(player.name);
             player = existingPlayer ?? { ...player, key: generateUuid() };
         }
-        // Don't add a player that already is in the game
-        if (this.players.some(p => p.key === player.key)) {
-            return;
-        }
         this.players = addOrReplaceByKey(this.players, player);
         // TODO handle updating score history if player does not exist?
     };

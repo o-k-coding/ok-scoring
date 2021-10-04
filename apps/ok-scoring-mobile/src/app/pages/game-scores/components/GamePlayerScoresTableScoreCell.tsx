@@ -1,6 +1,5 @@
 import React, { useContext, useEffect, useState } from 'react';
-import { Text } from 'react-native';
-import { TouchableOpacity } from 'react-native-gesture-handler';
+import { Pressable, Text } from 'react-native';
 import { connectActionSheet, useActionSheet } from '@expo/react-native-action-sheet';
 import { abbreviateNumber } from '@ok-scoring/components/react/hooks';
 import { gameContext } from '@ok-scoring/features/game-ui-store';
@@ -25,26 +24,28 @@ const GamePlayerScoresTableScoreCell = ({ playerKey, score, scoreIndex, editable
 
     const { showActionSheetWithOptions } = useActionSheet();
 
+    const showActionSheet = () => showActionSheetWithOptions({
+        options: ['Edit', 'Delete', 'Cancel'],
+        tintColor: colors.primary,
+        cancelButtonIndex: 2,
+        destructiveButtonIndex: 1,
+        destructiveColor: colors.tertiary
+    }, (buttonIndex) => {
+        if (buttonIndex === 0) {
+            editPlayerScore({ playerKey, score, scoreIndex });
+        } else if (buttonIndex === 1) {
+            deletePlayerScore({ playerKey, scoreIndex });
+        }
+    })
+
     const displayScore = abbreviateNumber(score);
 
     return (
-        editable ? <TouchableOpacity onPress={() => showActionSheetWithOptions({
-            options: ['Edit', 'Delete', 'Cancel'],
-            tintColor: colors.primary,
-            cancelButtonIndex: 2,
-            destructiveButtonIndex: 1,
-            destructiveColor: colors.tertiary
-        }, (buttonIndex) => {
-            if (buttonIndex === 0) {
-                editPlayerScore({ playerKey, score, scoreIndex });
-            } else if (buttonIndex === 1) {
-                deletePlayerScore({ playerKey, scoreIndex });
-            }
-        })}>
+        true ? <Pressable onPress={showActionSheet}>
             <Text style={[sharedMobileStyles.scoreTabelTopCell, isBeingEdited ? sharedMobileStyles.editingCell : sharedMobileStyles.touchableCell, sharedMobileStyles.centeredText]}>
                 {displayScore}
             </Text>
-        </TouchableOpacity> :
+        </Pressable> :
             <Text style={[sharedMobileStyles.scoreTabelTopCell, sharedMobileStyles.centeredText]}>{displayScore}</Text>
     );
 }

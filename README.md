@@ -102,3 +102,5 @@ nx g @nrwl/react:library
 npx nx run-ios ok-scoring-mobile
 npx nx run-android ok-scoring-mobile
 ```
+
+TODO need to convert all touchable opacity to pressable in mobile app... ALso take a look at animations for those.
