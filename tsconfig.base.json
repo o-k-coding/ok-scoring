@@ -18,6 +18,7 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
+      "@ok-scoring/assets": ["libs/assets/index.ts"],
       "@ok-scoring/components/react/hooks": [
         "libs/components/react/hooks/src/index.ts"
       ],
@@ -27,6 +28,7 @@
       "@ok-scoring/components/react/timer-provider": [
         "libs/components/react/timer-provider/src/index.ts"
       ],
+      "@ok-scoring/data/fauna": ["libs/data/fauna/src/index.ts"],
       "@ok-scoring/data/generate-uuid": [
         "libs/data/generate-uuid/src/index.ts"
       ],
@@ -41,8 +43,7 @@
         "libs/features/game-ui-store/src/index.ts"
       ],
       "@ok-scoring/styles": ["libs/styles/index.ts"],
-      "@ok-scoring/utils/array-fns": ["libs/utils/array-fns/src/index.ts"],
-      "@ok-scoring/assets": ["libs/assets/index.ts"]
+      "@ok-scoring/utils/array-fns": ["libs/utils/array-fns/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

@@ -27,6 +27,9 @@
     "components-react-timer-provider": {
       "tags": []
     },
+    "data-fauna": {
+      "tags": []
+    },
     "data-generate-uuid": {
       "tags": []
     },

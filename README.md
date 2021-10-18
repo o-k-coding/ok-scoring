@@ -1,5 +1,20 @@
 # Ok Scoring web mono repo
 
+## Tasks
+
+- Fix fastify generator
+- Update fastify
+- Port models from python
+- Port app logic from python
+- Port routes from python
+- integrate data layer for fauna for services
+- authentication
+- player stats service (ml)
+
+## Using fastify generators
+
+
+
 ## Creating a fastify ts backend with nx
 
 nx generate @nrwl/node:app myapp
@@ -54,7 +69,7 @@ User will have game stats
 
 game stats will have
 
-https://dev.to/carlbarrdahl/building-a-rest-api-using-fastify-and-typeorm-39bp
+<https://dev.to/carlbarrdahl/building-a-rest-api-using-fastify-and-typeorm-39bp>
 
 going to build out the following services
 
@@ -65,7 +80,7 @@ game-templates
 
 `/Users/letheras/Desktop/Dev/repos/udemy/ok-scoring-web/node_modules/.bin/tsc -p /Users/letheras/Desktop/Dev/repos/udemy/ok-scoring-web/tools/tsconfig.tools.json`
 
-## Deploying to netlify
+## Deploying landing page to netlify
 
 <https://www.netlify.com/blog/2020/04/21/deploying-nx-monorepos-to-netlify/>
 
@@ -80,11 +95,13 @@ npm i -g @nrwl/cli
 Creating a library
 
 Vanilla
+
 ```bash
 nx g lib my-lib
 ```
 
 React
+
 ```bash
 nx g @nrwl/react:library
 ```
@@ -94,7 +111,6 @@ nx g @nrwl/react:library
 - `@expo/vector-icons`
 - react-native-responsive-screen
 - react-native-svg?
-
 
 ## Running Ok scoring mobile
 

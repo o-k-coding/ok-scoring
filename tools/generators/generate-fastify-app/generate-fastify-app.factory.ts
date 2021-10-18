@@ -1,5 +1,4 @@
-import { Rule, apply, url, template, move, Tree, SchematicContext, chain, mergeWith } from '@angular-devkit/schematics';
-import { strings } from '@angular-devkit/core';
+import { Rule, apply, url, template, move, Tree, SchematicContext, chain, mergeWith, names } from '@nrwl/devkit';
 import { GenerateFastityAppSchema } from './schema';
 import { getProjectConfig } from '@nrwl/workspace';
 

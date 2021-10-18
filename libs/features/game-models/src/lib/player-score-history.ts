@@ -1,6 +1,8 @@
-export interface PlayerScoreHistory {
+import { Score } from './score';
+import { ScoreRound } from './score-round';
+
+export interface PlayerScoreHistory extends Score<ScoreRound> {
     key?: string;
     playerKey: string;
-    scores: number[];
-    currentScore: number;
+    gameKey: string;
 }

@@ -1,21 +1,28 @@
 import { Player } from './player';
 import { GameScoreHistory } from './game-score-history';
-import { Settings } from './settings';
+import { GameRules } from './game-rules';
+import { PlayerScoreHistory } from '..';
 
 export interface GameState {
     key: string;
     description: string;
     date: number;
+
     duration?: number;
     winningPlayerKey?: string;
+    activePlayerKey?: string;
     dealingPlayerKey?: string;
-    favorite?: boolean;
 
     // Relationships
-    settings?: Settings;
-    players: Player[];
-    scoreHistory: GameScoreHistory;
+    // new
+    rules?: GameRules;
+    scoreHistory?: PlayerScoreHistory[];
 
-    // In app only
+    // Deprecated
+    players?: Player[];
+
+    // In app only, move these out
     playerNamesForDisplay?: string;
+    favorite?: boolean;
+    scoreHistoryMap?: GameScoreHistory;
 }

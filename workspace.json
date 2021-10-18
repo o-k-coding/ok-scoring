@@ -146,6 +146,28 @@
         }
       }
     },
+    "data-fauna": {
+      "root": "libs/data/fauna",
+      "sourceRoot": "libs/data/fauna/src",
+      "projectType": "library",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "outputs": ["{options.outputFile}"],
+          "options": {
+            "lintFilePatterns": ["libs/data/fauna/**/*.ts"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/data/fauna"],
+          "options": {
+            "jestConfig": "libs/data/fauna/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
     "data-generate-uuid": {
       "root": "libs/data/generate-uuid",
       "sourceRoot": "libs/data/generate-uuid/src",
@@ -256,20 +278,20 @@
         }
       }
     },
-    "game-rules-service": {
-      "root": "apps/game-rules-service",
-      "sourceRoot": "apps/game-rules-service/src",
+    "game-service": {
+      "root": "apps/game-service",
+      "sourceRoot": "apps/game-service/src",
       "projectType": "application",
-      "prefix": "game-rules-service",
+      "prefix": "game-service",
       "schematics": {},
       "architect": {
         "build": {
           "builder": "@nrwl/node:build",
           "options": {
-            "outputPath": "dist/apps/game-rules-service",
-            "main": "apps/game-rules-service/src/main.ts",
-            "tsConfig": "apps/game-rules-service/tsconfig.app.json",
-            "assets": ["apps/game-rules-service/src/assets"]
+            "outputPath": "dist/apps/game-service",
+            "main": "apps/game-service/src/main.ts",
+            "tsConfig": "apps/game-service/tsconfig.app.json",
+            "assets": ["apps/game-service/src/assets"]
           },
           "configurations": {
             "production": {
@@ -278,8 +300,8 @@
               "inspect": false,
               "fileReplacements": [
                 {
-                  "replace": "apps/game-rules-service/src/environments/environment.ts",
-                  "with": "apps/game-rules-service/src/environments/environment.prod.ts"
+                  "replace": "apps/game-service/src/environments/environment.ts",
+                  "with": "apps/game-service/src/environments/environment.prod.ts"
                 }
               ]
             }
@@ -289,7 +311,7 @@
         "serve": {
           "builder": "@nrwl/node:execute",
           "options": {
-            "buildTarget": "game-rules-service:build"
+            "buildTarget": "game-service:build"
           }
         },
         "lint": {
@@ -297,19 +319,19 @@
           "options": {
             "linter": "eslint",
             "tsConfig": [
-              "apps/game-rules-service/tsconfig.app.json",
-              "apps/game-rules-service/tsconfig.spec.json"
+              "apps/game-service/tsconfig.app.json",
+              "apps/game-service/tsconfig.spec.json"
             ],
-            "exclude": ["**/node_modules/**", "!apps/game-rules-service/**/*"]
+            "exclude": ["**/node_modules/**", "!apps/game-service/**/*"]
           }
         },
         "test": {
           "builder": "@nrwl/jest:jest",
           "options": {
-            "jestConfig": "apps/game-rules-service/jest.config.js",
+            "jestConfig": "apps/game-service/jest.config.js",
             "passWithNoTests": true
           },
-          "outputs": ["coverage/apps/game-rules-service"]
+          "outputs": ["coverage/apps/game-service"]
         }
       }
     },
