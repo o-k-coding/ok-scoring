@@ -3,7 +3,6 @@ import { createContext } from 'react';
 import { localDbStore } from './local-db.store';
 import { deleteFavoriteGame, fetchFavoriteGames, insertFavoriteGame } from '@ok-scoring/data/sqlite-fns';
 import { generateUuid } from '@ok-scoring/data/generate-uuid';
-import { GameState } from '@ok-scoring/features/game-models';
 
 // TODO data loading probably doesn't belong here....
 class FavoriteGamesStore {

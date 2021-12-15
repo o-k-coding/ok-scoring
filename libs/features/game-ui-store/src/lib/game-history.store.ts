@@ -4,9 +4,10 @@ import { localDbStore } from './local-db.store';
 import { favoriteGamesStore } from './favorite-games.store';
 import { playerHistoryStore } from './players-history.store';
 import { addOrReplaceByKey, commaSeperateWithEllipsis, removeByKey, sort, Sort } from '@ok-scoring/utils/array-fns';
-import { GameScoreHistory, GameState, Player } from '@ok-scoring/features/game-models';
+import { GameScoreHistory, Player } from '@ok-scoring/features/game-models';
 import { deleteGame, fetchGameStates, insertGame } from '@ok-scoring/data/sqlite-fns';
 import { generateUuid } from '@ok-scoring/data/generate-uuid';
+import { UIGameState } from '..';
 
 export interface GamesListItem {
     description: string;
@@ -15,10 +16,10 @@ export interface GamesListItem {
 
 class GameHistoryStore {
 
-    @observable sort: Sort<GameState> = { sortProp: 'date', asc: false };
+    @observable sort: Sort<UIGameState> = { sortProp: 'date', asc: false };
     @observable favoritesSort: Sort<GamesListItem> = { sortProp: 'favorite', asc: false };
-    @observable gameHistory: GameState[] = [];
-    @observable gameState?: GameState;
+    @observable gameHistory: UIGameState[] = [];
+    @observable gameState?: UIGameState;
     @observable gamesList: GamesListItem[] = [];
 
     constructor() {
@@ -45,10 +46,10 @@ class GameHistoryStore {
     @computed
     get scoreHistoryRounds(): number[] {
         // TODO memo?
-        return buildScoreHistoryRounds(this.gameState?.scoreHistory ?? {});
+        return buildScoreHistoryRounds(this.gameState?.scoreHistoryMap ?? {});
     }
 
-    buildGamesList = (gameHistory: GameState[], favorites: { key: string, description: string }[]) => {
+    buildGamesList = (gameHistory: UIGameState[], favorites: { key: string, description: string }[]) => {
         const uniqueNonFavoriteGames: GamesListItem[] = this.getUniqueGames(gameHistory)
             .reduce((acc: GamesListItem[], g) => {
                 if (!favorites.some(f => f.description === g.description)) {
@@ -60,7 +61,7 @@ class GameHistoryStore {
         return uniqueNonFavoriteGames;
     }
 
-    setFavorites = (gameHistory: GameState[], favorites: { key: string, description: string }[]) => {
+    setFavorites = (gameHistory: UIGameState[], favorites: { key: string, description: string }[]) => {
         return gameHistory.map(g => ({
             ...g,
             favorite: favorites.some(f => f.description === g.description)
@@ -70,7 +71,7 @@ class GameHistoryStore {
     @action loadGames = async () => {
         if (localDbStore.dbInitialized) {
             try {
-                const games: GameState[] = await fetchGameStates();
+                const games: UIGameState[] = await fetchGameStates();
                 if (games?.length) {
                     this.sortAndSetGameHistory(
                         games.map(g => this.hydrateGameStateForHistory(g))
@@ -82,11 +83,11 @@ class GameHistoryStore {
         }
     }
 
-    @action setGameState = (gameState?: GameState) => {
+    @action setGameState = (gameState?: UIGameState) => {
         this.gameState = gameState;
     }
 
-    @action setHistorySort = (sort: Sort<GameState>) => {
+    @action setHistorySort = (sort: Sort<UIGameState>) => {
         this.sort = sort;
     }
 
@@ -99,11 +100,11 @@ class GameHistoryStore {
         this.gamesList = sortedList;
     }
 
-    @action sortAndSetGameHistory = (gameHistory: GameState[]) => {
+    @action sortAndSetGameHistory = (gameHistory: UIGameState[]) => {
         this.gameHistory = sort(gameHistory, this.sort)
     }
 
-    @action replaceGameState = (gameState: GameState) => {
+    @action replaceGameState = (gameState: UIGameState) => {
         if (this.gameHistory) {
             this.gameHistory = addOrReplaceByKey(this.gameHistory, gameState);
         }
@@ -123,7 +124,7 @@ class GameHistoryStore {
     };
 
     @action
-    setPlayerFavorites = (favoritePlayers: Player[]): GameState[] => {
+    setPlayerFavorites = (favoritePlayers: Player[]): UIGameState[] => {
         return this.gameHistory.map(g => {
             const players = g.players.map(p => ({
                 ...p,
@@ -136,7 +137,7 @@ class GameHistoryStore {
         });
     };
 
-    async saveGameToDb(gameState: GameState) {
+    async saveGameToDb(gameState: UIGameState) {
         try {
             await insertGame(gameState, () => generateUuid());
         } catch (e) {
@@ -152,7 +153,7 @@ class GameHistoryStore {
         }
     }
 
-    saveGame = (gameState: GameState) => {
+    saveGame = (gameState: UIGameState) => {
         gameState = this.hydrateGameStateForHistory(gameState);
         const gameHistory = addOrReplaceByKey(this.gameHistory, gameState);
         this.sortAndSetGameHistory(gameHistory);
@@ -166,31 +167,31 @@ class GameHistoryStore {
         this.deleteGameFromDb(gameKey);
     }
 
-    hydrateGameStateForHistory(gameState: GameState): GameState {
+    hydrateGameStateForHistory(gameState: UIGameState): UIGameState {
         gameState = this.sortGameStatePlayersByScore(gameState);
         gameState = this.setPlayerNamesForDisplay(gameState);
         gameState.duration = new Date().getTime() - gameState.date;
         return gameState;
     }
 
-    sortGameStatePlayersByScore(gameState: GameState): GameState {
+    sortGameStatePlayersByScore(gameState: UIGameState): UIGameState {
         gameState.players = gameState?.players?.sort((playerA, playerB) => {
-            const { currentScore: scoreA } = gameState.scoreHistory[playerA.key];
-            const { currentScore: scoreB } = gameState.scoreHistory[playerB.key];
+            const { score: scoreA } = gameState.scoreHistoryMap[playerA.key];
+            const { score: scoreB } = gameState.scoreHistoryMap[playerB.key];
             return scoreB - scoreA;
         });
         return gameState;
     }
 
-    setPlayerNamesForDisplay(gameState: GameState): GameState {
+    setPlayerNamesForDisplay(gameState: UIGameState): UIGameState {
         const playerNames = gameState.players.map(p => p.name);
         gameState.playerNamesForDisplay = commaSeperateWithEllipsis(playerNames);
         return gameState;
     }
 
-    getUniqueGames(gameHistory: GameState[]): GameState[] {
+    getUniqueGames(gameHistory: UIGameState[]): UIGameState[] {
         return gameHistory.reduce(
-            (acc: { games: GameState[], descriptions: { [k: string]: number } }, game) => {
+            (acc: { games: UIGameState[], descriptions: { [k: string]: number } }, game) => {
                 if (!acc.descriptions[game.description]) {
                     acc.games.push(game);
                     acc.descriptions[game.description] = 1

@@ -1,7 +1,7 @@
 import * as SQLite from 'expo-sqlite';
 import { SQLResultSet } from 'expo-sqlite';
 import { migrations } from './migrations/migrations';
-import { GameScoreHistory, GameState, Player, PlayerScoreHistory, Settings } from '@ok-scoring/features/game-models';
+import { GameScoreHistory, GameState, Player, PlayerScoreHistory, GameRules } from '@ok-scoring/features/game-models';
 import { flatMap } from '@ok-scoring/utils/array-fns';
 
 const db = SQLite.openDatabase('ok-scores.db');
@@ -198,8 +198,8 @@ export const insertGame = async (gameState: GameState, keyGen: () => string) => 
             `;
   transaction(
     insert(gameInsert, [gameState.key, gameState.date, gameState.duration, gameState.winningPlayerKey, gameState.description, gameState.dealingPlayerKey]),
-    ...buildPlayerScoresInserts(keyGen(), gameState.key, gameState.scoreHistory).map(insertData => insert(...insertData)),
-    gameState.settings ? insert(...buildGameSettingsInsert(gameState.settings)) : () => { }
+    ...buildPlayerScoresInserts(keyGen(), gameState.key, gameState.scoreHistoryMap).map(insertData => insert(...insertData)),
+    gameState.rules ? insert(...buildGameSettingsInsert(gameState.rules)) : () => { }
   );
 }
 
@@ -223,7 +223,7 @@ export const fetchGameStates = async (): Promise<GameState[]> => {
     const playerScores = await fetchPlayerScores(gameState.key);
     const players = await fetchPlayers(playerScores.map(p => p.playerKey));
     gameState.date = parseInt(gameState.date.toString(), 10);
-    gameState.scoreHistory = playerScores.reduce(
+    gameState.scoreHistoryMap = playerScores.reduce(
       (history, playerScore) => ({
         ...history,
         [playerScore.playerKey]: {
@@ -234,7 +234,7 @@ export const fetchGameStates = async (): Promise<GameState[]> => {
       {}
     );
     gameState.players = players;
-    gameState.settings = await fetchGameSettings(gameState.key);
+    gameState.rules = await fetchGameSettings(gameState.key);
   }
 
   console.log('games', gameStates);
@@ -252,7 +252,7 @@ export const fetchGames = (): Promise<GameState[]> => {
   );
 }
 
-export const fetchGameSettings = (gameKey: string): Promise<Settings> => {
+export const fetchGameSettings = (gameKey: string): Promise<GameRules> => {
   // TODO parameterize
   const gameSettingsSelect = `
         SELECT * FROM gameSettings gs WHERE gs.gameKey = "${gameKey}";

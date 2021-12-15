@@ -1,0 +1,153 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema",
+  "definitions": {
+    "GameRules": {
+      "type": "object",
+      "properties": {
+        "key": {
+          "type": "string",
+          "format": "uuid"
+        },
+        "gameKey": {
+          "type": "string",
+          "format": "uuid"
+        },
+        "startingScore": {
+          "type": "number"
+        },
+        "defaultScoreStep": {
+          "type": "number"
+        },
+        "highScoreWins": {
+          "type": "boolean"
+        },
+        "dealerSettings": {
+          "type": "string",
+          "enum": ["constant", "newPerRound", "manual"]
+        },
+        "validStateSchema": {
+          "type": "object"
+        },
+        "winningSchema": {
+          "type": "object"
+        }
+      },
+      "additionalProperties": false,
+      "required": ["key", "gameKey", "highScoreWins"]
+    },
+    "PlayerScoreHistory": {
+      "type": "object",
+      "properties": {
+        "key": {
+          "type": "string",
+          "format": "uuid"
+        },
+        "gameKey": {
+          "type": "string",
+          "format": "uuid"
+        },
+        "playerKey": {
+          "type": "string",
+          "format": "uuid"
+        },
+        "scores": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "score": {
+                "type": "number"
+              },
+              "order": {
+                "type": "number"
+              },
+              "initialScore": {
+                "type": "number"
+              },
+              "scores": {
+                "type": "array",
+                "items": {
+                  "type": "number"
+                }
+              }
+            }
+          }
+        },
+        "score": {
+          "type": "number"
+        },
+        "order": {
+          "type": "number"
+        },
+        "initialScore": {
+          "type": "number"
+        }
+      },
+      "additionalProperties": false,
+      "required": ["key", "playerKey", "scores", "score", "order"]
+    }
+  },
+
+  "title": "Game State Schema",
+  "type": "object",
+  "properties": {
+    "key": {
+      "type": "string",
+      "format": "uuid"
+    },
+    "description": {
+      "type": "string"
+    },
+    "date": {
+      "type": "integer"
+    },
+    "duration": {
+      "type": "integer"
+    },
+    "winningPlayerKey": {
+      "type": "string",
+      "format": "uuid"
+    },
+    "activePlayerKey": {
+      "type": "string",
+      "format": "uuid"
+    },
+    "dealingPlayerKey": {
+      "type": "string",
+      "format": "uuid"
+    },
+    "rules": {
+      "anyOf": [
+        {
+          "$ref": "#/definitions/GameRules"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "scoreHistory": {
+      "type": "array",
+      "items": { "$ref": "#/definitions/PlayerScoreHistory" }
+    }
+  },
+  "additionalProperties": false,
+  "required": [
+    "key",
+    "description",
+    "date",
+    "winningPlayerKey",
+    "players",
+    "scoreHistory"
+  ],
+  "errorMessage": {
+    "type": "body should be an object",
+    "properties": {
+      "key": "body.key should be defined and a valid uuid",
+      "description": "body.description should be defined",
+      "date": "body.date should be a valid date of format MM/dd/YYYY",
+      "winningPlayerKey": "body.winningPlayerKey should be defined and a valid uuid"
+    },
+    "_": "player should not have any extra undefined properties"
+  }
+}

@@ -6,16 +6,13 @@ export interface GameRules {
     key: string;
     gameKey?: string;
     dealerSettings?: DealerSettings;
-    highScoreWins: boolean
+    highScoreWins?: boolean
     firstToScoreWins?: boolean;
 
-    // Note this is tying the implementation directly to ajv... something to thing about
-    validStateSchema: JSONSchemaType<GameState>;
-    winningSchema: JSONSchemaType<GameState>;
+    // Note this is tying the implementation directly to ajv... something to think about
+    validStateSchema?: {};
+    winningSchema?: {};
 
-    // Can remove now that we have json schema
     startingScore?: number;
     defaultScoreStep?: number;
 }
-
-// TODO Custom rule implementation...

@@ -25,6 +25,7 @@
     "dep-graph": "nx dep-graph",
     "help": "nx help",
     "compile-schemas": "node ./tools/scripts/compile-schemas.js --",
+    "create-schemas": "ts-node ./tools/scripts/create-game-models-schemas.ts --",
     "workspace-generator": "nx workspace-generator"
   },
   "private": true,
@@ -155,6 +156,7 @@
     "ts-jest": "27.0.3",
     "ts-node": "9.1.1",
     "tslint": "6.1.3",
-    "typescript": "4.3.5"
+    "typescript": "4.3.5",
+    "typescript-json-schema": "^0.51.0"
   }
 }

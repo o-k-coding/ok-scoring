@@ -10,10 +10,12 @@
 - integrate data layer for fauna for services
 - authentication
 - player stats service (ml)
+- Logging and tracing
+- Set up web app for game states
+- Create json schema form generator
+- Integrate mobile app and backend services
 
 ## Using fastify generators
-
-
 
 ## Creating a fastify ts backend with nx
 

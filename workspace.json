@@ -168,6 +168,28 @@
         }
       }
     },
+    "data-game-test-data": {
+      "root": "libs/data/game-test-data",
+      "sourceRoot": "libs/data/game-test-data/src",
+      "projectType": "library",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "outputs": ["{options.outputFile}"],
+          "options": {
+            "lintFilePatterns": ["libs/data/game-test-data/**/*.ts"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/data/game-test-data"],
+          "options": {
+            "jestConfig": "libs/data/game-test-data/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
     "data-generate-uuid": {
       "root": "libs/data/generate-uuid",
       "sourceRoot": "libs/data/generate-uuid/src",
@@ -273,6 +295,30 @@
           "outputs": ["coverage/libs/features/game-ui-store"],
           "options": {
             "jestConfig": "libs/features/game-ui-store/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "features-player-score-history-fns": {
+      "root": "libs/features/player-score-history-fns",
+      "sourceRoot": "libs/features/player-score-history-fns/src",
+      "projectType": "library",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "outputs": ["{options.outputFile}"],
+          "options": {
+            "lintFilePatterns": [
+              "libs/features/player-score-history-fns/**/*.ts"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/features/player-score-history-fns"],
+          "options": {
+            "jestConfig": "libs/features/player-score-history-fns/jest.config.js",
             "passWithNoTests": true
           }
         }

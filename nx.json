@@ -30,6 +30,9 @@
     "data-fauna": {
       "tags": []
     },
+    "data-game-test-data": {
+      "tags": []
+    },
     "data-generate-uuid": {
       "tags": []
     },
@@ -43,6 +46,9 @@
       "tags": []
     },
     "features-game-ui-store": {
+      "tags": []
+    },
+    "features-player-score-history-fns": {
       "tags": []
     },
     "landing": {

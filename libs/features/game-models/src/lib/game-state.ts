@@ -17,12 +17,4 @@ export interface GameState {
     // new
     rules?: GameRules;
     scoreHistory?: PlayerScoreHistory[];
-
-    // Deprecated
-    players?: Player[];
-
-    // In app only, move these out
-    playerNamesForDisplay?: string;
-    favorite?: boolean;
-    scoreHistoryMap?: GameScoreHistory;
 }

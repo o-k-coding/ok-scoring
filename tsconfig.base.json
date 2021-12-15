@@ -29,6 +29,12 @@
         "libs/components/react/timer-provider/src/index.ts"
       ],
       "@ok-scoring/data/fauna": ["libs/data/fauna/src/index.ts"],
+      "@ok-scoring/data/game-model-schemas": [
+        "libs/data/game-model-schemas/src/index.ts"
+      ],
+      "@ok-scoring/data/game-test-data": [
+        "libs/data/game-test-data/src/index.ts"
+      ],
       "@ok-scoring/data/generate-uuid": [
         "libs/data/generate-uuid/src/index.ts"
       ],
@@ -41,6 +47,9 @@
       ],
       "@ok-scoring/features/game-ui-store": [
         "libs/features/game-ui-store/src/index.ts"
+      ],
+      "@ok-scoring/features/player-score-history-fns": [
+        "libs/features/player-score-history-fns/src/index.ts"
       ],
       "@ok-scoring/styles": ["libs/styles/index.ts"],
       "@ok-scoring/utils/array-fns": ["libs/utils/array-fns/src/index.ts"]

@@ -1,3 +1,5 @@
+import { createRenameTableMigration } from './createRenameTableMigration';
+
 export interface Migration {
     version: number;
     statements: string[];
@@ -97,6 +99,27 @@ export const migrations: Migration[] = [
             `INSERT INTO game_temp SELECT * FROM game;`,
             `DROP TABLE GAME;`,
             `ALTER TABLE game_temp RENAME TO game;`,
+        ],
+    },
+    {
+        version: 3,
+        statements: [
+            ...createRenameTableMigration(
+                'gameSettings',
+                'gameRules',
+                `
+                key TEXT PRIMARY KEY NOT NULL,
+                gameKey TEXT,
+                startingScore INTEGER,
+                defaultScoreStep INTEGER,
+                dealerSettings TEXT,
+
+                FOREIGN KEY (gameKey)
+                    REFERENCES game (key)
+                `
+            ),
+            `ALTER TABLE gameSettings ADD COLUMN dealerSettings TEXT DEFAULT NULL;`,
+            `ALTER TABLE game ADD COLUMN dealingPlayerKey TEXT DEFAULT NULL;`,
         ],
     },
 ];
