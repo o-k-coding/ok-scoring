@@ -8,7 +8,7 @@
   "affected": {
     "defaultBase": "master"
   },
-  "npmScope": "ok-scoring-web",
+  "npmScope": "ok-scoring",
   "tasksRunnerOptions": {
     "default": {
       "runner": "@nrwl/workspace/tasks-runners/default",
@@ -18,18 +18,42 @@
     }
   },
   "projects": {
-    "player-stats-service": {
+    "components-react-hooks": {
       "tags": []
     },
-    "game-rules-service": {
+    "components-react-mobile": {
       "tags": []
     },
-    "ok-scoring-web-client": {
+    "components-react-timer-provider": {
       "tags": []
     },
-    "ok-scoring-web-client-e2e": {
+    "data-fauna": {
+      "tags": []
+    },
+    "data-game-entities": {
       "tags": [],
-      "implicitDependencies": ["ok-scoring-web-client"]
+      "implicitDependencies": ["data-game-models"]
+    },
+    "data-game-test-data": {
+      "tags": []
+    },
+    "data-generate-uuid": {
+      "tags": []
+    },
+    "data-sqlite-fns": {
+      "tags": []
+    },
+    "data-game-models": {
+      "tags": []
+    },
+    "features-game-rules-fns": {
+      "tags": []
+    },
+    "features-game-ui-store": {
+      "tags": []
+    },
+    "features-player-score-history-fns": {
+      "tags": []
     },
     "landing": {
       "tags": []
@@ -37,6 +61,34 @@
     "landing-e2e": {
       "tags": [],
       "implicitDependencies": ["landing"]
+    },
+    "ok-scoring-mobile": {
+      "tags": []
+    },
+    "ok-scoring-mobile-e2e": {
+      "tags": [],
+      "implicitDependencies": ["ok-scoring-mobile"]
+    },
+    "ok-scoring-web": {
+      "tags": []
+    },
+    "ok-scoring-web-e2e": {
+      "tags": [],
+      "implicitDependencies": ["ok-scoring-web"]
+    },
+    "player-stats-service": {
+      "tags": []
+    },
+    "utils-array-fns": {
+      "tags": []
     }
+  },
+  "targetDependencies": {
+    "build": [
+      {
+        "target": "build",
+        "projects": "dependencies"
+      }
+    ]
   }
 }

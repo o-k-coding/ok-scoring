@@ -34,6 +34,7 @@
     },
     "@nrwl/next": {
       "application": {
+        "style": "css",
         "linter": "eslint"
       }
     },
@@ -75,20 +76,290 @@
     }
   },
   "projects": {
-    "player-stats-service": {
-      "root": "apps/player-stats-service",
-      "sourceRoot": "apps/player-stats-service/src",
+    "components-react-hooks": {
+      "root": "libs/components/react/hooks",
+      "sourceRoot": "libs/components/react/hooks/src",
+      "projectType": "library",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "outputs": ["{options.outputFile}"],
+          "options": {
+            "lintFilePatterns": ["libs/components/react/hooks/**/*.ts"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/components/react/hooks"],
+          "options": {
+            "jestConfig": "libs/components/react/hooks/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "components-react-mobile": {
+      "root": "libs/components/react/mobile",
+      "sourceRoot": "libs/components/react/mobile/src",
+      "projectType": "library",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "outputs": ["{options.outputFile}"],
+          "options": {
+            "lintFilePatterns": [
+              "libs/components/react/mobile/**/*.{ts,tsx,js,jsx}"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/components/react/mobile"],
+          "options": {
+            "jestConfig": "libs/components/react/mobile/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "components-react-timer-provider": {
+      "root": "libs/components/react/timer-provider",
+      "sourceRoot": "libs/components/react/timer-provider/src",
+      "projectType": "library",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "outputs": ["{options.outputFile}"],
+          "options": {
+            "lintFilePatterns": [
+              "libs/components/react/timer-provider/**/*.{ts,tsx,js,jsx}"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/components/react/timer-provider"],
+          "options": {
+            "jestConfig": "libs/components/react/timer-provider/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "data-fauna": {
+      "root": "libs/data/fauna",
+      "sourceRoot": "libs/data/fauna/src",
+      "projectType": "library",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "outputs": ["{options.outputFile}"],
+          "options": {
+            "lintFilePatterns": ["libs/data/fauna/**/*.ts"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/data/fauna"],
+          "options": {
+            "jestConfig": "libs/data/fauna/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "data-game-entities": {
+      "root": "libs/data/game-entities",
+      "sourceRoot": "libs/data/game-entities/src",
+      "projectType": "library",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "outputs": ["{options.outputFile}"],
+          "options": {
+            "lintFilePatterns": ["libs/data/game-entities/**/*.ts"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/data/game-entities"],
+          "options": {
+            "jestConfig": "libs/data/game-entities/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "data-game-test-data": {
+      "root": "libs/data/game-test-data",
+      "sourceRoot": "libs/data/game-test-data/src",
+      "projectType": "library",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "outputs": ["{options.outputFile}"],
+          "options": {
+            "lintFilePatterns": ["libs/data/game-test-data/**/*.ts"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/data/game-test-data"],
+          "options": {
+            "jestConfig": "libs/data/game-test-data/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "data-generate-uuid": {
+      "root": "libs/data/generate-uuid",
+      "sourceRoot": "libs/data/generate-uuid/src",
+      "projectType": "library",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "outputs": ["{options.outputFile}"],
+          "options": {
+            "lintFilePatterns": ["libs/data/generate-uuid/**/*.ts"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/data/generate-uuid"],
+          "options": {
+            "jestConfig": "libs/data/generate-uuid/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "data-sqlite-fns": {
+      "root": "libs/data/sqlite-fns",
+      "sourceRoot": "libs/data/sqlite-fns/src",
+      "projectType": "library",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "outputs": ["{options.outputFile}"],
+          "options": {
+            "lintFilePatterns": ["libs/data/sqlite-fns/**/*.ts"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/data/sqlite-fns"],
+          "options": {
+            "jestConfig": "libs/data/sqlite-fns/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "data-game-models": {
+      "root": "libs/data/game-models",
+      "sourceRoot": "libs/data/game-models/src",
+      "projectType": "library",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "outputs": ["{options.outputFile}"],
+          "options": {
+            "lintFilePatterns": ["libs/data/game-models/**/*.ts"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/data/game-models"],
+          "options": {
+            "jestConfig": "libs/data/game-models/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "features-game-rules-fns": {
+      "root": "libs/features/game-rules-fns",
+      "sourceRoot": "libs/features/game-rules-fns/src",
+      "projectType": "library",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "outputs": ["{options.outputFile}"],
+          "options": {
+            "lintFilePatterns": ["libs/features/game-rules-fns/**/*.ts"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/features/game-rules-fns"],
+          "options": {
+            "jestConfig": "libs/features/game-rules-fns/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "features-game-ui-store": {
+      "root": "libs/features/game-ui-store",
+      "sourceRoot": "libs/features/game-ui-store/src",
+      "projectType": "library",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "outputs": ["{options.outputFile}"],
+          "options": {
+            "lintFilePatterns": ["libs/features/game-ui-store/**/*.ts"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/features/game-ui-store"],
+          "options": {
+            "jestConfig": "libs/features/game-ui-store/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "features-player-score-history-fns": {
+      "root": "libs/features/player-score-history-fns",
+      "sourceRoot": "libs/features/player-score-history-fns/src",
+      "projectType": "library",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "outputs": ["{options.outputFile}"],
+          "options": {
+            "lintFilePatterns": [
+              "libs/features/player-score-history-fns/**/*.ts"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/features/player-score-history-fns"],
+          "options": {
+            "jestConfig": "libs/features/player-score-history-fns/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "game-service": {
+      "root": "apps/game-service",
+      "sourceRoot": "apps/game-service/src",
       "projectType": "application",
-      "prefix": "player-stats-service",
+      "prefix": "game-service",
       "schematics": {},
       "architect": {
         "build": {
           "builder": "@nrwl/node:build",
           "options": {
-            "outputPath": "dist/apps/player-stats-service",
-            "main": "apps/player-stats-service/src/main.ts",
-            "tsConfig": "apps/player-stats-service/tsconfig.app.json",
-            "assets": ["apps/player-stats-service/src/assets"]
+            "outputPath": "dist/apps/game-service",
+            "main": "apps/game-service/src/main.ts",
+            "tsConfig": "apps/game-service/tsconfig.app.json",
+            "assets": ["apps/game-service/src/assets"]
           },
           "configurations": {
             "production": {
@@ -97,17 +368,18 @@
               "inspect": false,
               "fileReplacements": [
                 {
-                  "replace": "apps/player-stats-service/src/environments/environment.ts",
-                  "with": "apps/player-stats-service/src/environments/environment.prod.ts"
+                  "replace": "apps/game-service/src/environments/environment.ts",
+                  "with": "apps/game-service/src/environments/environment.prod.ts"
                 }
               ]
             }
-          }
+          },
+          "outputs": ["{options.outputPath}"]
         },
         "serve": {
           "builder": "@nrwl/node:execute",
           "options": {
-            "buildTarget": "player-stats-service:build"
+            "buildTarget": "game-service:build"
           }
         },
         "lint": {
@@ -115,188 +387,19 @@
           "options": {
             "linter": "eslint",
             "tsConfig": [
-              "apps/player-stats-service/tsconfig.app.json",
-              "apps/player-stats-service/tsconfig.spec.json"
+              "apps/game-service/tsconfig.app.json",
+              "apps/game-service/tsconfig.spec.json"
             ],
-            "exclude": ["**/node_modules/**", "!apps/player-stats-service/**/*"]
+            "exclude": ["**/node_modules/**", "!apps/game-service/**/*"]
           }
         },
         "test": {
           "builder": "@nrwl/jest:jest",
           "options": {
-            "jestConfig": "apps/player-stats-service/jest.config.js",
-            "tsConfig": "apps/player-stats-service/tsconfig.spec.json",
+            "jestConfig": "apps/game-service/jest.config.js",
             "passWithNoTests": true
-          }
-        }
-      }
-    },
-    "game-rules-service": {
-      "root": "apps/game-rules-service",
-      "sourceRoot": "apps/game-rules-service/src",
-      "projectType": "application",
-      "prefix": "game-rules-service",
-      "schematics": {},
-      "architect": {
-        "build": {
-          "builder": "@nrwl/node:build",
-          "options": {
-            "outputPath": "dist/apps/game-rules-service",
-            "main": "apps/game-rules-service/src/main.ts",
-            "tsConfig": "apps/game-rules-service/tsconfig.app.json",
-            "assets": ["apps/game-rules-service/src/assets"]
           },
-          "configurations": {
-            "production": {
-              "optimization": true,
-              "extractLicenses": true,
-              "inspect": false,
-              "fileReplacements": [
-                {
-                  "replace": "apps/game-rules-service/src/environments/environment.ts",
-                  "with": "apps/game-rules-service/src/environments/environment.prod.ts"
-                }
-              ]
-            }
-          }
-        },
-        "serve": {
-          "builder": "@nrwl/node:execute",
-          "options": {
-            "buildTarget": "game-rules-service:build"
-          }
-        },
-        "lint": {
-          "builder": "@nrwl/linter:lint",
-          "options": {
-            "linter": "eslint",
-            "tsConfig": [
-              "apps/game-rules-service/tsconfig.app.json",
-              "apps/game-rules-service/tsconfig.spec.json"
-            ],
-            "exclude": ["**/node_modules/**", "!apps/game-rules-service/**/*"]
-          }
-        },
-        "test": {
-          "builder": "@nrwl/jest:jest",
-          "options": {
-            "jestConfig": "apps/game-rules-service/jest.config.js",
-            "tsConfig": "apps/game-rules-service/tsconfig.spec.json",
-            "passWithNoTests": true
-          }
-        }
-      }
-    },
-    "ok-scoring-web-client": {
-      "root": "apps/ok-scoring-web-client",
-      "sourceRoot": "apps/ok-scoring-web-client/src",
-      "projectType": "application",
-      "schematics": {},
-      "architect": {
-        "build": {
-          "builder": "@nrwl/web:build",
-          "options": {
-            "outputPath": "dist/apps/ok-scoring-web-client",
-            "index": "apps/ok-scoring-web-client/src/index.html",
-            "main": "apps/ok-scoring-web-client/src/main.tsx",
-            "polyfills": "apps/ok-scoring-web-client/src/polyfills.ts",
-            "tsConfig": "apps/ok-scoring-web-client/tsconfig.app.json",
-            "assets": [
-              "apps/ok-scoring-web-client/src/favicon.ico",
-              "apps/ok-scoring-web-client/src/assets"
-            ],
-            "styles": ["apps/ok-scoring-web-client/src/styles.scss"],
-            "scripts": [],
-            "webpackConfig": "@nrwl/react/plugins/webpack"
-          },
-          "configurations": {
-            "production": {
-              "fileReplacements": [
-                {
-                  "replace": "apps/ok-scoring-web-client/src/environments/environment.ts",
-                  "with": "apps/ok-scoring-web-client/src/environments/environment.prod.ts"
-                }
-              ],
-              "optimization": true,
-              "outputHashing": "all",
-              "sourceMap": false,
-              "extractCss": true,
-              "namedChunks": false,
-              "extractLicenses": true,
-              "vendorChunk": false,
-              "budgets": [
-                {
-                  "type": "initial",
-                  "maximumWarning": "2mb",
-                  "maximumError": "5mb"
-                }
-              ]
-            }
-          }
-        },
-        "serve": {
-          "builder": "@nrwl/web:dev-server",
-          "options": {
-            "buildTarget": "ok-scoring-web-client:build"
-          },
-          "configurations": {
-            "production": {
-              "buildTarget": "ok-scoring-web-client:build:production"
-            }
-          }
-        },
-        "lint": {
-          "builder": "@nrwl/linter:lint",
-          "options": {
-            "linter": "eslint",
-            "tsConfig": [
-              "apps/ok-scoring-web-client/tsconfig.app.json",
-              "apps/ok-scoring-web-client/tsconfig.spec.json"
-            ],
-            "exclude": [
-              "**/node_modules/**",
-              "!apps/ok-scoring-web-client/**/*"
-            ]
-          }
-        },
-        "test": {
-          "builder": "@nrwl/jest:jest",
-          "options": {
-            "jestConfig": "apps/ok-scoring-web-client/jest.config.js",
-            "tsConfig": "apps/ok-scoring-web-client/tsconfig.spec.json",
-            "passWithNoTests": true
-          }
-        }
-      }
-    },
-    "ok-scoring-web-client-e2e": {
-      "root": "apps/ok-scoring-web-client-e2e",
-      "sourceRoot": "apps/ok-scoring-web-client-e2e/src",
-      "projectType": "application",
-      "architect": {
-        "e2e": {
-          "builder": "@nrwl/cypress:cypress",
-          "options": {
-            "cypressConfig": "apps/ok-scoring-web-client-e2e/cypress.json",
-            "tsConfig": "apps/ok-scoring-web-client-e2e/tsconfig.e2e.json",
-            "devServerTarget": "ok-scoring-web-client:serve"
-          },
-          "configurations": {
-            "production": {
-              "devServerTarget": "ok-scoring-web-client:serve:production"
-            }
-          }
-        },
-        "lint": {
-          "builder": "@nrwl/linter:lint",
-          "options": {
-            "linter": "eslint",
-            "tsConfig": ["apps/ok-scoring-web-client-e2e/tsconfig.e2e.json"],
-            "exclude": [
-              "**/node_modules/**",
-              "!apps/ok-scoring-web-client-e2e/**/*"
-            ]
-          }
+          "outputs": ["coverage/apps/game-service"]
         }
       }
     },
@@ -366,6 +469,299 @@
           "builder": "@nrwl/linter:eslint",
           "options": {
             "lintFilePatterns": ["apps/landing-e2e/**/*.{js,ts}"]
+          }
+        }
+      }
+    },
+    "ok-scoring-mobile": {
+      "root": "apps/ok-scoring-mobile",
+      "sourceRoot": "apps/ok-scoring-mobile/src",
+      "projectType": "application",
+      "architect": {
+        "start": {
+          "builder": "@nrwl/react-native:start",
+          "options": {
+            "port": 8081
+          }
+        },
+        "serve": {
+          "builder": "@nrwl/workspace:run-commands",
+          "options": {
+            "command": "nx start ok-scoring-mobile"
+          }
+        },
+        "run-ios": {
+          "builder": "@nrwl/react-native:run-ios",
+          "options": {}
+        },
+        "bundle-ios": {
+          "builder": "@nrwl/react-native:bundle",
+          "outputs": ["apps/ok-scoring-mobile/build"],
+          "options": {
+            "entryFile": "apps/ok-scoring-mobile/src/main.tsx",
+            "platform": "ios",
+            "bundleOutput": "dist/apps/ok-scoring-mobile/ios/main.jsbundle"
+          }
+        },
+        "run-android": {
+          "builder": "@nrwl/react-native:run-android",
+          "options": {}
+        },
+        "build-android": {
+          "builder": "@nrwl/react-native:build-android",
+          "outputs": [
+            "apps/ok-scoring-mobile/android/app/build/outputs/bundle",
+            "apps/ok-scoring-mobile/android/app/build/outputs/apk"
+          ],
+          "options": {}
+        },
+        "bundle-android": {
+          "builder": "@nrwl/react-native:bundle",
+          "options": {
+            "entryFile": "apps/ok-scoring-mobile/src/main.tsx",
+            "platform": "android",
+            "bundleOutput": "dist/apps/ok-scoring-mobile/android/main.jsbundle"
+          }
+        },
+        "sync-deps": {
+          "builder": "@nrwl/react-native:sync-deps",
+          "options": {}
+        },
+        "ensure-symlink": {
+          "builder": "@nrwl/react-native:ensure-symlink",
+          "options": {}
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "outputs": ["{options.outputFile}"],
+          "options": {
+            "lintFilePatterns": ["apps/ok-scoring-mobile/**/*.{ts,tsx,js,jsx}"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/apps/ok-scoring-mobile"],
+          "options": {
+            "jestConfig": "apps/ok-scoring-mobile/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "ok-scoring-mobile-e2e": {
+      "root": "apps/ok-scoring-mobile-e2e",
+      "sourceRoot": "apps/ok-scoring-mobile-e2e/src",
+      "projectType": "application",
+      "architect": {
+        "build-ios": {
+          "builder": "@nrwl/detox:build",
+          "options": {
+            "detoxConfiguration": "ios.sim.debug"
+          },
+          "configurations": {
+            "production": {
+              "detoxConfiguration": "ios.sim.release"
+            }
+          }
+        },
+        "test-ios": {
+          "builder": "@nrwl/detox:test",
+          "options": {
+            "detoxConfiguration": "ios.sim.debug"
+          },
+          "configurations": {
+            "production": {
+              "detoxConfiguration": "ios.sim.release"
+            }
+          }
+        },
+        "build-android": {
+          "builder": "@nrwl/detox:build",
+          "options": {
+            "detoxConfiguration": "android.emu.debug"
+          },
+          "configurations": {
+            "production": {
+              "detoxConfiguration": "android.emu.release"
+            }
+          }
+        },
+        "test-android": {
+          "builder": "@nrwl/detox:test",
+          "options": {
+            "detoxConfiguration": "android.emu.debug"
+          },
+          "configurations": {
+            "production": {
+              "detoxConfiguration": "android.emu.release"
+            }
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "outputs": ["{options.outputFile}"],
+          "options": {
+            "lintFilePatterns": [
+              "apps/ok-scoring-mobile-e2e/**/*.{ts,tsx,js,jsx}"
+            ]
+          }
+        }
+      }
+    },
+    "ok-scoring-web": {
+      "root": "apps/ok-scoring-web",
+      "sourceRoot": "apps/ok-scoring-web",
+      "projectType": "application",
+      "architect": {
+        "build": {
+          "builder": "@nrwl/next:build",
+          "outputs": ["{options.outputPath}"],
+          "options": {
+            "root": "apps/ok-scoring-web",
+            "outputPath": "dist/apps/ok-scoring-web"
+          },
+          "configurations": {
+            "production": {}
+          }
+        },
+        "serve": {
+          "builder": "@nrwl/next:server",
+          "options": {
+            "buildTarget": "ok-scoring-web:build",
+            "dev": true
+          },
+          "configurations": {
+            "production": {
+              "buildTarget": "ok-scoring-web:build:production",
+              "dev": false
+            }
+          }
+        },
+        "export": {
+          "builder": "@nrwl/next:export",
+          "options": {
+            "buildTarget": "ok-scoring-web:build:production"
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/apps/ok-scoring-web"],
+          "options": {
+            "jestConfig": "apps/ok-scoring-web/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "outputs": ["{options.outputFile}"],
+          "options": {
+            "lintFilePatterns": ["apps/ok-scoring-web/**/*.{ts,tsx,js,jsx}"]
+          }
+        }
+      }
+    },
+    "ok-scoring-web-e2e": {
+      "root": "apps/ok-scoring-web-e2e",
+      "sourceRoot": "apps/ok-scoring-web-e2e/src",
+      "projectType": "application",
+      "architect": {
+        "e2e": {
+          "builder": "@nrwl/cypress:cypress",
+          "options": {
+            "cypressConfig": "apps/ok-scoring-web-e2e/cypress.json",
+            "devServerTarget": "ok-scoring-web:serve",
+            "tsConfig": "apps/ok-scoring-web-e2e/tsconfig.json"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "ok-scoring-web:serve:production"
+            }
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "outputs": ["{options.outputFile}"],
+          "options": {
+            "lintFilePatterns": ["apps/ok-scoring-web-e2e/**/*.{js,ts}"]
+          }
+        }
+      }
+    },
+    "player-stats-service": {
+      "root": "apps/player-stats-service",
+      "sourceRoot": "apps/player-stats-service/src",
+      "projectType": "application",
+      "prefix": "player-stats-service",
+      "schematics": {},
+      "architect": {
+        "build": {
+          "builder": "@nrwl/node:build",
+          "options": {
+            "outputPath": "dist/apps/player-stats-service",
+            "main": "apps/player-stats-service/src/main.ts",
+            "tsConfig": "apps/player-stats-service/tsconfig.app.json",
+            "assets": ["apps/player-stats-service/src/assets"]
+          },
+          "configurations": {
+            "production": {
+              "optimization": true,
+              "extractLicenses": true,
+              "inspect": false,
+              "fileReplacements": [
+                {
+                  "replace": "apps/player-stats-service/src/environments/environment.ts",
+                  "with": "apps/player-stats-service/src/environments/environment.prod.ts"
+                }
+              ]
+            }
+          },
+          "outputs": ["{options.outputPath}"]
+        },
+        "serve": {
+          "builder": "@nrwl/node:execute",
+          "options": {
+            "buildTarget": "player-stats-service:build"
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:lint",
+          "options": {
+            "linter": "eslint",
+            "tsConfig": [
+              "apps/player-stats-service/tsconfig.app.json",
+              "apps/player-stats-service/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!apps/player-stats-service/**/*"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "apps/player-stats-service/jest.config.js",
+            "passWithNoTests": true
+          },
+          "outputs": ["coverage/apps/player-stats-service"]
+        }
+      }
+    },
+    "utils-array-fns": {
+      "root": "libs/utils/array-fns",
+      "sourceRoot": "libs/utils/array-fns/src",
+      "projectType": "library",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "outputs": ["{options.outputFile}"],
+          "options": {
+            "lintFilePatterns": ["libs/utils/array-fns/**/*.ts"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/utils/array-fns"],
+          "options": {
+            "jestConfig": "libs/utils/array-fns/jest.config.js",
+            "passWithNoTests": true
           }
         }
       }

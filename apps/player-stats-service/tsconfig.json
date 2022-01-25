@@ -1,10 +1,7 @@
 {
-  "extends": "../../tsconfig.json",
+  "extends": "../../tsconfig.base.json",
   "compilerOptions": {
-    "types": [
-      "node",
-      "jest"
-    ]
+    "types": ["node", "jest"]
   },
-  "include": ["**/*.ts", "**/@types/**/*.d.ts"]
+  "include": ["**/*.ts", "**/@types/**/*.d.ts", "../game-service/src/app/entities/player-game.ts"]
 }

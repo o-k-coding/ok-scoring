@@ -1,0 +1,28 @@
+{
+  "name": "ok-scoring-mobile",
+  "version": "0.0.1",
+  "private": true,
+  "dependencies": {
+    "react-native": "*",
+    "react": "*",
+    "@testing-library/react-native": "*",
+    "@testing-library/jest-native": "*",
+    "expo-font": "*",
+    "react-native-gesture-handler": "*",
+    "@react-navigation/native": "*",
+    "mobx-react": "*",
+    "@expo/react-native-action-sheet": "*",
+    "mobx": "*",
+    "expo-sqlite": "*",
+    "react-native-uuid": "*",
+    "@expo/vector-icons": "*",
+    "react-native-svg": "*",
+    "react-native-safe-area-context": "*",
+    "@react-navigation/bottom-tabs": "*",
+    "date-fns": "*",
+    "react-native-modal-selector": "*",
+    "react-native-swipe-gestures": "*",
+    "@react-navigation/native-stack": "*",
+    "react-native-screens": "*"
+  }
+}

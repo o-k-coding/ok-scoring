@@ -1,12 +1,21 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { graphql } from 'gatsby';
 import Img from 'gatsby-image';
-
+import netlifyIdentity from 'netlify-identity-widget';
 
 import styles from './index.module.scss';
 import PrivacyPolicy from './privacy-policy/PrivacyPolicy';
 
 export function Index({ data }) {
+
+
+  useEffect(() => {
+    netlifyIdentity.init();
+    // netlifyIdentity.on("login", (user) => this.setState({ user }, loginUser()));
+    // netlifyIdentity.on("logout", (user) => this.setState({ user: null }, logoutUser()));
+    return () => {
+    }
+  }, [])
   /*
    * Replace the elements below with your own.
    *

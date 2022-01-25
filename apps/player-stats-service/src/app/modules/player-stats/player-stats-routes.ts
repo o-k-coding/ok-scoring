@@ -1,6 +1,6 @@
 import { FastifyInstance } from 'fastify/types/instance';
 import { RouteGenericInterface } from 'fastify/types/route';
-import { PlayerGameEntity } from '../../entities/player-game';
+import { PlayerGameEntity } from '../../../../../game-service/src/app/entities/player-game';
 import { calculatePlayerStats } from './player-stats';
 
 
