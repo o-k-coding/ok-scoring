@@ -21,7 +21,7 @@ export function createGameModelSchemas() {
         strictNullChecks: true,
     };
 
-    const basePath = resolve(__dirname, '../../libs/features/game-models/src/lib');
+    const basePath = resolve(__dirname, '../../libs/data/game-models/src/lib');
 
     console.log('base path', basePath);
 

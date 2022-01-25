@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 import { View, Text } from 'react-native';
 import { observer } from 'mobx-react';
 import { IconButton } from '@ok-scoring/components/react/mobile';
-import { Player } from '@ok-scoring/features/game-models';
+import { Player } from '@ok-scoring/data/game-models';
 import { playerHistoryContext, gameContext } from '@ok-scoring/features/game-ui-store';
 import { sharedMobileStyles, colors } from '@ok-scoring/styles';
 

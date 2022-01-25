@@ -4,7 +4,7 @@ import { localDbStore } from './local-db.store';
 import { favoriteGamesStore } from './favorite-games.store';
 import { playerHistoryStore } from './players-history.store';
 import { addOrReplaceByKey, commaSeperateWithEllipsis, removeByKey, sort, Sort } from '@ok-scoring/utils/array-fns';
-import { GameScoreHistory, Player } from '@ok-scoring/features/game-models';
+import { GameScoreHistory, Player } from '@ok-scoring/data/game-models';
 import { deleteGame, fetchGameStates, insertGame } from '@ok-scoring/data/sqlite-fns';
 import { generateUuid } from '@ok-scoring/data/generate-uuid';
 import { UIGameState } from '..';

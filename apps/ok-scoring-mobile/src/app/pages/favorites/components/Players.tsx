@@ -5,7 +5,7 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import { navigateInRoot, NewGameRoute, } from '../../../navigation';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import { IconButton, NavBar, TabIcons } from '@ok-scoring/components/react/mobile';
-import { Player } from '@ok-scoring/features/game-models';
+import { Player } from '@ok-scoring/data/game-models';
 import { playerHistoryContext } from '@ok-scoring/features/game-ui-store';
 import { sharedMobileStyles } from '@ok-scoring/styles';
 

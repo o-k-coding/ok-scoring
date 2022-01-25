@@ -8,7 +8,7 @@ function createServer() {
         logger: true
     })
 
-    const apiBase = 'api/game-rules';
+    const apiBase = 'api/game';
 
     server.register(dbConnector);
     server.register(gameRulesRoutes, { prefix: `${apiBase}` });

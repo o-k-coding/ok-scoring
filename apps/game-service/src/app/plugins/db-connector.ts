@@ -3,10 +3,15 @@ import 'reflect-metadata'
 import fp from 'fastify-plugin'
 import { createConnection, getConnectionOptions, Repository } from 'typeorm'
 import { FastifyInstance } from 'fastify';
-import { GameRulesEntity } from '../entities/game-rules';
+import { FavoriteGameEntity } from '@ok-scoring/data/game-entities';
 
 export interface GameRulesDB {
-    gameRulesRepo: Repository<GameRulesEntity>,
+    favoriteGamesRepo: Repository<FavoriteGameEntity>,
+    // gameRulesRepo: Repository<GameRulesEntity>,
+    // gameStateRepo: Repository<GameStateEntity>,
+    // playerRepo: Repository<PlayerEntity>,
+    // scoreRoundRepo: Repository<ScoreRoundEntity>,
+    // playerScoreHistoryRepo: Repository<PlayerScoreHistoryEntity>,
 }
 
 const dbConnector = fp(async (fastify: FastifyInstance, opts, done) => {
@@ -17,14 +22,24 @@ const dbConnector = fp(async (fastify: FastifyInstance, opts, done) => {
             options: { encrypt: true },
             synchronize: true,
             entities: [
-                GameRulesEntity,
+                FavoriteGameEntity,
+                // PlayerEntity,
+                // ScoreRoundEntity,
+                // PlayerScoreHistoryEntity,
+                // GameRulesEntity,
+                // GameStateEntity,
             ]
         })
         const connection = await createConnection(connectionOptions)
         console.log('Connection established');
 
         const db: GameRulesDB = {
-            gameRulesRepo: connection.getRepository(GameRulesEntity),
+            favoriteGamesRepo: connection.getRepository(FavoriteGameEntity),
+            // playerRepo: connection.getRepository(PlayerEntity),
+            // scoreRoundRepo: connection.getRepository(ScoreRoundEntity),
+            // playerScoreHistoryRepo: connection.getRepository(PlayerScoreHistoryEntity),
+            // gameRulesRepo: connection.getRepository(GameRulesEntity),
+            // gameStateRepo: connection.getRepository(GameStateEntity),
         };
 
         // this object will be accessible from any fastify server instance

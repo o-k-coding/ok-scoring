@@ -1,4 +1,4 @@
-import { GameRules, GameState, PlayerScoreHistory } from '@ok-scoring/features/game-models';
+import { GameRules, GameState, PlayerScoreHistory } from '@ok-scoring/data/game-models';
 import { determineWinner2, isGameWon, scoreBeatsWinner, validateGameState } from './game-rules-fns';
 import { cribbageValidStateSchema, cribbageWinStateSchema } from '@ok-scoring/data/game-test-data';
 import { ErrorObject } from 'ajv';

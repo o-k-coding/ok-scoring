@@ -1,6 +1,6 @@
 import { formatDate } from '@ok-scoring/components/react/hooks';
 import { Header } from '@ok-scoring/components/react/mobile';
-import { GameState, Player } from '@ok-scoring/features/game-models';
+import { GameState, Player } from '@ok-scoring/data/game-models';
 import { sharedMobileStyles } from '@ok-scoring/styles';
 import React from 'react';
 import { Text, FlatList } from 'react-native';

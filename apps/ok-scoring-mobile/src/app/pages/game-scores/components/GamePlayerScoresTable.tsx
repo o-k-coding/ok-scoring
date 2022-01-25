@@ -1,4 +1,4 @@
-import { Player, GameScoreHistory } from '@ok-scoring/features/game-models';
+import { Player, GameScoreHistory } from '@ok-scoring/data/game-models';
 import { gameContext } from '@ok-scoring/features/game-ui-store';
 import { sharedMobileStyles } from '@ok-scoring/styles';
 import React, { useContext } from 'react';

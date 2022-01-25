@@ -3,7 +3,7 @@ import { Animated, Text, View } from 'react-native'
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { useDiceIcon, formatDate } from '@ok-scoring/components/react/hooks';
 import { IconButton, MatIcons } from '@ok-scoring/components/react/mobile';
-import { GameState, Player, Settings } from '@ok-scoring/features/game-models';
+import { GameState, Player, Settings } from '@ok-scoring/data/game-models';
 import { sharedMobileStyles, colors } from '@ok-scoring/styles';
 import { Sort } from '@ok-scoring/utils/array-fns';
 

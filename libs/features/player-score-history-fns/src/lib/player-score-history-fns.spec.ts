@@ -1,4 +1,4 @@
-import { Score, ScoreRound } from '@ok-scoring/features/game-models';
+import { Score, ScoreRound } from '@ok-scoring/data/game-models';
 import { buildScoreHistory, recalcCurrentScoreRecursive } from './player-score-history-fns';
 
 describe('buildScoreHistory', () => {

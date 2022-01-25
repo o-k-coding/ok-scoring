@@ -1,5 +1,5 @@
 import { PromptModal, IconButton } from '@ok-scoring/components/react/mobile';
-import { Player } from '@ok-scoring/features/game-models';
+import { Player } from '@ok-scoring/data/game-models';
 import { sharedMobileStyles, colors } from '@ok-scoring/styles';
 import React, { useState } from 'react';
 import { View } from 'react-native';

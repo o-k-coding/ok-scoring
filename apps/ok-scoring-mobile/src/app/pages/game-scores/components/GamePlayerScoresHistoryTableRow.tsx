@@ -1,4 +1,4 @@
-import { PlayerScoreHistory } from '@ok-scoring/features/game-models';
+import { PlayerScoreHistory } from '@ok-scoring/data/game-models';
 import { sharedMobileStyles } from '@ok-scoring/styles';
 import React from 'react';
 import { View } from 'react-native';

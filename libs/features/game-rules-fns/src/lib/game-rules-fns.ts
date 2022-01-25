@@ -1,4 +1,4 @@
-import { GameScoreHistory, GameState, } from '@ok-scoring/features/game-models';
+import { GameScoreHistory, GameState, } from '@ok-scoring/data/game-models';
 import Ajv, { ErrorObject } from 'ajv';
 
 const ajv = new Ajv();

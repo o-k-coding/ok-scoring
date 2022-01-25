@@ -168,6 +168,28 @@
         }
       }
     },
+    "data-game-entities": {
+      "root": "libs/data/game-entities",
+      "sourceRoot": "libs/data/game-entities/src",
+      "projectType": "library",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "outputs": ["{options.outputFile}"],
+          "options": {
+            "lintFilePatterns": ["libs/data/game-entities/**/*.ts"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/data/game-entities"],
+          "options": {
+            "jestConfig": "libs/data/game-entities/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
     "data-game-test-data": {
       "root": "libs/data/game-test-data",
       "sourceRoot": "libs/data/game-test-data/src",
@@ -234,23 +256,23 @@
         }
       }
     },
-    "features-game-models": {
-      "root": "libs/features/game-models",
-      "sourceRoot": "libs/features/game-models/src",
+    "data-game-models": {
+      "root": "libs/data/game-models",
+      "sourceRoot": "libs/data/game-models/src",
       "projectType": "library",
       "architect": {
         "lint": {
           "builder": "@nrwl/linter:eslint",
           "outputs": ["{options.outputFile}"],
           "options": {
-            "lintFilePatterns": ["libs/features/game-models/**/*.ts"]
+            "lintFilePatterns": ["libs/data/game-models/**/*.ts"]
           }
         },
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/features/game-models"],
+          "outputs": ["coverage/libs/data/game-models"],
           "options": {
-            "jestConfig": "libs/features/game-models/jest.config.js",
+            "jestConfig": "libs/data/game-models/jest.config.js",
             "passWithNoTests": true
           }
         }

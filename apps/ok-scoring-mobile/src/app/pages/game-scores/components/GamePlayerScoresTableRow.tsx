@@ -1,6 +1,6 @@
 import { abbreviateNumber } from '@ok-scoring/components/react/hooks';
 import { IconButton } from '@ok-scoring/components/react/mobile';
-import { Player, GameScoreHistory } from '@ok-scoring/features/game-models';
+import { Player, GameScoreHistory } from '@ok-scoring/data/game-models';
 import { sharedMobileStyles } from '@ok-scoring/styles';
 import React, { useState } from 'react';
 import { ScrollView, Text, View } from 'react-native';

@@ -7,7 +7,7 @@ import GamePlayerScoresTable from '../game-scores/components/GamePlayerScoresTab
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { NavBar, IconButton, Header } from '@ok-scoring/components/react/mobile';
 import { truncateString } from '@ok-scoring/components/react/hooks';
-import { PlayerScoreMode } from '@ok-scoring/features/game-models';
+import { PlayerScoreMode } from '@ok-scoring/data/game-models';
 import { gameContext } from '@ok-scoring/features/game-ui-store';
 import { sharedMobileStyles, colors } from '@ok-scoring/styles';
 import GestureRecognizer from 'react-native-swipe-gestures';

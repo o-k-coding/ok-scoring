@@ -1,4 +1,4 @@
-import { PlayerScoreHistory, Player, GameScoreHistory, ScoreRound, Score } from '@ok-scoring/features/game-models';
+import { PlayerScoreHistory, Player, GameScoreHistory, ScoreRound, Score } from '@ok-scoring/data/game-models';
 import { generateUuid } from '@ok-scoring/data/generate-uuid';
 
 

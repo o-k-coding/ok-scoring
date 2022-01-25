@@ -2,11 +2,13 @@
 
 ## Tasks
 
-- Fix fastify generator
-- Update fastify
-- Port models from python
+- Port models from python [x]
+- Connect typeorm entities to a db...
+- Port e2e API tests from python
 - Port app logic from python
 - Port routes from python
+- Fix fastify generator
+- Update fastify
 - integrate data layer for fauna for services
 - authentication
 - player stats service (ml)
@@ -122,3 +124,14 @@ npx nx run-android ok-scoring-mobile
 ```
 
 TODO need to convert all touchable opacity to pressable in mobile app... ALso take a look at animations for those.
+
+## Generator history
+
+Generating backend entity library. This is considered a data library because it is low level specifics of defining the data access and validation for backend game data
+it relies on the game-models and other data access specific logic.
+
+The data-access would be the raw data
+
+```bash
+nx g lib data/game-entities
+```

@@ -6,7 +6,7 @@ import { GameRoute, GameHistoryRoute, GameScoreHistoryRoute, PageNavigationProps
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { gameContext, gameHistoryContext } from '@ok-scoring/features/game-ui-store';
 import { NavBar } from '@ok-scoring/components/react/mobile';
-import { GameState } from '@ok-scoring/features/game-models';
+import { GameState } from '@ok-scoring/data/game-models';
 import { sharedMobileStyles } from '@ok-scoring/styles';
 
 const GameHistory = ({ navigation }: PageNavigationProps<typeof GameHistoryRoute>) => {

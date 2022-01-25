@@ -1,6 +1,6 @@
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { IconButton } from '@ok-scoring/components/react/mobile';
-import { Player, PlayerScoreHistory } from '@ok-scoring/features/game-models';
+import { Player, PlayerScoreHistory } from '@ok-scoring/data/game-models';
 import { playerHistoryContext } from '@ok-scoring/features/game-ui-store';
 import { sharedMobileStyles, colors } from '@ok-scoring/styles';
 import { useContext } from 'react';

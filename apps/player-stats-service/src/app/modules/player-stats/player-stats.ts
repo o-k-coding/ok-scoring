@@ -1,8 +1,7 @@
-import { GameStateEntity } from '../../entities/game';
 import { format } from 'date-fns'
 
 export type WeekDay = 'Mon' | 'Tue' | 'Wed' | 'Thu' | 'Fri' | 'Sat' | 'Sun';
-export type GameCalculationData = Pick<GameStateEntity, 'date' | 'winningPlayerKey'>;
+export type GameCalculationData = Pick<GameState, 'date' | 'winningPlayerKey'>;
 export interface PlayerWins {
     totalWins: number;
     totalGames: number;

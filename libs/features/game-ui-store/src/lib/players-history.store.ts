@@ -1,7 +1,7 @@
 import { createContext } from 'react';
 import { observable, action, computed, reaction, makeObservable } from 'mobx';
 import { localDbStore } from './local-db.store';
-import { Player } from '@ok-scoring/features/game-models';
+import { Player } from '@ok-scoring/data/game-models';
 import { addOrReplaceByKey, sort, Sort } from '@ok-scoring/utils/array-fns';
 import { fetchPlayers, insertPlayer } from '@ok-scoring/data/sqlite-fns';
 

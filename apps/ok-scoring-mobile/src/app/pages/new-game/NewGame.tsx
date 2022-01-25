@@ -5,7 +5,7 @@ import NewGameDescription from './components/smart/NewGameDescription';
 import { observer } from 'mobx-react';
 import { FavoritesRoute, GameHistoryRoute, GameRoute, GameSettingsRoute, NewGameRoute, PageNavigationProps } from '../../navigation';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import { Settings } from '@ok-scoring/features/game-models';
+import { Settings } from '@ok-scoring/data/game-models';
 import { useDiceIcon } from '@ok-scoring/components/react/hooks';
 import { NavBar, CenterContent, MatIcons } from '@ok-scoring/components/react/mobile';
 import { localDbContext, gameContext } from '@ok-scoring/features/game-ui-store';

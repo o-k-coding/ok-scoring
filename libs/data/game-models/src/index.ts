@@ -7,3 +7,4 @@ export * from './lib/game-rules';
 export * from './lib/dealer-settings';
 export * from './lib/score';
 export * from './lib/score-round';
+export * from './lib/favorite-game';

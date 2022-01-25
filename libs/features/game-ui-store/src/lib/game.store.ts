@@ -1,6 +1,6 @@
 import { createContext } from 'react';
 import { action, observable, computed, reaction, makeObservable } from 'mobx';
-import { GameState, Player, GameScoreHistory, PlayerScore, GameRules, DealerSettings, PlayerScoreMode, DealerSettingsText, ScoreRound } from '@ok-scoring/features/game-models';
+import { GameState, Player, GameScoreHistory, PlayerScore, GameRules, DealerSettings, PlayerScoreMode, DealerSettingsText, ScoreRound } from '@ok-scoring/data/game-models';
 import { addOrReplaceByKey, swap } from '@ok-scoring/utils/array-fns';
 import { favoriteGamesStore } from './favorite-games.store';
 import { playerHistoryStore } from './players-history.store';
@@ -332,7 +332,7 @@ class GameStore implements UIGameState {
             const roundIndex = round !== undefined ?
                 round :
                 playerScore.scores.length ?? 0;
-            let roundScore =  this.rules.defaultScoreStep || 0;
+            let roundScore = this.rules.defaultScoreStep || 0;
             if (round !== undefined) {
                 roundScore = playerScore?.scores[round]?.score || 0;
             }

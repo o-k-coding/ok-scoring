@@ -30,6 +30,10 @@
     "data-fauna": {
       "tags": []
     },
+    "data-game-entities": {
+      "tags": [],
+      "implicitDependencies": ["data-game-models"]
+    },
     "data-game-test-data": {
       "tags": []
     },
@@ -39,7 +43,7 @@
     "data-sqlite-fns": {
       "tags": []
     },
-    "features-game-models": {
+    "data-game-models": {
       "tags": []
     },
     "features-game-rules-fns": {

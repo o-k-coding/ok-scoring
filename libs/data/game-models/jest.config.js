@@ -1,5 +1,5 @@
 module.exports = {
-  displayName: 'features-game-models',
+  displayName: 'data-game-models',
   preset: '../../../jest.preset.js',
   globals: {
     'ts-jest': {
@@ -11,5 +11,5 @@ module.exports = {
     '^.+\\.[tj]sx?$': 'ts-jest',
   },
   moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx'],
-  coverageDirectory: '../../../coverage/libs/features/game-models',
+  coverageDirectory: '../../../coverage/libs/data/game-models',
 };

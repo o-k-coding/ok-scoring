@@ -1,7 +1,7 @@
 import * as SQLite from 'expo-sqlite';
 import { SQLResultSet } from 'expo-sqlite';
 import { migrations } from './migrations/migrations';
-import { GameScoreHistory, GameState, Player, PlayerScoreHistory, GameRules } from '@ok-scoring/features/game-models';
+import { GameScoreHistory, GameState, Player, PlayerScoreHistory, GameRules } from '@ok-scoring/data/game-models';
 import { flatMap } from '@ok-scoring/utils/array-fns';
 
 const db = SQLite.openDatabase('ok-scores.db');
