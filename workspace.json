@@ -190,6 +190,28 @@
         }
       }
     },
+    "data-game-models": {
+      "root": "libs/data/game-models",
+      "sourceRoot": "libs/data/game-models/src",
+      "projectType": "library",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "outputs": ["{options.outputFile}"],
+          "options": {
+            "lintFilePatterns": ["libs/data/game-models/**/*.ts"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/data/game-models"],
+          "options": {
+            "jestConfig": "libs/data/game-models/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
     "data-game-test-data": {
       "root": "libs/data/game-test-data",
       "sourceRoot": "libs/data/game-test-data/src",
@@ -251,28 +273,6 @@
           "outputs": ["coverage/libs/data/sqlite-fns"],
           "options": {
             "jestConfig": "libs/data/sqlite-fns/jest.config.js",
-            "passWithNoTests": true
-          }
-        }
-      }
-    },
-    "data-game-models": {
-      "root": "libs/data/game-models",
-      "sourceRoot": "libs/data/game-models/src",
-      "projectType": "library",
-      "architect": {
-        "lint": {
-          "builder": "@nrwl/linter:eslint",
-          "outputs": ["{options.outputFile}"],
-          "options": {
-            "lintFilePatterns": ["libs/data/game-models/**/*.ts"]
-          }
-        },
-        "test": {
-          "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/data/game-models"],
-          "options": {
-            "jestConfig": "libs/data/game-models/jest.config.js",
             "passWithNoTests": true
           }
         }
@@ -741,6 +741,57 @@
             "passWithNoTests": true
           },
           "outputs": ["coverage/apps/player-stats-service"]
+        }
+      }
+    },
+    "rules-service-go": {
+      "root": "apps/rules-service-go",
+      "sourceRoot": "apps/rules-service-go/src",
+      "projectType": "application",
+      "architect": {
+        "build": {
+          "builder": "@nrwl/node:build",
+          "outputs": ["{options.outputPath}"],
+          "options": {
+            "outputPath": "dist/apps/rules-service-go",
+            "main": "apps/rules-service-go/src/main.ts",
+            "tsConfig": "apps/rules-service-go/tsconfig.app.json",
+            "assets": ["apps/rules-service-go/src/assets"]
+          },
+          "configurations": {
+            "production": {
+              "optimization": true,
+              "extractLicenses": true,
+              "inspect": false,
+              "fileReplacements": [
+                {
+                  "replace": "apps/rules-service-go/src/environments/environment.ts",
+                  "with": "apps/rules-service-go/src/environments/environment.prod.ts"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@nrwl/node:execute",
+          "options": {
+            "buildTarget": "rules-service-go:build"
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "outputs": ["{options.outputFile}"],
+          "options": {
+            "lintFilePatterns": ["apps/rules-service-go/**/*.ts"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/apps/rules-service-go"],
+          "options": {
+            "jestConfig": "apps/rules-service-go/jest.config.js",
+            "passWithNoTests": true
+          }
         }
       }
     },

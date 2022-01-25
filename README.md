@@ -135,3 +135,22 @@ The data-access would be the raw data
 ```bash
 nx g lib data/game-entities
 ```
+## Creating Remix frontend
+
+Note the plugin for this is in beta
+
+```bash
+yarn add -D @nrwl/remix
+npx nx g @nrwl/remix:setup
+npx nx g @nrwl/remix:app ok-scoring-rules-ui
+```
+
+## Creating a non JS/TS application
+
+Creating a Go application for example
+
+First create a blank application
+
+````bash
+nx g app rules-service-go
+```
