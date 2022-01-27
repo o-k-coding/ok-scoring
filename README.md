@@ -154,3 +154,11 @@ First create a blank application
 ````bash
 nx g app rules-service-go
 ```
+
+run go init in the folder
+
+add a target to the workspace json to run the go code.
+
+```bash
+nx run rules-service-go:go-run
+```

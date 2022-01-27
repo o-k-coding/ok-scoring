@@ -1,80 +1,5 @@
 {
   "version": 1,
-  "cli": {
-    "defaultCollection": "@nrwl/node"
-  },
-  "defaultProject": "player-stats-service",
-  "schematics": {
-    "@nrwl/workspace": {
-      "library": {
-        "linter": "eslint"
-      }
-    },
-    "@nrwl/cypress": {
-      "cypress-project": {
-        "linter": "eslint"
-      }
-    },
-    "@nrwl/react": {
-      "application": {
-        "style": "scss",
-        "linter": "eslint",
-        "babel": true
-      },
-      "library": {
-        "style": "scss",
-        "linter": "eslint"
-      },
-      "storybook-configuration": {
-        "linter": "eslint"
-      },
-      "component": {
-        "style": "scss"
-      }
-    },
-    "@nrwl/next": {
-      "application": {
-        "style": "css",
-        "linter": "eslint"
-      }
-    },
-    "@nrwl/web": {
-      "application": {
-        "linter": "eslint"
-      }
-    },
-    "@nrwl/node": {
-      "application": {
-        "linter": "eslint"
-      },
-      "library": {
-        "linter": "eslint"
-      }
-    },
-    "@nrwl/nx-plugin": {
-      "plugin": {
-        "linter": "eslint"
-      }
-    },
-    "@nrwl/nest": {
-      "application": {
-        "linter": "eslint"
-      }
-    },
-    "@nrwl/express": {
-      "application": {
-        "linter": "eslint"
-      },
-      "library": {
-        "linter": "eslint"
-      }
-    },
-    "@nrwl/gatsby": {
-      "application": {
-        "style": "scss"
-      }
-    }
-  },
   "projects": {
     "components-react-hooks": {
       "root": "libs/components/react/hooks",
@@ -608,6 +533,12 @@
         }
       }
     },
+    "ok-scoring-rules-ui": {
+      "root": "apps/ok-scoring-rules-ui",
+      "sourceRoot": "apps/ok-scoring-rules-ui",
+      "projectType": "application",
+      "tags": []
+    },
     "ok-scoring-web": {
       "root": "apps/ok-scoring-web",
       "sourceRoot": "apps/ok-scoring-web",
@@ -746,51 +677,21 @@
     },
     "rules-service-go": {
       "root": "apps/rules-service-go",
-      "sourceRoot": "apps/rules-service-go/src",
+      "sourceRoot": "apps/rules-service-go/cmd/api",
       "projectType": "application",
-      "architect": {
-        "build": {
-          "builder": "@nrwl/node:build",
-          "outputs": ["{options.outputPath}"],
-          "options": {
-            "outputPath": "dist/apps/rules-service-go",
-            "main": "apps/rules-service-go/src/main.ts",
-            "tsConfig": "apps/rules-service-go/tsconfig.app.json",
-            "assets": ["apps/rules-service-go/src/assets"]
-          },
-          "configurations": {
-            "production": {
-              "optimization": true,
-              "extractLicenses": true,
-              "inspect": false,
-              "fileReplacements": [
-                {
-                  "replace": "apps/rules-service-go/src/environments/environment.ts",
-                  "with": "apps/rules-service-go/src/environments/environment.prod.ts"
-                }
-              ]
-            }
-          }
-        },
+      "targets": {
         "serve": {
-          "builder": "@nrwl/node:execute",
-          "options": {
-            "buildTarget": "rules-service-go:build"
-          }
+          "builder": "./tools/executors/go/serve:goServe"
         },
-        "lint": {
-          "builder": "@nrwl/linter:eslint",
-          "outputs": ["{options.outputFile}"],
+        "go-run": {
+          "executor": "@nrwl/workspace:run-commands",
           "options": {
-            "lintFilePatterns": ["apps/rules-service-go/**/*.ts"]
-          }
-        },
-        "test": {
-          "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/apps/rules-service-go"],
-          "options": {
-            "jestConfig": "apps/rules-service-go/jest.config.js",
-            "passWithNoTests": true
+            "commands": [
+              {
+                "command": "go run main.go"
+              }
+            ],
+            "cwd": "apps/rules-service-go/cmd/api"
           }
         }
       }

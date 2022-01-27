@@ -1,0 +1,9 @@
+{
+  "executors": {
+    "goServe": {
+      "implementation": "./impl",
+      "schema": "./schema.json",
+      "description": "Calls `go run` on the specified project go entrypoint file."
+    }
+  }
+}
