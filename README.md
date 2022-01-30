@@ -151,7 +151,7 @@ Creating a Go application for example
 
 First create a blank application
 
-````bash
+```bash
 nx g app rules-service-go
 ```
 
@@ -161,4 +161,12 @@ add a target to the workspace json to run the go code.
 
 ```bash
 nx run rules-service-go:go-run
+```
+
+## Docker containers
+
+ok-scoring postgres db
+
+```bash
+docker compose -f apps/game-service/docker-compose.yml up -d
 ```

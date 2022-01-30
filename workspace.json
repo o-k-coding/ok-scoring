@@ -677,7 +677,7 @@
     },
     "rules-service-go": {
       "root": "apps/rules-service-go",
-      "sourceRoot": "apps/rules-service-go/cmd/api",
+      "sourceRoot": "apps/rules-service-go/src/cmd/api",
       "projectType": "application",
       "targets": {
         "serve": {
@@ -688,10 +688,21 @@
           "options": {
             "commands": [
               {
-                "command": "go run main.go"
+                "command": "go run *.go"
               }
             ],
-            "cwd": "apps/rules-service-go/cmd/api"
+            "cwd": "apps/rules-service-go/src/cmd/api"
+          }
+        },
+        "go-fmt": {
+          "executor": "@nrwl/workspace:run-commands",
+          "options": {
+            "commands": [
+              {
+                "command": "go fmt ./src/..."
+              }
+            ],
+            "cwd": "apps/rules-service-go"
           }
         }
       }
