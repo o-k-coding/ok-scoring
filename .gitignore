@@ -128,3 +128,8 @@ apps/**/.cache
 
 # Go workspace file
 go.work
+
+# Supabase
+**/supabase/.branches
+**/supabase/.temp
+**/supabase/.env

@@ -11,6 +11,7 @@ func (app *application) routes() http.Handler {
 	router := httprouter.New()
 
 	router.HandlerFunc(http.MethodGet, "/status", app.statusHandler)
+	router.HandlerFunc(http.MethodPost, "/v1/rules/create", app.createRulesTemplate)
 	router.HandlerFunc(http.MethodGet, "/v1/rules/:key", app.getOneRulesTemplate)
 	router.HandlerFunc(http.MethodGet, "/v1/rules", app.getAllRulesTemplates)
 

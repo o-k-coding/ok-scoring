@@ -1,4 +1,4 @@
-import { LinksFunction } from 'remix'
+import { Link, LinksFunction } from 'remix'
 import stylesUrl from "../styles/index.css";
 
 // This tells remix to associate this stylesheet with this module
@@ -9,5 +9,20 @@ export const links: LinksFunction = () => {
 
 
 export default function () {
-  return <>Hello Index Route</>
+  return (
+    <div className="container">
+      <div className="content">
+        <h1>
+          OK Scoring Rules Template UI
+        </h1>
+        <nav>
+          <ul>
+            <li>
+              <Link to="rules">Rules</Link>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  )
 }

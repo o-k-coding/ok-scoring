@@ -37,10 +37,10 @@ type application struct {
 	models models.Models
 }
 
-func getEnvVariable(key string) string {
+func getEnvVariable(key string, env string) string {
 
 	// load .env file
-	err := godotenv.Load("../../../.env")
+	err := godotenv.Load(fmt.Sprintf("../../../.env.%s", env))
 
 	if err != nil {
 		log.Fatalf("Error loading .env file")
@@ -52,16 +52,15 @@ func getEnvVariable(key string) string {
 func main() {
 	var cfg config
 
-	dbPassword := getEnvVariable("SUPA_DB_PASSWORD")
 	// Read an integer value as a command line argument for the port the app will listen on
 	// the default will be 4000 and the value will be saved to the cfg.port
 	flag.IntVar(&cfg.port, "port", 4000, "Server port to listen on")
 	// TODO should use this to get the correct env file
 	// Also should just build the url in the code and not use a cli flag
 	flag.StringVar(&cfg.env, "env", "development", "Application environment (development|production)")
-	flag.StringVar(&cfg.db.dsn, "dsn", fmt.Sprintf("user=postgres password=%s host=db.jmlxqekruomcjlhaeuyq.supabase.co port=5432 dbname=postgres", dbPassword), "Postgres connection string")
 	flag.Parse()
 
+	cfg.db.dsn = getEnvVariable("DB_STRING", cfg.env)
 	// Create application context
 	logger := log.New(os.Stdout, "", log.Ldate|log.Ltime)
 

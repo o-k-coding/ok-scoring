@@ -1,20 +1,17 @@
 package main
 
 import (
+	"encoding/json"
+	"log"
 	"net/http"
 
 	"github.com/julienschmidt/httprouter"
+	"okscoring.com/rules-service/src/models"
 )
 
 func (app *application) getOneRulesTemplate(w http.ResponseWriter, r *http.Request) {
 	params := httprouter.ParamsFromContext(r.Context())
 	key := params.ByName("key")
-
-	// if err != nil {
-	// 	app.logger.Println(errors.New("invalid id parameter"))
-	// 	app.writeAndSendError(w, err)
-	// 	return
-	// }
 
 	app.logger.Println("key is ", key)
 
@@ -54,9 +51,28 @@ func (app *application) deleteRulesTemplate(w http.ResponseWriter, r *http.Reque
 }
 
 func (app *application) createRulesTemplate(w http.ResponseWriter, r *http.Request) {
+	var rulesTemplate models.GameRulesTemplate
+
+	err := json.NewDecoder(r.Body).Decode(&rulesTemplate)
+
+	if err != nil {
+		app.writeAndSendError(w, err)
+		return
+	}
+
+	log.Println(rulesTemplate)
+
+	err = app.writeAndSendJson(w, http.StatusCreated, rulesTemplate, "data")
+
+	if err != nil {
+		app.writeAndSendError(w, err)
+		return
+	}
 }
 
 func (app *application) updateRulesTemplate(w http.ResponseWriter, r *http.Request) {
+
+
 }
 
 func (app *application) searchRulesTemplates(w http.ResponseWriter, r *http.Request) {
