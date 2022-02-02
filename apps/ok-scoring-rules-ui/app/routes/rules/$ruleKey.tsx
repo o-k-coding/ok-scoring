@@ -1,5 +1,5 @@
-import { LoaderFunction, useLoaderData } from 'remix';
-import { GameRulesTemplate } from '@ok-scoring/data/game-models';
+import { Link, LoaderFunction, useLoaderData } from 'remix';
+import { GameRulesTemplate } from '../../../../../libs/data/game-models/src';
 
 type LoaderData = {
   data: GameRulesTemplate;
@@ -16,6 +16,13 @@ export default function RuleRoute() {
   return (
     <div>
       <p>{data.description}</p>
+      <Link
+        to={`/rules/${data.key}/edit`}
+        title="Edit rule"
+        aria-label="Edit rule"
+      >
+        Edit
+      </Link>
     </div>
   );
 }

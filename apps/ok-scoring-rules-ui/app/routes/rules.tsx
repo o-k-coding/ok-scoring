@@ -43,7 +43,6 @@ export default function RulesRoute() {
       <main className="rules-main">
         <div className="container">
           <div className="rules-list">
-            <Link to=".">Get a random rule</Link>
             <p>Here are a few more rules to check out:</p>
             <ul>
               {data.data.map(rule => (

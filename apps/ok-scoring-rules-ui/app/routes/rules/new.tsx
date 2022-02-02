@@ -25,13 +25,13 @@ export const action: ActionFunction = async ({
     body: JSON.stringify(rulesTemplateData),
   }
 
-  const rulesTemplate = await fetch('http://localhost:4000/v1/rules/create', requestOptions).then(r => r.json())
+  const { key } = await fetch('http://localhost:4000/v1/rules/create', requestOptions).then(r => r.json())
 
-  console.log('Saved rules template!', rulesTemplate);
+  console.log('Saved rules template!', key);
 
   // const joke = await db.joke.create({ data: fields });
   // The redirect utility is a simple utility in Remix for creating a Response object that has the right headers/status codes to redirect the user.
-  return redirect(`/rules/${rulesTemplate.key}`);
+  return redirect(`/rules/${key}`);
 };
 
 export default function NewRuleRoute() {

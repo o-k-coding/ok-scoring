@@ -22,6 +22,7 @@ func (app *application) writeAndSendJson(w http.ResponseWriter, status int, data
 }
 
 func (app *application) writeAndSendError(w http.ResponseWriter, err error) {
+	app.logger.Println("Sending error response", err)
 	type jsonError struct {
 		Message string `json:"message"`
 	}

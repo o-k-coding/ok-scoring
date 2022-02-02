@@ -4,6 +4,8 @@ import (
 	"context"
 	"database/sql"
 	"time"
+
+	"github.com/google/uuid"
 )
 
 type DBModel struct {
@@ -17,23 +19,23 @@ type Scannable interface {
 
 func ScanGameRulesTemplate(r Scannable) (*GameRulesTemplateDb, error) {
 	var rulesTemplateDb GameRulesTemplateDb
-		err := r.Scan(
-			&rulesTemplateDb.Key,
-			&rulesTemplateDb.Description,
-			&rulesTemplateDb.PlayerKey,
-			&rulesTemplateDb.ValidStateSchema,
-			&rulesTemplateDb.WinningSchema,
-			&rulesTemplateDb.FirstToScoreWins.Bool,
-			&rulesTemplateDb.DealerSettings.String,
-			&rulesTemplateDb.HighScoreWins.Bool,
-			&rulesTemplateDb.PlayersMustBeOnSameRound.Bool,
-			&rulesTemplateDb.CreatedAt,
-			&rulesTemplateDb.Archived.Bool,
-		)
-		if err != nil {
-			return nil, err
-		}
-		return &rulesTemplateDb, nil
+	err := r.Scan(
+		&rulesTemplateDb.Key,
+		&rulesTemplateDb.Description,
+		&rulesTemplateDb.PlayerKey,
+		&rulesTemplateDb.ValidStateSchema,
+		&rulesTemplateDb.WinningSchema,
+		&rulesTemplateDb.FirstToScoreWins,
+		&rulesTemplateDb.DealerSettings,
+		&rulesTemplateDb.HighScoreWins,
+		&rulesTemplateDb.PlayersMustBeOnSameRound,
+		&rulesTemplateDb.CreatedAt,
+		&rulesTemplateDb.Archived,
+	)
+	if err != nil {
+		return nil, err
+	}
+	return &rulesTemplateDb, nil
 }
 
 // DB Methods
@@ -113,4 +115,87 @@ func (m *DBModel) GetAllRulesTemplates() ([]*GameRulesTemplate, error) {
 	}
 
 	return ruleTemplates, nil
+}
+
+func (m *DBModel) InsertRulesTemplate(rulesTemplate *GameRulesTemplate) (string, error) {
+	ctx, cancel := context.WithTimeout(context.Background(), 3*time.Second)
+	defer cancel()
+
+	// TODO the player key will come from the auth, which still needs a central service
+	statement := `
+	insert into rules_template (
+		key,
+		player_key,
+		description,
+		valid_state_schema,
+		winning_schema,
+		first_to_score_wins,
+		dealer_settings,
+		high_score_wins,
+		players_must_be_on_same_round
+	)
+	values (
+		$1, $2, $3, $4, $5, $6, $7, $8, $9
+	)
+	`
+	key := uuid.New().String()
+	_, err := m.DB.ExecContext(
+		ctx,
+		statement,
+		key,
+		"984e59db-bae2-418b-b2d4-243427734a02",
+		rulesTemplate.Description,
+		rulesTemplate.ValidStateSchema,
+		rulesTemplate.WinningSchema,
+		rulesTemplate.FirstToScoreWins,
+		rulesTemplate.DealerSettings,
+		rulesTemplate.HighScoreWins,
+		rulesTemplate.PlayersMustBeOnSameRound,
+	)
+
+	if err != nil {
+		return "", err
+	}
+	return key, nil
+}
+
+
+func (m *DBModel) UpdateRulesTemplate(rulesTemplate *GameRulesTemplate) (string, error) {
+	ctx, cancel := context.WithTimeout(context.Background(), 3*time.Second)
+	defer cancel()
+
+	// TODO the player key will come from the auth, which still needs a central service
+	statement := `
+	update rules_template set (
+		description,
+		valid_state_schema,
+		winning_schema,
+		first_to_score_wins,
+		dealer_settings,
+		high_score_wins,
+		players_must_be_on_same_round
+	) = (
+		$1, $2, $3, $4, $5, $6, $7
+	)
+
+	where key = $8
+	`
+	key := uuid.New().String()
+	_, err := m.DB.ExecContext(
+		ctx,
+		statement,
+		rulesTemplate.Description,
+		rulesTemplate.ValidStateSchema,
+		rulesTemplate.WinningSchema,
+		rulesTemplate.FirstToScoreWins,
+		rulesTemplate.DealerSettings,
+		rulesTemplate.HighScoreWins,
+		rulesTemplate.PlayersMustBeOnSameRound,
+		rulesTemplate.Key,
+	)
+
+	if err != nil {
+		return "", err
+	}
+	return key, nil
 }

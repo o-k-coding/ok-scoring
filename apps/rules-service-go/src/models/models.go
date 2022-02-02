@@ -25,50 +25,48 @@ type GameRulesTemplate struct {
 }
 
 type GameRulesTemplateDb struct {
-	Key                      string    `json:"key"`
-	PlayerKey                string    `json:"playerKey"`
-	Description              string    `json:"description"`
-	ValidStateSchema         Schema    `json:"validStateSchema"`
-	WinningSchema            Schema    `json:"winningSchema"`
-	FirstToScoreWins         sql.NullBool      `json:"firstToScoreWins"`
-	DealerSettings           sql.NullString    `json:"dealerSettings"`
-	HighScoreWins            sql.NullBool      `json:"highScoreWins"`
-	PlayersMustBeOnSameRound sql.NullBool      `json:"playersMustBeOnSameRound"`
-	CreatedAt                time.Time `json:"createdAt"`
-	Archived                 sql.NullBool      `json:"archived"`
+	Key                      string         `json:"key"`
+	PlayerKey                string         `json:"playerKey"`
+	Description              string         `json:"description"`
+	ValidStateSchema         Schema         `json:"validStateSchema"`
+	WinningSchema            Schema         `json:"winningSchema"`
+	FirstToScoreWins         sql.NullBool   `json:"firstToScoreWins"`
+	DealerSettings           sql.NullString `json:"dealerSettings"`
+	HighScoreWins            sql.NullBool   `json:"highScoreWins"`
+	PlayersMustBeOnSameRound sql.NullBool   `json:"playersMustBeOnSameRound"`
+	CreatedAt                time.Time      `json:"createdAt"`
+	Archived                 sql.NullBool   `json:"archived"`
 }
 
 func (g *GameRulesTemplateDb) CreateTemplate() *GameRulesTemplate {
-	return &GameRulesTemplate {
-		Key: g.Key,
-		Description: g.Description,
-		PlayerKey: g.PlayerKey,
-		ValidStateSchema: g.ValidStateSchema,
-		WinningSchema: g.WinningSchema,
-		FirstToScoreWins: g.FirstToScoreWins.Bool,
-		DealerSettings: g.DealerSettings.String,
-		HighScoreWins: g.HighScoreWins.Bool,
+	return &GameRulesTemplate{
+		Key:                      g.Key,
+		Description:              g.Description,
+		PlayerKey:                g.PlayerKey,
+		ValidStateSchema:         g.ValidStateSchema,
+		WinningSchema:            g.WinningSchema,
+		FirstToScoreWins:         g.FirstToScoreWins.Bool,
+		DealerSettings:           g.DealerSettings.String,
+		HighScoreWins:            g.HighScoreWins.Bool,
 		PlayersMustBeOnSameRound: g.PlayersMustBeOnSameRound.Bool,
-		CreatedAt: g.CreatedAt,
-		Archived: g.Archived.Bool,
+		CreatedAt:                g.CreatedAt,
+		Archived:                 g.Archived.Bool,
 	}
 }
 
-
 // https://www.alexedwards.net/blog/using-postgresql-jsonb for how to handle json marshalling and scanning of a jsonb column into a map
 func (a Schema) Value() (driver.Value, error) {
-    return json.Marshal(a)
+	return json.Marshal(a)
 }
 
 func (a *Schema) Scan(value interface{}) error {
-    b, ok := value.([]byte)
-    if !ok {
-        return errors.New("type assertion to []byte failed")
-    }
+	b, ok := value.([]byte)
+	if !ok {
+		return errors.New("type assertion to []byte failed")
+	}
 
-    return json.Unmarshal(b, &a)
+	return json.Unmarshal(b, &a)
 }
-
 
 // DB Related code
 
