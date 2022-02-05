@@ -23,6 +23,9 @@ type config struct {
 	db   struct {
 		dsn string
 	}
+	jwt struct {
+		secret string
+	}
 }
 
 type AppStatus struct {
@@ -61,6 +64,7 @@ func main() {
 	flag.Parse()
 
 	cfg.db.dsn = getEnvVariable("DB_STRING", cfg.env)
+	cfg.jwt.secret = getEnvVariable("JWT_SECRET", cfg.env)
 	// Create application context
 	logger := log.New(os.Stdout, "", log.Ldate|log.Ltime)
 

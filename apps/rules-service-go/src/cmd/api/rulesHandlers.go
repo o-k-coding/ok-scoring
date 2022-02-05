@@ -17,14 +17,14 @@ func (app *application) getOneRulesTemplate(w http.ResponseWriter, r *http.Reque
 	rulesTemplate, err := app.models.DB.GetRulesTemplate(key)
 
 	if err != nil {
-		app.writeAndSendError(w, err)
+		app.writeAndSendError(w, http.StatusBadRequest, err)
 		return
 	}
 
 	err = app.writeAndSendJson(w, http.StatusOK, rulesTemplate, "data")
 
 	if err != nil {
-		app.writeAndSendError(w, err)
+		app.writeAndSendError(w, http.StatusBadRequest, err)
 		return
 	}
 }
@@ -34,14 +34,14 @@ func (app *application) getAllRulesTemplates(w http.ResponseWriter, r *http.Requ
 	rulesTemplates, err := app.models.DB.GetAllRulesTemplates()
 
 	if err != nil {
-		app.writeAndSendError(w, err)
+		app.writeAndSendError(w, http.StatusBadRequest, err)
 		return
 	}
 
 	err = app.writeAndSendJson(w, http.StatusOK, rulesTemplates, "data")
 
 	if err != nil {
-		app.writeAndSendError(w, err)
+		app.writeAndSendError(w, http.StatusBadRequest, err)
 		return
 	}
 }
@@ -68,14 +68,14 @@ func (app *application) createRulesTemplate(w http.ResponseWriter, r *http.Reque
 	err := json.NewDecoder(r.Body).Decode(&rulesTemplate)
 
 	if err != nil {
-		app.writeAndSendError(w, err)
+		app.writeAndSendError(w, http.StatusBadRequest, err)
 		return
 	}
 
 	key, err := app.models.DB.InsertRulesTemplate(&rulesTemplate)
 
 	if err != nil {
-		app.writeAndSendError(w, err)
+		app.writeAndSendError(w, http.StatusBadRequest, err)
 		return
 	}
 
@@ -90,14 +90,14 @@ func (app *application) updateRulesTemplate(w http.ResponseWriter, r *http.Reque
 	err := json.NewDecoder(r.Body).Decode(&rulesTemplate)
 
 	if err != nil {
-		app.writeAndSendError(w, err)
+		app.writeAndSendError(w, http.StatusBadRequest, err)
 		return
 	}
 
 	key, err := app.models.DB.UpdateRulesTemplate(&rulesTemplate)
 
 	if err != nil {
-		app.writeAndSendError(w, err)
+		app.writeAndSendError(w, http.StatusBadRequest, err)
 		return
 	}
 

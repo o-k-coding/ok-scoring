@@ -21,7 +21,7 @@ func (app *application) writeAndSendJson(w http.ResponseWriter, status int, data
 	return nil
 }
 
-func (app *application) writeAndSendError(w http.ResponseWriter, err error) {
+func (app *application) writeAndSendError(w http.ResponseWriter, status int, err error) {
 	app.logger.Println("Sending error response", err)
 	type jsonError struct {
 		Message string `json:"message"`
@@ -31,5 +31,5 @@ func (app *application) writeAndSendError(w http.ResponseWriter, err error) {
 		Message: err.Error(),
 	}
 
-	app.writeAndSendJson(w, http.StatusBadRequest, responseError, "error")
+	app.writeAndSendJson(w, status, responseError, "error")
 }

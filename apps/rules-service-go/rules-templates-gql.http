@@ -1,0 +1,9 @@
+curl -X POST http://localhost:4000/v1/graphql \
+-H 'Content-Type: application/graphql' \
+-d 'query RootQuery{ rulesTemplates { key description } }'
+
+###
+
+curl -X POST http://localhost:4000/v1/graphql \
+-H 'Content-Type: application/graphql' \
+-d 'query RootQuery{ search(descriptionContains: "Crib"){ key description } }'

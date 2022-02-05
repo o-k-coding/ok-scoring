@@ -159,7 +159,6 @@ func (m *DBModel) InsertRulesTemplate(rulesTemplate *GameRulesTemplate) (string,
 	return key, nil
 }
 
-
 func (m *DBModel) UpdateRulesTemplate(rulesTemplate *GameRulesTemplate) (string, error) {
 	ctx, cancel := context.WithTimeout(context.Background(), 3*time.Second)
 	defer cancel()

@@ -8,6 +8,14 @@ import (
 	"time"
 )
 
+type Player struct {
+	Key      string `json:"key"`
+	Name     string `json:"name"`
+	Favorite bool   `json:"favorite"`
+	Email   string  `json:"-"`
+	Password string `json:"-"`
+}
+
 type Schema map[string]interface{}
 
 type GameRulesTemplate struct {
