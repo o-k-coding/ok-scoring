@@ -46,6 +46,7 @@ func (m *DBModel) GetRulesTemplate(key string) (*GameRulesTemplate, error) {
 
 	defer cancel()
 
+	//Note: one way to handle selects with null values would be to use coalesce to have a default value if null... but I feel like that's a bandaid
 	query := `
 	select
 		key,
