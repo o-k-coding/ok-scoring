@@ -2,6 +2,15 @@
 
 ## Tasks
 
+Phase 1, get the code I have working and deployed
+
+- Move Ok Scoring PY into this repo []
+- Figure out deployments for the APIs []
+
+Phase 2 improve code I have working
+
+Phase 3 transition/duplication
+
 - Port models from python [x]
 - Connect typeorm entities to a db...
 - Port e2e API tests from python
@@ -135,6 +144,7 @@ The data-access would be the raw data
 ```bash
 nx g lib data/game-entities
 ```
+
 ## Creating Remix frontend
 
 Note the plugin for this is in beta
@@ -149,13 +159,19 @@ npx nx g @nrwl/remix:app ok-scoring-rules-ui
 
 Creating a Go application for example
 
-First create a blank application
+First create a blank node application
 
 ```bash
-nx g app rules-service-go
+npx nx g @nrwl/node:app app-name
 ```
 
-run go init in the folder
+clean out the folder
+
+### GO
+
+run go mod init in the folder to init a module
+
+### Workspace changes
 
 add a target to the workspace json to run the go code.
 
@@ -169,4 +185,19 @@ ok-scoring postgres db
 
 ```bash
 docker compose -f apps/game-service/docker-compose.yml up -d
+```
+
+## Python
+
+To enter the virtual environment
+
+```bash
+cd apps/game-service-py/
+source .venv/bin/activate
+```
+
+Install packages from requirements.txt
+
+```bash
+pip3 install -r requirements.txt
 ```
