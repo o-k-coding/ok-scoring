@@ -44,8 +44,6 @@ def get_token_auth_header():
                             " Bearer token"}, 401)
 
     token = parts[1]
-    print('Auth token parsed')
-    print(token)
     return token
 
 def requires_auth(f):
@@ -58,20 +56,7 @@ def requires_auth(f):
             print('@requires_auth: AUTH_REQUIRED is false apparently, skipping auth check')
             return f(*args, **kwargs)
         token = get_token_auth_header()
-        # Not sure what this is used for
-        jsonurl = urllib.request.urlopen(f'{AUTH_ISSUER}.well-known/jwks.json')
-        jwks = json.loads(jsonurl.read())
-        unverified_header = jwt.get_unverified_header(token)
-        rsa_key = {}
-        for key in jwks["keys"]:
-            if key["kid"] == unverified_header["kid"]:
-                rsa_key = {
-                    "kty": key["kty"],
-                    "kid": key["kid"],
-                    "use": key["use"],
-                    "n": key["n"],
-                    "e": key["e"]
-                }
+        rsa_key = build_rsa_key(token)
         if rsa_key:
             try:
                 payload = jwt.decode(
@@ -117,4 +102,36 @@ def requires_scope(required_scope):
             for token_scope in token_scopes:
                 if token_scope == required_scope:
                     return True
+    return False
+
+
+def build_rsa_key(token: str) -> dict:
+    # Not sure what this is used for
+    jsonurl = urllib.request.urlopen(f'{AUTH_ISSUER}.well-known/jwks.json')
+    jwks = json.loads(jsonurl.read())
+    unverified_header = jwt.get_unverified_header(token)
+    rsa_key = {}
+    for key in jwks["keys"]:
+        if key["kid"] == unverified_header["kid"]:
+            rsa_key = {
+                "kty": key["kty"],
+                "kid": key["kid"],
+                "use": key["use"],
+                "n": key["n"],
+                "e": key["e"]
+            }
+    return rsa_key
+
+
+def is_token_expired(token, rsa_key) -> bool:
+    try:
+        jwt.decode(
+            token,
+            rsa_key,
+            algorithms=AUTH_ALGORITHMS,
+            audience=AUTH_AUDIENCE,
+            issuer=AUTH_ISSUER
+        )
+    except jwt.ExpiredSignatureError:
+        return True
     return False

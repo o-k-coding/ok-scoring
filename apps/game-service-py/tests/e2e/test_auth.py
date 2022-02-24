@@ -2,18 +2,29 @@ import os
 from ok_scoring.ok_scoring_config import get_api_url
 import requests
 
-def get_access_token():
-  client_id = os.environ.get('AUTH_CLIENT_ID')
-  client_secret = os.environ.get('AUTH_CLIENT_SECRET')
-  auth_audience = os.environ.get('AUTH_AUDIENCE')
-  auth_issuer = os.environ.get('AUTH_ISSUER')
-  payload = f'grant_type=client_credentials&client_id={client_id}&client_secret={client_secret}&audience={auth_audience}'
-  headers = { 'content-type': "application/x-www-form-urlencoded" }
-  response = requests.post(f"{auth_issuer}oauth/token", data=payload, headers=headers)
-  data = response.json()
-  access_token = data['access_token']
-  return access_token
+from src.ok_scoring.service.auth_service import build_rsa_key, is_token_expired
 
+class Token:
+  def  __init__(self):
+    self.access_token = None
+
+  def get_access_token(self):
+    if self.access_token is None or is_token_expired(self.access_token, build_rsa_key(self.access_token)):
+      client_id = os.environ.get('AUTH_CLIENT_ID')
+      client_secret = os.environ.get('AUTH_CLIENT_SECRET')
+      auth_audience = os.environ.get('AUTH_AUDIENCE')
+      auth_issuer = os.environ.get('AUTH_ISSUER')
+      payload = f'grant_type=client_credentials&client_id={client_id}&client_secret={client_secret}&audience={auth_audience}'
+      headers = { 'content-type': "application/x-www-form-urlencoded" }
+      response = requests.post(f"{auth_issuer}oauth/token", data=payload, headers=headers)
+      data = response.json()
+      token = data['access_token']
+      self.access_token = token
+    else:
+      print('Using cached access_token')
+    return self.access_token
+
+token = Token()
 
 def test_unauthenticated_health():
   api_url = get_api_url()
@@ -24,11 +35,9 @@ def test_unauthenticated_health():
   assert authenticated_health_response.status_code == 401
 
 def test_authenticated_health():
-  # First log in and get a token
+  access_token = token.get_access_token()
 
-  token = get_access_token()
-
-  headers = {'Authorization': f'Bearer {token}'}
+  headers = {'Authorization': f'Bearer {access_token}'}
   api_url = get_api_url()
   health_response = requests.get(f'{api_url}/health', headers=headers)
   assert health_response.status_code == 201
@@ -37,10 +46,15 @@ def test_authenticated_health():
   assert authenticated_health_response.status_code == 201
 
 def test_malformed_token():
-  return
-
-def test_expired_token():
-  return
+  access_token = token.get_access_token() + 'A'
+  headers = {'Authorization': f'Bearer {access_token}'}
+  api_url = get_api_url()
+  health_response = requests.get(f'{api_url}/authenticated', headers=headers)
+  assert health_response.status_code == 401
 
 def non_auth0_token():
-  return
+  access_token = 'eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiYWRtaW4iOnRydWUsImlhdCI6MTUxNjIzOTAyMn0.NHVaYe26MbtOYhSKkoKYdFVomg4i8ZJd8_-RU8VNbftc4TSMb4bXP3l3YlNWACwyXPGffz5aXHc6lty1Y2t4SWRqGteragsVdZufDn5BlnJl9pdR_kdVFUsra2rWKEofkZeIC4yWytE58sMIihvo9H1ScmmVwBcQP6XETqYd0aSHp1gOa9RdUPDvoXQ5oqygTqVtxaDr6wUFKrKItgBMzWIdNZ6y7O9E0DhEPTbE9rfBo6KTFsHAZnMg4k68CDp2woYIaXbmYTWcvbzIuHO7_37GT79XdIwkm95QJ7hYC9RiwrV7mesbY4PAahERJawntho0my942XheVLmGwLMBkQ'
+  headers = {'Authorization': f'Bearer {access_token}'}
+  api_url = get_api_url()
+  health_response = requests.get(f'{api_url}/authenticated', headers=headers)
+  assert health_response.status_code == 401

@@ -4,6 +4,18 @@ Repository for python backend for OK Scoring
 Building in progress while reading through <https://www.cosmicpython.com/book/chapter_02_repository.html>
 trying to apply concepts as much as possible as I go.
 
+If you have venv installed
+
+```bash
+source .venv/bin/activate
+```
+
+then install requirements
+
+```bash
+pip install -r requirements.txt
+```
+
 ## Database set up
 
 postgres docker container
@@ -28,7 +40,7 @@ use docker compose to build the volume, images and containers needed to run and 
 Make sure to "Install" the ok-scoring module first
 
 ```bash
-pip install ./src
+pip install -e ./src
 ```
 
 to run e2e/integration/unit tests run `pytest`
@@ -43,7 +55,8 @@ to run an individual e2e test
 
 ```bash
 pytest ./tests/e2e/test_play_cribbage.py
-pytest ./tests/e2e/test_auth.py
+# To run with logging sent to stdout instead of captured by pytest
+pytest -s ./tests/e2e/test_auth.py
 ```
 
 #### Running tests in docker container
@@ -58,6 +71,9 @@ docker-compose build && docker-compose up
 # By default this will follow the logs, so open a new terminal then
 # Here is an example, change out the command you want to execture
 docker exec -ti ok-scoring-py-app "pytest"
+
+## Or connect to a bash instance and run specific commands, for some reason specific test files don't work running from outside the container?
+docker exec -ti ok-scoring-py-app bash
 ```
 
 ### Alembic migrations
@@ -114,3 +130,5 @@ rm -rf .venv # if it exists
 python3.9 -m venv .venv
 source .venv/bin/activate
 ```
+
+1645666696

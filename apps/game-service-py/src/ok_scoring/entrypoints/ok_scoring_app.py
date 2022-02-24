@@ -30,9 +30,7 @@ def authenticated():
 def handle_auth_error(ex):
     print('Handling auth error')
     print(ex)
-    response = jsonify(ex.error)
-    response.status_code = ex.status_code
-    return response
+    return 'Auth Error', 401
 
 
 app.register_blueprint(games, url_prefix='/games')
