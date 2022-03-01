@@ -1,9 +1,10 @@
-import pytest
 import requests
 from ok_scoring.ok_scoring_config import get_api_url
+from e2e_utils import get_authenticated_headers
 
 
 def test_api_returns_game():
+    headers = get_authenticated_headers()
     players = [
         'Meredith',
         'Maggie',
@@ -23,7 +24,7 @@ def test_api_returns_game():
 
     api_url = get_api_url()
 
-    response = requests.post(f'{api_url}/games', json=data)
+    response = requests.post(f'{api_url}/games', json=data, headers=headers)
 
     assert response.status_code == 201
     game = response.json()['game']
@@ -35,7 +36,7 @@ def test_api_returns_game():
 
     # Next test fetching the game and checking equality to ensure persistence
 
-    response = requests.get(f'{api_url}/games/{game_key}')
+    response = requests.get(f'{api_url}/games/{game_key}', headers=headers)
 
     assert response.status_code == 200
     game = response.json()['game']
@@ -46,6 +47,7 @@ def test_api_returns_game():
 
 
 def test_400_for_game_with_no_description():
+    headers = get_authenticated_headers()
     players = [
         'Meredith',
         'Maggie',
@@ -63,7 +65,7 @@ def test_400_for_game_with_no_description():
 
     api_url = get_api_url()
 
-    response = requests.post(f'{api_url}/games', json=data)
+    response = requests.post(f'{api_url}/games', json=data, headers=headers)
 
     assert response.status_code == 400
     error = response.json()['error']
@@ -72,6 +74,7 @@ def test_400_for_game_with_no_description():
 
 
 def test_players_not_duplicated_in_db():
+    headers = get_authenticated_headers()
     players = [
         'Meredith',
         'Maggie',
@@ -90,11 +93,11 @@ def test_players_not_duplicated_in_db():
 
     api_url = get_api_url()
 
-    response = requests.post(f'{api_url}/games', json=data)
+    response = requests.post(f'{api_url}/games', json=data, headers=headers)
     assert response.status_code == 201
     game = response.json()['game']
     game_key = game['key']
-    players_response = requests.get(f'{api_url}/games/{game_key}/players')
+    players_response = requests.get(f'{api_url}/games/{game_key}/players', headers=headers)
     assert players_response.status_code == 200
     players = players_response.json()['players']
     assert len(players) == 4

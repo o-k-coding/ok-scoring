@@ -2,29 +2,8 @@ import os
 from ok_scoring.ok_scoring_config import get_api_url
 import requests
 
-from src.ok_scoring.service.auth_service import build_rsa_key, is_token_expired
+from e2e_utils import test_auth_token
 
-class Token:
-  def  __init__(self):
-    self.access_token = None
-
-  def get_access_token(self):
-    if self.access_token is None or is_token_expired(self.access_token, build_rsa_key(self.access_token)):
-      client_id = os.environ.get('AUTH_CLIENT_ID')
-      client_secret = os.environ.get('AUTH_CLIENT_SECRET')
-      auth_audience = os.environ.get('AUTH_AUDIENCE')
-      auth_issuer = os.environ.get('AUTH_ISSUER')
-      payload = f'grant_type=client_credentials&client_id={client_id}&client_secret={client_secret}&audience={auth_audience}'
-      headers = { 'content-type': "application/x-www-form-urlencoded" }
-      response = requests.post(f"{auth_issuer}oauth/token", data=payload, headers=headers)
-      data = response.json()
-      token = data['access_token']
-      self.access_token = token
-    else:
-      print('Using cached access_token')
-    return self.access_token
-
-token = Token()
 
 def test_unauthenticated_health():
   api_url = get_api_url()
@@ -35,7 +14,7 @@ def test_unauthenticated_health():
   assert authenticated_health_response.status_code == 401
 
 def test_authenticated_health():
-  access_token = token.get_access_token()
+  access_token = test_auth_token.get_access_token()
 
   headers = {'Authorization': f'Bearer {access_token}'}
   api_url = get_api_url()
@@ -46,7 +25,7 @@ def test_authenticated_health():
   assert authenticated_health_response.status_code == 201
 
 def test_malformed_token():
-  access_token = token.get_access_token() + 'A'
+  access_token = test_auth_token.get_access_token() + 'A'
   headers = {'Authorization': f'Bearer {access_token}'}
   api_url = get_api_url()
   health_response = requests.get(f'{api_url}/authenticated', headers=headers)
