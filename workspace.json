@@ -1,80 +1,5 @@
 {
   "version": 1,
-  "cli": {
-    "defaultCollection": "@nrwl/node"
-  },
-  "defaultProject": "player-stats-service",
-  "schematics": {
-    "@nrwl/workspace": {
-      "library": {
-        "linter": "eslint"
-      }
-    },
-    "@nrwl/cypress": {
-      "cypress-project": {
-        "linter": "eslint"
-      }
-    },
-    "@nrwl/react": {
-      "application": {
-        "style": "scss",
-        "linter": "eslint",
-        "babel": true
-      },
-      "library": {
-        "style": "scss",
-        "linter": "eslint"
-      },
-      "storybook-configuration": {
-        "linter": "eslint"
-      },
-      "component": {
-        "style": "scss"
-      }
-    },
-    "@nrwl/next": {
-      "application": {
-        "style": "css",
-        "linter": "eslint"
-      }
-    },
-    "@nrwl/web": {
-      "application": {
-        "linter": "eslint"
-      }
-    },
-    "@nrwl/node": {
-      "application": {
-        "linter": "eslint"
-      },
-      "library": {
-        "linter": "eslint"
-      }
-    },
-    "@nrwl/nx-plugin": {
-      "plugin": {
-        "linter": "eslint"
-      }
-    },
-    "@nrwl/nest": {
-      "application": {
-        "linter": "eslint"
-      }
-    },
-    "@nrwl/express": {
-      "application": {
-        "linter": "eslint"
-      },
-      "library": {
-        "linter": "eslint"
-      }
-    },
-    "@nrwl/gatsby": {
-      "application": {
-        "style": "scss"
-      }
-    }
-  },
   "projects": {
     "components-react-hooks": {
       "root": "libs/components/react/hooks",
@@ -190,6 +115,28 @@
         }
       }
     },
+    "data-game-models": {
+      "root": "libs/data/game-models",
+      "sourceRoot": "libs/data/game-models/src",
+      "projectType": "library",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "outputs": ["{options.outputFile}"],
+          "options": {
+            "lintFilePatterns": ["libs/data/game-models/**/*.ts"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/data/game-models"],
+          "options": {
+            "jestConfig": "libs/data/game-models/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
     "data-game-test-data": {
       "root": "libs/data/game-test-data",
       "sourceRoot": "libs/data/game-test-data/src",
@@ -251,28 +198,6 @@
           "outputs": ["coverage/libs/data/sqlite-fns"],
           "options": {
             "jestConfig": "libs/data/sqlite-fns/jest.config.js",
-            "passWithNoTests": true
-          }
-        }
-      }
-    },
-    "data-game-models": {
-      "root": "libs/data/game-models",
-      "sourceRoot": "libs/data/game-models/src",
-      "projectType": "library",
-      "architect": {
-        "lint": {
-          "builder": "@nrwl/linter:eslint",
-          "outputs": ["{options.outputFile}"],
-          "options": {
-            "lintFilePatterns": ["libs/data/game-models/**/*.ts"]
-          }
-        },
-        "test": {
-          "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/data/game-models"],
-          "options": {
-            "jestConfig": "libs/data/game-models/jest.config.js",
             "passWithNoTests": true
           }
         }
@@ -400,6 +325,57 @@
             "passWithNoTests": true
           },
           "outputs": ["coverage/apps/game-service"]
+        }
+      }
+    },
+    "game-service-py": {
+      "root": "apps/game-service-py",
+      "sourceRoot": "apps/game-service-py/src",
+      "projectType": "application",
+      "architect": {
+        "build": {
+          "builder": "@nrwl/node:build",
+          "outputs": ["{options.outputPath}"],
+          "options": {
+            "outputPath": "dist/apps/game-service-py",
+            "main": "apps/game-service-py/src/main.ts",
+            "tsConfig": "apps/game-service-py/tsconfig.app.json",
+            "assets": ["apps/game-service-py/src/assets"]
+          },
+          "configurations": {
+            "production": {
+              "optimization": true,
+              "extractLicenses": true,
+              "inspect": false,
+              "fileReplacements": [
+                {
+                  "replace": "apps/game-service-py/src/environments/environment.ts",
+                  "with": "apps/game-service-py/src/environments/environment.prod.ts"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@nrwl/node:execute",
+          "options": {
+            "buildTarget": "game-service-py:build"
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "outputs": ["{options.outputFile}"],
+          "options": {
+            "lintFilePatterns": ["apps/game-service-py/**/*.ts"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/apps/game-service-py"],
+          "options": {
+            "jestConfig": "apps/game-service-py/jest.config.js",
+            "passWithNoTests": true
+          }
         }
       }
     },
@@ -608,6 +584,12 @@
         }
       }
     },
+    "ok-scoring-rules-ui": {
+      "root": "apps/ok-scoring-rules-ui",
+      "sourceRoot": "apps/ok-scoring-rules-ui",
+      "projectType": "application",
+      "tags": []
+    },
     "ok-scoring-web": {
       "root": "apps/ok-scoring-web",
       "sourceRoot": "apps/ok-scoring-web",
@@ -744,6 +726,38 @@
         }
       }
     },
+    "rules-service-go": {
+      "root": "apps/rules-service-go",
+      "sourceRoot": "apps/rules-service-go/src/cmd/api",
+      "projectType": "application",
+      "architect": {
+        "serve": {
+          "builder": "./tools/executors/go/serve:goServe"
+        },
+        "go-run": {
+          "builder": "@nrwl/workspace:run-commands",
+          "options": {
+            "commands": [
+              {
+                "command": "go run *.go"
+              }
+            ],
+            "cwd": "apps/rules-service-go/src/cmd/api"
+          }
+        },
+        "go-fmt": {
+          "builder": "@nrwl/workspace:run-commands",
+          "options": {
+            "commands": [
+              {
+                "command": "go fmt ./src/..."
+              }
+            ],
+            "cwd": "apps/rules-service-go"
+          }
+        }
+      }
+    },
     "utils-array-fns": {
       "root": "libs/utils/array-fns",
       "sourceRoot": "libs/utils/array-fns/src",
@@ -764,6 +778,81 @@
             "passWithNoTests": true
           }
         }
+      }
+    }
+  },
+  "cli": {
+    "defaultCollection": "@nrwl/node"
+  },
+  "defaultProject": "player-stats-service",
+  "schematics": {
+    "@nrwl/workspace": {
+      "library": {
+        "linter": "eslint"
+      }
+    },
+    "@nrwl/cypress": {
+      "cypress-project": {
+        "linter": "eslint"
+      }
+    },
+    "@nrwl/react": {
+      "application": {
+        "style": "scss",
+        "linter": "eslint",
+        "babel": true
+      },
+      "library": {
+        "style": "scss",
+        "linter": "eslint"
+      },
+      "storybook-configuration": {
+        "linter": "eslint"
+      },
+      "component": {
+        "style": "scss"
+      }
+    },
+    "@nrwl/next": {
+      "application": {
+        "style": "css",
+        "linter": "eslint"
+      }
+    },
+    "@nrwl/web": {
+      "application": {
+        "linter": "eslint"
+      }
+    },
+    "@nrwl/node": {
+      "application": {
+        "linter": "eslint"
+      },
+      "library": {
+        "linter": "eslint"
+      }
+    },
+    "@nrwl/nx-plugin": {
+      "plugin": {
+        "linter": "eslint"
+      }
+    },
+    "@nrwl/nest": {
+      "application": {
+        "linter": "eslint"
+      }
+    },
+    "@nrwl/express": {
+      "application": {
+        "linter": "eslint"
+      },
+      "library": {
+        "linter": "eslint"
+      }
+    },
+    "@nrwl/gatsby": {
+      "application": {
+        "style": "scss"
       }
     }
   }

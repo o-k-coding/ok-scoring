@@ -1,5 +1,3 @@
-import { Player } from './player';
-import { GameScoreHistory } from './game-score-history';
 import { GameRules } from './game-rules';
 import { PlayerScoreHistory } from '..';
 

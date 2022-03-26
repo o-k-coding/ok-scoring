@@ -35,6 +35,7 @@
       "@ok-scoring/data/game-model-schemas": [
         "libs/data/game-model-schemas/src/index.ts"
       ],
+      "@ok-scoring/data/game-models": ["libs/data/game-models/src/index.ts"],
       "@ok-scoring/data/game-test-data": [
         "libs/data/game-test-data/src/index.ts"
       ],
@@ -42,9 +43,6 @@
         "libs/data/generate-uuid/src/index.ts"
       ],
       "@ok-scoring/data/sqlite-fns": ["libs/data/sqlite-fns/src/index.ts"],
-      "@ok-scoring/data/game-models": [
-        "libs/data/game-models/src/index.ts"
-      ],
       "@ok-scoring/features/game-rules-fns": [
         "libs/features/game-rules-fns/src/index.ts"
       ],

@@ -4,6 +4,7 @@ export * from './lib/player-score-history';
 export * from './lib/player-score';
 export * from './lib/player';
 export * from './lib/game-rules';
+export * from './lib/game-rules-template';
 export * from './lib/dealer-settings';
 export * from './lib/score';
 export * from './lib/score-round';

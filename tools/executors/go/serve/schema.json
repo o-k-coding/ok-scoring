@@ -1,0 +1,7 @@
+{
+  "$schema": "http://json-schema.org/schema",
+  "type": "object",
+  "cli": "nx",
+  "title": "Go serve executor",
+  "description": "Executor to run the 'go run' command for a go project in nx workspace"
+}
