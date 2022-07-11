@@ -5,6 +5,8 @@
 
 ## Development
 
+### Web app
+
 From your terminal:
 
 ```sh
@@ -12,6 +14,10 @@ npx nx dev ok-scoring-rules-ui
 ```
 
 This starts your app in development mode, rebuilding assets on file changes.
+
+### Backend
+
+this app uses the `rules-service-go` project as a data api.
 
 ## Deployment
 
