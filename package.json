@@ -32,6 +32,10 @@
   },
   "private": true,
   "dependencies": {
+    "@chakra-ui/react": "^2.2.3",
+    "@emotion/react": "^11",
+    "@emotion/server": "^11",
+    "@emotion/styled": "^11",
     "@expo/react-native-action-sheet": "^3.11.0",
     "@expo/vector-icons": "^12.0.5",
     "@nrwl/next": "^12.9.0",
@@ -50,6 +54,7 @@
     "fastify": "^3.1.1",
     "fastify-plugin": "^2.0.1",
     "firebase-admin": "^9.0.0",
+    "framer-motion": "^6",
     "gatsby": "3.14.6",
     "gatsby-image": "3.11.0",
     "gatsby-plugin-manifest": "3.14.0",

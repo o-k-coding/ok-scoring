@@ -201,3 +201,21 @@ Install packages from requirements.txt
 ```bash
 pip3 install -r requirements.txt
 ```
+
+## Chakra UI
+
+OK Scoring is using the Chakra UI component library for web styling
+
+## Yarn
+
+### Troubleshooting
+
+#### Workspace error
+
+If you see this error
+
+```text
+error Running this command will add the dependency to the workspace root rather than the workspace itself, which might not be what you want - if you really meant it, make it explicit by running this command again with the -W flag (or --ignore-workspace-root-check).
+```
+
+just run the yarn command with `-W` this will work
