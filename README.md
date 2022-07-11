@@ -206,6 +206,14 @@ pip3 install -r requirements.txt
 
 OK Scoring is using the Chakra UI component library for web styling
 
+One note, the remix build says
+
+```bash
+The path "@emotion/cache" is imported in app/createEmotionCache.ts but @emotion/cache is not listed in your package.json dependencies. Did you forget to install it?
+```
+
+this is not a package installed, it is already included... the build is just confused it seems.
+
 ## Yarn
 
 ### Troubleshooting

@@ -1,5 +1,7 @@
-module.exports = {
-  displayName: 'data-game-test-data',
+/* eslint-disable */
+/* eslint-disable */
+export default {
+  displayName: 'features-game-rules-fns',
   preset: '../../../jest.preset.js',
   globals: {
     'ts-jest': {
@@ -11,5 +13,5 @@ module.exports = {
     '^.+\\.[tj]sx?$': 'ts-jest',
   },
   moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx'],
-  coverageDirectory: '../../../coverage/libs/data/game-test-data',
+  coverageDirectory: '../../../coverage/libs/features/game-rules-fns',
 };

@@ -1,4 +1,6 @@
-module.exports = {
+/* eslint-disable */
+/* eslint-disable */
+export default {
   displayName: 'ok-scoring-web',
   preset: '../../jest.preset.js',
   transform: {

@@ -1,4 +1,6 @@
-module.exports = {
+/* eslint-disable */
+/* eslint-disable */
+export default {
   displayName: 'components-react-mobile',
   preset: '../../../../jest.preset.js',
   transform: {

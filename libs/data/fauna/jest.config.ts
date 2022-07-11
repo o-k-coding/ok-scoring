@@ -1,5 +1,7 @@
-module.exports = {
-  displayName: 'features-game-ui-store',
+/* eslint-disable */
+/* eslint-disable */
+export default {
+  displayName: 'data-fauna',
   preset: '../../../jest.preset.js',
   globals: {
     'ts-jest': {
@@ -11,5 +13,5 @@ module.exports = {
     '^.+\\.[tj]sx?$': 'ts-jest',
   },
   moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx'],
-  coverageDirectory: '../../../coverage/libs/features/game-ui-store',
+  coverageDirectory: '../../../coverage/libs/data/fauna',
 };

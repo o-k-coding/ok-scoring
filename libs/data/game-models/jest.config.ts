@@ -1,5 +1,7 @@
-module.exports = {
-  displayName: 'utils-array-fns',
+/* eslint-disable */
+/* eslint-disable */
+export default {
+  displayName: 'data-game-models',
   preset: '../../../jest.preset.js',
   globals: {
     'ts-jest': {
@@ -11,5 +13,5 @@ module.exports = {
     '^.+\\.[tj]sx?$': 'ts-jest',
   },
   moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx'],
-  coverageDirectory: '../../../coverage/libs/utils/array-fns',
+  coverageDirectory: '../../../coverage/libs/data/game-models',
 };

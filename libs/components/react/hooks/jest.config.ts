@@ -1,6 +1,8 @@
-module.exports = {
-  displayName: 'data-fauna',
-  preset: '../../../jest.preset.js',
+/* eslint-disable */
+/* eslint-disable */
+export default {
+  displayName: 'components-react-hooks',
+  preset: '../../../../jest.preset.js',
   globals: {
     'ts-jest': {
       tsconfig: '<rootDir>/tsconfig.spec.json',
@@ -11,5 +13,5 @@ module.exports = {
     '^.+\\.[tj]sx?$': 'ts-jest',
   },
   moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx'],
-  coverageDirectory: '../../../coverage/libs/data/fauna',
+  coverageDirectory: '../../../../coverage/libs/components/react/hooks',
 };

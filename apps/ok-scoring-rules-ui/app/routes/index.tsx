@@ -1,5 +1,6 @@
 import { Link, LinksFunction } from 'remix'
 import stylesUrl from "../styles/index.css";
+import { Box, Heading, HStack, Link as ChakraLink } from '@chakra-ui/react';
 
 // This tells remix to associate this stylesheet with this module
 // The important this is that this style will NOT show up in any sibling routes (/rules for instance)
@@ -10,19 +11,15 @@ export const links: LinksFunction = () => {
 
 export default function () {
   return (
-    <div className="container">
-      <div className="content">
-        <h1>
-          OK Scoring Rules Template UI
-        </h1>
-        <nav>
-          <ul>
-            <li>
-              <Link to="rules">Rules</Link>
-            </li>
-          </ul>
-        </nav>
-      </div>
-    </div>
-  )
+    <Box display="flex" alignItems="center" justifyContent="space-between">
+      <Heading as="h1">
+        OK Scoring Rules Template UI
+      </Heading>
+      <HStack>
+        <ChakraLink as={Link} to="/rules">
+          Rules
+        </ChakraLink>
+      </HStack>
+    </Box>
+  );
 }

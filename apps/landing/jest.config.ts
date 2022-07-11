@@ -1,4 +1,6 @@
-module.exports = {
+/* eslint-disable */
+/* eslint-disable */
+export default {
   displayName: 'landing',
   preset: '../../jest.preset.js',
   transform: {

@@ -1,5 +1,7 @@
-module.exports = {
-  displayName: 'data-game-entities',
+/* eslint-disable */
+/* eslint-disable */
+export default {
+  displayName: 'features-game-ui-store',
   preset: '../../../jest.preset.js',
   globals: {
     'ts-jest': {
@@ -11,5 +13,5 @@ module.exports = {
     '^.+\\.[tj]sx?$': 'ts-jest',
   },
   moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx'],
-  coverageDirectory: '../../../coverage/libs/data/game-entities',
+  coverageDirectory: '../../../coverage/libs/features/game-ui-store',
 };

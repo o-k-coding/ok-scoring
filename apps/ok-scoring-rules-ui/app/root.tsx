@@ -2,7 +2,7 @@ import { useContext, useEffect } from 'react';
 import { Links, LinksFunction, LiveReload, Meta, MetaFunction, Outlet, Scripts, ScrollRestoration } from 'remix';
 import { ServerStyleContext, ClientStyleContext } from './context';
 import { withEmotionCache } from '@emotion/react';
-import { ChakraProvider } from '@chakra-ui/react';
+import { Box, ChakraProvider } from '@chakra-ui/react';
 
 export const meta: MetaFunction = () => ({
   charset: 'utf-8',
@@ -72,7 +72,9 @@ export default function App() {
   return (
     <Document>
       <ChakraProvider>
-        <Outlet />
+        <Box m="8">
+          <Outlet />
+        </Box>
       </ChakraProvider>
     </Document>
   );

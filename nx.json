@@ -11,106 +11,17 @@
   "npmScope": "ok-scoring",
   "tasksRunnerOptions": {
     "default": {
-      "runner": "@nrwl/workspace/tasks-runners/default",
+      "runner": "nx/tasks-runners/default",
       "options": {
-        "cacheableOperations": ["build", "lint", "test", "e2e"]
+        "cacheableOperations": [
+          "build",
+          "lint",
+          "test",
+          "e2e"
+        ],
+        "parallel": 3
       }
     }
-  },
-  "projects": {
-    "components-react-hooks": {
-      "tags": []
-    },
-    "components-react-mobile": {
-      "tags": []
-    },
-    "components-react-timer-provider": {
-      "tags": []
-    },
-    "data-fauna": {
-      "tags": []
-    },
-    "data-game-entities": {
-      "tags": [],
-      "implicitDependencies": ["data-game-models"]
-    },
-    "data-game-models": {
-      "tags": []
-    },
-    "data-game-test-data": {
-      "tags": []
-    },
-    "data-generate-uuid": {
-      "tags": []
-    },
-    "data-sqlite-fns": {
-      "tags": []
-    },
-    "features-game-rules-fns": {
-      "tags": []
-    },
-    "features-game-ui-store": {
-      "tags": []
-    },
-    "features-player-score-history-fns": {
-      "tags": []
-    },
-    "game-service-py": {
-      "tags": []
-    },
-    "landing": {
-      "tags": []
-    },
-    "landing-e2e": {
-      "tags": [],
-      "implicitDependencies": ["landing"]
-    },
-    "ok-scoring-mobile": {
-      "tags": []
-    },
-    "ok-scoring-mobile-e2e": {
-      "tags": [],
-      "implicitDependencies": ["ok-scoring-mobile"]
-    },
-    "ok-scoring-web": {
-      "tags": []
-    },
-    "ok-scoring-web-e2e": {
-      "tags": [],
-      "implicitDependencies": ["ok-scoring-web"]
-    },
-    "player-stats-service": {
-      "tags": []
-    },
-    "rules-service-go": {
-      "tags": []
-    },
-    "utils-array-fns": {
-      "tags": []
-    }
-  },
-  "targetDependencies": {
-    "build": [
-      {
-        "target": "build",
-        "projects": "dependencies"
-      }
-    ],
-    "dev": [
-      {
-        "target": "build",
-        "projects": "dependencies"
-      }
-    ],
-    "start": [
-      {
-        "target": "build",
-        "projects": "self"
-      }
-    ]
-  },
-  "cli": {
-    "defaultCollection": "@nrwl/node"
   },
   "generators": {
     "@nrwl/workspace": {
@@ -183,5 +94,23 @@
       }
     }
   },
-  "defaultProject": "player-stats-service"
+  "defaultProject": "player-stats-service",
+  "$schema": "./node_modules/nx/schemas/nx-schema.json",
+  "targetDefaults": {
+    "build": {
+      "dependsOn": [
+        "^build"
+      ]
+    },
+    "dev": {
+      "dependsOn": [
+        "^build"
+      ]
+    },
+    "start": {
+      "dependsOn": [
+        "build"
+      ]
+    }
+  }
 }

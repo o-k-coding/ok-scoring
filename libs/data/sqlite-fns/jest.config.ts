@@ -1,5 +1,7 @@
-module.exports = {
-  displayName: 'features-player-score-history-fns',
+/* eslint-disable */
+/* eslint-disable */
+export default {
+  displayName: 'data-sqlite-fns',
   preset: '../../../jest.preset.js',
   globals: {
     'ts-jest': {
@@ -11,5 +13,5 @@ module.exports = {
     '^.+\\.[tj]sx?$': 'ts-jest',
   },
   moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx'],
-  coverageDirectory: '../../../coverage/libs/features/player-score-history-fns',
+  coverageDirectory: '../../../coverage/libs/data/sqlite-fns',
 };

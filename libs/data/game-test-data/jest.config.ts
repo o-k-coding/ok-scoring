@@ -1,6 +1,8 @@
-module.exports = {
-  displayName: 'components-react-hooks',
-  preset: '../../../../jest.preset.js',
+/* eslint-disable */
+/* eslint-disable */
+export default {
+  displayName: 'data-game-test-data',
+  preset: '../../../jest.preset.js',
   globals: {
     'ts-jest': {
       tsconfig: '<rootDir>/tsconfig.spec.json',
@@ -11,5 +13,5 @@ module.exports = {
     '^.+\\.[tj]sx?$': 'ts-jest',
   },
   moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx'],
-  coverageDirectory: '../../../../coverage/libs/components/react/hooks',
+  coverageDirectory: '../../../coverage/libs/data/game-test-data',
 };

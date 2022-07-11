@@ -1,4 +1,6 @@
-module.exports = {
+/* eslint-disable */
+/* eslint-disable */
+export default {
   displayName: 'ok-scoring-mobile',
   preset: 'react-native',
   resolver: '@nrwl/jest/plugins/resolver',
@@ -10,4 +12,5 @@ module.exports = {
       'react-native/jest/assetFileTransformer.js'
     ),
   },
+  moduleNameMapper: { '.svg': '@nrwl/react-native/plugins/jest/svg-mock' },
 };
