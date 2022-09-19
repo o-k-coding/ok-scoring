@@ -1,0 +1,19 @@
+# Common docker compose for ok scoring postgres db
+# Individual services should handle migrations
+# and connections on their own
+# Should consider using a common migration user to create databases/users for apps
+
+version: '3.1'
+
+services:
+  ok-scoring-db:
+    image: postgres:14
+    restart: always
+    env_file: .env.development
+    volumes:
+      - ok-scoring-data:/var/lib/postgresql
+    ports:
+      - 5433:5432
+
+volumes:
+  ok-scoring-data:

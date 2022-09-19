@@ -4,6 +4,8 @@
   "license": "MIT",
   "scripts": {
     "nx": "nx",
+    "ok-scoring:pg": "docker-compose -f ./infrastructure/ok-scoring-development/OK.Scoring.pg.docker-compose.yml up -d",
+    "ok-scoring:ios": "nx run-ios ok-scoring-mobile",
     "ok-scoring:android": "nx run-android ok-scoring-mobile",
     "start": "nx serve",
     "build": "nx build",
@@ -79,6 +81,7 @@
     "react-dom": "17.0.2",
     "react-helmet": "6.1.0",
     "react-native": "0.65.1",
+    "react-native-auth0": "^2.13.1",
     "react-native-gesture-handler": "^1.10.3",
     "react-native-modal-selector": "^2.1.0",
     "react-native-responsive-screen": "^1.4.2",
@@ -166,8 +169,5 @@
     "tslint": "6.1.3",
     "typescript": "4.3.5",
     "typescript-json-schema": "^0.51.0"
-  },
-  "workspaces": [
-    "libs/*"
-  ]
+  }
 }

@@ -1,8 +1,11 @@
 import { FastifyInstance } from 'fastify/types/instance';
 import { RouteGenericInterface } from 'fastify/types/route';
-import { PlayerGameEntity } from '../../../../../game-service/src/app/entities/player-game';
 import { calculatePlayerStats } from './player-stats';
 
+
+type PlayerGameEntity = {
+    playerKey: string;
+}
 
 interface PlayerStatsGetRequest extends RouteGenericInterface {
     Querystring: { startDate: string, endDate: string, playerKey: string, gameKey?: string }

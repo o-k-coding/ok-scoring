@@ -1,5 +1,24 @@
 # Ok Scoring web mono repo
 
+## Contributions
+
+This project uses yarn, if you do not have it installed then please do so!
+
+### Node >=v16.10
+
+Yarn should be managed via `corepack`. Run the enable command in the project dir and you should be good to go
+
+```bash
+corepack enable
+yarn install
+```
+
+### Node < v16.10
+
+```bash
+npm i -g yarn
+```
+
 ## Tasks
 
 Phase 1, get the code I have working and deployed
@@ -119,20 +138,25 @@ React
 nx g @nrwl/react:library
 ```
 
-## React native dependencies that might require work
+## React Native
+
+Guide blog post
+<https://blog.nrwl.io/step-by-step-guide-on-creating-a-monorepo-for-react-native-apps-using-nx-704753b6c70e>
+
+### React native dependencies that might require work
 
 - `@expo/vector-icons`
 - react-native-responsive-screen
 - react-native-svg?
 
-## Running Ok scoring mobile
+### Running Ok scoring mobile
 
 ```bash
 npx nx run-ios ok-scoring-mobile
 npx nx run-android ok-scoring-mobile
 ```
 
-TODO need to convert all touchable opacity to pressable in mobile app... ALso take a look at animations for those.
+TODO need to convert all touchable opacity to pressable in mobile app... Also take a look at animations for those.
 
 ## Generator history
 
@@ -201,3 +225,7 @@ Install packages from requirements.txt
 ```bash
 pip3 install -r requirements.txt
 ```
+
+## Authentication/Authorization
+
+OK Scoring uses Auth0 for authentication and authorization.
