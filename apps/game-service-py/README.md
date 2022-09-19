@@ -4,11 +4,20 @@ Repository for python backend for OK Scoring
 Building in progress while reading through <https://www.cosmicpython.com/book/chapter_02_repository.html>
 trying to apply concepts as much as possible as I go.
 
+## Development setup
+
 If you have venv installed
 
+<https://realpython.com/python-virtual-environments-a-primer/>
+
 ```bash
-source .venv/bin/activate
+python -m venv venv # one time setup on a new system
+source venv/bin/activate
 ```
+
+before installing the required packages, you will need to have the rust compile installed for the jsonschema_rs package
+
+<https://www.rust-lang.org/tools/install>
 
 then install requirements
 
@@ -88,6 +97,8 @@ if this is not the case, then the auto migrations will not pick up the data from
 then run the migration
 
 `alembic upgrade head`
+
+## Run the app locally
 
 ## Delete Data
 
