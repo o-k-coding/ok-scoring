@@ -1,5 +1,6 @@
 import { calculatePlayerStats, GameCalculationData } from './player-stats';
 
+// TODO adjust tests to use date number
 describe('Player Stats Functions', () => {
     const testPlayerOneKey = 'f3a96d83-4c0d-4739-8a49-48115a26f57d';
     const testPlayerTwoKey = 'b2c50e39-5b5e-4b4e-9ea6-34fab6cd4b7d';
