@@ -19,6 +19,17 @@ yarn install
 npm i -g yarn
 ```
 
+### Running an app locally
+
+Most apps can be run using a package script, passing the app name to the nx command.
+The project name is the name of the app directory, and is also the key for the project in the workspace.json file.
+
+```bash
+yarn start <project_name>
+# example
+yarn start player-stats-service
+```
+
 ## Tasks
 
 Phase 1, get the code I have working and deployed
