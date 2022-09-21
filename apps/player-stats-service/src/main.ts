@@ -12,7 +12,7 @@ function createServer() {
 
     // TODO wire DB
     // server.register(dbConnector);
-    server.register(playerStatsRoutes, { prefix: `${apiBase}/player-stats` });
+    server.register(playerStatsRoutes, { prefix: `${apiBase}` });
 
     // Run the server!
     return server;
