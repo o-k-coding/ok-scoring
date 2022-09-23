@@ -3,7 +3,7 @@ import { RouteGenericInterface } from 'fastify/types/route';
 import { calculatePlayerStats, GameCalculationData, PlayerStats } from './player-stats';
 
 interface PlayerStatsGetRequest extends RouteGenericInterface {
-    Querystring: { playerKey: string }
+    Params: { playerKey: string }
 };
 
 interface PlayerStatsPostRequest extends RouteGenericInterface {
@@ -18,7 +18,8 @@ const db: { [playerKey: string]: PlayerStats } = {
 export default async function (fastify: FastifyInstance, opts: any) {
     fastify.get<PlayerStatsGetRequest>('/:playerKey', {}, async function (request, reply) {
         try {
-            const { playerKey } = request.query;
+            console.log('keys', Object.keys(db));
+            const { playerKey } = request.params;
             // const { playerRepo, playerGameRepo } = fastify.db;
             // const player = await playerRepo.findOne(playerKey);
             const playerStats = db[playerKey];
@@ -73,7 +74,11 @@ export default async function (fastify: FastifyInstance, opts: any) {
             // TODO this seems terribly inefficient
             for (const playerScore of gameData.scoreHistory) {
                 const playerStats = db[playerScore.playerKey];
-                const newPlayerStats = calculatePlayerStats([...playerStats.games, gameData], playerScore.playerKey);
+                let games = [gameData];
+                if (playerStats?.games) {
+                    games = [...playerStats.games, gameData]
+                }
+                const newPlayerStats = calculatePlayerStats(games, playerScore.playerKey);
                 db[playerScore.playerKey] = newPlayerStats;
             }
 
