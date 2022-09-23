@@ -31,7 +31,8 @@ const createAddStats = (playerKey: string) => {
 export const calculatePlayerStats = (games: GameCalculationData[], playerKey: string): PlayerStats => {
     const addStats = createAddStats(playerKey);
     return games.reduce(({ weekDayWinLikelihood, games, ...playerWins }, game): PlayerStats => {
-        const weekDay = format(new Date(game.date), 'iii');
+        // TODO this comes through as a string right now
+        const weekDay = format(Number(game.date), 'iii');
         const weekDayStats: PlayerGameCounts = weekDayWinLikelihood[weekDay] ? weekDayWinLikelihood[weekDay] : { totalWins: 0, totalGames: 0 }
         weekDayWinLikelihood[weekDay] = addStats(weekDayStats, game.winningPlayerKey);
         return {
