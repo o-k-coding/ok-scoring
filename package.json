@@ -5,6 +5,7 @@
   "scripts": {
     "nx": "nx",
     "ok-scoring:pg": "docker-compose -f ./infrastructure/ok-scoring-development/OK.Scoring.pg.docker-compose.yml up -d",
+    "ok-scoring:pg:down": "docker-compose -f ./infrastructure/ok-scoring-development/OK.Scoring.pg.docker-compose.yml down --remove-orphans",
     "ok-scoring:ios": "nx run-ios ok-scoring-mobile",
     "ok-scoring:android": "nx run-android ok-scoring-mobile",
     "start": "nx serve",
