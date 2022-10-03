@@ -38,6 +38,31 @@ Install a driver
 go get -u github.com/lib/pq
 ```
 
+#### Migrations
+
+Using <https://github.com/golang-migrate/migrate/tree/master/cmd/migrate>
+
+used "Go Toolchain" to install, all other methods failed for me in WSL2 lol.
+
+```bash
+go install -tags 'postgres' github.com/golang-migrate/migrate/v4/cmd/migrate@latest
+```
+
+```bash
+migrate create -ext sql -dir db/migrations -seq init_schema
+```
+
+note -seq adds a sequence number to the schema.
+
+to run migrations
+
+- manually
+
+```bash
+source .env
+migrate -path db/migrations -database "postgresql://${POSTGRES_USER}:${POSTGRES_PASSWORD}@${POSTGRES_HOST}:${POSTGRES_PORT}/${POSTGRES_DB}?sslmode=disable" -verbose up
+```
+
 ### Supabase
 
 ```bash

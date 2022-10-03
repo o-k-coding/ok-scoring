@@ -25,6 +25,8 @@ Phase 3 transition/duplication
 - Set up web app for game states
 - Create json schema form generator
 - Integrate mobile app and backend services
+- Update color scheme to rose pine??
+- Chakra UI for rules UI
 
 ## Using fastify generators
 
