@@ -18,7 +18,6 @@ const db: { [playerKey: string]: PlayerStats } = {
 export default async function (fastify: FastifyInstance, opts: any) {
     fastify.get<PlayerStatsGetRequest>('/:playerKey', {}, async function (request, reply) {
         try {
-            console.log('keys', Object.keys(db));
             const { playerKey } = request.params;
             // const { playerRepo, playerGameRepo } = fastify.db;
             // const player = await playerRepo.findOne(playerKey);
@@ -68,6 +67,8 @@ export default async function (fastify: FastifyInstance, opts: any) {
     fastify.post<PlayerStatsPostRequest>('', {}, async function (request, reply) {
         try {
             const gameData = request.body;
+            // TODO no validation that game data actually exists lol
+            fastify.log.info('gameData ' + gameData.winningPlayerKey);
 
             // For each player in the game data, calculate stats
 

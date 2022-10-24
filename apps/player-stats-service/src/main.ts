@@ -1,30 +1,15 @@
 // Require the framework and instantiate it
-import fastify from 'fastify';
-import playerStatsRoutes from './app/modules/player-stats/player-stats-routes';
+import { runApplication } from './app';
+import { runCluster } from './cluster';
 // import dbConnector from './plugins/db-connector';
 
-function createServer() {
-    const server = fastify({
-        logger: true
-    })
 
-    const apiBase = 'api/player-stats';
+// TODO if cluster mode, use cluster, otherwise just start one.
+const useClusterMode = process.env['OK_SCORING_PLAYER_STATS_USE_CLUSTER_MODE'] === 'true';
 
-    // TODO wire DB
-    // server.register(dbConnector);
-    server.register(playerStatsRoutes, { prefix: `${apiBase}` });
-
-    // Run the server!
-    return server;
+if (useClusterMode) {
+    console.log('Running player stats service in cluster mode')
+    runCluster();
+} else {
+    runApplication();
 }
-
-const server = createServer();
-
-// TODO configure port
-server.listen(3001, function (err, address) {
-    if (err) {
-        server.log.error(err);
-        process.exit(1);
-    }
-    server.log.info(`server listening on ${address}`);
-})

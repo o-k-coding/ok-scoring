@@ -8,6 +8,8 @@
     "ok-scoring:pg:down": "docker-compose -f ./infrastructure/ok-scoring-development/OK.Scoring.pg.docker-compose.yml down --remove-orphans",
     "ok-scoring:ios": "nx run-ios ok-scoring-mobile",
     "ok-scoring:android": "nx run-android ok-scoring-mobile",
+    "player-stats:cluster": "OK_SCORING_PLAYER_STATS_USE_CLUSTER_MODE=true nx serve player-stats-service",
+    "player-stats:perf": "artillery run -o apps/player-stats-service/test/performance/artillery/results.json apps/player-stats-service/test/performance/artillery/create_player_stats.yml",
     "start": "nx serve",
     "build": "nx build",
     "test": "nx test",
