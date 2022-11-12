@@ -32,10 +32,15 @@ example
 #### Vegeta
 
 ```bash
-vegeta attack -targets='apps/player-stats-service/test/performance/vegeta/target.list' -rate=5 -duration=5s > apps/player-stats-service/test/performance/vegeta/result.5ps.bin
+# when running cluster mode
+vegeta attack -targets='apps/player-stats-service/test/performance/vegeta/target.list' -rate=5 -duration=5s > apps/player-stats-service/test/performance/vegeta/result-cluster.5qps.bin
+# when running single mode
+vegeta attack -targets='apps/player-stats-service/test/performance/vegeta/target.list' -rate=5 -duration=5s > apps/player-stats-service/test/performance/vegeta/result-single.5qps.bin
 
-cat apps/player-stats-service/test/performance/vegeta/result.5ps.bin | vegeta plot > apps/player-stats-service/test/performance/vegeta/plot.50qps.html
+cat apps/player-stats-service/test/performance/vegeta/result-cluster.5qps.bin | vegeta plot > apps/player-stats-service/test/performance/vegeta/plot-cluster.5qps.html
+cat apps/player-stats-service/test/performance/vegeta/result-single.5qps.bin | vegeta plot > apps/player-stats-service/test/performance/vegeta/plot-single.5qps.html
 # this is how you can combine multiple plots  vegeta plot results.50qps.bin results.100qps.bin > plot.html
+# TODO I could probbaly combine the cluster and single?
 ```
 
 TODO want to look into how to generate data. Maybe just a script that outputs to json would be the best option? Or a js script that just prints to stdout and pipe it in?
@@ -89,3 +94,84 @@ I think for a first run, this service should be standalone, and only take in the
 - MVP using in memory data []
 - API json schema for validaiton
   - Need to figure out where this lives... probably in this app dir since it is specific? but can we do better...
+
+## Running with PM2
+
+I am not sure exactly what the recommended way of running in prod is, I need to figure that out.
+
+Need to read more <https://www.fastify.io/docs/latest/Guides/Recommendations/>
+
+ but one of the courses I followed used pm2 for running in production.
+This issue shows how to do with with fastify
+<https://github.com/fastify/fastify-cli/issues/83>
+
+```bash
+npm i -g pm2
+
+# cheat sheet
+pm2 start ecosystem.config.js
+pm2 monit
+pm2 stop all/app-name
+pm2 delete all/app-name
+pm2 list
+
+# from the root
+# only run one time to setup
+
+pm2 ecosystem
+
+yarn build player-stats-service
+pm2 start
+
+# can do something like
+yarn build player-stats-service -- --watch
+# then in another console
+pm2 start apps/player-stats-service/pm2/player-stats-cluster-ecosystem.config.js
+```
+
+## RabbitMQ
+
+Producer
+
+Application that publishes messages
+
+Broker
+
+rabbitMQ, stores messages
+
+Consumer
+
+consumes/reads messages by subscribing to channels in the broker
+
+AMPQ advance message queue protocol used by rabbitmq for messaging
+
+```bash
+yarn add amqplib
+```
+
+To run the app using the rabbit mq setup with pm2
+
+```bash
+yarn ok-scoring:mq:up
+yarn build player-stats-service
+
+pm2 start apps/player-stats-service/pm2/player-stats-queue-ecosystem.config.js
+```
+
+to use the cli tool with the docker service
+
+```bash
+docker exec -it <container_id> rabbitmqctl <commands>
+```
+
+to use the web interface
+
+<http://127.0.0.1:15672/>
+
+## Redis
+
+```bash
+yarn add redis
+```
+
+luckily redis has it's own type definitions 🎉

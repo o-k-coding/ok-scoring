@@ -1,6 +1,8 @@
+import { sendGameInQueue } from '../../../mq';
 import { FastifyInstance } from 'fastify/types/instance';
 import { RouteGenericInterface } from 'fastify/types/route';
 import { calculatePlayerStats, GameCalculationData, PlayerStats } from './player-stats';
+import { PlayerStatsStore } from '../../plugins/store-connector';
 
 interface PlayerStatsGetRequest extends RouteGenericInterface {
     Params: { playerKey: string }
@@ -10,10 +12,7 @@ interface PlayerStatsPostRequest extends RouteGenericInterface {
     Body: GameCalculationData,
 };
 
-// Temporary in memory database for testing routes
-const db: { [playerKey: string]: PlayerStats } = {
 
-};
 
 export default async function (fastify: FastifyInstance, opts: any) {
     fastify.get<PlayerStatsGetRequest>('/:playerKey', {}, async function (request, reply) {
@@ -21,7 +20,7 @@ export default async function (fastify: FastifyInstance, opts: any) {
             const { playerKey } = request.params;
             // const { playerRepo, playerGameRepo } = fastify.db;
             // const player = await playerRepo.findOne(playerKey);
-            const playerStats = db[playerKey];
+            const playerStats = fastify.store.get(playerKey);
             if (!playerStats) {
                 reply.status(404).send({
                     error: `There were no player stats found for key ${playerKey}`
@@ -69,22 +68,35 @@ export default async function (fastify: FastifyInstance, opts: any) {
             const gameData = request.body;
 
             // For each player in the game data, calculate stats
+            const store: PlayerStatsStore = fastify.store;
 
             // TODO this seems terribly inefficient
             for (const playerScore of gameData.scoreHistory) {
-                const playerStats = db[playerScore.playerKey];
+                const playerStats = store.get(playerScore.playerKey);
                 let games = [gameData];
                 if (playerStats?.games) {
                     games = [...playerStats.games, gameData]
                 }
                 const newPlayerStats = calculatePlayerStats(games, playerScore.playerKey);
-                db[playerScore.playerKey] = newPlayerStats;
+                store.set(playerScore.playerKey, newPlayerStats);
             }
 
             reply.status(201).send();
         } catch (e) {
             console.error('Error saving player stats', e);
             reply.code(500).send({ error: 'There was an unexpected error saving your player stats!' });
+        }
+    });
+
+    fastify.post<PlayerStatsPostRequest>('/queue', {}, async function (request, reply) {
+        try {
+            // TODO the queue stuff doesn't use the store currently.
+            const gameData = request.body;
+            await sendGameInQueue(gameData);
+            reply.status(200).send();
+        } catch (e) {
+            console.error('Error queuing game data for calculation', e);
+            reply.code(500).send({ error: 'There was an unexpected error queueing game data for calculation!' });
         }
     });
 }

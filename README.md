@@ -44,19 +44,21 @@ Phase 3 transition/duplication
 - Port models from python [x]
 - Connect typeorm entities to a db...
 - Port e2e API tests from python
-- Port app logic from python
+- Port app logic from python -> go and ts (fastify)
 - Port routes from python
 - Fix fastify generator
 - Update fastify
 - integrate data layer for fauna for services
 - authentication
 - player stats service (ml)
-- Logging and tracing
+- Logging and tracing!!
+- Metrics!
 - Set up web app for game states
 - Create json schema form generator
 - Integrate mobile app and backend services
 - Update color scheme to rose pine??
 - Chakra UI for rules UI
+- Create an grpc gateway API, and create a test using ghz, along with graphing.
 
 ## Using fastify generators
 

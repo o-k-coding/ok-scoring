@@ -1,0 +1,17 @@
+# Common docker compose for ok scoring redis service
+
+version: '3.1'
+
+services:
+  ok-scoring-redis:
+    image: redis:7
+    restart: always
+    env_file: .env.development
+    hostname: okscoring
+    volumes:
+      - ok-scoring-mq:/data
+    ports:
+      - '6379:6379'
+
+volumes:
+  ok-scoring-redis:
