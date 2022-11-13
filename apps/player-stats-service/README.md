@@ -175,3 +175,13 @@ yarn add redis
 ```
 
 luckily redis has it's own type definitions 🎉
+
+## NGINX
+
+Web server following no threaded and event driven architecture.
+
+Also can be a reverse proxy, load balance and caching server.
+
+Benefit of reverse proxy: the proxy can know about the tls certs for many servers connected to it downstream.
+
+uses a main process and worker processes.

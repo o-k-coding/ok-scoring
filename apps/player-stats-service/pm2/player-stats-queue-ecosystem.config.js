@@ -12,6 +12,8 @@ module.exports = {
         NODE_ENV: 'development',
         // in pm2, each process is run as if it is the main, and pm2 handles all the load balancing etc
         OK_SCORING_PLAYER_STATS_USE_CLUSTER_MODE: false,
+        OK_SCORING_PLAYER_STATS_STORE: 'redis',
+        OK_SCORING_PLAYER_STATS_QUEUE: 'redis',
       },
       env_production: {
         NODE_ENV: 'production',
@@ -26,6 +28,8 @@ module.exports = {
       env: {
         NODE_ENV: 'development',
         OK_SCORING_PLAYER_STATS_USE_QUEUE_WORKER: true,
+        OK_SCORING_PLAYER_STATS_QUEUE: 'redis',
+        OK_SCORING_PLAYER_STATS_STORE: 'redis',
         OK_SCORING_PLAYER_STATS_USE_CLUSTER_MODE: false,
       },
       env_production: {

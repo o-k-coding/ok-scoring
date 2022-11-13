@@ -1,8 +1,7 @@
-import { sendGameInQueue } from '../../../mq';
 import { FastifyInstance } from 'fastify/types/instance';
 import { RouteGenericInterface } from 'fastify/types/route';
-import { calculatePlayerStats, GameCalculationData, PlayerStats } from './player-stats';
-import { PlayerStatsStore } from '../../plugins/store-connector';
+import { calculatePlayerStats, GameCalculationData } from './player-stats';
+import { PlayerStatsStore } from '../../store/store';
 
 interface PlayerStatsGetRequest extends RouteGenericInterface {
     Params: { playerKey: string }
@@ -20,7 +19,7 @@ export default async function (fastify: FastifyInstance, opts: any) {
             const { playerKey } = request.params;
             // const { playerRepo, playerGameRepo } = fastify.db;
             // const player = await playerRepo.findOne(playerKey);
-            const playerStats = fastify.store.get(playerKey);
+            const playerStats = await fastify.store.get(playerKey);
             if (!playerStats) {
                 reply.status(404).send({
                     error: `There were no player stats found for key ${playerKey}`
@@ -72,7 +71,7 @@ export default async function (fastify: FastifyInstance, opts: any) {
 
             // TODO this seems terribly inefficient
             for (const playerScore of gameData.scoreHistory) {
-                const playerStats = store.get(playerScore.playerKey);
+                const playerStats = await store.get(playerScore.playerKey);
                 let games = [gameData];
                 if (playerStats?.games) {
                     games = [...playerStats.games, gameData]
@@ -90,9 +89,9 @@ export default async function (fastify: FastifyInstance, opts: any) {
 
     fastify.post<PlayerStatsPostRequest>('/queue', {}, async function (request, reply) {
         try {
-            // TODO the queue stuff doesn't use the store currently.
+            // TODO the queue stuff doesn't use the store currently. probably need to pass the store type?? or use env variable, yeah that works.
             const gameData = request.body;
-            await sendGameInQueue(gameData);
+            await fastify.queue.sendGame(gameData);
             reply.status(200).send();
         } catch (e) {
             console.error('Error queuing game data for calculation', e);

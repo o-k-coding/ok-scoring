@@ -1,0 +1,19 @@
+# Common docker compose for ok scoring nginx service
+
+version: '3.1'
+
+services:
+  ok-scoring-nginx:
+    image: nginx:1.23
+    restart: always
+    env_file: .env.development
+    # volumes:
+    #   - ok-scoring-nginx:/data
+    volumes:
+    - ./nginx.conf:/etc/nginx/nginx.conf:ro
+    ports:
+      - '8080:80'
+
+# volumes:
+#   ok-scoring-nginx: etc/nginx/nginx.conf
+# docker exec -it 730bfaf63fdb
