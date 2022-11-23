@@ -11,6 +11,7 @@ including search functionality
 - Search functionality
 - Caching
 - Local docker development
+- grpc gateway and other practices from simple bank
 
 ## Development notes
 
@@ -28,7 +29,7 @@ Local development relies on using the development supabase account
 
 ### Local development with docker
 
-TODO
+First, must make sure that the db `ok-scoring-rules` exists in the DB
 
 ### DB
 

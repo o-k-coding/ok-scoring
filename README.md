@@ -257,6 +257,11 @@ this is not a package installed, it is already included... the build is just con
 
 ### Troubleshooting
 
+## Kafka
+
+<https://github.com/conduktor/kafka-stack-docker-compose>
+
+
 #### Workspace error
 
 If you see this error

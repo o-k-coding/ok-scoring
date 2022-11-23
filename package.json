@@ -4,7 +4,7 @@
   "license": "MIT",
   "scripts": {
     "nx": "nx",
-    "ok-scoring:pg": "docker-compose -f ./infrastructure/ok-scoring-development/OK.Scoring.pg.docker-compose.yml up -d",
+    "ok-scoring:pg:up": "docker-compose -f ./infrastructure/ok-scoring-development/OK.Scoring.pg.docker-compose.yml up -d",
     "ok-scoring:pg:down": "docker-compose -f ./infrastructure/ok-scoring-development/OK.Scoring.pg.docker-compose.yml down",
     "ok-scoring:mq:up": "docker-compose -f ./infrastructure/ok-scoring-development/OK.Scoring.rabbitmq.docker-compose.yml up",
     "ok-scoring:mq:down": "docker-compose -f ./infrastructure/ok-scoring-development/OK.Scoring.rabbitmq.docker-compose.yml down",

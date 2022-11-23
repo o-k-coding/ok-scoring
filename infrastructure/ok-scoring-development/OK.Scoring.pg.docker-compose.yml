@@ -13,7 +13,7 @@ services:
     volumes:
       - ok-scoring-data:/var/lib/postgresql
     ports:
-      - 5433:5432
+      - 5432:5432
 
 volumes:
   ok-scoring-data:
