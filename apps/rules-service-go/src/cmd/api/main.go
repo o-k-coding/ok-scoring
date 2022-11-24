@@ -3,72 +3,34 @@ package main
 import (
 	"context"
 	"database/sql"
-	"flag"
 	"fmt"
 	"log"
 	"net/http"
 	"os"
 	"time"
 
-	"github.com/joho/godotenv"
 	_ "github.com/lib/pq"
+	"okscoring.com/rules-service/src/config"
+	"okscoring.com/rules-service/src/events"
 	"okscoring.com/rules-service/src/models"
 )
 
 const version = "1.0.0"
 
-type config struct {
-	port int
-	env  string
-	db   struct {
-		dsn string
-	}
-	jwt struct {
-		secret string
-	}
-}
-
-type AppStatus struct {
-	Status      string `json:"status"`
-	Environment string `json:"environment"`
-	Version     string `json:"version"`
-}
-
+// TODO create some struct or map to hold all of the event streams the app needs. For now just have one
 type application struct {
-	config config
-	logger *log.Logger
-	models models.Models
-}
-
-func getEnvVariable(key string, env string) string {
-
-	// load .env file
-	err := godotenv.Load(fmt.Sprintf("../../../.env.%s", env))
-
-	if err != nil {
-		log.Fatalf("Error loading .env file")
-	}
-
-	return os.Getenv(key)
+	config                     *config.Config
+	logger                     *log.Logger
+	models                     models.Models
+	favoriteRuleTemplateEvents events.Events
 }
 
 func main() {
-	var cfg config
+	config, err := config.LoadConfig("../../../")
 
-	// Read an integer value as a command line argument for the port the app will listen on
-	// the default will be 4000 and the value will be saved to the cfg.port
-	flag.IntVar(&cfg.port, "port", 4000, "Server port to listen on")
-	// TODO should use this to get the correct env file
-	// Also should just build the url in the code and not use a cli flag
-	flag.StringVar(&cfg.env, "env", "development", "Application environment (development|production)")
-	flag.Parse()
-
-	cfg.db.dsn = getEnvVariable("DB_STRING", cfg.env)
-	cfg.jwt.secret = getEnvVariable("JWT_SECRET", cfg.env)
-	// Create application context
 	logger := log.New(os.Stdout, "", log.Ldate|log.Ltime)
 
-	db, err := openDb(cfg)
+	db, err := openDb(config)
 
 	if err != nil {
 		logger.Fatal(err)
@@ -76,50 +38,42 @@ func main() {
 		logger.Println("Connected to DB")
 	}
 
-	defer db.Close()
+	events := events.NewEvents("favoriterulestemplates", config)
+	err = events.Connect()
 
-	app := &application{
-		config: cfg,
-		logger: logger,
-		models: models.NewModels(db),
+	if err != nil {
+		logger.Fatal(err)
+	} else {
+		logger.Println("Connected to Events")
 	}
 
-	// This is a way to handle a web request with no 3rd part packages
-	// http.HandleFunc("/status", func(w http.ResponseWriter, r *http.Request) {
-	// 	currentStatus := AppStatus {
-	// 		Status: "Available",
-	// 		Environment: cfg.env,
-	// 		Version: version,
-	// 	}
+	defer db.Close()
+	defer events.Close()
 
-	// 	responseBody, err := json.MarshalIndent(currentStatus, "", "  ")
-	// 	if err != nil {
-	// 		log.Println(err)
-	// 	}
-
-	// 	w.Header().Set("Content-Type", "application/json")
-	// 	w.WriteHeader(http.StatusOK)
-	// 	w.Write(responseBody)
-	// })
-	// err := http.ListenAndServe(fmt.Sprintf(":%d", cfg.port), nil)
+	app := &application{
+		config:                     config,
+		logger:                     logger,
+		models:                     models.NewModels(db),
+		favoriteRuleTemplateEvents: events,
+	}
 
 	srv := &http.Server{
-		Addr:         fmt.Sprintf(":%d", cfg.port),
+		Addr:         fmt.Sprintf(":%d", config.ServerPort),
 		Handler:      app.routes(),
 		IdleTimeout:  time.Minute,
 		ReadTimeout:  10 * time.Second,
 		WriteTimeout: 30 * time.Second,
 	}
 
-	logger.Printf("Running ok scoring rules %s environment on port %d", cfg.env, cfg.port)
+	logger.Printf("Running ok scoring rules on port %d", config.ServerPort)
 	err = srv.ListenAndServe()
 	if err != nil {
 		log.Println(err)
 	}
 }
 
-func openDb(cfg config) (*sql.DB, error) {
-	db, err := sql.Open("postgres", cfg.db.dsn)
+func openDb(cfg *config.Config) (*sql.DB, error) {
+	db, err := sql.Open("postgres", cfg.DBString)
 
 	if err != nil {
 		return nil, err

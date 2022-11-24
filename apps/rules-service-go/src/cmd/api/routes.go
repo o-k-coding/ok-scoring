@@ -27,9 +27,9 @@ func (app *application) routes() http.Handler {
 	// TODO no need to use update and create in the route.
 	router.PUT("/v1/rules", app.wrapMiddleware(secure.ThenFunc(app.updateRulesTemplate)))
 	router.POST("/v1/rules", app.wrapMiddleware(secure.ThenFunc(app.createRulesTemplate)))
+	router.POST("/v1/rules/favorite", app.wrapMiddleware(secure.ThenFunc(app.favoriteRulesTemplate)))
 	router.HandlerFunc(http.MethodGet, "/v1/rules", app.getAllRulesTemplates)
 	router.HandlerFunc(http.MethodGet, "/v1/rules/:key", app.getOneRulesTemplate)
-	router.HandlerFunc(http.MethodGet, "/v1/rules/favorite", app.favoriteRulesTemplate)
 
 	// Create
 	return app.enableCors(router)

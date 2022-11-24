@@ -2,6 +2,7 @@ package main
 
 import (
 	"encoding/json"
+	"fmt"
 	"net/http"
 
 	"github.com/julienschmidt/httprouter"
@@ -51,6 +52,7 @@ func (app *application) deleteRulesTemplate(w http.ResponseWriter, r *http.Reque
 }
 
 func (app *application) favoriteRulesTemplate(w http.ResponseWriter, r *http.Request) {
+	// TODO this whole thing seems inefficient, I need to rethink the data format for the request etc.
 	var favoriteTemplate models.FavoriteTemplate
 
 	err := json.NewDecoder(r.Body).Decode(&favoriteTemplate)
@@ -59,7 +61,11 @@ func (app *application) favoriteRulesTemplate(w http.ResponseWriter, r *http.Req
 		app.writeAndSendError(w, http.StatusBadRequest, err)
 		return
 	}
-	// TODO next push to kafka for processing.
+	err = app.favoriteRuleTemplateEvents.Send(favoriteTemplate.PlayerKey, fmt.Sprintf("%s,%s", favoriteTemplate.PlayerKey, favoriteTemplate.RulesTemplateKey))
+	if err != nil {
+		app.writeAndSendError(w, http.StatusBadRequest, err)
+		return
+	}
 }
 
 // Could you this, where everything is a string
