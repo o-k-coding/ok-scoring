@@ -1,0 +1,3 @@
+curl -X POST http://localhost:4000/v1/rules/create \
+-H 'Content-Type: application/graphql' \
+-d ''

@@ -12,6 +12,7 @@ including search functionality
 - Caching
 - Local docker development
 - grpc gateway and other practices from simple bank
+- refactor to be a cli interface for starting and using the different pieces
 
 ## Development notes
 

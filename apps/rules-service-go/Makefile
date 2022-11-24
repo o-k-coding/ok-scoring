@@ -6,6 +6,9 @@ export
 # sqlc:
 # 	sqlc generate
 
+generatemigration:
+	migrate create -ext sql -dir db/migrations -seq $(MIGRATION_NAME)
+
 migratedb:
 	migrate -path db/migrations -database "postgresql://${POSTGRES_USER}:${POSTGRES_PASSWORD}@${POSTGRES_HOST}:${POSTGRES_PORT}/${POSTGRES_DB}?sslmode=${POSTGRES_SSL_MODE}" -verbose up
 

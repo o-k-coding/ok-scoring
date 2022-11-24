@@ -199,3 +199,23 @@ func (m *DBModel) UpdateRulesTemplate(rulesTemplate *GameRulesTemplate) (string,
 	}
 	return key, nil
 }
+
+func (m *DBModel) FavoriteGame(rulesTemplateKey string, playerKey string) error {
+	ctx, cancel := context.WithTimeout(context.Background(), 3*time.Second)
+	defer cancel()
+
+	// TODO the player key will come from the auth, which still needs a central service
+	statement := `
+	insert into favorite_template (rule_template_key, player_key) values (
+		$1, $2
+	) on conflict do nothing
+	`
+	m.DB.ExecContext(
+		ctx,
+		statement,
+		rulesTemplateKey,
+		playerKey,
+	)
+
+	return nil
+}

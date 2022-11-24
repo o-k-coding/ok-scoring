@@ -46,7 +46,20 @@ func (app *application) getAllRulesTemplates(w http.ResponseWriter, r *http.Requ
 	}
 }
 
+// TODO
 func (app *application) deleteRulesTemplate(w http.ResponseWriter, r *http.Request) {
+}
+
+func (app *application) favoriteRulesTemplate(w http.ResponseWriter, r *http.Request) {
+	var favoriteTemplate models.FavoriteTemplate
+
+	err := json.NewDecoder(r.Body).Decode(&favoriteTemplate)
+
+	if err != nil {
+		app.writeAndSendError(w, http.StatusBadRequest, err)
+		return
+	}
+	// TODO next push to kafka for processing.
 }
 
 // Could you this, where everything is a string
@@ -104,5 +117,6 @@ func (app *application) updateRulesTemplate(w http.ResponseWriter, r *http.Reque
 	app.writeAndSendJson(w, http.StatusCreated, key, "key")
 }
 
+// TODO
 func (app *application) searchRulesTemplates(w http.ResponseWriter, r *http.Request) {
 }

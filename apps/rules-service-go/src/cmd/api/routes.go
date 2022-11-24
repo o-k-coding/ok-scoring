@@ -24,11 +24,12 @@ func (app *application) routes() http.Handler {
 	router.HandlerFunc(http.MethodGet, "/status", app.statusHandler)
 	router.HandlerFunc(http.MethodPost, "/v1/graphql", app.graphql)
 	// router.HandlerFunc(http.MethodPost, "/v1/signin", app.signIn)
-	// router.HandlerFunc(http.MethodPut, "/v1/rules/update", app.updateRulesTemplate)
-	router.PUT("/v1/rules/update", app.wrapMiddleware(secure.ThenFunc(app.updateRulesTemplate)))
-	router.POST("/v1/rules/create", app.wrapMiddleware(secure.ThenFunc(app.createRulesTemplate)))
-	router.HandlerFunc(http.MethodGet, "/v1/rules/:key", app.getOneRulesTemplate)
+	// TODO no need to use update and create in the route.
+	router.PUT("/v1/rules", app.wrapMiddleware(secure.ThenFunc(app.updateRulesTemplate)))
+	router.POST("/v1/rules", app.wrapMiddleware(secure.ThenFunc(app.createRulesTemplate)))
 	router.HandlerFunc(http.MethodGet, "/v1/rules", app.getAllRulesTemplates)
+	router.HandlerFunc(http.MethodGet, "/v1/rules/:key", app.getOneRulesTemplate)
+	router.HandlerFunc(http.MethodGet, "/v1/rules/favorite", app.favoriteRulesTemplate)
 
 	// Create
 	return app.enableCors(router)
