@@ -12,6 +12,7 @@ type KafkaEvents struct {
 	consumer        *kafka.Reader
 	topic           string
 	brokerAddresses []string
+	pendingMessages []kafka.Message
 }
 
 func NewKafkaEvents(topic string, brokerAddresses []string) *KafkaEvents {
@@ -37,6 +38,7 @@ func (k *KafkaEvents) Connect() error {
 	k.consumer = kafka.NewReader(kafka.ReaderConfig{
 		Brokers:   k.brokerAddresses,
 		Topic:     k.topic,
+		GroupID:   "ok-scoring-rules-service",
 		Partition: 0, // TODO partitions...
 	})
 	return nil
@@ -71,11 +73,20 @@ func (k *KafkaEvents) Send(key string, message string) error {
 	return nil
 }
 
-// TODO for now this just consumes 1. Probably want to do something with a channel here for continous reading?
+// This set up implements an exactly once processing scheme.
 func (k *KafkaEvents) Consume() (string, error) {
-	m, err := k.consumer.ReadMessage(context.Background())
+	m, err := k.consumer.FetchMessage(context.Background())
 	if err != nil {
 		return "", err
 	}
+	k.pendingMessages = append(k.pendingMessages, m)
 	return string(m.Value), nil
+}
+
+func (k *KafkaEvents) ConfirmMessageProcessed() error {
+	if err := k.consumer.CommitMessages(context.Background(), k.pendingMessages...); err != nil {
+		return err
+	}
+	k.pendingMessages = []kafka.Message{}
+	return nil
 }

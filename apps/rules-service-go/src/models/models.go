@@ -24,7 +24,8 @@ type FavoriteTemplate struct {
 }
 
 type GameRulesTemplate struct {
-	Key                      string    `json:"key"`
+	Key string `json:"key"`
+	// This is the author of the template
 	PlayerKey                string    `json:"playerKey"`
 	Description              string    `json:"description"`
 	ValidStateSchema         Schema    `json:"validStateSchema"`

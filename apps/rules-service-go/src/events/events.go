@@ -7,6 +7,7 @@ type Events interface {
 	Close() error
 	Send(key string, message string) error
 	Consume() (string, error)
+	ConfirmMessageProcessed() error
 }
 
 func NewEvents(stream string, config *config.Config) Events {

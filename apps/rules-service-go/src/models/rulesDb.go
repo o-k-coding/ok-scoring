@@ -133,10 +133,11 @@ func (m *DBModel) InsertRulesTemplate(rulesTemplate *GameRulesTemplate) (string,
 		first_to_score_wins,
 		dealer_settings,
 		high_score_wins,
-		players_must_be_on_same_round
+		players_must_be_on_same_round,
+		archived
 	)
 	values (
-		$1, $2, $3, $4, $5, $6, $7, $8, $9
+		$1, $2, $3, $4, $5, $6, $7, $8, $9, false
 	)
 	`
 	key := uuid.New().String()

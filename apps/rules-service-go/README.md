@@ -22,6 +22,12 @@ Start the service locally using the custom built command runner for nx
 nx run rules-service-go:go-run
 ```
 
+to convert json file to string for curl command
+
+```bash
+cat test/cribbage-rules-template.json | tr -d '\n' | tr -d ' '
+```
+
 ### Local development with supabase
 
 Local development relies on using the development supabase account

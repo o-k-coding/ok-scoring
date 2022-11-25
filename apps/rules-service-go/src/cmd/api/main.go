@@ -7,6 +7,7 @@ import (
 	"log"
 	"net/http"
 	"os"
+	"strings"
 	"time"
 
 	_ "github.com/lib/pq"
@@ -57,6 +58,8 @@ func main() {
 		favoriteRuleTemplateEvents: events,
 	}
 
+	go app.handleFavoriteRuleTemplateMessages()
+
 	srv := &http.Server{
 		Addr:         fmt.Sprintf(":%d", config.ServerPort),
 		Handler:      app.routes(),
@@ -89,4 +92,34 @@ func openDb(cfg *config.Config) (*sql.DB, error) {
 		return nil, err
 	}
 	return db, nil
+}
+
+// TODO new file
+func (app *application) handleFavoriteRuleTemplateMessages() {
+	app.logger.Printf("Started listening for  favoriteRuleTemplateEvents")
+	defer func() {
+		err := app.favoriteRuleTemplateEvents.ConfirmMessageProcessed()
+		if err != nil {
+			app.logger.Print("error confirming message processing, possible duplicate message on next startup")
+		}
+	}()
+
+	for {
+		m, err := app.favoriteRuleTemplateEvents.Consume()
+		if err != nil {
+			break
+		}
+		app.logger.Printf("message received %s", m)
+		keys := strings.Split(m, ",")
+		err = app.models.DB.FavoriteGame(keys[1], keys[0])
+		if err != nil {
+			app.logger.Printf("error saving favorite game %s for player %s: %e", keys[1], keys[0], err)
+			continue
+		}
+		app.logger.Printf("favorite game saved %s for player %s", keys[1], keys[0])
+		err = app.favoriteRuleTemplateEvents.ConfirmMessageProcessed()
+		if err != nil {
+			app.logger.Printf("error confirming message processing, possible duplicate message on next startup %e", err)
+		}
+	}
 }
