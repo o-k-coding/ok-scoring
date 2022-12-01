@@ -1,7 +1,8 @@
 import { Link, LinksFunction, LoaderFunction, Outlet, useLoaderData } from 'remix';
 import stylesUrl from '../styles/rules.css';
 import { GameRulesTemplate } from '@ok-scoring/data/game-models';
-
+import { Button, Heading, Link as ChakraLink } from '@chakra-ui/react';
+import { AddIcon } from '@chakra-ui/icons'
 export const links: LinksFunction = () => {
   return [
     {
@@ -28,32 +29,41 @@ export default function RulesRoute() {
   return (
     <div className="rules-layout">
       <header className="rules-header">
-        <div className="container">
-          <h1 className="home-link">
-            <Link
-              to="/"
-              title="Remix rules"
-              aria-label="Remix rules"
-            >
-              <span className="logo-medium">Game Rules Templates</span>
-            </Link>
-          </h1>
-        </div>
+        <Heading as="h1">
+          <ChakraLink
+            as={Link}
+            to="/"
+            title="Remix rules"
+            aria-label="Remix rules"
+          >
+            Game Rules Templates
+          </ChakraLink>
+        </Heading>
       </header>
       <main className="rules-main">
         <div className="container">
           <div className="rules-list">
+            {/* <Link to="new" className="button">
+
+            </Link> */}
+            <Button as={Link} to={"new"} colorScheme='brand' variant='link' rightIcon={<AddIcon />} marginBottom='4'>
+              Add a new rule
+            </Button>
             <p>Here are a few more rules to check out:</p>
             <ul>
               {data.data.map(rule => (
                 <li key={rule.key}>
-                  <Link to={rule.key}>{rule.description}</Link>
+                  <ChakraLink
+                    as={Link}
+                    to={rule.key}
+                    title="Remix rules"
+                    aria-label="Remix rules"
+                  >
+                    {rule.description}
+                  </ChakraLink>
                 </li>
               ))}
             </ul>
-            <Link to="new" className="button">
-              Add your own
-            </Link>
           </div>
           <div className="rules-outlet">
             <Outlet />

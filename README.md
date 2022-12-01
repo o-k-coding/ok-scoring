@@ -1,5 +1,35 @@
 # Ok Scoring web mono repo
 
+## Contributions
+
+This project uses yarn, if you do not have it installed then please do so!
+
+### Node >=v16.10
+
+Yarn should be managed via `corepack`. Run the enable command in the project dir and you should be good to go
+
+```bash
+corepack enable
+yarn install
+```
+
+### Node < v16.10
+
+```bash
+npm i -g yarn
+```
+
+### Running an app locally
+
+Most apps can be run using a package script, passing the app name to the nx command.
+The project name is the name of the app directory, and is also the key for the project in the workspace.json file.
+
+```bash
+yarn start <project_name>
+# example
+yarn start player-stats-service
+```
+
 ## Tasks
 
 Phase 1, get the code I have working and deployed
@@ -14,17 +44,21 @@ Phase 3 transition/duplication
 - Port models from python [x]
 - Connect typeorm entities to a db...
 - Port e2e API tests from python
-- Port app logic from python
+- Port app logic from python -> go and ts (fastify)
 - Port routes from python
 - Fix fastify generator
 - Update fastify
 - integrate data layer for fauna for services
 - authentication
 - player stats service (ml)
-- Logging and tracing
+- Logging and tracing!!
+- Metrics!
 - Set up web app for game states
 - Create json schema form generator
 - Integrate mobile app and backend services
+- Update color scheme to rose pine??
+- Chakra UI for rules UI
+- Create an grpc gateway API, and create a test using ghz, along with graphing.
 
 ## Using fastify generators
 
@@ -119,20 +153,25 @@ React
 nx g @nrwl/react:library
 ```
 
-## React native dependencies that might require work
+## React Native
+
+Guide blog post
+<https://blog.nrwl.io/step-by-step-guide-on-creating-a-monorepo-for-react-native-apps-using-nx-704753b6c70e>
+
+### React native dependencies that might require work
 
 - `@expo/vector-icons`
 - react-native-responsive-screen
 - react-native-svg?
 
-## Running Ok scoring mobile
+### Running Ok scoring mobile
 
 ```bash
 npx nx run-ios ok-scoring-mobile
 npx nx run-android ok-scoring-mobile
 ```
 
-TODO need to convert all touchable opacity to pressable in mobile app... ALso take a look at animations for those.
+TODO need to convert all touchable opacity to pressable in mobile app... Also take a look at animations for those.
 
 ## Generator history
 
@@ -201,3 +240,38 @@ Install packages from requirements.txt
 ```bash
 pip3 install -r requirements.txt
 ```
+
+## Chakra UI
+
+OK Scoring is using the Chakra UI component library for web styling
+
+One note, the remix build says
+
+```bash
+The path "@emotion/cache" is imported in app/createEmotionCache.ts but @emotion/cache is not listed in your package.json dependencies. Did you forget to install it?
+```
+
+this is not a package installed, it is already included... the build is just confused it seems.
+
+## Yarn
+
+### Troubleshooting
+
+## Kafka
+
+<https://github.com/conduktor/kafka-stack-docker-compose>
+
+
+#### Workspace error
+
+If you see this error
+
+```text
+error Running this command will add the dependency to the workspace root rather than the workspace itself, which might not be what you want - if you really meant it, make it explicit by running this command again with the -W flag (or --ignore-workspace-root-check).
+```
+
+just run the yarn command with `-W` this will work
+
+## Authentication/Authorization
+
+OK Scoring uses Auth0 for authentication and authorization.

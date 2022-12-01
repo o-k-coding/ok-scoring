@@ -9,7 +9,12 @@
   "overrides": [
     {
       "files": ["*.ts", "*.tsx", "*.js", "*.jsx"],
-      "rules": {}
+      "rules": {
+        "@next/next/no-html-link-for-pages": [
+          "error",
+          "apps/ok-scoring-web/pages"
+        ]
+      }
     },
     {
       "files": ["*.ts", "*.tsx"],

@@ -11,8 +11,7 @@ export interface GameState {
     activePlayerKey?: string;
     dealingPlayerKey?: string;
 
-    // Relationships
-    // new
     rules?: GameRules;
+    // An array of score histories, each player in the game will have exactly 1 entry in this array
     scoreHistory?: PlayerScoreHistory[];
 }

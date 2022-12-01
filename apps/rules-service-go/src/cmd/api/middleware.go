@@ -48,7 +48,7 @@ func (app *application) checkToken(next http.Handler) http.Handler {
 
 		token := headerParts[1]
 
-		claims, err := jwt.HMACCheck([]byte(token), []byte(app.config.jwt.secret))
+		claims, err := jwt.HMACCheck([]byte(token), []byte(app.config.JwtSecret))
 
 		// TODO in this case we could acually break each of these out and log them internally
 		// in a more specific way, but only return unauthorized to the client

@@ -23,6 +23,8 @@
     "react-native-modal-selector": "*",
     "react-native-swipe-gestures": "*",
     "@react-navigation/native-stack": "*",
-    "react-native-screens": "*"
+    "react-native-screens": "*",
+    "react-native-auth0": "*",
+    "ajv": "*"
   }
 }

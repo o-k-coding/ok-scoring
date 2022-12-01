@@ -13,18 +13,18 @@ import (
 	"okscoring.com/rules-service/src/models"
 )
 
-var validUser = models.Player{
-	Key: "984e59db-bae2-418b-b2d4-243427734a02",
-	Email: "ok.coding355@gmail.com",
-	Password: getEnvVariable("DUMMY_PASSWORD_HASH", "development"),
-}
-
 type Credentials struct {
 	Username string `json:"email"`
 	Password string `json:"password"`
 }
 
 func (app *application) SignIn(w http.ResponseWriter, r *http.Request) {
+	// TODO temporary
+	var validUser = models.Player{
+		Key:      "984e59db-bae2-418b-b2d4-243427734a02",
+		Email:    "ok.coding355@gmail.com",
+		Password: app.config.DummyPasswordHash,
+	}
 	var creds Credentials
 
 	err := json.NewDecoder(r.Body).Decode(&creds)
@@ -52,7 +52,7 @@ func (app *application) SignIn(w http.ResponseWriter, r *http.Request) {
 	claims.Issuer = "ok-scoring.com"
 	claims.Audiences = []string{"ok-scoring.com"}
 
-	jwtBytes, err := claims.HMACSign(jwt.HS256, []byte(app.config.jwt.secret))
+	jwtBytes, err := claims.HMACSign(jwt.HS256, []byte(app.config.JwtSecret))
 
 	if err != nil {
 		app.writeAndSendError(w, http.StatusInternalServerError, errors.New("error signing token"))
