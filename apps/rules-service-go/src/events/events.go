@@ -1,6 +1,10 @@
 package events
 
-import "okscoring.com/rules-service/src/config"
+import (
+	"log"
+
+	"okscoring.com/rules-service/src/config"
+)
 
 type Events interface {
 	Connect() error
@@ -15,6 +19,7 @@ func NewEvents(stream string, config *config.Config) Events {
 	case "kafka":
 		return NewKafkaEvents(stream, config.EventHosts)
 	default:
+		log.Printf("EventType %s not supported", config.EventType)
 		return nil
 	}
 }

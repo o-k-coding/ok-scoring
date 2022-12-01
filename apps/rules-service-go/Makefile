@@ -1,4 +1,4 @@
--include .env.development
+-include .env
 export
 
 # TODO installation of tools
