@@ -68,7 +68,7 @@
     "document-register-element": "1.13.1",
     "expo-font": "^9.2.1",
     "expo-sqlite": "^9.2.1",
-    "fastify": "^3.1.1",
+    "fastify": "^3.29.4",
     "fastify-plugin": "^2.0.1",
     "firebase-admin": "^9.0.0",
     "framer-motion": "^6",
