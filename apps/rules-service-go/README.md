@@ -11,6 +11,8 @@ including search functionality
 - Search functionality
 - Caching
 - Local docker development
+- grpc gateway and other practices from simple bank
+- refactor to be a cli interface for starting and using the different pieces
 
 ## Development notes
 
@@ -18,6 +20,12 @@ Start the service locally using the custom built command runner for nx
 
 ```bash
 nx run rules-service-go:go-run
+```
+
+to convert json file to string for curl command
+
+```bash
+cat test/cribbage-rules-template.json | tr -d '\n' | tr -d ' '
 ```
 
 ### Local development with supabase
@@ -28,7 +36,7 @@ Local development relies on using the development supabase account
 
 ### Local development with docker
 
-TODO
+First, must make sure that the db `ok-scoring-rules` exists in the DB
 
 ### DB
 

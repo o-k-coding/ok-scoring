@@ -5,7 +5,6 @@ import (
 	"net/http"
 
 	"github.com/julienschmidt/httprouter"
-	"github.com/justinas/alice"
 )
 
 func (app *application) wrapMiddleware(next http.Handler) httprouter.Handle {
@@ -19,16 +18,20 @@ func (app *application) wrapMiddleware(next http.Handler) httprouter.Handle {
 // Receiver function on the application type
 func (app *application) routes() http.Handler {
 	router := httprouter.New()
-	secure := alice.New(app.checkToken)
+	// secure := alice.New(app.checkToken)
 
 	router.HandlerFunc(http.MethodGet, "/status", app.statusHandler)
 	router.HandlerFunc(http.MethodPost, "/v1/graphql", app.graphql)
 	// router.HandlerFunc(http.MethodPost, "/v1/signin", app.signIn)
-	// router.HandlerFunc(http.MethodPut, "/v1/rules/update", app.updateRulesTemplate)
-	router.PUT("/v1/rules/update", app.wrapMiddleware(secure.ThenFunc(app.updateRulesTemplate)))
-	router.POST("/v1/rules/create", app.wrapMiddleware(secure.ThenFunc(app.createRulesTemplate)))
-	router.HandlerFunc(http.MethodGet, "/v1/rules/:key", app.getOneRulesTemplate)
+	// TODO authentication
+	// router.PUT("/v1/rules", app.wrapMiddleware(secure.ThenFunc(app.updateRulesTemplate)))
+	// router.POST("/v1/rules", app.wrapMiddleware(secure.ThenFunc(app.createRulesTemplate)))
+	// router.POST("/v1/rules/favorite", app.wrapMiddleware(secure.ThenFunc(app.favoriteRulesTemplate)))
+	router.HandlerFunc(http.MethodPut, "/v1/rules", app.updateRulesTemplate)
+	router.HandlerFunc(http.MethodPost, "/v1/rules", app.createRulesTemplate)
+	router.HandlerFunc(http.MethodPost, "/v1/rules/favorite", app.favoriteRulesTemplate)
 	router.HandlerFunc(http.MethodGet, "/v1/rules", app.getAllRulesTemplates)
+	router.HandlerFunc(http.MethodGet, "/v1/rules/:key", app.getOneRulesTemplate)
 
 	// Create
 	return app.enableCors(router)

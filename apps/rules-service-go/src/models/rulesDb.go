@@ -133,10 +133,11 @@ func (m *DBModel) InsertRulesTemplate(rulesTemplate *GameRulesTemplate) (string,
 		first_to_score_wins,
 		dealer_settings,
 		high_score_wins,
-		players_must_be_on_same_round
+		players_must_be_on_same_round,
+		archived
 	)
 	values (
-		$1, $2, $3, $4, $5, $6, $7, $8, $9
+		$1, $2, $3, $4, $5, $6, $7, $8, $9, false
 	)
 	`
 	key := uuid.New().String()
@@ -198,4 +199,24 @@ func (m *DBModel) UpdateRulesTemplate(rulesTemplate *GameRulesTemplate) (string,
 		return "", err
 	}
 	return key, nil
+}
+
+func (m *DBModel) FavoriteGame(rulesTemplateKey string, playerKey string) error {
+	ctx, cancel := context.WithTimeout(context.Background(), 3*time.Second)
+	defer cancel()
+
+	// TODO the player key will come from the auth, which still needs a central service
+	statement := `
+	insert into favorite_template (rule_template_key, player_key) values (
+		$1, $2
+	) on conflict do nothing
+	`
+	m.DB.ExecContext(
+		ctx,
+		statement,
+		rulesTemplateKey,
+		playerKey,
+	)
+
+	return nil
 }

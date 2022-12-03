@@ -1,0 +1,19 @@
+# Common docker compose for ok scoring rabbit mq service
+
+version: '3.1'
+
+services:
+  ok-scoring-mq:
+    # image: rabbitmq:3  #without management ui
+    image: rabbitmq:3-management
+    restart: always
+    env_file: .env.development
+    hostname: okscoring
+    volumes:
+      - ok-scoring-mq:/var/lib/rabbitmq/mnesia/
+    ports:
+      - "15672:15672"
+      - "5672:5672"
+
+volumes:
+  ok-scoring-mq:

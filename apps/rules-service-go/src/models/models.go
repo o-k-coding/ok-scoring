@@ -12,14 +12,20 @@ type Player struct {
 	Key      string `json:"key"`
 	Name     string `json:"name"`
 	Favorite bool   `json:"favorite"`
-	Email   string  `json:"-"`
+	Email    string `json:"-"`
 	Password string `json:"-"`
 }
 
 type Schema map[string]interface{}
 
+type FavoriteTemplate struct {
+	RulesTemplateKey string `json:"rulesTemplateKey"`
+	PlayerKey        string `json:"playerKey"`
+}
+
 type GameRulesTemplate struct {
-	Key                      string    `json:"key"`
+	Key string `json:"key"`
+	// This is the author of the template
 	PlayerKey                string    `json:"playerKey"`
 	Description              string    `json:"description"`
 	ValidStateSchema         Schema    `json:"validStateSchema"`

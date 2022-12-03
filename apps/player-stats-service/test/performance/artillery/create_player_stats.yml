@@ -1,0 +1,23 @@
+config:
+  target: "http://127.0.0.1:3001/api"
+  phases:
+    - duration: 60
+      arrivalRate: 20
+      name: "Warming up"
+    - duration: 240
+      arrivalRate: 20
+      rampTo: 100
+      name: "Ramping up"
+    - duration: 500
+      arrivalRate: 100
+      name: "Sustained load"
+  processor: "./processor.js"
+
+scenarios:
+  - name: "Create player stats"
+    flow:
+      - post:
+          url: "/player-stats"
+          beforeRequest: generateGameData
+          json:
+            "{{data}}"

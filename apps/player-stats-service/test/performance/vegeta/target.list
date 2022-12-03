@@ -1,0 +1,3 @@
+POST http://127.0.0.1:3001/api/player-stats
+Content-Type: application/json
+@apps/player-stats-service/test/test-game.json

@@ -1,0 +1,6077 @@
+{
+  "aggregate": {
+    "counters": {
+      "vusers.created_by_name.Create player stats": 65686,
+      "vusers.created": 65686,
+      "http.requests": 65686,
+      "http.codes.201": 65543,
+      "http.responses": 65543,
+      "vusers.failed": 143,
+      "vusers.completed": 65543,
+      "errors.ECONNRESET": 3,
+      "errors.ECONNREFUSED": 140
+    },
+    "rates": {
+      "http.request_rate": 84
+    },
+    "firstCounterAt": 1668226276011,
+    "firstHistogramAt": 1668226276035,
+    "lastCounterAt": 1668227076213,
+    "lastHistogramAt": 1668227076213,
+    "firstMetricAt": 1668226276011,
+    "lastMetricAt": 1668227076213,
+    "period": 1668227070000,
+    "summaries": {
+      "http.response_time": {
+        "min": -1,
+        "max": 3477,
+        "count": 65542,
+        "p50": 1,
+        "median": 1,
+        "p75": 1,
+        "p90": 1,
+        "p95": 2,
+        "p99": 147,
+        "p999": 3328.3
+      },
+      "vusers.session_length": {
+        "min": 1,
+        "max": 7411.5,
+        "count": 65543,
+        "p50": 1.6,
+        "median": 1.6,
+        "p75": 2,
+        "p90": 2.9,
+        "p95": 5,
+        "p99": 1200.1,
+        "p999": 7260.8
+      }
+    },
+    "histograms": {
+      "http.response_time": {
+        "min": -1,
+        "max": 3477,
+        "count": 65542,
+        "p50": 1,
+        "median": 1,
+        "p75": 1,
+        "p90": 1,
+        "p95": 2,
+        "p99": 147,
+        "p999": 3328.3
+      },
+      "vusers.session_length": {
+        "min": 1,
+        "max": 7411.5,
+        "count": 65543,
+        "p50": 1.6,
+        "median": 1.6,
+        "p75": 2,
+        "p90": 2.9,
+        "p95": 5,
+        "p99": 1200.1,
+        "p999": 7260.8
+      }
+    }
+  },
+  "intermediate": [
+    {
+      "counters": {
+        "vusers.created_by_name.Create player stats": 80,
+        "vusers.created": 80,
+        "http.requests": 80,
+        "http.codes.201": 80,
+        "http.responses": 80,
+        "vusers.failed": 0,
+        "vusers.completed": 80
+      },
+      "rates": {
+        "http.request_rate": 20
+      },
+      "http.request_rate": null,
+      "firstCounterAt": 1668226276011,
+      "firstHistogramAt": 1668226276035,
+      "lastCounterAt": 1668226279967,
+      "lastHistogramAt": 1668226279967,
+      "firstMetricAt": 1668226276011,
+      "lastMetricAt": 1668226279967,
+      "period": "1668226270000",
+      "summaries": {
+        "http.response_time": {
+          "min": 0,
+          "max": 12,
+          "count": 80,
+          "p50": 1,
+          "median": 1,
+          "p75": 1,
+          "p90": 1,
+          "p95": 1,
+          "p99": 7.9,
+          "p999": 7.9
+        },
+        "vusers.session_length": {
+          "min": 1.8,
+          "max": 26.9,
+          "count": 80,
+          "p50": 2.5,
+          "median": 2.5,
+          "p75": 2.9,
+          "p90": 3.7,
+          "p95": 14.7,
+          "p99": 18,
+          "p999": 18
+        }
+      },
+      "histograms": {
+        "http.response_time": {
+          "min": 0,
+          "max": 12,
+          "count": 80,
+          "p50": 1,
+          "median": 1,
+          "p75": 1,
+          "p90": 1,
+          "p95": 1,
+          "p99": 7.9,
+          "p999": 7.9
+        },
+        "vusers.session_length": {
+          "min": 1.8,
+          "max": 26.9,
+          "count": 80,
+          "p50": 2.5,
+          "median": 2.5,
+          "p75": 2.9,
+          "p90": 3.7,
+          "p95": 14.7,
+          "p99": 18,
+          "p999": 18
+        }
+      }
+    },
+    {
+      "counters": {
+        "vusers.created_by_name.Create player stats": 200,
+        "vusers.created": 200,
+        "http.requests": 200,
+        "http.codes.201": 200,
+        "http.responses": 200,
+        "vusers.failed": 0,
+        "vusers.completed": 200
+      },
+      "rates": {
+        "http.request_rate": 20
+      },
+      "http.request_rate": null,
+      "firstCounterAt": 1668226280010,
+      "firstHistogramAt": 1668226280012,
+      "lastCounterAt": 1668226289967,
+      "lastHistogramAt": 1668226289967,
+      "firstMetricAt": 1668226280010,
+      "lastMetricAt": 1668226289967,
+      "period": "1668226280000",
+      "summaries": {
+        "http.response_time": {
+          "min": 0,
+          "max": 7,
+          "count": 200,
+          "p50": 1,
+          "median": 1,
+          "p75": 1,
+          "p90": 2,
+          "p95": 2,
+          "p99": 4,
+          "p999": 4
+        },
+        "vusers.session_length": {
+          "min": 1.5,
+          "max": 9.3,
+          "count": 200,
+          "p50": 2.3,
+          "median": 2.3,
+          "p75": 3.1,
+          "p90": 4.1,
+          "p95": 5.3,
+          "p99": 7.2,
+          "p999": 8.6
+        }
+      },
+      "histograms": {
+        "http.response_time": {
+          "min": 0,
+          "max": 7,
+          "count": 200,
+          "p50": 1,
+          "median": 1,
+          "p75": 1,
+          "p90": 2,
+          "p95": 2,
+          "p99": 4,
+          "p999": 4
+        },
+        "vusers.session_length": {
+          "min": 1.5,
+          "max": 9.3,
+          "count": 200,
+          "p50": 2.3,
+          "median": 2.3,
+          "p75": 3.1,
+          "p90": 4.1,
+          "p95": 5.3,
+          "p99": 7.2,
+          "p999": 8.6
+        }
+      }
+    },
+    {
+      "counters": {
+        "vusers.created_by_name.Create player stats": 200,
+        "vusers.created": 200,
+        "http.requests": 200,
+        "http.codes.201": 200,
+        "http.responses": 200,
+        "vusers.failed": 0,
+        "vusers.completed": 200
+      },
+      "rates": {
+        "http.request_rate": 20
+      },
+      "http.request_rate": null,
+      "firstCounterAt": 1668226290010,
+      "firstHistogramAt": 1668226290013,
+      "lastCounterAt": 1668226299967,
+      "lastHistogramAt": 1668226299967,
+      "firstMetricAt": 1668226290010,
+      "lastMetricAt": 1668226299967,
+      "period": "1668226290000",
+      "summaries": {
+        "http.response_time": {
+          "min": 0,
+          "max": 4,
+          "count": 200,
+          "p50": 1,
+          "median": 1,
+          "p75": 1,
+          "p90": 1,
+          "p95": 2,
+          "p99": 3,
+          "p999": 3
+        },
+        "vusers.session_length": {
+          "min": 1.5,
+          "max": 8,
+          "count": 200,
+          "p50": 2.1,
+          "median": 2.1,
+          "p75": 2.7,
+          "p90": 4.3,
+          "p95": 4.5,
+          "p99": 6.6,
+          "p999": 7.8
+        }
+      },
+      "histograms": {
+        "http.response_time": {
+          "min": 0,
+          "max": 4,
+          "count": 200,
+          "p50": 1,
+          "median": 1,
+          "p75": 1,
+          "p90": 1,
+          "p95": 2,
+          "p99": 3,
+          "p999": 3
+        },
+        "vusers.session_length": {
+          "min": 1.5,
+          "max": 8,
+          "count": 200,
+          "p50": 2.1,
+          "median": 2.1,
+          "p75": 2.7,
+          "p90": 4.3,
+          "p95": 4.5,
+          "p99": 6.6,
+          "p999": 7.8
+        }
+      }
+    },
+    {
+      "counters": {
+        "vusers.created_by_name.Create player stats": 200,
+        "vusers.created": 200,
+        "http.requests": 200,
+        "http.codes.201": 200,
+        "http.responses": 200,
+        "vusers.failed": 0,
+        "vusers.completed": 200
+      },
+      "rates": {
+        "http.request_rate": 20
+      },
+      "http.request_rate": null,
+      "firstCounterAt": 1668226300010,
+      "firstHistogramAt": 1668226300013,
+      "lastCounterAt": 1668226309967,
+      "lastHistogramAt": 1668226309967,
+      "firstMetricAt": 1668226300010,
+      "lastMetricAt": 1668226309967,
+      "period": "1668226300000",
+      "summaries": {
+        "http.response_time": {
+          "min": 0,
+          "max": 6,
+          "count": 200,
+          "p50": 1,
+          "median": 1,
+          "p75": 1,
+          "p90": 1,
+          "p95": 2,
+          "p99": 3,
+          "p999": 4
+        },
+        "vusers.session_length": {
+          "min": 1.5,
+          "max": 9,
+          "count": 200,
+          "p50": 2.4,
+          "median": 2.4,
+          "p75": 3.2,
+          "p90": 4.4,
+          "p95": 5.2,
+          "p99": 6.5,
+          "p999": 6.8
+        }
+      },
+      "histograms": {
+        "http.response_time": {
+          "min": 0,
+          "max": 6,
+          "count": 200,
+          "p50": 1,
+          "median": 1,
+          "p75": 1,
+          "p90": 1,
+          "p95": 2,
+          "p99": 3,
+          "p999": 4
+        },
+        "vusers.session_length": {
+          "min": 1.5,
+          "max": 9,
+          "count": 200,
+          "p50": 2.4,
+          "median": 2.4,
+          "p75": 3.2,
+          "p90": 4.4,
+          "p95": 5.2,
+          "p99": 6.5,
+          "p999": 6.8
+        }
+      }
+    },
+    {
+      "counters": {
+        "vusers.created_by_name.Create player stats": 200,
+        "vusers.created": 200,
+        "http.requests": 200,
+        "http.codes.201": 200,
+        "http.responses": 200,
+        "vusers.failed": 0,
+        "vusers.completed": 200
+      },
+      "rates": {
+        "http.request_rate": 20
+      },
+      "http.request_rate": null,
+      "firstCounterAt": 1668226310010,
+      "firstHistogramAt": 1668226310013,
+      "lastCounterAt": 1668226319966,
+      "lastHistogramAt": 1668226319966,
+      "firstMetricAt": 1668226310010,
+      "lastMetricAt": 1668226319966,
+      "period": "1668226310000",
+      "summaries": {
+        "http.response_time": {
+          "min": 0,
+          "max": 4,
+          "count": 200,
+          "p50": 1,
+          "median": 1,
+          "p75": 1,
+          "p90": 2,
+          "p95": 2,
+          "p99": 2,
+          "p999": 3
+        },
+        "vusers.session_length": {
+          "min": 1.5,
+          "max": 6.9,
+          "count": 200,
+          "p50": 2,
+          "median": 2,
+          "p75": 2.7,
+          "p90": 3.5,
+          "p95": 4,
+          "p99": 4.9,
+          "p999": 5.9
+        }
+      },
+      "histograms": {
+        "http.response_time": {
+          "min": 0,
+          "max": 4,
+          "count": 200,
+          "p50": 1,
+          "median": 1,
+          "p75": 1,
+          "p90": 2,
+          "p95": 2,
+          "p99": 2,
+          "p999": 3
+        },
+        "vusers.session_length": {
+          "min": 1.5,
+          "max": 6.9,
+          "count": 200,
+          "p50": 2,
+          "median": 2,
+          "p75": 2.7,
+          "p90": 3.5,
+          "p95": 4,
+          "p99": 4.9,
+          "p999": 5.9
+        }
+      }
+    },
+    {
+      "counters": {
+        "vusers.created_by_name.Create player stats": 200,
+        "vusers.created": 200,
+        "http.requests": 200,
+        "http.codes.201": 200,
+        "http.responses": 200,
+        "vusers.failed": 0,
+        "vusers.completed": 200
+      },
+      "rates": {
+        "http.request_rate": 20
+      },
+      "http.request_rate": null,
+      "firstCounterAt": 1668226320010,
+      "firstHistogramAt": 1668226320013,
+      "lastCounterAt": 1668226329967,
+      "lastHistogramAt": 1668226329967,
+      "firstMetricAt": 1668226320010,
+      "lastMetricAt": 1668226329967,
+      "period": "1668226320000",
+      "summaries": {
+        "http.response_time": {
+          "min": 0,
+          "max": 3,
+          "count": 200,
+          "p50": 1,
+          "median": 1,
+          "p75": 1,
+          "p90": 1,
+          "p95": 1,
+          "p99": 2,
+          "p999": 2
+        },
+        "vusers.session_length": {
+          "min": 1.5,
+          "max": 9.8,
+          "count": 200,
+          "p50": 1.8,
+          "median": 1.8,
+          "p75": 2.2,
+          "p90": 2.9,
+          "p95": 3.2,
+          "p99": 7,
+          "p999": 7
+        }
+      },
+      "histograms": {
+        "http.response_time": {
+          "min": 0,
+          "max": 3,
+          "count": 200,
+          "p50": 1,
+          "median": 1,
+          "p75": 1,
+          "p90": 1,
+          "p95": 1,
+          "p99": 2,
+          "p999": 2
+        },
+        "vusers.session_length": {
+          "min": 1.5,
+          "max": 9.8,
+          "count": 200,
+          "p50": 1.8,
+          "median": 1.8,
+          "p75": 2.2,
+          "p90": 2.9,
+          "p95": 3.2,
+          "p99": 7,
+          "p999": 7
+        }
+      }
+    },
+    {
+      "counters": {
+        "vusers.created_by_name.Create player stats": 203,
+        "vusers.created": 203,
+        "http.requests": 203,
+        "http.codes.201": 203,
+        "http.responses": 203,
+        "vusers.failed": 0,
+        "vusers.completed": 203
+      },
+      "rates": {
+        "http.request_rate": 20
+      },
+      "http.request_rate": null,
+      "firstCounterAt": 1668226330011,
+      "firstHistogramAt": 1668226330013,
+      "lastCounterAt": 1668226339974,
+      "lastHistogramAt": 1668226339974,
+      "firstMetricAt": 1668226330011,
+      "lastMetricAt": 1668226339974,
+      "period": "1668226330000",
+      "summaries": {
+        "http.response_time": {
+          "min": 0,
+          "max": 3,
+          "count": 203,
+          "p50": 1,
+          "median": 1,
+          "p75": 1,
+          "p90": 1,
+          "p95": 1,
+          "p99": 2,
+          "p999": 3
+        },
+        "vusers.session_length": {
+          "min": 1.2,
+          "max": 5.8,
+          "count": 203,
+          "p50": 1.8,
+          "median": 1.8,
+          "p75": 2.4,
+          "p90": 3,
+          "p95": 3.4,
+          "p99": 5.1,
+          "p999": 5.4
+        }
+      },
+      "histograms": {
+        "http.response_time": {
+          "min": 0,
+          "max": 3,
+          "count": 203,
+          "p50": 1,
+          "median": 1,
+          "p75": 1,
+          "p90": 1,
+          "p95": 1,
+          "p99": 2,
+          "p999": 3
+        },
+        "vusers.session_length": {
+          "min": 1.2,
+          "max": 5.8,
+          "count": 203,
+          "p50": 1.8,
+          "median": 1.8,
+          "p75": 2.4,
+          "p90": 3,
+          "p95": 3.4,
+          "p99": 5.1,
+          "p999": 5.4
+        }
+      }
+    },
+    {
+      "counters": {
+        "vusers.created_by_name.Create player stats": 205,
+        "vusers.created": 205,
+        "http.requests": 205,
+        "http.codes.201": 205,
+        "http.responses": 205,
+        "vusers.failed": 0,
+        "vusers.completed": 205
+      },
+      "rates": {
+        "http.request_rate": 23
+      },
+      "http.request_rate": null,
+      "firstCounterAt": 1668226340132,
+      "firstHistogramAt": 1668226340133,
+      "lastCounterAt": 1668226349705,
+      "lastHistogramAt": 1668226349705,
+      "firstMetricAt": 1668226340132,
+      "lastMetricAt": 1668226349705,
+      "period": "1668226340000",
+      "summaries": {
+        "http.response_time": {
+          "min": 0,
+          "max": 4,
+          "count": 205,
+          "p50": 1,
+          "median": 1,
+          "p75": 1,
+          "p90": 1,
+          "p95": 2,
+          "p99": 2,
+          "p999": 3
+        },
+        "vusers.session_length": {
+          "min": 1.2,
+          "max": 8.2,
+          "count": 205,
+          "p50": 1.8,
+          "median": 1.8,
+          "p75": 2.7,
+          "p90": 4.4,
+          "p95": 4.7,
+          "p99": 7,
+          "p999": 8.1
+        }
+      },
+      "histograms": {
+        "http.response_time": {
+          "min": 0,
+          "max": 4,
+          "count": 205,
+          "p50": 1,
+          "median": 1,
+          "p75": 1,
+          "p90": 1,
+          "p95": 2,
+          "p99": 2,
+          "p999": 3
+        },
+        "vusers.session_length": {
+          "min": 1.2,
+          "max": 8.2,
+          "count": 205,
+          "p50": 1.8,
+          "median": 1.8,
+          "p75": 2.7,
+          "p90": 4.4,
+          "p95": 4.7,
+          "p99": 7,
+          "p999": 8.1
+        }
+      }
+    },
+    {
+      "counters": {
+        "vusers.created_by_name.Create player stats": 246,
+        "vusers.created": 246,
+        "http.requests": 246,
+        "http.codes.201": 246,
+        "http.responses": 246,
+        "vusers.failed": 0,
+        "vusers.completed": 246
+      },
+      "rates": {
+        "http.request_rate": 25
+      },
+      "http.request_rate": null,
+      "firstCounterAt": 1668226350052,
+      "firstHistogramAt": 1668226350055,
+      "lastCounterAt": 1668226359985,
+      "lastHistogramAt": 1668226359985,
+      "firstMetricAt": 1668226350052,
+      "lastMetricAt": 1668226359985,
+      "period": "1668226350000",
+      "summaries": {
+        "http.response_time": {
+          "min": 0,
+          "max": 7,
+          "count": 246,
+          "p50": 1,
+          "median": 1,
+          "p75": 1,
+          "p90": 1,
+          "p95": 2,
+          "p99": 2,
+          "p999": 3
+        },
+        "vusers.session_length": {
+          "min": 1.2,
+          "max": 10.8,
+          "count": 246,
+          "p50": 1.9,
+          "median": 1.9,
+          "p75": 2.6,
+          "p90": 4,
+          "p95": 4.4,
+          "p99": 7,
+          "p999": 9.1
+        }
+      },
+      "histograms": {
+        "http.response_time": {
+          "min": 0,
+          "max": 7,
+          "count": 246,
+          "p50": 1,
+          "median": 1,
+          "p75": 1,
+          "p90": 1,
+          "p95": 2,
+          "p99": 2,
+          "p999": 3
+        },
+        "vusers.session_length": {
+          "min": 1.2,
+          "max": 10.8,
+          "count": 246,
+          "p50": 1.9,
+          "median": 1.9,
+          "p75": 2.6,
+          "p90": 4,
+          "p95": 4.4,
+          "p99": 7,
+          "p999": 9.1
+        }
+      }
+    },
+    {
+      "counters": {
+        "vusers.created_by_name.Create player stats": 264,
+        "vusers.created": 264,
+        "http.requests": 264,
+        "http.codes.201": 264,
+        "http.responses": 264,
+        "vusers.failed": 0,
+        "vusers.completed": 264
+      },
+      "rates": {
+        "http.request_rate": 27
+      },
+      "http.request_rate": null,
+      "firstCounterAt": 1668226360007,
+      "firstHistogramAt": 1668226360008,
+      "lastCounterAt": 1668226369976,
+      "lastHistogramAt": 1668226369976,
+      "firstMetricAt": 1668226360007,
+      "lastMetricAt": 1668226369976,
+      "period": "1668226360000",
+      "summaries": {
+        "http.response_time": {
+          "min": 0,
+          "max": 4,
+          "count": 264,
+          "p50": 1,
+          "median": 1,
+          "p75": 1,
+          "p90": 1,
+          "p95": 2,
+          "p99": 2,
+          "p999": 3
+        },
+        "vusers.session_length": {
+          "min": 1.2,
+          "max": 7.5,
+          "count": 264,
+          "p50": 2.4,
+          "median": 2.4,
+          "p75": 3.2,
+          "p90": 4.3,
+          "p95": 4.7,
+          "p99": 5.5,
+          "p999": 7.3
+        }
+      },
+      "histograms": {
+        "http.response_time": {
+          "min": 0,
+          "max": 4,
+          "count": 264,
+          "p50": 1,
+          "median": 1,
+          "p75": 1,
+          "p90": 1,
+          "p95": 2,
+          "p99": 2,
+          "p999": 3
+        },
+        "vusers.session_length": {
+          "min": 1.2,
+          "max": 7.5,
+          "count": 264,
+          "p50": 2.4,
+          "median": 2.4,
+          "p75": 3.2,
+          "p90": 4.3,
+          "p95": 4.7,
+          "p99": 5.5,
+          "p999": 7.3
+        }
+      }
+    },
+    {
+      "counters": {
+        "vusers.created_by_name.Create player stats": 332,
+        "vusers.created": 332,
+        "http.requests": 332,
+        "http.codes.201": 332,
+        "http.responses": 332,
+        "vusers.failed": 0,
+        "vusers.completed": 332
+      },
+      "rates": {
+        "http.request_rate": 35
+      },
+      "http.request_rate": null,
+      "firstCounterAt": 1668226370007,
+      "firstHistogramAt": 1668226370015,
+      "lastCounterAt": 1668226379994,
+      "lastHistogramAt": 1668226379994,
+      "firstMetricAt": 1668226370007,
+      "lastMetricAt": 1668226379994,
+      "period": "1668226370000",
+      "summaries": {
+        "http.response_time": {
+          "min": 0,
+          "max": 3,
+          "count": 332,
+          "p50": 1,
+          "median": 1,
+          "p75": 1,
+          "p90": 1,
+          "p95": 2,
+          "p99": 2,
+          "p999": 3
+        },
+        "vusers.session_length": {
+          "min": 1.4,
+          "max": 8.1,
+          "count": 332,
+          "p50": 2.2,
+          "median": 2.2,
+          "p75": 2.9,
+          "p90": 3.8,
+          "p95": 4.7,
+          "p99": 7,
+          "p999": 7.5
+        }
+      },
+      "histograms": {
+        "http.response_time": {
+          "min": 0,
+          "max": 3,
+          "count": 332,
+          "p50": 1,
+          "median": 1,
+          "p75": 1,
+          "p90": 1,
+          "p95": 2,
+          "p99": 2,
+          "p999": 3
+        },
+        "vusers.session_length": {
+          "min": 1.4,
+          "max": 8.1,
+          "count": 332,
+          "p50": 2.2,
+          "median": 2.2,
+          "p75": 2.9,
+          "p90": 3.8,
+          "p95": 4.7,
+          "p99": 7,
+          "p999": 7.5
+        }
+      }
+    },
+    {
+      "counters": {
+        "vusers.created_by_name.Create player stats": 349,
+        "vusers.created": 349,
+        "http.requests": 349,
+        "http.codes.201": 349,
+        "http.responses": 349,
+        "vusers.failed": 0,
+        "vusers.completed": 349
+      },
+      "rates": {
+        "http.request_rate": 36
+      },
+      "http.request_rate": null,
+      "firstCounterAt": 1668226380012,
+      "firstHistogramAt": 1668226380014,
+      "lastCounterAt": 1668226389975,
+      "lastHistogramAt": 1668226389975,
+      "firstMetricAt": 1668226380012,
+      "lastMetricAt": 1668226389975,
+      "period": "1668226380000",
+      "summaries": {
+        "http.response_time": {
+          "min": 0,
+          "max": 9,
+          "count": 349,
+          "p50": 1,
+          "median": 1,
+          "p75": 1,
+          "p90": 1,
+          "p95": 1,
+          "p99": 2,
+          "p999": 2
+        },
+        "vusers.session_length": {
+          "min": 1.4,
+          "max": 13.3,
+          "count": 349,
+          "p50": 2,
+          "median": 2,
+          "p75": 2.5,
+          "p90": 3.2,
+          "p95": 3.8,
+          "p99": 5.1,
+          "p999": 6.9
+        }
+      },
+      "histograms": {
+        "http.response_time": {
+          "min": 0,
+          "max": 9,
+          "count": 349,
+          "p50": 1,
+          "median": 1,
+          "p75": 1,
+          "p90": 1,
+          "p95": 1,
+          "p99": 2,
+          "p999": 2
+        },
+        "vusers.session_length": {
+          "min": 1.4,
+          "max": 13.3,
+          "count": 349,
+          "p50": 2,
+          "median": 2,
+          "p75": 2.5,
+          "p90": 3.2,
+          "p95": 3.8,
+          "p99": 5.1,
+          "p999": 6.9
+        }
+      }
+    },
+    {
+      "counters": {
+        "vusers.created_by_name.Create player stats": 385,
+        "vusers.created": 385,
+        "http.requests": 385,
+        "http.codes.201": 385,
+        "http.responses": 385,
+        "vusers.failed": 0,
+        "vusers.completed": 385
+      },
+      "rates": {
+        "http.request_rate": 39
+      },
+      "http.request_rate": null,
+      "firstCounterAt": 1668226390006,
+      "firstHistogramAt": 1668226390008,
+      "lastCounterAt": 1668226399993,
+      "lastHistogramAt": 1668226399993,
+      "firstMetricAt": 1668226390006,
+      "lastMetricAt": 1668226399993,
+      "period": "1668226390000",
+      "summaries": {
+        "http.response_time": {
+          "min": 0,
+          "max": 3,
+          "count": 385,
+          "p50": 1,
+          "median": 1,
+          "p75": 1,
+          "p90": 1,
+          "p95": 1,
+          "p99": 2,
+          "p999": 3
+        },
+        "vusers.session_length": {
+          "min": 1.3,
+          "max": 4.6,
+          "count": 385,
+          "p50": 1.7,
+          "median": 1.7,
+          "p75": 2,
+          "p90": 2.4,
+          "p95": 2.6,
+          "p99": 3.7,
+          "p999": 3.9
+        }
+      },
+      "histograms": {
+        "http.response_time": {
+          "min": 0,
+          "max": 3,
+          "count": 385,
+          "p50": 1,
+          "median": 1,
+          "p75": 1,
+          "p90": 1,
+          "p95": 1,
+          "p99": 2,
+          "p999": 3
+        },
+        "vusers.session_length": {
+          "min": 1.3,
+          "max": 4.6,
+          "count": 385,
+          "p50": 1.7,
+          "median": 1.7,
+          "p75": 2,
+          "p90": 2.4,
+          "p95": 2.6,
+          "p99": 3.7,
+          "p999": 3.9
+        }
+      }
+    },
+    {
+      "counters": {
+        "vusers.created_by_name.Create player stats": 434,
+        "vusers.created": 434,
+        "http.requests": 434,
+        "http.codes.201": 434,
+        "http.responses": 434,
+        "vusers.failed": 0,
+        "vusers.completed": 434
+      },
+      "rates": {
+        "http.request_rate": 44
+      },
+      "http.request_rate": null,
+      "firstCounterAt": 1668226400007,
+      "firstHistogramAt": 1668226400009,
+      "lastCounterAt": 1668226409993,
+      "lastHistogramAt": 1668226409993,
+      "firstMetricAt": 1668226400007,
+      "lastMetricAt": 1668226409993,
+      "period": "1668226400000",
+      "summaries": {
+        "http.response_time": {
+          "min": 0,
+          "max": 7,
+          "count": 434,
+          "p50": 1,
+          "median": 1,
+          "p75": 1,
+          "p90": 1,
+          "p95": 1,
+          "p99": 2,
+          "p999": 4
+        },
+        "vusers.session_length": {
+          "min": 1.2,
+          "max": 9.9,
+          "count": 434,
+          "p50": 1.8,
+          "median": 1.8,
+          "p75": 2.1,
+          "p90": 2.7,
+          "p95": 3.2,
+          "p99": 4.6,
+          "p999": 5.8
+        }
+      },
+      "histograms": {
+        "http.response_time": {
+          "min": 0,
+          "max": 7,
+          "count": 434,
+          "p50": 1,
+          "median": 1,
+          "p75": 1,
+          "p90": 1,
+          "p95": 1,
+          "p99": 2,
+          "p999": 4
+        },
+        "vusers.session_length": {
+          "min": 1.2,
+          "max": 9.9,
+          "count": 434,
+          "p50": 1.8,
+          "median": 1.8,
+          "p75": 2.1,
+          "p90": 2.7,
+          "p95": 3.2,
+          "p99": 4.6,
+          "p999": 5.8
+        }
+      }
+    },
+    {
+      "counters": {
+        "vusers.created_by_name.Create player stats": 475,
+        "vusers.created": 475,
+        "http.requests": 475,
+        "http.codes.201": 475,
+        "http.responses": 475,
+        "vusers.failed": 0,
+        "vusers.completed": 475
+      },
+      "rates": {
+        "http.request_rate": 48
+      },
+      "http.request_rate": null,
+      "firstCounterAt": 1668226410005,
+      "firstHistogramAt": 1668226410007,
+      "lastCounterAt": 1668226419992,
+      "lastHistogramAt": 1668226419992,
+      "firstMetricAt": 1668226410005,
+      "lastMetricAt": 1668226419992,
+      "period": "1668226410000",
+      "summaries": {
+        "http.response_time": {
+          "min": 0,
+          "max": 2,
+          "count": 475,
+          "p50": 1,
+          "median": 1,
+          "p75": 1,
+          "p90": 1,
+          "p95": 1,
+          "p99": 2,
+          "p999": 2
+        },
+        "vusers.session_length": {
+          "min": 1.2,
+          "max": 6.2,
+          "count": 475,
+          "p50": 1.7,
+          "median": 1.7,
+          "p75": 1.9,
+          "p90": 2.2,
+          "p95": 2.7,
+          "p99": 4.3,
+          "p999": 5.1
+        }
+      },
+      "histograms": {
+        "http.response_time": {
+          "min": 0,
+          "max": 2,
+          "count": 475,
+          "p50": 1,
+          "median": 1,
+          "p75": 1,
+          "p90": 1,
+          "p95": 1,
+          "p99": 2,
+          "p999": 2
+        },
+        "vusers.session_length": {
+          "min": 1.2,
+          "max": 6.2,
+          "count": 475,
+          "p50": 1.7,
+          "median": 1.7,
+          "p75": 1.9,
+          "p90": 2.2,
+          "p95": 2.7,
+          "p99": 4.3,
+          "p999": 5.1
+        }
+      }
+    },
+    {
+      "counters": {
+        "vusers.created_by_name.Create player stats": 477,
+        "vusers.created": 477,
+        "http.requests": 477,
+        "http.codes.201": 477,
+        "http.responses": 477,
+        "vusers.failed": 0,
+        "vusers.completed": 477
+      },
+      "rates": {
+        "http.request_rate": 48
+      },
+      "http.request_rate": null,
+      "firstCounterAt": 1668226420011,
+      "firstHistogramAt": 1668226420012,
+      "lastCounterAt": 1668226429984,
+      "lastHistogramAt": 1668226429984,
+      "firstMetricAt": 1668226420011,
+      "lastMetricAt": 1668226429984,
+      "period": "1668226420000",
+      "summaries": {
+        "http.response_time": {
+          "min": 0,
+          "max": 5,
+          "count": 477,
+          "p50": 1,
+          "median": 1,
+          "p75": 1,
+          "p90": 1,
+          "p95": 1,
+          "p99": 3,
+          "p999": 5
+        },
+        "vusers.session_length": {
+          "min": 1.2,
+          "max": 10,
+          "count": 477,
+          "p50": 1.7,
+          "median": 1.7,
+          "p75": 2,
+          "p90": 2.4,
+          "p95": 2.7,
+          "p99": 6,
+          "p999": 10.1
+        }
+      },
+      "histograms": {
+        "http.response_time": {
+          "min": 0,
+          "max": 5,
+          "count": 477,
+          "p50": 1,
+          "median": 1,
+          "p75": 1,
+          "p90": 1,
+          "p95": 1,
+          "p99": 3,
+          "p999": 5
+        },
+        "vusers.session_length": {
+          "min": 1.2,
+          "max": 10,
+          "count": 477,
+          "p50": 1.7,
+          "median": 1.7,
+          "p75": 2,
+          "p90": 2.4,
+          "p95": 2.7,
+          "p99": 6,
+          "p999": 10.1
+        }
+      }
+    },
+    {
+      "counters": {
+        "vusers.created_by_name.Create player stats": 529,
+        "vusers.created": 529,
+        "http.requests": 529,
+        "http.codes.201": 529,
+        "http.responses": 529,
+        "vusers.failed": 0,
+        "vusers.completed": 529
+      },
+      "rates": {
+        "http.request_rate": 54
+      },
+      "http.request_rate": null,
+      "firstCounterAt": 1668226430062,
+      "firstHistogramAt": 1668226430063,
+      "lastCounterAt": 1668226439974,
+      "lastHistogramAt": 1668226439974,
+      "firstMetricAt": 1668226430062,
+      "lastMetricAt": 1668226439974,
+      "period": "1668226430000",
+      "summaries": {
+        "http.response_time": {
+          "min": 0,
+          "max": 7,
+          "count": 529,
+          "p50": 1,
+          "median": 1,
+          "p75": 1,
+          "p90": 1,
+          "p95": 1,
+          "p99": 2,
+          "p999": 5
+        },
+        "vusers.session_length": {
+          "min": 1.2,
+          "max": 10.5,
+          "count": 529,
+          "p50": 1.6,
+          "median": 1.6,
+          "p75": 1.9,
+          "p90": 2.2,
+          "p95": 2.4,
+          "p99": 4.2,
+          "p999": 8.6
+        }
+      },
+      "histograms": {
+        "http.response_time": {
+          "min": 0,
+          "max": 7,
+          "count": 529,
+          "p50": 1,
+          "median": 1,
+          "p75": 1,
+          "p90": 1,
+          "p95": 1,
+          "p99": 2,
+          "p999": 5
+        },
+        "vusers.session_length": {
+          "min": 1.2,
+          "max": 10.5,
+          "count": 529,
+          "p50": 1.6,
+          "median": 1.6,
+          "p75": 1.9,
+          "p90": 2.2,
+          "p95": 2.4,
+          "p99": 4.2,
+          "p999": 8.6
+        }
+      }
+    },
+    {
+      "counters": {
+        "vusers.created_by_name.Create player stats": 574,
+        "vusers.created": 574,
+        "http.requests": 574,
+        "http.codes.201": 574,
+        "http.responses": 574,
+        "vusers.failed": 0,
+        "vusers.completed": 574
+      },
+      "rates": {
+        "http.request_rate": 57
+      },
+      "http.request_rate": null,
+      "firstCounterAt": 1668226440023,
+      "firstHistogramAt": 1668226440025,
+      "lastCounterAt": 1668226449994,
+      "lastHistogramAt": 1668226449994,
+      "firstMetricAt": 1668226440023,
+      "lastMetricAt": 1668226449994,
+      "period": "1668226440000",
+      "summaries": {
+        "http.response_time": {
+          "min": 0,
+          "max": 5,
+          "count": 574,
+          "p50": 1,
+          "median": 1,
+          "p75": 1,
+          "p90": 1,
+          "p95": 1,
+          "p99": 1,
+          "p999": 4
+        },
+        "vusers.session_length": {
+          "min": 1.1,
+          "max": 6,
+          "count": 574,
+          "p50": 1.6,
+          "median": 1.6,
+          "p75": 1.9,
+          "p90": 2.2,
+          "p95": 2.5,
+          "p99": 4.3,
+          "p999": 5.9
+        }
+      },
+      "histograms": {
+        "http.response_time": {
+          "min": 0,
+          "max": 5,
+          "count": 574,
+          "p50": 1,
+          "median": 1,
+          "p75": 1,
+          "p90": 1,
+          "p95": 1,
+          "p99": 1,
+          "p999": 4
+        },
+        "vusers.session_length": {
+          "min": 1.1,
+          "max": 6,
+          "count": 574,
+          "p50": 1.6,
+          "median": 1.6,
+          "p75": 1.9,
+          "p90": 2.2,
+          "p95": 2.5,
+          "p99": 4.3,
+          "p999": 5.9
+        }
+      }
+    },
+    {
+      "counters": {
+        "vusers.created_by_name.Create player stats": 561,
+        "vusers.created": 561,
+        "http.requests": 561,
+        "http.codes.201": 561,
+        "http.responses": 561,
+        "vusers.failed": 0,
+        "vusers.completed": 561
+      },
+      "rates": {
+        "http.request_rate": 56
+      },
+      "http.request_rate": null,
+      "firstCounterAt": 1668226450007,
+      "firstHistogramAt": 1668226450009,
+      "lastCounterAt": 1668226459985,
+      "lastHistogramAt": 1668226459985,
+      "firstMetricAt": 1668226450007,
+      "lastMetricAt": 1668226459985,
+      "period": "1668226450000",
+      "summaries": {
+        "http.response_time": {
+          "min": 0,
+          "max": 8,
+          "count": 561,
+          "p50": 1,
+          "median": 1,
+          "p75": 1,
+          "p90": 1,
+          "p95": 1,
+          "p99": 2,
+          "p999": 7
+        },
+        "vusers.session_length": {
+          "min": 1.1,
+          "max": 13,
+          "count": 561,
+          "p50": 1.6,
+          "median": 1.6,
+          "p75": 1.8,
+          "p90": 2.2,
+          "p95": 2.6,
+          "p99": 3.4,
+          "p999": 12.8
+        }
+      },
+      "histograms": {
+        "http.response_time": {
+          "min": 0,
+          "max": 8,
+          "count": 561,
+          "p50": 1,
+          "median": 1,
+          "p75": 1,
+          "p90": 1,
+          "p95": 1,
+          "p99": 2,
+          "p999": 7
+        },
+        "vusers.session_length": {
+          "min": 1.1,
+          "max": 13,
+          "count": 561,
+          "p50": 1.6,
+          "median": 1.6,
+          "p75": 1.8,
+          "p90": 2.2,
+          "p95": 2.6,
+          "p99": 3.4,
+          "p999": 12.8
+        }
+      }
+    },
+    {
+      "counters": {
+        "vusers.created_by_name.Create player stats": 654,
+        "vusers.created": 654,
+        "http.requests": 654,
+        "http.codes.201": 654,
+        "http.responses": 654,
+        "vusers.failed": 0,
+        "vusers.completed": 654
+      },
+      "rates": {
+        "http.request_rate": 66
+      },
+      "http.request_rate": null,
+      "firstCounterAt": 1668226460012,
+      "firstHistogramAt": 1668226460014,
+      "lastCounterAt": 1668226469985,
+      "lastHistogramAt": 1668226469985,
+      "firstMetricAt": 1668226460012,
+      "lastMetricAt": 1668226469985,
+      "period": "1668226460000",
+      "summaries": {
+        "http.response_time": {
+          "min": 0,
+          "max": 8,
+          "count": 654,
+          "p50": 1,
+          "median": 1,
+          "p75": 1,
+          "p90": 1,
+          "p95": 1,
+          "p99": 1,
+          "p999": 7
+        },
+        "vusers.session_length": {
+          "min": 1.1,
+          "max": 8.8,
+          "count": 654,
+          "p50": 1.6,
+          "median": 1.6,
+          "p75": 1.8,
+          "p90": 2.2,
+          "p95": 2.4,
+          "p99": 3.6,
+          "p999": 7.8
+        }
+      },
+      "histograms": {
+        "http.response_time": {
+          "min": 0,
+          "max": 8,
+          "count": 654,
+          "p50": 1,
+          "median": 1,
+          "p75": 1,
+          "p90": 1,
+          "p95": 1,
+          "p99": 1,
+          "p999": 7
+        },
+        "vusers.session_length": {
+          "min": 1.1,
+          "max": 8.8,
+          "count": 654,
+          "p50": 1.6,
+          "median": 1.6,
+          "p75": 1.8,
+          "p90": 2.2,
+          "p95": 2.4,
+          "p99": 3.6,
+          "p999": 7.8
+        }
+      }
+    },
+    {
+      "counters": {
+        "vusers.created_by_name.Create player stats": 679,
+        "vusers.created": 679,
+        "http.requests": 679,
+        "http.codes.201": 679,
+        "http.responses": 679,
+        "vusers.failed": 0,
+        "vusers.completed": 679
+      },
+      "rates": {
+        "http.request_rate": 68
+      },
+      "http.request_rate": null,
+      "firstCounterAt": 1668226470012,
+      "firstHistogramAt": 1668226470013,
+      "lastCounterAt": 1668226479995,
+      "lastHistogramAt": 1668226479995,
+      "firstMetricAt": 1668226470012,
+      "lastMetricAt": 1668226479995,
+      "period": "1668226470000",
+      "summaries": {
+        "http.response_time": {
+          "min": 0,
+          "max": 6,
+          "count": 679,
+          "p50": 1,
+          "median": 1,
+          "p75": 1,
+          "p90": 1,
+          "p95": 1,
+          "p99": 2,
+          "p999": 5
+        },
+        "vusers.session_length": {
+          "min": 1.1,
+          "max": 11,
+          "count": 679,
+          "p50": 1.7,
+          "median": 1.7,
+          "p75": 2.1,
+          "p90": 2.9,
+          "p95": 3.5,
+          "p99": 5.3,
+          "p999": 9.5
+        }
+      },
+      "histograms": {
+        "http.response_time": {
+          "min": 0,
+          "max": 6,
+          "count": 679,
+          "p50": 1,
+          "median": 1,
+          "p75": 1,
+          "p90": 1,
+          "p95": 1,
+          "p99": 2,
+          "p999": 5
+        },
+        "vusers.session_length": {
+          "min": 1.1,
+          "max": 11,
+          "count": 679,
+          "p50": 1.7,
+          "median": 1.7,
+          "p75": 2.1,
+          "p90": 2.9,
+          "p95": 3.5,
+          "p99": 5.3,
+          "p999": 9.5
+        }
+      }
+    },
+    {
+      "counters": {
+        "vusers.created_by_name.Create player stats": 714,
+        "vusers.created": 714,
+        "http.requests": 714,
+        "http.codes.201": 714,
+        "http.responses": 714,
+        "vusers.failed": 0,
+        "vusers.completed": 714
+      },
+      "rates": {
+        "http.request_rate": 72
+      },
+      "http.request_rate": null,
+      "firstCounterAt": 1668226480007,
+      "firstHistogramAt": 1668226480008,
+      "lastCounterAt": 1668226489984,
+      "lastHistogramAt": 1668226489984,
+      "firstMetricAt": 1668226480007,
+      "lastMetricAt": 1668226489984,
+      "period": "1668226480000",
+      "summaries": {
+        "http.response_time": {
+          "min": 0,
+          "max": 3,
+          "count": 714,
+          "p50": 1,
+          "median": 1,
+          "p75": 1,
+          "p90": 1,
+          "p95": 1,
+          "p99": 2,
+          "p999": 3
+        },
+        "vusers.session_length": {
+          "min": 1,
+          "max": 7.3,
+          "count": 714,
+          "p50": 1.6,
+          "median": 1.6,
+          "p75": 1.9,
+          "p90": 2.2,
+          "p95": 2.6,
+          "p99": 3.6,
+          "p999": 5.2
+        }
+      },
+      "histograms": {
+        "http.response_time": {
+          "min": 0,
+          "max": 3,
+          "count": 714,
+          "p50": 1,
+          "median": 1,
+          "p75": 1,
+          "p90": 1,
+          "p95": 1,
+          "p99": 2,
+          "p999": 3
+        },
+        "vusers.session_length": {
+          "min": 1,
+          "max": 7.3,
+          "count": 714,
+          "p50": 1.6,
+          "median": 1.6,
+          "p75": 1.9,
+          "p90": 2.2,
+          "p95": 2.6,
+          "p99": 3.6,
+          "p999": 5.2
+        }
+      }
+    },
+    {
+      "counters": {
+        "vusers.created_by_name.Create player stats": 728,
+        "vusers.created": 728,
+        "http.requests": 728,
+        "http.codes.201": 728,
+        "http.responses": 728,
+        "vusers.failed": 0,
+        "vusers.completed": 728
+      },
+      "rates": {
+        "http.request_rate": 73
+      },
+      "http.request_rate": null,
+      "firstCounterAt": 1668226490006,
+      "firstHistogramAt": 1668226490008,
+      "lastCounterAt": 1668226499995,
+      "lastHistogramAt": 1668226499995,
+      "firstMetricAt": 1668226490006,
+      "lastMetricAt": 1668226499995,
+      "period": "1668226490000",
+      "summaries": {
+        "http.response_time": {
+          "min": 0,
+          "max": 13,
+          "count": 728,
+          "p50": 1,
+          "median": 1,
+          "p75": 1,
+          "p90": 1,
+          "p95": 1,
+          "p99": 2,
+          "p999": 4
+        },
+        "vusers.session_length": {
+          "min": 1.1,
+          "max": 13.9,
+          "count": 728,
+          "p50": 1.5,
+          "median": 1.5,
+          "p75": 1.8,
+          "p90": 2.1,
+          "p95": 2.4,
+          "p99": 3.6,
+          "p999": 7
+        }
+      },
+      "histograms": {
+        "http.response_time": {
+          "min": 0,
+          "max": 13,
+          "count": 728,
+          "p50": 1,
+          "median": 1,
+          "p75": 1,
+          "p90": 1,
+          "p95": 1,
+          "p99": 2,
+          "p999": 4
+        },
+        "vusers.session_length": {
+          "min": 1.1,
+          "max": 13.9,
+          "count": 728,
+          "p50": 1.5,
+          "median": 1.5,
+          "p75": 1.8,
+          "p90": 2.1,
+          "p95": 2.4,
+          "p99": 3.6,
+          "p999": 7
+        }
+      }
+    },
+    {
+      "counters": {
+        "vusers.created_by_name.Create player stats": 781,
+        "vusers.created": 781,
+        "http.requests": 781,
+        "http.codes.201": 781,
+        "http.responses": 781,
+        "vusers.failed": 0,
+        "vusers.completed": 781
+      },
+      "rates": {
+        "http.request_rate": 79
+      },
+      "http.request_rate": null,
+      "firstCounterAt": 1668226500011,
+      "firstHistogramAt": 1668226500013,
+      "lastCounterAt": 1668226509993,
+      "lastHistogramAt": 1668226509993,
+      "firstMetricAt": 1668226500011,
+      "lastMetricAt": 1668226509993,
+      "period": "1668226500000",
+      "summaries": {
+        "http.response_time": {
+          "min": 0,
+          "max": 11,
+          "count": 781,
+          "p50": 0,
+          "median": 0,
+          "p75": 1,
+          "p90": 1,
+          "p95": 1,
+          "p99": 2,
+          "p999": 10.1
+        },
+        "vusers.session_length": {
+          "min": 1,
+          "max": 12.6,
+          "count": 781,
+          "p50": 1.4,
+          "median": 1.4,
+          "p75": 1.7,
+          "p90": 2,
+          "p95": 2.4,
+          "p99": 4.5,
+          "p999": 12.6
+        }
+      },
+      "histograms": {
+        "http.response_time": {
+          "min": 0,
+          "max": 11,
+          "count": 781,
+          "p50": 0,
+          "median": 0,
+          "p75": 1,
+          "p90": 1,
+          "p95": 1,
+          "p99": 2,
+          "p999": 10.1
+        },
+        "vusers.session_length": {
+          "min": 1,
+          "max": 12.6,
+          "count": 781,
+          "p50": 1.4,
+          "median": 1.4,
+          "p75": 1.7,
+          "p90": 2,
+          "p95": 2.4,
+          "p99": 4.5,
+          "p999": 12.6
+        }
+      }
+    },
+    {
+      "counters": {
+        "vusers.created_by_name.Create player stats": 804,
+        "vusers.created": 804,
+        "http.requests": 804,
+        "http.codes.201": 804,
+        "http.responses": 804,
+        "vusers.failed": 0,
+        "vusers.completed": 804
+      },
+      "rates": {
+        "http.request_rate": 81
+      },
+      "http.request_rate": null,
+      "firstCounterAt": 1668226510007,
+      "firstHistogramAt": 1668226510008,
+      "lastCounterAt": 1668226519993,
+      "lastHistogramAt": 1668226519993,
+      "firstMetricAt": 1668226510007,
+      "lastMetricAt": 1668226519993,
+      "period": "1668226510000",
+      "summaries": {
+        "http.response_time": {
+          "min": 0,
+          "max": 14,
+          "count": 804,
+          "p50": 0,
+          "median": 0,
+          "p75": 1,
+          "p90": 1,
+          "p95": 1,
+          "p99": 3,
+          "p999": 13.1
+        },
+        "vusers.session_length": {
+          "min": 1,
+          "max": 16.8,
+          "count": 804,
+          "p50": 1.5,
+          "median": 1.5,
+          "p75": 2,
+          "p90": 3.1,
+          "p95": 3.9,
+          "p99": 5.9,
+          "p999": 14.2
+        }
+      },
+      "histograms": {
+        "http.response_time": {
+          "min": 0,
+          "max": 14,
+          "count": 804,
+          "p50": 0,
+          "median": 0,
+          "p75": 1,
+          "p90": 1,
+          "p95": 1,
+          "p99": 3,
+          "p999": 13.1
+        },
+        "vusers.session_length": {
+          "min": 1,
+          "max": 16.8,
+          "count": 804,
+          "p50": 1.5,
+          "median": 1.5,
+          "p75": 2,
+          "p90": 3.1,
+          "p95": 3.9,
+          "p99": 5.9,
+          "p999": 14.2
+        }
+      }
+    },
+    {
+      "counters": {
+        "vusers.created_by_name.Create player stats": 860,
+        "vusers.created": 860,
+        "http.requests": 860,
+        "http.codes.201": 860,
+        "http.responses": 860,
+        "vusers.failed": 0,
+        "vusers.completed": 860
+      },
+      "rates": {
+        "http.request_rate": 86
+      },
+      "http.request_rate": null,
+      "firstCounterAt": 1668226520007,
+      "firstHistogramAt": 1668226520008,
+      "lastCounterAt": 1668226529994,
+      "lastHistogramAt": 1668226529994,
+      "firstMetricAt": 1668226520007,
+      "lastMetricAt": 1668226529994,
+      "period": "1668226520000",
+      "summaries": {
+        "http.response_time": {
+          "min": 0,
+          "max": 4,
+          "count": 860,
+          "p50": 1,
+          "median": 1,
+          "p75": 1,
+          "p90": 1,
+          "p95": 1,
+          "p99": 2,
+          "p999": 3
+        },
+        "vusers.session_length": {
+          "min": 1.1,
+          "max": 8.3,
+          "count": 860,
+          "p50": 1.9,
+          "median": 1.9,
+          "p75": 2.5,
+          "p90": 3.5,
+          "p95": 4.2,
+          "p99": 5.8,
+          "p999": 7.5
+        }
+      },
+      "histograms": {
+        "http.response_time": {
+          "min": 0,
+          "max": 4,
+          "count": 860,
+          "p50": 1,
+          "median": 1,
+          "p75": 1,
+          "p90": 1,
+          "p95": 1,
+          "p99": 2,
+          "p999": 3
+        },
+        "vusers.session_length": {
+          "min": 1.1,
+          "max": 8.3,
+          "count": 860,
+          "p50": 1.9,
+          "median": 1.9,
+          "p75": 2.5,
+          "p90": 3.5,
+          "p95": 4.2,
+          "p99": 5.8,
+          "p999": 7.5
+        }
+      }
+    },
+    {
+      "counters": {
+        "vusers.created_by_name.Create player stats": 897,
+        "vusers.created": 897,
+        "http.requests": 897,
+        "http.codes.201": 897,
+        "http.responses": 897,
+        "vusers.failed": 0,
+        "vusers.completed": 897
+      },
+      "rates": {
+        "http.request_rate": 90
+      },
+      "http.request_rate": null,
+      "firstCounterAt": 1668226530007,
+      "firstHistogramAt": 1668226530009,
+      "lastCounterAt": 1668226539993,
+      "lastHistogramAt": 1668226539993,
+      "firstMetricAt": 1668226530007,
+      "lastMetricAt": 1668226539993,
+      "period": "1668226530000",
+      "summaries": {
+        "http.response_time": {
+          "min": 0,
+          "max": 7,
+          "count": 897,
+          "p50": 0,
+          "median": 0,
+          "p75": 1,
+          "p90": 1,
+          "p95": 1,
+          "p99": 1,
+          "p999": 7
+        },
+        "vusers.session_length": {
+          "min": 1.2,
+          "max": 8.3,
+          "count": 897,
+          "p50": 1.7,
+          "median": 1.7,
+          "p75": 1.9,
+          "p90": 2.2,
+          "p95": 2.5,
+          "p99": 4.3,
+          "p999": 8.2
+        }
+      },
+      "histograms": {
+        "http.response_time": {
+          "min": 0,
+          "max": 7,
+          "count": 897,
+          "p50": 0,
+          "median": 0,
+          "p75": 1,
+          "p90": 1,
+          "p95": 1,
+          "p99": 1,
+          "p999": 7
+        },
+        "vusers.session_length": {
+          "min": 1.2,
+          "max": 8.3,
+          "count": 897,
+          "p50": 1.7,
+          "median": 1.7,
+          "p75": 1.9,
+          "p90": 2.2,
+          "p95": 2.5,
+          "p99": 4.3,
+          "p999": 8.2
+        }
+      }
+    },
+    {
+      "counters": {
+        "vusers.created_by_name.Create player stats": 915,
+        "vusers.created": 915,
+        "http.requests": 915,
+        "http.codes.201": 915,
+        "http.responses": 915,
+        "vusers.failed": 0,
+        "vusers.completed": 915
+      },
+      "rates": {
+        "http.request_rate": 91
+      },
+      "http.request_rate": null,
+      "firstCounterAt": 1668226540006,
+      "firstHistogramAt": 1668226540008,
+      "lastCounterAt": 1668226549994,
+      "lastHistogramAt": 1668226549994,
+      "firstMetricAt": 1668226540006,
+      "lastMetricAt": 1668226549994,
+      "period": "1668226540000",
+      "summaries": {
+        "http.response_time": {
+          "min": 0,
+          "max": 7,
+          "count": 915,
+          "p50": 1,
+          "median": 1,
+          "p75": 1,
+          "p90": 1,
+          "p95": 1,
+          "p99": 1,
+          "p999": 3
+        },
+        "vusers.session_length": {
+          "min": 1.2,
+          "max": 7.4,
+          "count": 915,
+          "p50": 1.7,
+          "median": 1.7,
+          "p75": 2,
+          "p90": 2.3,
+          "p95": 2.9,
+          "p99": 4.6,
+          "p999": 7
+        }
+      },
+      "histograms": {
+        "http.response_time": {
+          "min": 0,
+          "max": 7,
+          "count": 915,
+          "p50": 1,
+          "median": 1,
+          "p75": 1,
+          "p90": 1,
+          "p95": 1,
+          "p99": 1,
+          "p999": 3
+        },
+        "vusers.session_length": {
+          "min": 1.2,
+          "max": 7.4,
+          "count": 915,
+          "p50": 1.7,
+          "median": 1.7,
+          "p75": 2,
+          "p90": 2.3,
+          "p95": 2.9,
+          "p99": 4.6,
+          "p999": 7
+        }
+      }
+    },
+    {
+      "counters": {
+        "vusers.created_by_name.Create player stats": 946,
+        "vusers.created": 946,
+        "http.requests": 946,
+        "http.codes.201": 946,
+        "http.responses": 946,
+        "vusers.failed": 0,
+        "vusers.completed": 946
+      },
+      "rates": {
+        "http.request_rate": 95
+      },
+      "http.request_rate": null,
+      "firstCounterAt": 1668226550007,
+      "firstHistogramAt": 1668226550008,
+      "lastCounterAt": 1668226559994,
+      "lastHistogramAt": 1668226559994,
+      "firstMetricAt": 1668226550007,
+      "lastMetricAt": 1668226559994,
+      "period": "1668226550000",
+      "summaries": {
+        "http.response_time": {
+          "min": 0,
+          "max": 9,
+          "count": 946,
+          "p50": 0,
+          "median": 0,
+          "p75": 1,
+          "p90": 1,
+          "p95": 1,
+          "p99": 1,
+          "p999": 2
+        },
+        "vusers.session_length": {
+          "min": 1.1,
+          "max": 14.6,
+          "count": 946,
+          "p50": 1.5,
+          "median": 1.5,
+          "p75": 1.7,
+          "p90": 1.9,
+          "p95": 2.2,
+          "p99": 3.9,
+          "p999": 6.4
+        }
+      },
+      "histograms": {
+        "http.response_time": {
+          "min": 0,
+          "max": 9,
+          "count": 946,
+          "p50": 0,
+          "median": 0,
+          "p75": 1,
+          "p90": 1,
+          "p95": 1,
+          "p99": 1,
+          "p999": 2
+        },
+        "vusers.session_length": {
+          "min": 1.1,
+          "max": 14.6,
+          "count": 946,
+          "p50": 1.5,
+          "median": 1.5,
+          "p75": 1.7,
+          "p90": 1.9,
+          "p95": 2.2,
+          "p99": 3.9,
+          "p999": 6.4
+        }
+      }
+    },
+    {
+      "counters": {
+        "vusers.created_by_name.Create player stats": 983,
+        "vusers.created": 983,
+        "http.requests": 983,
+        "http.codes.201": 983,
+        "http.responses": 983,
+        "vusers.failed": 0,
+        "vusers.completed": 983
+      },
+      "rates": {
+        "http.request_rate": 99
+      },
+      "http.request_rate": null,
+      "firstCounterAt": 1668226560006,
+      "firstHistogramAt": 1668226560008,
+      "lastCounterAt": 1668226569994,
+      "lastHistogramAt": 1668226569994,
+      "firstMetricAt": 1668226560006,
+      "lastMetricAt": 1668226569994,
+      "period": "1668226560000",
+      "summaries": {
+        "http.response_time": {
+          "min": 0,
+          "max": 12,
+          "count": 983,
+          "p50": 1,
+          "median": 1,
+          "p75": 1,
+          "p90": 1,
+          "p95": 1,
+          "p99": 2,
+          "p999": 10.1
+        },
+        "vusers.session_length": {
+          "min": 1.1,
+          "max": 15.1,
+          "count": 983,
+          "p50": 1.6,
+          "median": 1.6,
+          "p75": 1.8,
+          "p90": 2.3,
+          "p95": 2.9,
+          "p99": 4.5,
+          "p999": 14.2
+        }
+      },
+      "histograms": {
+        "http.response_time": {
+          "min": 0,
+          "max": 12,
+          "count": 983,
+          "p50": 1,
+          "median": 1,
+          "p75": 1,
+          "p90": 1,
+          "p95": 1,
+          "p99": 2,
+          "p999": 10.1
+        },
+        "vusers.session_length": {
+          "min": 1.1,
+          "max": 15.1,
+          "count": 983,
+          "p50": 1.6,
+          "median": 1.6,
+          "p75": 1.8,
+          "p90": 2.3,
+          "p95": 2.9,
+          "p99": 4.5,
+          "p999": 14.2
+        }
+      }
+    },
+    {
+      "counters": {
+        "vusers.created_by_name.Create player stats": 996,
+        "vusers.created": 996,
+        "http.requests": 996,
+        "http.codes.201": 996,
+        "http.responses": 996,
+        "vusers.failed": 0,
+        "vusers.completed": 996
+      },
+      "rates": {
+        "http.request_rate": 100
+      },
+      "http.request_rate": null,
+      "firstCounterAt": 1668226570007,
+      "firstHistogramAt": 1668226570008,
+      "lastCounterAt": 1668226579995,
+      "lastHistogramAt": 1668226579995,
+      "firstMetricAt": 1668226570007,
+      "lastMetricAt": 1668226579995,
+      "period": "1668226570000",
+      "summaries": {
+        "http.response_time": {
+          "min": 0,
+          "max": 29,
+          "count": 996,
+          "p50": 0,
+          "median": 0,
+          "p75": 1,
+          "p90": 1,
+          "p95": 1,
+          "p99": 10.1,
+          "p999": 22.9
+        },
+        "vusers.session_length": {
+          "min": 1.1,
+          "max": 31.1,
+          "count": 996,
+          "p50": 1.5,
+          "median": 1.5,
+          "p75": 1.7,
+          "p90": 2,
+          "p95": 2.4,
+          "p99": 11.4,
+          "p999": 24.8
+        }
+      },
+      "histograms": {
+        "http.response_time": {
+          "min": 0,
+          "max": 29,
+          "count": 996,
+          "p50": 0,
+          "median": 0,
+          "p75": 1,
+          "p90": 1,
+          "p95": 1,
+          "p99": 10.1,
+          "p999": 22.9
+        },
+        "vusers.session_length": {
+          "min": 1.1,
+          "max": 31.1,
+          "count": 996,
+          "p50": 1.5,
+          "median": 1.5,
+          "p75": 1.7,
+          "p90": 2,
+          "p95": 2.4,
+          "p99": 11.4,
+          "p999": 24.8
+        }
+      }
+    },
+    {
+      "counters": {
+        "vusers.created_by_name.Create player stats": 1000,
+        "vusers.created": 1000,
+        "http.requests": 1000,
+        "http.codes.201": 1000,
+        "http.responses": 1000,
+        "vusers.failed": 0,
+        "vusers.completed": 1000
+      },
+      "rates": {
+        "http.request_rate": 100
+      },
+      "http.request_rate": null,
+      "firstCounterAt": 1668226580008,
+      "firstHistogramAt": 1668226580009,
+      "lastCounterAt": 1668226589995,
+      "lastHistogramAt": 1668226589995,
+      "firstMetricAt": 1668226580008,
+      "lastMetricAt": 1668226589995,
+      "period": "1668226580000",
+      "summaries": {
+        "http.response_time": {
+          "min": 0,
+          "max": 31,
+          "count": 1000,
+          "p50": 0,
+          "median": 0,
+          "p75": 1,
+          "p90": 1,
+          "p95": 1,
+          "p99": 7,
+          "p999": 22
+        },
+        "vusers.session_length": {
+          "min": 1.4,
+          "max": 32.6,
+          "count": 1000,
+          "p50": 1.6,
+          "median": 1.6,
+          "p75": 1.8,
+          "p90": 2.1,
+          "p95": 2.4,
+          "p99": 8.2,
+          "p999": 22.4
+        }
+      },
+      "histograms": {
+        "http.response_time": {
+          "min": 0,
+          "max": 31,
+          "count": 1000,
+          "p50": 0,
+          "median": 0,
+          "p75": 1,
+          "p90": 1,
+          "p95": 1,
+          "p99": 7,
+          "p999": 22
+        },
+        "vusers.session_length": {
+          "min": 1.4,
+          "max": 32.6,
+          "count": 1000,
+          "p50": 1.6,
+          "median": 1.6,
+          "p75": 1.8,
+          "p90": 2.1,
+          "p95": 2.4,
+          "p99": 8.2,
+          "p999": 22.4
+        }
+      }
+    },
+    {
+      "counters": {
+        "vusers.created_by_name.Create player stats": 1000,
+        "vusers.created": 1000,
+        "http.requests": 1000,
+        "http.codes.201": 1000,
+        "http.responses": 1000,
+        "vusers.failed": 0,
+        "vusers.completed": 1000
+      },
+      "rates": {
+        "http.request_rate": 100
+      },
+      "http.request_rate": null,
+      "firstCounterAt": 1668226590008,
+      "firstHistogramAt": 1668226590009,
+      "lastCounterAt": 1668226599996,
+      "lastHistogramAt": 1668226599996,
+      "firstMetricAt": 1668226590008,
+      "lastMetricAt": 1668226599996,
+      "period": "1668226590000",
+      "summaries": {
+        "http.response_time": {
+          "min": 0,
+          "max": 9,
+          "count": 1000,
+          "p50": 0,
+          "median": 0,
+          "p75": 0,
+          "p90": 1,
+          "p95": 1,
+          "p99": 1,
+          "p999": 7
+        },
+        "vusers.session_length": {
+          "min": 1.3,
+          "max": 10.8,
+          "count": 1000,
+          "p50": 1.6,
+          "median": 1.6,
+          "p75": 1.7,
+          "p90": 2,
+          "p95": 2.1,
+          "p99": 3.2,
+          "p999": 8.1
+        }
+      },
+      "histograms": {
+        "http.response_time": {
+          "min": 0,
+          "max": 9,
+          "count": 1000,
+          "p50": 0,
+          "median": 0,
+          "p75": 0,
+          "p90": 1,
+          "p95": 1,
+          "p99": 1,
+          "p999": 7
+        },
+        "vusers.session_length": {
+          "min": 1.3,
+          "max": 10.8,
+          "count": 1000,
+          "p50": 1.6,
+          "median": 1.6,
+          "p75": 1.7,
+          "p90": 2,
+          "p95": 2.1,
+          "p99": 3.2,
+          "p999": 8.1
+        }
+      }
+    },
+    {
+      "counters": {
+        "vusers.created_by_name.Create player stats": 1000,
+        "vusers.created": 1000,
+        "http.requests": 1000,
+        "http.codes.201": 1000,
+        "http.responses": 1000,
+        "vusers.failed": 0,
+        "vusers.completed": 1000
+      },
+      "rates": {
+        "http.request_rate": 100
+      },
+      "http.request_rate": null,
+      "firstCounterAt": 1668226600014,
+      "firstHistogramAt": 1668226600016,
+      "lastCounterAt": 1668226609995,
+      "lastHistogramAt": 1668226609995,
+      "firstMetricAt": 1668226600014,
+      "lastMetricAt": 1668226609995,
+      "period": "1668226600000",
+      "summaries": {
+        "http.response_time": {
+          "min": 0,
+          "max": 19,
+          "count": 1000,
+          "p50": 0,
+          "median": 0,
+          "p75": 1,
+          "p90": 1,
+          "p95": 1,
+          "p99": 5,
+          "p999": 16
+        },
+        "vusers.session_length": {
+          "min": 1.3,
+          "max": 22.1,
+          "count": 1000,
+          "p50": 1.6,
+          "median": 1.6,
+          "p75": 1.7,
+          "p90": 2,
+          "p95": 2.4,
+          "p99": 6.6,
+          "p999": 21.1
+        }
+      },
+      "histograms": {
+        "http.response_time": {
+          "min": 0,
+          "max": 19,
+          "count": 1000,
+          "p50": 0,
+          "median": 0,
+          "p75": 1,
+          "p90": 1,
+          "p95": 1,
+          "p99": 5,
+          "p999": 16
+        },
+        "vusers.session_length": {
+          "min": 1.3,
+          "max": 22.1,
+          "count": 1000,
+          "p50": 1.6,
+          "median": 1.6,
+          "p75": 1.7,
+          "p90": 2,
+          "p95": 2.4,
+          "p99": 6.6,
+          "p999": 21.1
+        }
+      }
+    },
+    {
+      "counters": {
+        "vusers.created_by_name.Create player stats": 1000,
+        "vusers.created": 1000,
+        "http.requests": 1000,
+        "http.codes.201": 1000,
+        "http.responses": 1000,
+        "vusers.failed": 0,
+        "vusers.completed": 1000
+      },
+      "rates": {
+        "http.request_rate": 100
+      },
+      "http.request_rate": null,
+      "firstCounterAt": 1668226610008,
+      "firstHistogramAt": 1668226610010,
+      "lastCounterAt": 1668226619995,
+      "lastHistogramAt": 1668226619995,
+      "firstMetricAt": 1668226610008,
+      "lastMetricAt": 1668226619995,
+      "period": "1668226610000",
+      "summaries": {
+        "http.response_time": {
+          "min": 0,
+          "max": 19,
+          "count": 1000,
+          "p50": 0,
+          "median": 0,
+          "p75": 1,
+          "p90": 1,
+          "p95": 1,
+          "p99": 5,
+          "p999": 12.1
+        },
+        "vusers.session_length": {
+          "min": 1.3,
+          "max": 20.4,
+          "count": 1000,
+          "p50": 1.6,
+          "median": 1.6,
+          "p75": 1.8,
+          "p90": 2.2,
+          "p95": 2.7,
+          "p99": 6.8,
+          "p999": 13.1
+        }
+      },
+      "histograms": {
+        "http.response_time": {
+          "min": 0,
+          "max": 19,
+          "count": 1000,
+          "p50": 0,
+          "median": 0,
+          "p75": 1,
+          "p90": 1,
+          "p95": 1,
+          "p99": 5,
+          "p999": 12.1
+        },
+        "vusers.session_length": {
+          "min": 1.3,
+          "max": 20.4,
+          "count": 1000,
+          "p50": 1.6,
+          "median": 1.6,
+          "p75": 1.8,
+          "p90": 2.2,
+          "p95": 2.7,
+          "p99": 6.8,
+          "p999": 13.1
+        }
+      }
+    },
+    {
+      "counters": {
+        "vusers.created_by_name.Create player stats": 1000,
+        "vusers.created": 1000,
+        "http.requests": 1000,
+        "http.codes.201": 1000,
+        "http.responses": 1000,
+        "vusers.failed": 0,
+        "vusers.completed": 1000
+      },
+      "rates": {
+        "http.request_rate": 100
+      },
+      "http.request_rate": null,
+      "firstCounterAt": 1668226620008,
+      "firstHistogramAt": 1668226620009,
+      "lastCounterAt": 1668226629996,
+      "lastHistogramAt": 1668226629996,
+      "firstMetricAt": 1668226620008,
+      "lastMetricAt": 1668226629996,
+      "period": "1668226620000",
+      "summaries": {
+        "http.response_time": {
+          "min": 0,
+          "max": 13,
+          "count": 1000,
+          "p50": 0,
+          "median": 0,
+          "p75": 1,
+          "p90": 1,
+          "p95": 1,
+          "p99": 3,
+          "p999": 12.1
+        },
+        "vusers.session_length": {
+          "min": 1.3,
+          "max": 14.5,
+          "count": 1000,
+          "p50": 1.6,
+          "median": 1.6,
+          "p75": 1.8,
+          "p90": 2.2,
+          "p95": 2.5,
+          "p99": 4.3,
+          "p999": 13.6
+        }
+      },
+      "histograms": {
+        "http.response_time": {
+          "min": 0,
+          "max": 13,
+          "count": 1000,
+          "p50": 0,
+          "median": 0,
+          "p75": 1,
+          "p90": 1,
+          "p95": 1,
+          "p99": 3,
+          "p999": 12.1
+        },
+        "vusers.session_length": {
+          "min": 1.3,
+          "max": 14.5,
+          "count": 1000,
+          "p50": 1.6,
+          "median": 1.6,
+          "p75": 1.8,
+          "p90": 2.2,
+          "p95": 2.5,
+          "p99": 4.3,
+          "p999": 13.6
+        }
+      }
+    },
+    {
+      "counters": {
+        "vusers.created_by_name.Create player stats": 1000,
+        "vusers.created": 1000,
+        "http.requests": 1000,
+        "http.codes.201": 940,
+        "http.responses": 940,
+        "vusers.failed": 60,
+        "vusers.completed": 940,
+        "errors.ECONNRESET": 2,
+        "errors.ECONNREFUSED": 58
+      },
+      "rates": {
+        "http.request_rate": 100
+      },
+      "http.request_rate": null,
+      "firstCounterAt": 1668226630008,
+      "firstHistogramAt": 1668226630010,
+      "lastCounterAt": 1668226639997,
+      "lastHistogramAt": 1668226639997,
+      "firstMetricAt": 1668226630008,
+      "lastMetricAt": 1668226639997,
+      "period": "1668226630000",
+      "summaries": {
+        "http.response_time": {
+          "min": 0,
+          "max": 77,
+          "count": 940,
+          "p50": 1,
+          "median": 1,
+          "p75": 3,
+          "p90": 13.1,
+          "p95": 19.1,
+          "p99": 43.4,
+          "p999": 62.2
+        },
+        "vusers.session_length": {
+          "min": 1.7,
+          "max": 105.3,
+          "count": 940,
+          "p50": 4.3,
+          "median": 4.3,
+          "p75": 10.5,
+          "p90": 22.4,
+          "p95": 30.9,
+          "p99": 54.1,
+          "p999": 85.6
+        }
+      },
+      "histograms": {
+        "http.response_time": {
+          "min": 0,
+          "max": 77,
+          "count": 940,
+          "p50": 1,
+          "median": 1,
+          "p75": 3,
+          "p90": 13.1,
+          "p95": 19.1,
+          "p99": 43.4,
+          "p999": 62.2
+        },
+        "vusers.session_length": {
+          "min": 1.7,
+          "max": 105.3,
+          "count": 940,
+          "p50": 4.3,
+          "median": 4.3,
+          "p75": 10.5,
+          "p90": 22.4,
+          "p95": 30.9,
+          "p99": 54.1,
+          "p999": 85.6
+        }
+      }
+    },
+    {
+      "counters": {
+        "vusers.created_by_name.Create player stats": 1000,
+        "vusers.created": 1000,
+        "http.requests": 1000,
+        "http.codes.201": 1000,
+        "http.responses": 1000,
+        "vusers.failed": 0,
+        "vusers.completed": 1000
+      },
+      "rates": {
+        "http.request_rate": 100
+      },
+      "http.request_rate": null,
+      "firstCounterAt": 1668226640008,
+      "firstHistogramAt": 1668226640013,
+      "lastCounterAt": 1668226649998,
+      "lastHistogramAt": 1668226649998,
+      "firstMetricAt": 1668226640008,
+      "lastMetricAt": 1668226649998,
+      "period": "1668226640000",
+      "summaries": {
+        "http.response_time": {
+          "min": 0,
+          "max": 20,
+          "count": 1000,
+          "p50": 1,
+          "median": 1,
+          "p75": 1,
+          "p90": 1,
+          "p95": 3,
+          "p99": 7.9,
+          "p999": 13.9
+        },
+        "vusers.session_length": {
+          "min": 1.5,
+          "max": 21.1,
+          "count": 1000,
+          "p50": 2,
+          "median": 2,
+          "p75": 2.4,
+          "p90": 3.7,
+          "p95": 5.2,
+          "p99": 11.1,
+          "p999": 20.3
+        }
+      },
+      "histograms": {
+        "http.response_time": {
+          "min": 0,
+          "max": 20,
+          "count": 1000,
+          "p50": 1,
+          "median": 1,
+          "p75": 1,
+          "p90": 1,
+          "p95": 3,
+          "p99": 7.9,
+          "p999": 13.9
+        },
+        "vusers.session_length": {
+          "min": 1.5,
+          "max": 21.1,
+          "count": 1000,
+          "p50": 2,
+          "median": 2,
+          "p75": 2.4,
+          "p90": 3.7,
+          "p95": 5.2,
+          "p99": 11.1,
+          "p999": 20.3
+        }
+      }
+    },
+    {
+      "counters": {
+        "vusers.created_by_name.Create player stats": 1000,
+        "vusers.created": 1000,
+        "http.requests": 1000,
+        "http.codes.201": 1000,
+        "http.responses": 1000,
+        "vusers.failed": 0,
+        "vusers.completed": 1000
+      },
+      "rates": {
+        "http.request_rate": 100
+      },
+      "http.request_rate": null,
+      "firstCounterAt": 1668226650010,
+      "firstHistogramAt": 1668226650012,
+      "lastCounterAt": 1668226659999,
+      "lastHistogramAt": 1668226659999,
+      "firstMetricAt": 1668226650010,
+      "lastMetricAt": 1668226659999,
+      "period": "1668226650000",
+      "summaries": {
+        "http.response_time": {
+          "min": 0,
+          "max": 60,
+          "count": 1000,
+          "p50": 1,
+          "median": 1,
+          "p75": 1,
+          "p90": 3,
+          "p95": 7.9,
+          "p99": 15,
+          "p999": 47
+        },
+        "vusers.session_length": {
+          "min": 1.5,
+          "max": 61.8,
+          "count": 1000,
+          "p50": 2.2,
+          "median": 2.2,
+          "p75": 3.1,
+          "p90": 7,
+          "p95": 11.1,
+          "p99": 18.4,
+          "p999": 48.9
+        }
+      },
+      "histograms": {
+        "http.response_time": {
+          "min": 0,
+          "max": 60,
+          "count": 1000,
+          "p50": 1,
+          "median": 1,
+          "p75": 1,
+          "p90": 3,
+          "p95": 7.9,
+          "p99": 15,
+          "p999": 47
+        },
+        "vusers.session_length": {
+          "min": 1.5,
+          "max": 61.8,
+          "count": 1000,
+          "p50": 2.2,
+          "median": 2.2,
+          "p75": 3.1,
+          "p90": 7,
+          "p95": 11.1,
+          "p99": 18.4,
+          "p999": 48.9
+        }
+      }
+    },
+    {
+      "counters": {
+        "vusers.created_by_name.Create player stats": 1000,
+        "vusers.created": 1000,
+        "http.requests": 1000,
+        "http.codes.201": 1000,
+        "http.responses": 1000,
+        "vusers.failed": 0,
+        "vusers.completed": 999
+      },
+      "rates": {
+        "http.request_rate": 100
+      },
+      "http.request_rate": null,
+      "firstCounterAt": 1668226660010,
+      "firstHistogramAt": 1668226660014,
+      "lastCounterAt": 1668226669999,
+      "lastHistogramAt": 1668226669999,
+      "firstMetricAt": 1668226660010,
+      "lastMetricAt": 1668226669999,
+      "period": "1668226660000",
+      "summaries": {
+        "http.response_time": {
+          "min": 0,
+          "max": 15,
+          "count": 1000,
+          "p50": 1,
+          "median": 1,
+          "p75": 1,
+          "p90": 1,
+          "p95": 1,
+          "p99": 7,
+          "p999": 13.1
+        },
+        "vusers.session_length": {
+          "min": 1.4,
+          "max": 16.9,
+          "count": 999,
+          "p50": 1.9,
+          "median": 1.9,
+          "p75": 2.4,
+          "p90": 3.2,
+          "p95": 3.8,
+          "p99": 8.6,
+          "p999": 16
+        }
+      },
+      "histograms": {
+        "http.response_time": {
+          "min": 0,
+          "max": 15,
+          "count": 1000,
+          "p50": 1,
+          "median": 1,
+          "p75": 1,
+          "p90": 1,
+          "p95": 1,
+          "p99": 7,
+          "p999": 13.1
+        },
+        "vusers.session_length": {
+          "min": 1.4,
+          "max": 16.9,
+          "count": 999,
+          "p50": 1.9,
+          "median": 1.9,
+          "p75": 2.4,
+          "p90": 3.2,
+          "p95": 3.8,
+          "p99": 8.6,
+          "p999": 16
+        }
+      }
+    },
+    {
+      "counters": {
+        "vusers.created_by_name.Create player stats": 1000,
+        "vusers.created": 1000,
+        "http.requests": 1000,
+        "http.codes.201": 1000,
+        "http.responses": 1000,
+        "vusers.failed": 0,
+        "vusers.completed": 1001
+      },
+      "rates": {
+        "http.request_rate": 100
+      },
+      "http.request_rate": null,
+      "firstCounterAt": 1668226670000,
+      "firstHistogramAt": 1668226670000,
+      "lastCounterAt": 1668226679996,
+      "lastHistogramAt": 1668226679996,
+      "firstMetricAt": 1668226670000,
+      "lastMetricAt": 1668226679996,
+      "period": "1668226670000",
+      "summaries": {
+        "http.response_time": {
+          "min": -1,
+          "max": 20,
+          "count": 1000,
+          "p50": 1,
+          "median": 1,
+          "p75": 1,
+          "p90": 1,
+          "p95": 2,
+          "p99": 7.9,
+          "p999": 19.9
+        },
+        "vusers.session_length": {
+          "min": 1.3,
+          "max": 29.6,
+          "count": 1001,
+          "p50": 1.7,
+          "median": 1.7,
+          "p75": 2.1,
+          "p90": 2.9,
+          "p95": 3.9,
+          "p99": 15,
+          "p999": 22.4
+        }
+      },
+      "histograms": {
+        "http.response_time": {
+          "min": -1,
+          "max": 20,
+          "count": 1000,
+          "p50": 1,
+          "median": 1,
+          "p75": 1,
+          "p90": 1,
+          "p95": 2,
+          "p99": 7.9,
+          "p999": 19.9
+        },
+        "vusers.session_length": {
+          "min": 1.3,
+          "max": 29.6,
+          "count": 1001,
+          "p50": 1.7,
+          "median": 1.7,
+          "p75": 2.1,
+          "p90": 2.9,
+          "p95": 3.9,
+          "p99": 15,
+          "p999": 22.4
+        }
+      }
+    },
+    {
+      "counters": {
+        "vusers.created_by_name.Create player stats": 1000,
+        "vusers.created": 1000,
+        "http.requests": 1000,
+        "http.codes.201": 1000,
+        "http.responses": 1000,
+        "vusers.failed": 0,
+        "vusers.completed": 1000
+      },
+      "rates": {
+        "http.request_rate": 100
+      },
+      "http.request_rate": null,
+      "firstCounterAt": 1668226680009,
+      "firstHistogramAt": 1668226680011,
+      "lastCounterAt": 1668226689996,
+      "lastHistogramAt": 1668226689996,
+      "firstMetricAt": 1668226680009,
+      "lastMetricAt": 1668226689996,
+      "period": "1668226680000",
+      "summaries": {
+        "http.response_time": {
+          "min": 0,
+          "max": 10,
+          "count": 1000,
+          "p50": 1,
+          "median": 1,
+          "p75": 1,
+          "p90": 1,
+          "p95": 1,
+          "p99": 3,
+          "p999": 10.1
+        },
+        "vusers.session_length": {
+          "min": 1.4,
+          "max": 11.2,
+          "count": 1000,
+          "p50": 1.6,
+          "median": 1.6,
+          "p75": 1.9,
+          "p90": 2.2,
+          "p95": 2.6,
+          "p99": 5.9,
+          "p999": 10.9
+        }
+      },
+      "histograms": {
+        "http.response_time": {
+          "min": 0,
+          "max": 10,
+          "count": 1000,
+          "p50": 1,
+          "median": 1,
+          "p75": 1,
+          "p90": 1,
+          "p95": 1,
+          "p99": 3,
+          "p999": 10.1
+        },
+        "vusers.session_length": {
+          "min": 1.4,
+          "max": 11.2,
+          "count": 1000,
+          "p50": 1.6,
+          "median": 1.6,
+          "p75": 1.9,
+          "p90": 2.2,
+          "p95": 2.6,
+          "p99": 5.9,
+          "p999": 10.9
+        }
+      }
+    },
+    {
+      "counters": {
+        "vusers.created_by_name.Create player stats": 1000,
+        "vusers.created": 1000,
+        "http.requests": 1000,
+        "http.codes.201": 1000,
+        "http.responses": 1000,
+        "vusers.failed": 0,
+        "vusers.completed": 1000
+      },
+      "rates": {
+        "http.request_rate": 100
+      },
+      "http.request_rate": null,
+      "firstCounterAt": 1668226690009,
+      "firstHistogramAt": 1668226690011,
+      "lastCounterAt": 1668226699996,
+      "lastHistogramAt": 1668226699996,
+      "firstMetricAt": 1668226690009,
+      "lastMetricAt": 1668226699996,
+      "period": "1668226690000",
+      "summaries": {
+        "http.response_time": {
+          "min": 0,
+          "max": 19,
+          "count": 1000,
+          "p50": 1,
+          "median": 1,
+          "p75": 1,
+          "p90": 1,
+          "p95": 1,
+          "p99": 6,
+          "p999": 15
+        },
+        "vusers.session_length": {
+          "min": 1.3,
+          "max": 20.7,
+          "count": 1000,
+          "p50": 1.7,
+          "median": 1.7,
+          "p75": 2,
+          "p90": 2.4,
+          "p95": 2.9,
+          "p99": 9.5,
+          "p999": 16.6
+        }
+      },
+      "histograms": {
+        "http.response_time": {
+          "min": 0,
+          "max": 19,
+          "count": 1000,
+          "p50": 1,
+          "median": 1,
+          "p75": 1,
+          "p90": 1,
+          "p95": 1,
+          "p99": 6,
+          "p999": 15
+        },
+        "vusers.session_length": {
+          "min": 1.3,
+          "max": 20.7,
+          "count": 1000,
+          "p50": 1.7,
+          "median": 1.7,
+          "p75": 2,
+          "p90": 2.4,
+          "p95": 2.9,
+          "p99": 9.5,
+          "p999": 16.6
+        }
+      }
+    },
+    {
+      "counters": {
+        "vusers.created_by_name.Create player stats": 1000,
+        "vusers.created": 1000,
+        "http.requests": 1000,
+        "http.codes.201": 1000,
+        "http.responses": 1000,
+        "vusers.failed": 0,
+        "vusers.completed": 1000
+      },
+      "rates": {
+        "http.request_rate": 100
+      },
+      "http.request_rate": null,
+      "firstCounterAt": 1668226700009,
+      "firstHistogramAt": 1668226700010,
+      "lastCounterAt": 1668226709994,
+      "lastHistogramAt": 1668226709994,
+      "firstMetricAt": 1668226700009,
+      "lastMetricAt": 1668226709994,
+      "period": "1668226700000",
+      "summaries": {
+        "http.response_time": {
+          "min": 0,
+          "max": 11,
+          "count": 1000,
+          "p50": 1,
+          "median": 1,
+          "p75": 1,
+          "p90": 1,
+          "p95": 1,
+          "p99": 4,
+          "p999": 10.9
+        },
+        "vusers.session_length": {
+          "min": 1.3,
+          "max": 13.9,
+          "count": 1000,
+          "p50": 1.5,
+          "median": 1.5,
+          "p75": 1.7,
+          "p90": 2.1,
+          "p95": 2.5,
+          "p99": 5.3,
+          "p999": 13.6
+        }
+      },
+      "histograms": {
+        "http.response_time": {
+          "min": 0,
+          "max": 11,
+          "count": 1000,
+          "p50": 1,
+          "median": 1,
+          "p75": 1,
+          "p90": 1,
+          "p95": 1,
+          "p99": 4,
+          "p999": 10.9
+        },
+        "vusers.session_length": {
+          "min": 1.3,
+          "max": 13.9,
+          "count": 1000,
+          "p50": 1.5,
+          "median": 1.5,
+          "p75": 1.7,
+          "p90": 2.1,
+          "p95": 2.5,
+          "p99": 5.3,
+          "p999": 13.6
+        }
+      }
+    },
+    {
+      "counters": {
+        "vusers.created_by_name.Create player stats": 1000,
+        "vusers.created": 1000,
+        "http.requests": 1000,
+        "http.codes.201": 1000,
+        "http.responses": 1000,
+        "vusers.failed": 0,
+        "vusers.completed": 1000
+      },
+      "rates": {
+        "http.request_rate": 100
+      },
+      "http.request_rate": null,
+      "firstCounterAt": 1668226710007,
+      "firstHistogramAt": 1668226710009,
+      "lastCounterAt": 1668226719994,
+      "lastHistogramAt": 1668226719994,
+      "firstMetricAt": 1668226710007,
+      "lastMetricAt": 1668226719994,
+      "period": "1668226710000",
+      "summaries": {
+        "http.response_time": {
+          "min": 0,
+          "max": 16,
+          "count": 1000,
+          "p50": 1,
+          "median": 1,
+          "p75": 1,
+          "p90": 1,
+          "p95": 1,
+          "p99": 3,
+          "p999": 15
+        },
+        "vusers.session_length": {
+          "min": 1.3,
+          "max": 16.7,
+          "count": 1000,
+          "p50": 1.6,
+          "median": 1.6,
+          "p75": 1.7,
+          "p90": 2.1,
+          "p95": 2.4,
+          "p99": 4.2,
+          "p999": 16.6
+        }
+      },
+      "histograms": {
+        "http.response_time": {
+          "min": 0,
+          "max": 16,
+          "count": 1000,
+          "p50": 1,
+          "median": 1,
+          "p75": 1,
+          "p90": 1,
+          "p95": 1,
+          "p99": 3,
+          "p999": 15
+        },
+        "vusers.session_length": {
+          "min": 1.3,
+          "max": 16.7,
+          "count": 1000,
+          "p50": 1.6,
+          "median": 1.6,
+          "p75": 1.7,
+          "p90": 2.1,
+          "p95": 2.4,
+          "p99": 4.2,
+          "p999": 16.6
+        }
+      }
+    },
+    {
+      "counters": {
+        "vusers.created_by_name.Create player stats": 1000,
+        "vusers.created": 1000,
+        "http.requests": 1000,
+        "http.codes.201": 917,
+        "http.responses": 917,
+        "vusers.failed": 83,
+        "vusers.completed": 917,
+        "errors.ECONNREFUSED": 82,
+        "errors.ECONNRESET": 1
+      },
+      "rates": {
+        "http.request_rate": 100
+      },
+      "http.request_rate": null,
+      "firstCounterAt": 1668226720007,
+      "firstHistogramAt": 1668226720009,
+      "lastCounterAt": 1668226729994,
+      "lastHistogramAt": 1668226729994,
+      "firstMetricAt": 1668226720007,
+      "lastMetricAt": 1668226729994,
+      "period": "1668226720000",
+      "summaries": {
+        "http.response_time": {
+          "min": 0,
+          "max": 16,
+          "count": 917,
+          "p50": 1,
+          "median": 1,
+          "p75": 1,
+          "p90": 2,
+          "p95": 2,
+          "p99": 7,
+          "p999": 8.9
+        },
+        "vusers.session_length": {
+          "min": 1.3,
+          "max": 17.9,
+          "count": 917,
+          "p50": 1.9,
+          "median": 1.9,
+          "p75": 2.4,
+          "p90": 3.9,
+          "p95": 5,
+          "p99": 8.4,
+          "p999": 12.6
+        }
+      },
+      "histograms": {
+        "http.response_time": {
+          "min": 0,
+          "max": 16,
+          "count": 917,
+          "p50": 1,
+          "median": 1,
+          "p75": 1,
+          "p90": 2,
+          "p95": 2,
+          "p99": 7,
+          "p999": 8.9
+        },
+        "vusers.session_length": {
+          "min": 1.3,
+          "max": 17.9,
+          "count": 917,
+          "p50": 1.9,
+          "median": 1.9,
+          "p75": 2.4,
+          "p90": 3.9,
+          "p95": 5,
+          "p99": 8.4,
+          "p999": 12.6
+        }
+      }
+    },
+    {
+      "counters": {
+        "vusers.created_by_name.Create player stats": 1000,
+        "vusers.created": 1000,
+        "http.requests": 1000,
+        "http.codes.201": 1000,
+        "http.responses": 1000,
+        "vusers.failed": 0,
+        "vusers.completed": 1000
+      },
+      "rates": {
+        "http.request_rate": 100
+      },
+      "http.request_rate": null,
+      "firstCounterAt": 1668226730007,
+      "firstHistogramAt": 1668226730009,
+      "lastCounterAt": 1668226739995,
+      "lastHistogramAt": 1668226739995,
+      "firstMetricAt": 1668226730007,
+      "lastMetricAt": 1668226739995,
+      "period": "1668226730000",
+      "summaries": {
+        "http.response_time": {
+          "min": 0,
+          "max": 20,
+          "count": 1000,
+          "p50": 1,
+          "median": 1,
+          "p75": 1,
+          "p90": 1,
+          "p95": 2,
+          "p99": 10.1,
+          "p999": 19.1
+        },
+        "vusers.session_length": {
+          "min": 1.3,
+          "max": 20.9,
+          "count": 1000,
+          "p50": 1.6,
+          "median": 1.6,
+          "p75": 1.8,
+          "p90": 2.3,
+          "p95": 3.9,
+          "p99": 12.1,
+          "p999": 20.3
+        }
+      },
+      "histograms": {
+        "http.response_time": {
+          "min": 0,
+          "max": 20,
+          "count": 1000,
+          "p50": 1,
+          "median": 1,
+          "p75": 1,
+          "p90": 1,
+          "p95": 2,
+          "p99": 10.1,
+          "p999": 19.1
+        },
+        "vusers.session_length": {
+          "min": 1.3,
+          "max": 20.9,
+          "count": 1000,
+          "p50": 1.6,
+          "median": 1.6,
+          "p75": 1.8,
+          "p90": 2.3,
+          "p95": 3.9,
+          "p99": 12.1,
+          "p999": 20.3
+        }
+      }
+    },
+    {
+      "counters": {
+        "vusers.created_by_name.Create player stats": 1000,
+        "vusers.created": 1000,
+        "http.requests": 1000,
+        "http.codes.201": 1000,
+        "http.responses": 1000,
+        "vusers.failed": 0,
+        "vusers.completed": 1000
+      },
+      "rates": {
+        "http.request_rate": 100
+      },
+      "http.request_rate": null,
+      "firstCounterAt": 1668226740008,
+      "firstHistogramAt": 1668226740009,
+      "lastCounterAt": 1668226749995,
+      "lastHistogramAt": 1668226749995,
+      "firstMetricAt": 1668226740008,
+      "lastMetricAt": 1668226749995,
+      "period": "1668226740000",
+      "summaries": {
+        "http.response_time": {
+          "min": 0,
+          "max": 17,
+          "count": 1000,
+          "p50": 1,
+          "median": 1,
+          "p75": 1,
+          "p90": 1,
+          "p95": 2,
+          "p99": 6,
+          "p999": 8.9
+        },
+        "vusers.session_length": {
+          "min": 1.3,
+          "max": 18.3,
+          "count": 1000,
+          "p50": 1.6,
+          "median": 1.6,
+          "p75": 1.8,
+          "p90": 2.3,
+          "p95": 3,
+          "p99": 7.6,
+          "p999": 15.6
+        }
+      },
+      "histograms": {
+        "http.response_time": {
+          "min": 0,
+          "max": 17,
+          "count": 1000,
+          "p50": 1,
+          "median": 1,
+          "p75": 1,
+          "p90": 1,
+          "p95": 2,
+          "p99": 6,
+          "p999": 8.9
+        },
+        "vusers.session_length": {
+          "min": 1.3,
+          "max": 18.3,
+          "count": 1000,
+          "p50": 1.6,
+          "median": 1.6,
+          "p75": 1.8,
+          "p90": 2.3,
+          "p95": 3,
+          "p99": 7.6,
+          "p999": 15.6
+        }
+      }
+    },
+    {
+      "counters": {
+        "vusers.created_by_name.Create player stats": 1000,
+        "vusers.created": 1000,
+        "http.requests": 1000,
+        "http.codes.201": 1000,
+        "http.responses": 1000,
+        "vusers.failed": 0,
+        "vusers.completed": 1000
+      },
+      "rates": {
+        "http.request_rate": 100
+      },
+      "http.request_rate": null,
+      "firstCounterAt": 1668226750008,
+      "firstHistogramAt": 1668226750009,
+      "lastCounterAt": 1668226759995,
+      "lastHistogramAt": 1668226759995,
+      "firstMetricAt": 1668226750008,
+      "lastMetricAt": 1668226759995,
+      "period": "1668226750000",
+      "summaries": {
+        "http.response_time": {
+          "min": 0,
+          "max": 14,
+          "count": 1000,
+          "p50": 1,
+          "median": 1,
+          "p75": 1,
+          "p90": 1,
+          "p95": 1,
+          "p99": 4,
+          "p999": 8.9
+        },
+        "vusers.session_length": {
+          "min": 1.3,
+          "max": 15.9,
+          "count": 1000,
+          "p50": 1.6,
+          "median": 1.6,
+          "p75": 1.8,
+          "p90": 2.1,
+          "p95": 2.6,
+          "p99": 5.3,
+          "p999": 9.5
+        }
+      },
+      "histograms": {
+        "http.response_time": {
+          "min": 0,
+          "max": 14,
+          "count": 1000,
+          "p50": 1,
+          "median": 1,
+          "p75": 1,
+          "p90": 1,
+          "p95": 1,
+          "p99": 4,
+          "p999": 8.9
+        },
+        "vusers.session_length": {
+          "min": 1.3,
+          "max": 15.9,
+          "count": 1000,
+          "p50": 1.6,
+          "median": 1.6,
+          "p75": 1.8,
+          "p90": 2.1,
+          "p95": 2.6,
+          "p99": 5.3,
+          "p999": 9.5
+        }
+      }
+    },
+    {
+      "counters": {
+        "vusers.created_by_name.Create player stats": 1000,
+        "vusers.created": 1000,
+        "http.requests": 1000,
+        "http.codes.201": 1000,
+        "http.responses": 1000,
+        "vusers.failed": 0,
+        "vusers.completed": 1000
+      },
+      "rates": {
+        "http.request_rate": 100
+      },
+      "http.request_rate": null,
+      "firstCounterAt": 1668226760008,
+      "firstHistogramAt": 1668226760010,
+      "lastCounterAt": 1668226769995,
+      "lastHistogramAt": 1668226769995,
+      "firstMetricAt": 1668226760008,
+      "lastMetricAt": 1668226769995,
+      "period": "1668226760000",
+      "summaries": {
+        "http.response_time": {
+          "min": 0,
+          "max": 11,
+          "count": 1000,
+          "p50": 1,
+          "median": 1,
+          "p75": 1,
+          "p90": 1,
+          "p95": 1,
+          "p99": 5,
+          "p999": 10.9
+        },
+        "vusers.session_length": {
+          "min": 1.3,
+          "max": 13.6,
+          "count": 1000,
+          "p50": 1.6,
+          "median": 1.6,
+          "p75": 1.9,
+          "p90": 2.6,
+          "p95": 3.2,
+          "p99": 6,
+          "p999": 12.3
+        }
+      },
+      "histograms": {
+        "http.response_time": {
+          "min": 0,
+          "max": 11,
+          "count": 1000,
+          "p50": 1,
+          "median": 1,
+          "p75": 1,
+          "p90": 1,
+          "p95": 1,
+          "p99": 5,
+          "p999": 10.9
+        },
+        "vusers.session_length": {
+          "min": 1.3,
+          "max": 13.6,
+          "count": 1000,
+          "p50": 1.6,
+          "median": 1.6,
+          "p75": 1.9,
+          "p90": 2.6,
+          "p95": 3.2,
+          "p99": 6,
+          "p999": 12.3
+        }
+      }
+    },
+    {
+      "counters": {
+        "vusers.created_by_name.Create player stats": 1000,
+        "vusers.created": 1000,
+        "http.requests": 1000,
+        "http.codes.201": 1000,
+        "http.responses": 1000,
+        "vusers.failed": 0,
+        "vusers.completed": 1000
+      },
+      "rates": {
+        "http.request_rate": 100
+      },
+      "http.request_rate": null,
+      "firstCounterAt": 1668226770008,
+      "firstHistogramAt": 1668226770009,
+      "lastCounterAt": 1668226779995,
+      "lastHistogramAt": 1668226779995,
+      "firstMetricAt": 1668226770008,
+      "lastMetricAt": 1668226779995,
+      "period": "1668226770000",
+      "summaries": {
+        "http.response_time": {
+          "min": 0,
+          "max": 10,
+          "count": 1000,
+          "p50": 0,
+          "median": 0,
+          "p75": 1,
+          "p90": 1,
+          "p95": 1,
+          "p99": 2,
+          "p999": 6
+        },
+        "vusers.session_length": {
+          "min": 1.2,
+          "max": 11.5,
+          "count": 1000,
+          "p50": 1.6,
+          "median": 1.6,
+          "p75": 1.8,
+          "p90": 2.2,
+          "p95": 2.6,
+          "p99": 3.8,
+          "p999": 7.5
+        }
+      },
+      "histograms": {
+        "http.response_time": {
+          "min": 0,
+          "max": 10,
+          "count": 1000,
+          "p50": 0,
+          "median": 0,
+          "p75": 1,
+          "p90": 1,
+          "p95": 1,
+          "p99": 2,
+          "p999": 6
+        },
+        "vusers.session_length": {
+          "min": 1.2,
+          "max": 11.5,
+          "count": 1000,
+          "p50": 1.6,
+          "median": 1.6,
+          "p75": 1.8,
+          "p90": 2.2,
+          "p95": 2.6,
+          "p99": 3.8,
+          "p999": 7.5
+        }
+      }
+    },
+    {
+      "counters": {
+        "vusers.created_by_name.Create player stats": 1000,
+        "vusers.created": 1000,
+        "http.requests": 1000,
+        "http.codes.201": 1000,
+        "http.responses": 1000,
+        "vusers.failed": 0,
+        "vusers.completed": 1000
+      },
+      "rates": {
+        "http.request_rate": 100
+      },
+      "http.request_rate": null,
+      "firstCounterAt": 1668226780008,
+      "firstHistogramAt": 1668226780009,
+      "lastCounterAt": 1668226789996,
+      "lastHistogramAt": 1668226789996,
+      "firstMetricAt": 1668226780008,
+      "lastMetricAt": 1668226789996,
+      "period": "1668226780000",
+      "summaries": {
+        "http.response_time": {
+          "min": 0,
+          "max": 9,
+          "count": 1000,
+          "p50": 1,
+          "median": 1,
+          "p75": 1,
+          "p90": 1,
+          "p95": 1,
+          "p99": 4,
+          "p999": 7.9
+        },
+        "vusers.session_length": {
+          "min": 1.2,
+          "max": 24.4,
+          "count": 1000,
+          "p50": 1.7,
+          "median": 1.7,
+          "p75": 2,
+          "p90": 2.4,
+          "p95": 3.3,
+          "p99": 10.1,
+          "p999": 22.9
+        }
+      },
+      "histograms": {
+        "http.response_time": {
+          "min": 0,
+          "max": 9,
+          "count": 1000,
+          "p50": 1,
+          "median": 1,
+          "p75": 1,
+          "p90": 1,
+          "p95": 1,
+          "p99": 4,
+          "p999": 7.9
+        },
+        "vusers.session_length": {
+          "min": 1.2,
+          "max": 24.4,
+          "count": 1000,
+          "p50": 1.7,
+          "median": 1.7,
+          "p75": 2,
+          "p90": 2.4,
+          "p95": 3.3,
+          "p99": 10.1,
+          "p999": 22.9
+        }
+      }
+    },
+    {
+      "counters": {
+        "vusers.created_by_name.Create player stats": 1000,
+        "vusers.created": 1000,
+        "http.requests": 1000,
+        "http.codes.201": 1000,
+        "http.responses": 1000,
+        "vusers.failed": 0,
+        "vusers.completed": 1000
+      },
+      "rates": {
+        "http.request_rate": 100
+      },
+      "http.request_rate": null,
+      "firstCounterAt": 1668226790008,
+      "firstHistogramAt": 1668226790010,
+      "lastCounterAt": 1668226799995,
+      "lastHistogramAt": 1668226799995,
+      "firstMetricAt": 1668226790008,
+      "lastMetricAt": 1668226799995,
+      "period": "1668226790000",
+      "summaries": {
+        "http.response_time": {
+          "min": 0,
+          "max": 10,
+          "count": 1000,
+          "p50": 0,
+          "median": 0,
+          "p75": 1,
+          "p90": 1,
+          "p95": 1,
+          "p99": 2,
+          "p999": 8.9
+        },
+        "vusers.session_length": {
+          "min": 1.2,
+          "max": 16.1,
+          "count": 1000,
+          "p50": 1.5,
+          "median": 1.5,
+          "p75": 1.7,
+          "p90": 2,
+          "p95": 2.3,
+          "p99": 4.4,
+          "p999": 11.1
+        }
+      },
+      "histograms": {
+        "http.response_time": {
+          "min": 0,
+          "max": 10,
+          "count": 1000,
+          "p50": 0,
+          "median": 0,
+          "p75": 1,
+          "p90": 1,
+          "p95": 1,
+          "p99": 2,
+          "p999": 8.9
+        },
+        "vusers.session_length": {
+          "min": 1.2,
+          "max": 16.1,
+          "count": 1000,
+          "p50": 1.5,
+          "median": 1.5,
+          "p75": 1.7,
+          "p90": 2,
+          "p95": 2.3,
+          "p99": 4.4,
+          "p999": 11.1
+        }
+      }
+    },
+    {
+      "counters": {
+        "vusers.created_by_name.Create player stats": 1000,
+        "vusers.created": 1000,
+        "http.requests": 1000,
+        "http.codes.201": 1000,
+        "http.responses": 1000,
+        "vusers.failed": 0,
+        "vusers.completed": 1000
+      },
+      "rates": {
+        "http.request_rate": 100
+      },
+      "http.request_rate": null,
+      "firstCounterAt": 1668226800008,
+      "firstHistogramAt": 1668226800010,
+      "lastCounterAt": 1668226809995,
+      "lastHistogramAt": 1668226809995,
+      "firstMetricAt": 1668226800008,
+      "lastMetricAt": 1668226809995,
+      "period": "1668226800000",
+      "summaries": {
+        "http.response_time": {
+          "min": 0,
+          "max": 19,
+          "count": 1000,
+          "p50": 0,
+          "median": 0,
+          "p75": 1,
+          "p90": 1,
+          "p95": 1,
+          "p99": 6,
+          "p999": 13.1
+        },
+        "vusers.session_length": {
+          "min": 1.2,
+          "max": 20.5,
+          "count": 1000,
+          "p50": 1.5,
+          "median": 1.5,
+          "p75": 1.6,
+          "p90": 1.9,
+          "p95": 2.4,
+          "p99": 7.6,
+          "p999": 14.2
+        }
+      },
+      "histograms": {
+        "http.response_time": {
+          "min": 0,
+          "max": 19,
+          "count": 1000,
+          "p50": 0,
+          "median": 0,
+          "p75": 1,
+          "p90": 1,
+          "p95": 1,
+          "p99": 6,
+          "p999": 13.1
+        },
+        "vusers.session_length": {
+          "min": 1.2,
+          "max": 20.5,
+          "count": 1000,
+          "p50": 1.5,
+          "median": 1.5,
+          "p75": 1.6,
+          "p90": 1.9,
+          "p95": 2.4,
+          "p99": 7.6,
+          "p999": 14.2
+        }
+      }
+    },
+    {
+      "counters": {
+        "vusers.created_by_name.Create player stats": 1000,
+        "vusers.created": 1000,
+        "http.requests": 1000,
+        "http.codes.201": 1000,
+        "http.responses": 1000,
+        "vusers.failed": 0,
+        "vusers.completed": 1000
+      },
+      "rates": {
+        "http.request_rate": 100
+      },
+      "http.request_rate": null,
+      "firstCounterAt": 1668226810008,
+      "firstHistogramAt": 1668226810012,
+      "lastCounterAt": 1668226819995,
+      "lastHistogramAt": 1668226819995,
+      "firstMetricAt": 1668226810008,
+      "lastMetricAt": 1668226819995,
+      "period": "1668226810000",
+      "summaries": {
+        "http.response_time": {
+          "min": 0,
+          "max": 13,
+          "count": 1000,
+          "p50": 0,
+          "median": 0,
+          "p75": 1,
+          "p90": 1,
+          "p95": 1,
+          "p99": 5,
+          "p999": 12.1
+        },
+        "vusers.session_length": {
+          "min": 1.3,
+          "max": 15.6,
+          "count": 1000,
+          "p50": 1.6,
+          "median": 1.6,
+          "p75": 1.7,
+          "p90": 2,
+          "p95": 2.3,
+          "p99": 6.5,
+          "p999": 13.1
+        }
+      },
+      "histograms": {
+        "http.response_time": {
+          "min": 0,
+          "max": 13,
+          "count": 1000,
+          "p50": 0,
+          "median": 0,
+          "p75": 1,
+          "p90": 1,
+          "p95": 1,
+          "p99": 5,
+          "p999": 12.1
+        },
+        "vusers.session_length": {
+          "min": 1.3,
+          "max": 15.6,
+          "count": 1000,
+          "p50": 1.6,
+          "median": 1.6,
+          "p75": 1.7,
+          "p90": 2,
+          "p95": 2.3,
+          "p99": 6.5,
+          "p999": 13.1
+        }
+      }
+    },
+    {
+      "counters": {
+        "vusers.created_by_name.Create player stats": 1000,
+        "vusers.created": 1000,
+        "http.requests": 1000,
+        "http.codes.201": 1000,
+        "http.responses": 1000,
+        "vusers.failed": 0,
+        "vusers.completed": 1000
+      },
+      "rates": {
+        "http.request_rate": 100
+      },
+      "http.request_rate": null,
+      "firstCounterAt": 1668226820008,
+      "firstHistogramAt": 1668226820010,
+      "lastCounterAt": 1668226829995,
+      "lastHistogramAt": 1668226829995,
+      "firstMetricAt": 1668226820008,
+      "lastMetricAt": 1668226829995,
+      "period": "1668226820000",
+      "summaries": {
+        "http.response_time": {
+          "min": 0,
+          "max": 12,
+          "count": 1000,
+          "p50": 0,
+          "median": 0,
+          "p75": 1,
+          "p90": 1,
+          "p95": 1,
+          "p99": 2,
+          "p999": 8.9
+        },
+        "vusers.session_length": {
+          "min": 1.3,
+          "max": 12.9,
+          "count": 1000,
+          "p50": 1.5,
+          "median": 1.5,
+          "p75": 1.7,
+          "p90": 1.9,
+          "p95": 2.2,
+          "p99": 4.2,
+          "p999": 10.9
+        }
+      },
+      "histograms": {
+        "http.response_time": {
+          "min": 0,
+          "max": 12,
+          "count": 1000,
+          "p50": 0,
+          "median": 0,
+          "p75": 1,
+          "p90": 1,
+          "p95": 1,
+          "p99": 2,
+          "p999": 8.9
+        },
+        "vusers.session_length": {
+          "min": 1.3,
+          "max": 12.9,
+          "count": 1000,
+          "p50": 1.5,
+          "median": 1.5,
+          "p75": 1.7,
+          "p90": 1.9,
+          "p95": 2.2,
+          "p99": 4.2,
+          "p999": 10.9
+        }
+      }
+    },
+    {
+      "counters": {
+        "vusers.created_by_name.Create player stats": 1000,
+        "vusers.created": 1000,
+        "http.requests": 1000,
+        "http.codes.201": 1000,
+        "http.responses": 1000,
+        "vusers.failed": 0,
+        "vusers.completed": 1000
+      },
+      "rates": {
+        "http.request_rate": 100
+      },
+      "http.request_rate": null,
+      "firstCounterAt": 1668226830008,
+      "firstHistogramAt": 1668226830010,
+      "lastCounterAt": 1668226839995,
+      "lastHistogramAt": 1668226839995,
+      "firstMetricAt": 1668226830008,
+      "lastMetricAt": 1668226839995,
+      "period": "1668226830000",
+      "summaries": {
+        "http.response_time": {
+          "min": 0,
+          "max": 42,
+          "count": 1000,
+          "p50": 0,
+          "median": 0,
+          "p75": 1,
+          "p90": 1,
+          "p95": 2,
+          "p99": 10.9,
+          "p999": 23.8
+        },
+        "vusers.session_length": {
+          "min": 1.2,
+          "max": 42.4,
+          "count": 1000,
+          "p50": 1.7,
+          "median": 1.7,
+          "p75": 2,
+          "p90": 2.7,
+          "p95": 6.6,
+          "p99": 17.3,
+          "p999": 25.8
+        }
+      },
+      "histograms": {
+        "http.response_time": {
+          "min": 0,
+          "max": 42,
+          "count": 1000,
+          "p50": 0,
+          "median": 0,
+          "p75": 1,
+          "p90": 1,
+          "p95": 2,
+          "p99": 10.9,
+          "p999": 23.8
+        },
+        "vusers.session_length": {
+          "min": 1.2,
+          "max": 42.4,
+          "count": 1000,
+          "p50": 1.7,
+          "median": 1.7,
+          "p75": 2,
+          "p90": 2.7,
+          "p95": 6.6,
+          "p99": 17.3,
+          "p999": 25.8
+        }
+      }
+    },
+    {
+      "counters": {
+        "vusers.created_by_name.Create player stats": 1000,
+        "vusers.created": 1000,
+        "http.requests": 1000,
+        "http.codes.201": 1000,
+        "http.responses": 1000,
+        "vusers.failed": 0,
+        "vusers.completed": 1000
+      },
+      "rates": {
+        "http.request_rate": 100
+      },
+      "http.request_rate": null,
+      "firstCounterAt": 1668226840008,
+      "firstHistogramAt": 1668226840010,
+      "lastCounterAt": 1668226849996,
+      "lastHistogramAt": 1668226849996,
+      "firstMetricAt": 1668226840008,
+      "lastMetricAt": 1668226849996,
+      "period": "1668226840000",
+      "summaries": {
+        "http.response_time": {
+          "min": 0,
+          "max": 20,
+          "count": 1000,
+          "p50": 0,
+          "median": 0,
+          "p75": 1,
+          "p90": 1,
+          "p95": 1,
+          "p99": 7.9,
+          "p999": 15
+        },
+        "vusers.session_length": {
+          "min": 1.3,
+          "max": 21,
+          "count": 1000,
+          "p50": 1.7,
+          "median": 1.7,
+          "p75": 2,
+          "p90": 2.6,
+          "p95": 3.3,
+          "p99": 10.5,
+          "p999": 16.9
+        }
+      },
+      "histograms": {
+        "http.response_time": {
+          "min": 0,
+          "max": 20,
+          "count": 1000,
+          "p50": 0,
+          "median": 0,
+          "p75": 1,
+          "p90": 1,
+          "p95": 1,
+          "p99": 7.9,
+          "p999": 15
+        },
+        "vusers.session_length": {
+          "min": 1.3,
+          "max": 21,
+          "count": 1000,
+          "p50": 1.7,
+          "median": 1.7,
+          "p75": 2,
+          "p90": 2.6,
+          "p95": 3.3,
+          "p99": 10.5,
+          "p999": 16.9
+        }
+      }
+    },
+    {
+      "counters": {
+        "vusers.created_by_name.Create player stats": 1000,
+        "vusers.created": 1000,
+        "http.requests": 1000,
+        "http.codes.201": 1000,
+        "http.responses": 1000,
+        "vusers.failed": 0,
+        "vusers.completed": 1000
+      },
+      "rates": {
+        "http.request_rate": 100
+      },
+      "http.request_rate": null,
+      "firstCounterAt": 1668226850008,
+      "firstHistogramAt": 1668226850013,
+      "lastCounterAt": 1668226859995,
+      "lastHistogramAt": 1668226859995,
+      "firstMetricAt": 1668226850008,
+      "lastMetricAt": 1668226859995,
+      "period": "1668226850000",
+      "summaries": {
+        "http.response_time": {
+          "min": 0,
+          "max": 15,
+          "count": 1000,
+          "p50": 0,
+          "median": 0,
+          "p75": 1,
+          "p90": 1,
+          "p95": 1,
+          "p99": 7.9,
+          "p999": 15
+        },
+        "vusers.session_length": {
+          "min": 1.2,
+          "max": 25.1,
+          "count": 1000,
+          "p50": 1.5,
+          "median": 1.5,
+          "p75": 1.8,
+          "p90": 2.1,
+          "p95": 2.9,
+          "p99": 11.6,
+          "p999": 22
+        }
+      },
+      "histograms": {
+        "http.response_time": {
+          "min": 0,
+          "max": 15,
+          "count": 1000,
+          "p50": 0,
+          "median": 0,
+          "p75": 1,
+          "p90": 1,
+          "p95": 1,
+          "p99": 7.9,
+          "p999": 15
+        },
+        "vusers.session_length": {
+          "min": 1.2,
+          "max": 25.1,
+          "count": 1000,
+          "p50": 1.5,
+          "median": 1.5,
+          "p75": 1.8,
+          "p90": 2.1,
+          "p95": 2.9,
+          "p99": 11.6,
+          "p999": 22
+        }
+      }
+    },
+    {
+      "counters": {
+        "vusers.created_by_name.Create player stats": 1000,
+        "vusers.created": 1000,
+        "http.requests": 1000,
+        "http.codes.201": 1000,
+        "http.responses": 1000,
+        "vusers.failed": 0,
+        "vusers.completed": 1000
+      },
+      "rates": {
+        "http.request_rate": 100
+      },
+      "http.request_rate": null,
+      "firstCounterAt": 1668226860008,
+      "firstHistogramAt": 1668226860009,
+      "lastCounterAt": 1668226869995,
+      "lastHistogramAt": 1668226869995,
+      "firstMetricAt": 1668226860008,
+      "lastMetricAt": 1668226869995,
+      "period": "1668226860000",
+      "summaries": {
+        "http.response_time": {
+          "min": 0,
+          "max": 16,
+          "count": 1000,
+          "p50": 0,
+          "median": 0,
+          "p75": 1,
+          "p90": 1,
+          "p95": 1,
+          "p99": 7,
+          "p999": 15
+        },
+        "vusers.session_length": {
+          "min": 1.3,
+          "max": 17.7,
+          "count": 1000,
+          "p50": 1.5,
+          "median": 1.5,
+          "p75": 1.7,
+          "p90": 2.2,
+          "p95": 2.9,
+          "p99": 11.1,
+          "p999": 17.6
+        }
+      },
+      "histograms": {
+        "http.response_time": {
+          "min": 0,
+          "max": 16,
+          "count": 1000,
+          "p50": 0,
+          "median": 0,
+          "p75": 1,
+          "p90": 1,
+          "p95": 1,
+          "p99": 7,
+          "p999": 15
+        },
+        "vusers.session_length": {
+          "min": 1.3,
+          "max": 17.7,
+          "count": 1000,
+          "p50": 1.5,
+          "median": 1.5,
+          "p75": 1.7,
+          "p90": 2.2,
+          "p95": 2.9,
+          "p99": 11.1,
+          "p999": 17.6
+        }
+      }
+    },
+    {
+      "counters": {
+        "vusers.created_by_name.Create player stats": 1000,
+        "vusers.created": 1000,
+        "http.requests": 1000,
+        "http.codes.201": 1000,
+        "http.responses": 1000,
+        "vusers.failed": 0,
+        "vusers.completed": 1000
+      },
+      "rates": {
+        "http.request_rate": 100
+      },
+      "http.request_rate": null,
+      "firstCounterAt": 1668226870008,
+      "firstHistogramAt": 1668226870009,
+      "lastCounterAt": 1668226879995,
+      "lastHistogramAt": 1668226879995,
+      "firstMetricAt": 1668226870008,
+      "lastMetricAt": 1668226879995,
+      "period": "1668226870000",
+      "summaries": {
+        "http.response_time": {
+          "min": 0,
+          "max": 54,
+          "count": 1000,
+          "p50": 0,
+          "median": 0,
+          "p75": 1,
+          "p90": 1,
+          "p95": 1,
+          "p99": 8.9,
+          "p999": 25.8
+        },
+        "vusers.session_length": {
+          "min": 1.2,
+          "max": 56,
+          "count": 1000,
+          "p50": 1.5,
+          "median": 1.5,
+          "p75": 1.8,
+          "p90": 2.2,
+          "p95": 3.1,
+          "p99": 16.6,
+          "p999": 31.5
+        }
+      },
+      "histograms": {
+        "http.response_time": {
+          "min": 0,
+          "max": 54,
+          "count": 1000,
+          "p50": 0,
+          "median": 0,
+          "p75": 1,
+          "p90": 1,
+          "p95": 1,
+          "p99": 8.9,
+          "p999": 25.8
+        },
+        "vusers.session_length": {
+          "min": 1.2,
+          "max": 56,
+          "count": 1000,
+          "p50": 1.5,
+          "median": 1.5,
+          "p75": 1.8,
+          "p90": 2.2,
+          "p95": 3.1,
+          "p99": 16.6,
+          "p999": 31.5
+        }
+      }
+    },
+    {
+      "counters": {
+        "vusers.created_by_name.Create player stats": 1000,
+        "vusers.created": 1000,
+        "http.requests": 1000,
+        "http.codes.201": 1000,
+        "http.responses": 1000,
+        "vusers.failed": 0,
+        "vusers.completed": 1000
+      },
+      "rates": {
+        "http.request_rate": 100
+      },
+      "http.request_rate": null,
+      "firstCounterAt": 1668226880008,
+      "firstHistogramAt": 1668226880009,
+      "lastCounterAt": 1668226889995,
+      "lastHistogramAt": 1668226889995,
+      "firstMetricAt": 1668226880008,
+      "lastMetricAt": 1668226889995,
+      "period": "1668226880000",
+      "summaries": {
+        "http.response_time": {
+          "min": 0,
+          "max": 27,
+          "count": 1000,
+          "p50": 0,
+          "median": 0,
+          "p75": 1,
+          "p90": 1,
+          "p95": 1,
+          "p99": 8.9,
+          "p999": 22.9
+        },
+        "vusers.session_length": {
+          "min": 1.2,
+          "max": 29.1,
+          "count": 1000,
+          "p50": 1.5,
+          "median": 1.5,
+          "p75": 1.7,
+          "p90": 2.1,
+          "p95": 2.9,
+          "p99": 10.9,
+          "p999": 23.8
+        }
+      },
+      "histograms": {
+        "http.response_time": {
+          "min": 0,
+          "max": 27,
+          "count": 1000,
+          "p50": 0,
+          "median": 0,
+          "p75": 1,
+          "p90": 1,
+          "p95": 1,
+          "p99": 8.9,
+          "p999": 22.9
+        },
+        "vusers.session_length": {
+          "min": 1.2,
+          "max": 29.1,
+          "count": 1000,
+          "p50": 1.5,
+          "median": 1.5,
+          "p75": 1.7,
+          "p90": 2.1,
+          "p95": 2.9,
+          "p99": 10.9,
+          "p999": 23.8
+        }
+      }
+    },
+    {
+      "counters": {
+        "vusers.created_by_name.Create player stats": 1000,
+        "vusers.created": 1000,
+        "http.requests": 1000,
+        "http.codes.201": 1000,
+        "http.responses": 1000,
+        "vusers.failed": 0,
+        "vusers.completed": 1000
+      },
+      "rates": {
+        "http.request_rate": 100
+      },
+      "http.request_rate": null,
+      "firstCounterAt": 1668226890008,
+      "firstHistogramAt": 1668226890009,
+      "lastCounterAt": 1668226899995,
+      "lastHistogramAt": 1668226899995,
+      "firstMetricAt": 1668226890008,
+      "lastMetricAt": 1668226899995,
+      "period": "1668226890000",
+      "summaries": {
+        "http.response_time": {
+          "min": 0,
+          "max": 19,
+          "count": 1000,
+          "p50": 0,
+          "median": 0,
+          "p75": 0,
+          "p90": 1,
+          "p95": 1,
+          "p99": 4,
+          "p999": 15
+        },
+        "vusers.session_length": {
+          "min": 1.2,
+          "max": 24.3,
+          "count": 1000,
+          "p50": 1.4,
+          "median": 1.4,
+          "p75": 1.6,
+          "p90": 2,
+          "p95": 2.7,
+          "p99": 6.9,
+          "p999": 16.6
+        }
+      },
+      "histograms": {
+        "http.response_time": {
+          "min": 0,
+          "max": 19,
+          "count": 1000,
+          "p50": 0,
+          "median": 0,
+          "p75": 0,
+          "p90": 1,
+          "p95": 1,
+          "p99": 4,
+          "p999": 15
+        },
+        "vusers.session_length": {
+          "min": 1.2,
+          "max": 24.3,
+          "count": 1000,
+          "p50": 1.4,
+          "median": 1.4,
+          "p75": 1.6,
+          "p90": 2,
+          "p95": 2.7,
+          "p99": 6.9,
+          "p999": 16.6
+        }
+      }
+    },
+    {
+      "counters": {
+        "vusers.created_by_name.Create player stats": 1000,
+        "vusers.created": 1000,
+        "http.requests": 1000,
+        "http.codes.201": 1000,
+        "http.responses": 1000,
+        "vusers.failed": 0,
+        "vusers.completed": 1000
+      },
+      "rates": {
+        "http.request_rate": 100
+      },
+      "http.request_rate": null,
+      "firstCounterAt": 1668226900008,
+      "firstHistogramAt": 1668226900009,
+      "lastCounterAt": 1668226909995,
+      "lastHistogramAt": 1668226909995,
+      "firstMetricAt": 1668226900008,
+      "lastMetricAt": 1668226909995,
+      "period": "1668226900000",
+      "summaries": {
+        "http.response_time": {
+          "min": 0,
+          "max": 19,
+          "count": 1000,
+          "p50": 0,
+          "median": 0,
+          "p75": 1,
+          "p90": 1,
+          "p95": 1,
+          "p99": 8.9,
+          "p999": 19.1
+        },
+        "vusers.session_length": {
+          "min": 1.2,
+          "max": 33.8,
+          "count": 1000,
+          "p50": 1.5,
+          "median": 1.5,
+          "p75": 1.7,
+          "p90": 2.1,
+          "p95": 2.9,
+          "p99": 11.4,
+          "p999": 21.5
+        }
+      },
+      "histograms": {
+        "http.response_time": {
+          "min": 0,
+          "max": 19,
+          "count": 1000,
+          "p50": 0,
+          "median": 0,
+          "p75": 1,
+          "p90": 1,
+          "p95": 1,
+          "p99": 8.9,
+          "p999": 19.1
+        },
+        "vusers.session_length": {
+          "min": 1.2,
+          "max": 33.8,
+          "count": 1000,
+          "p50": 1.5,
+          "median": 1.5,
+          "p75": 1.7,
+          "p90": 2.1,
+          "p95": 2.9,
+          "p99": 11.4,
+          "p999": 21.5
+        }
+      }
+    },
+    {
+      "counters": {
+        "vusers.created_by_name.Create player stats": 1000,
+        "vusers.created": 1000,
+        "http.requests": 1000,
+        "http.codes.201": 1000,
+        "http.responses": 1000,
+        "vusers.failed": 0,
+        "vusers.completed": 1000
+      },
+      "rates": {
+        "http.request_rate": 100
+      },
+      "http.request_rate": null,
+      "firstCounterAt": 1668226910008,
+      "firstHistogramAt": 1668226910011,
+      "lastCounterAt": 1668226919995,
+      "lastHistogramAt": 1668226919995,
+      "firstMetricAt": 1668226910008,
+      "lastMetricAt": 1668226919995,
+      "period": "1668226910000",
+      "summaries": {
+        "http.response_time": {
+          "min": 0,
+          "max": 24,
+          "count": 1000,
+          "p50": 0,
+          "median": 0,
+          "p75": 1,
+          "p90": 1,
+          "p95": 2,
+          "p99": 10.9,
+          "p999": 19.9
+        },
+        "vusers.session_length": {
+          "min": 1.2,
+          "max": 25.1,
+          "count": 1000,
+          "p50": 1.5,
+          "median": 1.5,
+          "p75": 1.8,
+          "p90": 2.2,
+          "p95": 3.5,
+          "p99": 12.3,
+          "p999": 22.4
+        }
+      },
+      "histograms": {
+        "http.response_time": {
+          "min": 0,
+          "max": 24,
+          "count": 1000,
+          "p50": 0,
+          "median": 0,
+          "p75": 1,
+          "p90": 1,
+          "p95": 2,
+          "p99": 10.9,
+          "p999": 19.9
+        },
+        "vusers.session_length": {
+          "min": 1.2,
+          "max": 25.1,
+          "count": 1000,
+          "p50": 1.5,
+          "median": 1.5,
+          "p75": 1.8,
+          "p90": 2.2,
+          "p95": 3.5,
+          "p99": 12.3,
+          "p999": 22.4
+        }
+      }
+    },
+    {
+      "counters": {
+        "vusers.created_by_name.Create player stats": 1000,
+        "vusers.created": 1000,
+        "http.requests": 1000,
+        "http.codes.201": 1000,
+        "http.responses": 1000,
+        "vusers.failed": 0,
+        "vusers.completed": 1000
+      },
+      "rates": {
+        "http.request_rate": 100
+      },
+      "http.request_rate": null,
+      "firstCounterAt": 1668226920008,
+      "firstHistogramAt": 1668226920010,
+      "lastCounterAt": 1668226929996,
+      "lastHistogramAt": 1668226929996,
+      "firstMetricAt": 1668226920008,
+      "lastMetricAt": 1668226929996,
+      "period": "1668226920000",
+      "summaries": {
+        "http.response_time": {
+          "min": 0,
+          "max": 16,
+          "count": 1000,
+          "p50": 0,
+          "median": 0,
+          "p75": 1,
+          "p90": 1,
+          "p95": 1,
+          "p99": 6,
+          "p999": 15
+        },
+        "vusers.session_length": {
+          "min": 1.2,
+          "max": 18.1,
+          "count": 1000,
+          "p50": 1.6,
+          "median": 1.6,
+          "p75": 1.9,
+          "p90": 2.4,
+          "p95": 3,
+          "p99": 8.8,
+          "p999": 16.6
+        }
+      },
+      "histograms": {
+        "http.response_time": {
+          "min": 0,
+          "max": 16,
+          "count": 1000,
+          "p50": 0,
+          "median": 0,
+          "p75": 1,
+          "p90": 1,
+          "p95": 1,
+          "p99": 6,
+          "p999": 15
+        },
+        "vusers.session_length": {
+          "min": 1.2,
+          "max": 18.1,
+          "count": 1000,
+          "p50": 1.6,
+          "median": 1.6,
+          "p75": 1.9,
+          "p90": 2.4,
+          "p95": 3,
+          "p99": 8.8,
+          "p999": 16.6
+        }
+      }
+    },
+    {
+      "counters": {
+        "vusers.created_by_name.Create player stats": 1000,
+        "vusers.created": 1000,
+        "http.requests": 1000,
+        "http.codes.201": 1000,
+        "http.responses": 1000,
+        "vusers.failed": 0,
+        "vusers.completed": 1000
+      },
+      "rates": {
+        "http.request_rate": 100
+      },
+      "http.request_rate": null,
+      "firstCounterAt": 1668226930008,
+      "firstHistogramAt": 1668226930010,
+      "lastCounterAt": 1668226939995,
+      "lastHistogramAt": 1668226939995,
+      "firstMetricAt": 1668226930008,
+      "lastMetricAt": 1668226939995,
+      "period": "1668226930000",
+      "summaries": {
+        "http.response_time": {
+          "min": 0,
+          "max": 8,
+          "count": 1000,
+          "p50": 1,
+          "median": 1,
+          "p75": 1,
+          "p90": 1,
+          "p95": 1,
+          "p99": 2,
+          "p999": 7
+        },
+        "vusers.session_length": {
+          "min": 1.3,
+          "max": 13,
+          "count": 1000,
+          "p50": 1.7,
+          "median": 1.7,
+          "p75": 2.1,
+          "p90": 2.8,
+          "p95": 3.3,
+          "p99": 4.7,
+          "p999": 11.8
+        }
+      },
+      "histograms": {
+        "http.response_time": {
+          "min": 0,
+          "max": 8,
+          "count": 1000,
+          "p50": 1,
+          "median": 1,
+          "p75": 1,
+          "p90": 1,
+          "p95": 1,
+          "p99": 2,
+          "p999": 7
+        },
+        "vusers.session_length": {
+          "min": 1.3,
+          "max": 13,
+          "count": 1000,
+          "p50": 1.7,
+          "median": 1.7,
+          "p75": 2.1,
+          "p90": 2.8,
+          "p95": 3.3,
+          "p99": 4.7,
+          "p999": 11.8
+        }
+      }
+    },
+    {
+      "counters": {
+        "vusers.created_by_name.Create player stats": 1000,
+        "vusers.created": 1000,
+        "http.requests": 1000,
+        "http.codes.201": 1000,
+        "http.responses": 1000,
+        "vusers.failed": 0,
+        "vusers.completed": 1000
+      },
+      "rates": {
+        "http.request_rate": 100
+      },
+      "http.request_rate": null,
+      "firstCounterAt": 1668226940008,
+      "firstHistogramAt": 1668226940009,
+      "lastCounterAt": 1668226949994,
+      "lastHistogramAt": 1668226949994,
+      "firstMetricAt": 1668226940008,
+      "lastMetricAt": 1668226949994,
+      "period": "1668226940000",
+      "summaries": {
+        "http.response_time": {
+          "min": 0,
+          "max": 49,
+          "count": 1000,
+          "p50": 1,
+          "median": 1,
+          "p75": 1,
+          "p90": 1,
+          "p95": 1,
+          "p99": 15,
+          "p999": 48.9
+        },
+        "vusers.session_length": {
+          "min": 1.2,
+          "max": 50.3,
+          "count": 1000,
+          "p50": 1.7,
+          "median": 1.7,
+          "p75": 1.9,
+          "p90": 2.4,
+          "p95": 3.4,
+          "p99": 19.5,
+          "p999": 49.9
+        }
+      },
+      "histograms": {
+        "http.response_time": {
+          "min": 0,
+          "max": 49,
+          "count": 1000,
+          "p50": 1,
+          "median": 1,
+          "p75": 1,
+          "p90": 1,
+          "p95": 1,
+          "p99": 15,
+          "p999": 48.9
+        },
+        "vusers.session_length": {
+          "min": 1.2,
+          "max": 50.3,
+          "count": 1000,
+          "p50": 1.7,
+          "median": 1.7,
+          "p75": 1.9,
+          "p90": 2.4,
+          "p95": 3.4,
+          "p99": 19.5,
+          "p999": 49.9
+        }
+      }
+    },
+    {
+      "counters": {
+        "vusers.created_by_name.Create player stats": 1000,
+        "vusers.created": 1000,
+        "http.requests": 1000,
+        "http.codes.201": 1000,
+        "http.responses": 1000,
+        "vusers.failed": 0,
+        "vusers.completed": 1000
+      },
+      "rates": {
+        "http.request_rate": 100
+      },
+      "http.request_rate": null,
+      "firstCounterAt": 1668226950007,
+      "firstHistogramAt": 1668226950008,
+      "lastCounterAt": 1668226959994,
+      "lastHistogramAt": 1668226959994,
+      "firstMetricAt": 1668226950007,
+      "lastMetricAt": 1668226959994,
+      "period": "1668226950000",
+      "summaries": {
+        "http.response_time": {
+          "min": 0,
+          "max": 31,
+          "count": 1000,
+          "p50": 1,
+          "median": 1,
+          "p75": 1,
+          "p90": 1,
+          "p95": 1,
+          "p99": 6,
+          "p999": 27.9
+        },
+        "vusers.session_length": {
+          "min": 1.2,
+          "max": 32.4,
+          "count": 1000,
+          "p50": 1.5,
+          "median": 1.5,
+          "p75": 1.7,
+          "p90": 1.9,
+          "p95": 2.2,
+          "p99": 8.6,
+          "p999": 29.1
+        }
+      },
+      "histograms": {
+        "http.response_time": {
+          "min": 0,
+          "max": 31,
+          "count": 1000,
+          "p50": 1,
+          "median": 1,
+          "p75": 1,
+          "p90": 1,
+          "p95": 1,
+          "p99": 6,
+          "p999": 27.9
+        },
+        "vusers.session_length": {
+          "min": 1.2,
+          "max": 32.4,
+          "count": 1000,
+          "p50": 1.5,
+          "median": 1.5,
+          "p75": 1.7,
+          "p90": 1.9,
+          "p95": 2.2,
+          "p99": 8.6,
+          "p999": 29.1
+        }
+      }
+    },
+    {
+      "counters": {
+        "vusers.created_by_name.Create player stats": 1000,
+        "vusers.created": 1000,
+        "http.requests": 1000,
+        "http.codes.201": 1000,
+        "http.responses": 1000,
+        "vusers.failed": 0,
+        "vusers.completed": 1000
+      },
+      "rates": {
+        "http.request_rate": 100
+      },
+      "http.request_rate": null,
+      "firstCounterAt": 1668226960007,
+      "firstHistogramAt": 1668226960008,
+      "lastCounterAt": 1668226969994,
+      "lastHistogramAt": 1668226969994,
+      "firstMetricAt": 1668226960007,
+      "lastMetricAt": 1668226969994,
+      "period": "1668226960000",
+      "summaries": {
+        "http.response_time": {
+          "min": 0,
+          "max": 21,
+          "count": 1000,
+          "p50": 1,
+          "median": 1,
+          "p75": 1,
+          "p90": 1,
+          "p95": 1,
+          "p99": 8.9,
+          "p999": 19.9
+        },
+        "vusers.session_length": {
+          "min": 1.1,
+          "max": 25.3,
+          "count": 1000,
+          "p50": 1.5,
+          "median": 1.5,
+          "p75": 1.7,
+          "p90": 1.9,
+          "p95": 2.2,
+          "p99": 10.9,
+          "p999": 22
+        }
+      },
+      "histograms": {
+        "http.response_time": {
+          "min": 0,
+          "max": 21,
+          "count": 1000,
+          "p50": 1,
+          "median": 1,
+          "p75": 1,
+          "p90": 1,
+          "p95": 1,
+          "p99": 8.9,
+          "p999": 19.9
+        },
+        "vusers.session_length": {
+          "min": 1.1,
+          "max": 25.3,
+          "count": 1000,
+          "p50": 1.5,
+          "median": 1.5,
+          "p75": 1.7,
+          "p90": 1.9,
+          "p95": 2.2,
+          "p99": 10.9,
+          "p999": 22
+        }
+      }
+    },
+    {
+      "counters": {
+        "vusers.created_by_name.Create player stats": 1000,
+        "vusers.created": 1000,
+        "http.requests": 1000,
+        "http.codes.201": 1000,
+        "http.responses": 1000,
+        "vusers.failed": 0,
+        "vusers.completed": 1000
+      },
+      "rates": {
+        "http.request_rate": 100
+      },
+      "http.request_rate": null,
+      "firstCounterAt": 1668226970007,
+      "firstHistogramAt": 1668226970008,
+      "lastCounterAt": 1668226979996,
+      "lastHistogramAt": 1668226979996,
+      "firstMetricAt": 1668226970007,
+      "lastMetricAt": 1668226979996,
+      "period": "1668226970000",
+      "summaries": {
+        "http.response_time": {
+          "min": 0,
+          "max": 21,
+          "count": 1000,
+          "p50": 1,
+          "median": 1,
+          "p75": 1,
+          "p90": 1,
+          "p95": 1,
+          "p99": 7,
+          "p999": 18
+        },
+        "vusers.session_length": {
+          "min": 1.3,
+          "max": 22.5,
+          "count": 1000,
+          "p50": 1.7,
+          "median": 1.7,
+          "p75": 2,
+          "p90": 2.6,
+          "p95": 3.2,
+          "p99": 10.9,
+          "p999": 21.1
+        }
+      },
+      "histograms": {
+        "http.response_time": {
+          "min": 0,
+          "max": 21,
+          "count": 1000,
+          "p50": 1,
+          "median": 1,
+          "p75": 1,
+          "p90": 1,
+          "p95": 1,
+          "p99": 7,
+          "p999": 18
+        },
+        "vusers.session_length": {
+          "min": 1.3,
+          "max": 22.5,
+          "count": 1000,
+          "p50": 1.7,
+          "median": 1.7,
+          "p75": 2,
+          "p90": 2.6,
+          "p95": 3.2,
+          "p99": 10.9,
+          "p999": 21.1
+        }
+      }
+    },
+    {
+      "counters": {
+        "vusers.created_by_name.Create player stats": 1000,
+        "vusers.created": 1000,
+        "http.requests": 1000,
+        "http.codes.201": 1000,
+        "http.responses": 1000,
+        "vusers.failed": 0,
+        "vusers.completed": 1000
+      },
+      "rates": {
+        "http.request_rate": 100
+      },
+      "http.request_rate": null,
+      "firstCounterAt": 1668226980008,
+      "firstHistogramAt": 1668226980009,
+      "lastCounterAt": 1668226989995,
+      "lastHistogramAt": 1668226989995,
+      "firstMetricAt": 1668226980008,
+      "lastMetricAt": 1668226989995,
+      "period": "1668226980000",
+      "summaries": {
+        "http.response_time": {
+          "min": 0,
+          "max": 38,
+          "count": 1000,
+          "p50": 1,
+          "median": 1,
+          "p75": 1,
+          "p90": 1,
+          "p95": 3,
+          "p99": 16,
+          "p999": 34.1
+        },
+        "vusers.session_length": {
+          "min": 1.1,
+          "max": 40,
+          "count": 1000,
+          "p50": 1.7,
+          "median": 1.7,
+          "p75": 2.2,
+          "p90": 3,
+          "p95": 5,
+          "p99": 17.6,
+          "p999": 39.3
+        }
+      },
+      "histograms": {
+        "http.response_time": {
+          "min": 0,
+          "max": 38,
+          "count": 1000,
+          "p50": 1,
+          "median": 1,
+          "p75": 1,
+          "p90": 1,
+          "p95": 3,
+          "p99": 16,
+          "p999": 34.1
+        },
+        "vusers.session_length": {
+          "min": 1.1,
+          "max": 40,
+          "count": 1000,
+          "p50": 1.7,
+          "median": 1.7,
+          "p75": 2.2,
+          "p90": 3,
+          "p95": 5,
+          "p99": 17.6,
+          "p999": 39.3
+        }
+      }
+    },
+    {
+      "counters": {
+        "vusers.created_by_name.Create player stats": 1000,
+        "vusers.created": 1000,
+        "http.requests": 1000,
+        "http.codes.201": 1000,
+        "http.responses": 1000,
+        "vusers.failed": 0,
+        "vusers.completed": 1000
+      },
+      "rates": {
+        "http.request_rate": 100
+      },
+      "http.request_rate": null,
+      "firstCounterAt": 1668226990008,
+      "firstHistogramAt": 1668226990010,
+      "lastCounterAt": 1668226999995,
+      "lastHistogramAt": 1668226999995,
+      "firstMetricAt": 1668226990008,
+      "lastMetricAt": 1668226999995,
+      "period": "1668226990000",
+      "summaries": {
+        "http.response_time": {
+          "min": 0,
+          "max": 19,
+          "count": 1000,
+          "p50": 1,
+          "median": 1,
+          "p75": 1,
+          "p90": 1,
+          "p95": 1,
+          "p99": 7,
+          "p999": 13.9
+        },
+        "vusers.session_length": {
+          "min": 1.2,
+          "max": 20.2,
+          "count": 1000,
+          "p50": 1.7,
+          "median": 1.7,
+          "p75": 2.2,
+          "p90": 2.8,
+          "p95": 3.6,
+          "p99": 8.8,
+          "p999": 16
+        }
+      },
+      "histograms": {
+        "http.response_time": {
+          "min": 0,
+          "max": 19,
+          "count": 1000,
+          "p50": 1,
+          "median": 1,
+          "p75": 1,
+          "p90": 1,
+          "p95": 1,
+          "p99": 7,
+          "p999": 13.9
+        },
+        "vusers.session_length": {
+          "min": 1.2,
+          "max": 20.2,
+          "count": 1000,
+          "p50": 1.7,
+          "median": 1.7,
+          "p75": 2.2,
+          "p90": 2.8,
+          "p95": 3.6,
+          "p99": 8.8,
+          "p999": 16
+        }
+      }
+    },
+    {
+      "counters": {
+        "vusers.created_by_name.Create player stats": 1000,
+        "vusers.created": 1000,
+        "http.requests": 1000,
+        "http.codes.201": 1000,
+        "http.responses": 1000,
+        "vusers.failed": 0,
+        "vusers.completed": 1000
+      },
+      "rates": {
+        "http.request_rate": 100
+      },
+      "http.request_rate": null,
+      "firstCounterAt": 1668227000008,
+      "firstHistogramAt": 1668227000010,
+      "lastCounterAt": 1668227009999,
+      "lastHistogramAt": 1668227009999,
+      "firstMetricAt": 1668227000008,
+      "lastMetricAt": 1668227009999,
+      "period": "1668227000000",
+      "summaries": {
+        "http.response_time": {
+          "min": 0,
+          "max": 33,
+          "count": 1000,
+          "p50": 0,
+          "median": 0,
+          "p75": 1,
+          "p90": 1,
+          "p95": 1,
+          "p99": 10.1,
+          "p999": 23.8
+        },
+        "vusers.session_length": {
+          "min": 1.2,
+          "max": 44.8,
+          "count": 1000,
+          "p50": 1.4,
+          "median": 1.4,
+          "p75": 1.6,
+          "p90": 2,
+          "p95": 2.7,
+          "p99": 15.3,
+          "p999": 26.8
+        }
+      },
+      "histograms": {
+        "http.response_time": {
+          "min": 0,
+          "max": 33,
+          "count": 1000,
+          "p50": 0,
+          "median": 0,
+          "p75": 1,
+          "p90": 1,
+          "p95": 1,
+          "p99": 10.1,
+          "p999": 23.8
+        },
+        "vusers.session_length": {
+          "min": 1.2,
+          "max": 44.8,
+          "count": 1000,
+          "p50": 1.4,
+          "median": 1.4,
+          "p75": 1.6,
+          "p90": 2,
+          "p95": 2.7,
+          "p99": 15.3,
+          "p999": 26.8
+        }
+      }
+    },
+    {
+      "counters": {
+        "vusers.created_by_name.Create player stats": 1000,
+        "vusers.created": 1000,
+        "http.requests": 1000,
+        "http.codes.201": 1000,
+        "http.responses": 1000,
+        "vusers.failed": 0,
+        "vusers.completed": 1000
+      },
+      "rates": {
+        "http.request_rate": 100
+      },
+      "http.request_rate": null,
+      "firstCounterAt": 1668227010012,
+      "firstHistogramAt": 1668227010014,
+      "lastCounterAt": 1668227019999,
+      "lastHistogramAt": 1668227019999,
+      "firstMetricAt": 1668227010012,
+      "lastMetricAt": 1668227019999,
+      "period": "1668227010000",
+      "summaries": {
+        "http.response_time": {
+          "min": 0,
+          "max": 36,
+          "count": 1000,
+          "p50": 1,
+          "median": 1,
+          "p75": 1,
+          "p90": 1,
+          "p95": 2,
+          "p99": 10.1,
+          "p999": 30.3
+        },
+        "vusers.session_length": {
+          "min": 1.1,
+          "max": 39,
+          "count": 1000,
+          "p50": 1.4,
+          "median": 1.4,
+          "p75": 1.6,
+          "p90": 2.2,
+          "p95": 6.5,
+          "p99": 18,
+          "p999": 32.8
+        }
+      },
+      "histograms": {
+        "http.response_time": {
+          "min": 0,
+          "max": 36,
+          "count": 1000,
+          "p50": 1,
+          "median": 1,
+          "p75": 1,
+          "p90": 1,
+          "p95": 2,
+          "p99": 10.1,
+          "p999": 30.3
+        },
+        "vusers.session_length": {
+          "min": 1.1,
+          "max": 39,
+          "count": 1000,
+          "p50": 1.4,
+          "median": 1.4,
+          "p75": 1.6,
+          "p90": 2.2,
+          "p95": 6.5,
+          "p99": 18,
+          "p999": 32.8
+        }
+      }
+    },
+    {
+      "counters": {
+        "vusers.created_by_name.Create player stats": 1000,
+        "vusers.created": 1000,
+        "http.requests": 1000,
+        "http.codes.201": 1000,
+        "http.responses": 1000,
+        "vusers.failed": 0,
+        "vusers.completed": 1000
+      },
+      "rates": {
+        "http.request_rate": 100
+      },
+      "http.request_rate": null,
+      "firstCounterAt": 1668227020011,
+      "firstHistogramAt": 1668227020013,
+      "lastCounterAt": 1668227029998,
+      "lastHistogramAt": 1668227029998,
+      "firstMetricAt": 1668227020011,
+      "lastMetricAt": 1668227029998,
+      "period": "1668227020000",
+      "summaries": {
+        "http.response_time": {
+          "min": 0,
+          "max": 26,
+          "count": 1000,
+          "p50": 1,
+          "median": 1,
+          "p75": 1,
+          "p90": 1,
+          "p95": 1,
+          "p99": 7.9,
+          "p999": 18
+        },
+        "vusers.session_length": {
+          "min": 1.2,
+          "max": 30.3,
+          "count": 1000,
+          "p50": 1.4,
+          "median": 1.4,
+          "p75": 1.6,
+          "p90": 2,
+          "p95": 2.2,
+          "p99": 10.7,
+          "p999": 26.8
+        }
+      },
+      "histograms": {
+        "http.response_time": {
+          "min": 0,
+          "max": 26,
+          "count": 1000,
+          "p50": 1,
+          "median": 1,
+          "p75": 1,
+          "p90": 1,
+          "p95": 1,
+          "p99": 7.9,
+          "p999": 18
+        },
+        "vusers.session_length": {
+          "min": 1.2,
+          "max": 30.3,
+          "count": 1000,
+          "p50": 1.4,
+          "median": 1.4,
+          "p75": 1.6,
+          "p90": 2,
+          "p95": 2.2,
+          "p99": 10.7,
+          "p999": 26.8
+        }
+      }
+    },
+    {
+      "counters": {
+        "vusers.created_by_name.Create player stats": 1000,
+        "vusers.created": 1000,
+        "http.requests": 1000,
+        "http.codes.201": 1000,
+        "http.responses": 1000,
+        "vusers.failed": 0,
+        "vusers.completed": 1000
+      },
+      "rates": {
+        "http.request_rate": 100
+      },
+      "http.request_rate": null,
+      "firstCounterAt": 1668227030011,
+      "firstHistogramAt": 1668227030013,
+      "lastCounterAt": 1668227039995,
+      "lastHistogramAt": 1668227039995,
+      "firstMetricAt": 1668227030011,
+      "lastMetricAt": 1668227039995,
+      "period": "1668227030000",
+      "summaries": {
+        "http.response_time": {
+          "min": 0,
+          "max": 21,
+          "count": 1000,
+          "p50": 1,
+          "median": 1,
+          "p75": 1,
+          "p90": 1,
+          "p95": 1,
+          "p99": 5,
+          "p999": 19.1
+        },
+        "vusers.session_length": {
+          "min": 1.3,
+          "max": 22.3,
+          "count": 1000,
+          "p50": 1.6,
+          "median": 1.6,
+          "p75": 1.9,
+          "p90": 2.2,
+          "p95": 2.6,
+          "p99": 6.8,
+          "p999": 19.9
+        }
+      },
+      "histograms": {
+        "http.response_time": {
+          "min": 0,
+          "max": 21,
+          "count": 1000,
+          "p50": 1,
+          "median": 1,
+          "p75": 1,
+          "p90": 1,
+          "p95": 1,
+          "p99": 5,
+          "p999": 19.1
+        },
+        "vusers.session_length": {
+          "min": 1.3,
+          "max": 22.3,
+          "count": 1000,
+          "p50": 1.6,
+          "median": 1.6,
+          "p75": 1.9,
+          "p90": 2.2,
+          "p95": 2.6,
+          "p99": 6.8,
+          "p999": 19.9
+        }
+      }
+    },
+    {
+      "counters": {
+        "vusers.created_by_name.Create player stats": 698,
+        "vusers.created": 698,
+        "http.requests": 694,
+        "http.codes.201": 694,
+        "http.responses": 694,
+        "vusers.failed": 0,
+        "vusers.completed": 694
+      },
+      "rates": {
+        "http.request_rate": 100
+      },
+      "http.request_rate": null,
+      "firstCounterAt": 1668227040008,
+      "firstHistogramAt": 1668227040010,
+      "lastCounterAt": 1668227047647,
+      "lastHistogramAt": 1668227046938,
+      "firstMetricAt": 1668227040008,
+      "lastMetricAt": 1668227047647,
+      "period": "1668227040000",
+      "summaries": {
+        "http.response_time": {
+          "min": 0,
+          "max": 14,
+          "count": 694,
+          "p50": 0,
+          "median": 0,
+          "p75": 1,
+          "p90": 1,
+          "p95": 1,
+          "p99": 3,
+          "p999": 7
+        },
+        "vusers.session_length": {
+          "min": 1.3,
+          "max": 23.6,
+          "count": 694,
+          "p50": 1.7,
+          "median": 1.7,
+          "p75": 2.1,
+          "p90": 2.6,
+          "p95": 3.1,
+          "p99": 4.3,
+          "p999": 9.3
+        }
+      },
+      "histograms": {
+        "http.response_time": {
+          "min": 0,
+          "max": 14,
+          "count": 694,
+          "p50": 0,
+          "median": 0,
+          "p75": 1,
+          "p90": 1,
+          "p95": 1,
+          "p99": 3,
+          "p999": 7
+        },
+        "vusers.session_length": {
+          "min": 1.3,
+          "max": 23.6,
+          "count": 694,
+          "p50": 1.7,
+          "median": 1.7,
+          "p75": 2.1,
+          "p90": 2.6,
+          "p95": 3.1,
+          "p99": 4.3,
+          "p999": 9.3
+        }
+      }
+    },
+    {
+      "counters": {
+        "http.requests": 1306,
+        "vusers.created_by_name.Create player stats": 1302,
+        "vusers.created": 1302,
+        "http.codes.201": 1066,
+        "http.responses": 1066,
+        "vusers.failed": 0,
+        "vusers.completed": 1066
+      },
+      "rates": {
+        "http.request_rate": 228
+      },
+      "http.request_rate": null,
+      "firstCounterAt": 1668227054206,
+      "firstHistogramAt": 1668227054349,
+      "lastCounterAt": 1668227059996,
+      "lastHistogramAt": 1668227059996,
+      "firstMetricAt": 1668227054206,
+      "lastMetricAt": 1668227059996,
+      "period": "1668227050000",
+      "summaries": {
+        "http.response_time": {
+          "min": 0,
+          "max": 3477,
+          "count": 1066,
+          "p50": 186.8,
+          "median": 186.8,
+          "p75": 608,
+          "p90": 3197.8,
+          "p95": 3395.5,
+          "p99": 3464.1,
+          "p999": 3464.1
+        },
+        "vusers.session_length": {
+          "min": 1.7,
+          "max": 7411.5,
+          "count": 1066,
+          "p50": 1085.9,
+          "median": 1085.9,
+          "p75": 3072.4,
+          "p90": 3905.8,
+          "p95": 3905.8,
+          "p99": 4065.2,
+          "p999": 6976.1
+        }
+      },
+      "histograms": {
+        "http.response_time": {
+          "min": 0,
+          "max": 3477,
+          "count": 1066,
+          "p50": 186.8,
+          "median": 186.8,
+          "p75": 608,
+          "p90": 3197.8,
+          "p95": 3395.5,
+          "p99": 3464.1,
+          "p999": 3464.1
+        },
+        "vusers.session_length": {
+          "min": 1.7,
+          "max": 7411.5,
+          "count": 1066,
+          "p50": 1085.9,
+          "median": 1085.9,
+          "p75": 3072.4,
+          "p90": 3905.8,
+          "p95": 3905.8,
+          "p99": 4065.2,
+          "p999": 6976.1
+        }
+      }
+    },
+    {
+      "counters": {
+        "vusers.created_by_name.Create player stats": 1000,
+        "vusers.created": 1000,
+        "http.requests": 1000,
+        "http.codes.201": 1240,
+        "http.responses": 1240,
+        "vusers.failed": 0,
+        "vusers.completed": 1240
+      },
+      "rates": {
+        "http.request_rate": 100
+      },
+      "http.request_rate": null,
+      "firstCounterAt": 1668227060009,
+      "firstHistogramAt": 1668227060013,
+      "lastCounterAt": 1668227069998,
+      "lastHistogramAt": 1668227069998,
+      "firstMetricAt": 1668227060009,
+      "lastMetricAt": 1668227069998,
+      "period": "1668227060000",
+      "summaries": {
+        "http.response_time": {
+          "min": 0,
+          "max": 32,
+          "count": 1240,
+          "p50": 1,
+          "median": 1,
+          "p75": 3,
+          "p90": 13.9,
+          "p95": 19.1,
+          "p99": 23.8,
+          "p999": 30.9
+        },
+        "vusers.session_length": {
+          "min": 1.5,
+          "max": 7335.2,
+          "count": 1240,
+          "p50": 2.9,
+          "median": 2.9,
+          "p75": 7.6,
+          "p90": 7260.8,
+          "p95": 7260.8,
+          "p99": 7260.8,
+          "p999": 7260.8
+        }
+      },
+      "histograms": {
+        "http.response_time": {
+          "min": 0,
+          "max": 32,
+          "count": 1240,
+          "p50": 1,
+          "median": 1,
+          "p75": 3,
+          "p90": 13.9,
+          "p95": 19.1,
+          "p99": 23.8,
+          "p999": 30.9
+        },
+        "vusers.session_length": {
+          "min": 1.5,
+          "max": 7335.2,
+          "count": 1240,
+          "p50": 2.9,
+          "median": 2.9,
+          "p75": 7.6,
+          "p90": 7260.8,
+          "p95": 7260.8,
+          "p99": 7260.8,
+          "p999": 7260.8
+        }
+      }
+    },
+    {
+      "counters": {
+        "vusers.created_by_name.Create player stats": 615,
+        "vusers.created": 615,
+        "http.requests": 615,
+        "http.codes.201": 615,
+        "http.responses": 615,
+        "vusers.failed": 0,
+        "vusers.completed": 615
+      },
+      "rates": {
+        "http.request_rate": 100
+      },
+      "http.request_rate": null,
+      "firstCounterAt": 1668227070010,
+      "firstHistogramAt": 1668227070012,
+      "lastCounterAt": 1668227076213,
+      "lastHistogramAt": 1668227076213,
+      "firstMetricAt": 1668227070010,
+      "lastMetricAt": 1668227076213,
+      "period": "1668227070000",
+      "summaries": {
+        "http.response_time": {
+          "min": 0,
+          "max": 16,
+          "count": 615,
+          "p50": 1,
+          "median": 1,
+          "p75": 1,
+          "p90": 1,
+          "p95": 2,
+          "p99": 7,
+          "p999": 13.1
+        },
+        "vusers.session_length": {
+          "min": 1.2,
+          "max": 17.3,
+          "count": 615,
+          "p50": 1.9,
+          "median": 1.9,
+          "p75": 2.3,
+          "p90": 3.3,
+          "p95": 4.4,
+          "p99": 10.5,
+          "p999": 14.7
+        }
+      },
+      "histograms": {
+        "http.response_time": {
+          "min": 0,
+          "max": 16,
+          "count": 615,
+          "p50": 1,
+          "median": 1,
+          "p75": 1,
+          "p90": 1,
+          "p95": 2,
+          "p99": 7,
+          "p999": 13.1
+        },
+        "vusers.session_length": {
+          "min": 1.2,
+          "max": 17.3,
+          "count": 615,
+          "p50": 1.9,
+          "median": 1.9,
+          "p75": 2.3,
+          "p90": 3.3,
+          "p95": 4.4,
+          "p99": 10.5,
+          "p999": 14.7
+        }
+      }
+    }
+  ]
+}
