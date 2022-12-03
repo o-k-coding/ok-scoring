@@ -17,6 +17,7 @@
     "end-docker-service-commands": "######",
     "ok-scoring:ios": "nx run-ios ok-scoring-mobile",
     "ok-scoring:android": "nx run-android ok-scoring-mobile",
+    "rules-service:go": "nx run rules-service-go:go-run",
     "player-stats:cluster": "OK_SCORING_PLAYER_STATS_USE_CLUSTER_MODE=true nx serve player-stats-service",
     "player-stats:perf": "artillery run -o apps/player-stats-service/test/performance/artillery/results.json apps/player-stats-service/test/performance/artillery/create_player_stats.yml",
     "player-stats:perf-vegeta": "vegeta attack -targets='apps/player-stats-service/test/performance/vegeta/target.list' -rate=5 -duration=5s > apps/player-stats-service/test/performance/vegeta/result.5qps.bin",
