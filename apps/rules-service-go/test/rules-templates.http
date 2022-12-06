@@ -6,7 +6,7 @@ curl -X POST http://localhost:4000/v1/rules \
 
 curl -X GET http://localhost:4000/v1/rules/7789d41c-7925-4cf3-9d7f-4abe536768f5
 
-###
+### Push a favorite into the message queue
 
 curl -X POST http://localhost:4000/v1/rules/favorite \
 -H 'Content-Type: application/json' \

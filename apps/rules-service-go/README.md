@@ -93,5 +93,21 @@ docker exec -it ok-scoring-kafka "bash"
 Testing consuming messages from the producer
 
 ```bash
-kafka-console-consumer.sh --bootstrap-server 127.0.0.1:9093 --create
+kafka-console-consumer.sh --bootstrap-server 127.0.0.1:9093 --topic favoriterulestemplates --group ok-scoring-rules-service
 ```
+
+Then use `apps/rules-service-go/test/rules-templates.http` to send a message to the queue
+
+When tearing down, right now I need to run
+
+```bash
+docker-compose -f ./infrastructure/ok-scoring-development/OK.Scoring.kafka.docker-compose.yml rm
+docker volume rm  ok-scoring-development_ok-scoring-kafka
+```
+
+In order for it to work... persistence does not work between sessions.
+
+Ideally, the process for the kafka consumption would be separate, and could have more than 1 process to increase consumer throughput.
+Would do some load testing with the DB to figure out what our max could be. and also figure out how many partitions to have.
+
+#### Rules templates sent to opensearch

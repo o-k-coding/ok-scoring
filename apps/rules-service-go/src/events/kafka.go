@@ -39,23 +39,25 @@ func (k *KafkaEvents) Connect() error {
 		Brokers:   k.brokerAddresses,
 		Topic:     k.topic,
 		GroupID:   "ok-scoring-rules-service",
-		Partition: 0, // TODO partitions...
+		Partition: 0, // TODO partitions... do I need to create 1 reader for each partition?
 	})
 	return nil
 }
 
 func (k *KafkaEvents) Close() error {
-	// TODO this could fail if the pointers are nil
-	if err := k.producer.Close(); err != nil {
-		log.Fatal("failed to close kafka producer:", err)
-		return err
+	if k.producer != nil {
+		log.Println("Closing kafka events producer")
+		if err := k.producer.Close(); err != nil {
+			log.Fatal("failed to close kafka producer:", err)
+		}
 	}
 
-	if err := k.consumer.Close(); err != nil {
-		log.Fatal("failed to close kafka consumer:", err)
-		return err
+	if k.consumer != nil {
+		log.Println("Closing kafka events consumer")
+		if err := k.consumer.Close(); err != nil {
+			log.Fatal("failed to close kafka consumer:", err)
+		}
 	}
-
 	return nil
 }
 
@@ -75,14 +77,17 @@ func (k *KafkaEvents) Send(key string, message string) error {
 
 // This set up implements an exactly once processing scheme.
 func (k *KafkaEvents) Consume() (string, error) {
+	// This will block until a message is available. Make sure this is run on a dedicated go routine :)
 	m, err := k.consumer.FetchMessage(context.Background())
 	if err != nil {
 		return "", err
 	}
+	log.Printf("consuming message %s", m.Value)
 	k.pendingMessages = append(k.pendingMessages, m)
 	return string(m.Value), nil
 }
 
+// When commiting the offset, this allows us to make sure the data is saved first, so if the process crashes, on restart the un coommited messages will be re consumed (TODO I believe, this should be tested)
 func (k *KafkaEvents) ConfirmMessageProcessed() error {
 	if err := k.consumer.CommitMessages(context.Background(), k.pendingMessages...); err != nil {
 		return err

@@ -7,7 +7,9 @@ import (
 	"log"
 	"net/http"
 	"os"
+	"os/signal"
 	"strings"
+	"syscall"
 	"time"
 
 	_ "github.com/lib/pq"
@@ -26,10 +28,42 @@ type application struct {
 	favoriteRuleTemplateEvents events.Events
 }
 
+// based on recommendation from <https://github.com/segmentio/kafka-go#reader->
+// HOWEVER, idk if this is needed because of the `defer` statements on the close below
+func createShutdownSignalHandler(closeFns []func() error) {
+	// Create one channel of signals to receive and handle these.
+	sigs := make(chan os.Signal, 1)
+
+	// Notify the sigs channel on a SIGINT or SIGTERM
+	signal.Notify(sigs, syscall.SIGINT, syscall.SIGTERM, os.Interrupt)
+
+	done := make(chan bool, 1)
+
+	// Wait for a signal in the background on a separate go routine
+	go func() {
+		sig := <-sigs
+		if len(closeFns) > 0 {
+			for _, fn := range closeFns {
+				fn()
+			}
+		}
+		fmt.Printf("recevied sig %s, sending shutdown signal", sig)
+		done <- true
+	}()
+
+	fmt.Println("Awaiting SIGINT or SIGTERM")
+	<-done // Wait until the done channel emits
+	fmt.Println("exiting")
+}
+
 func main() {
+	logger := log.New(os.Stdout, "", log.Ldate|log.Ltime)
+
 	config, err := config.LoadConfig("../../../")
 
-	logger := log.New(os.Stdout, "", log.Ldate|log.Ltime)
+	if err != nil {
+		logger.Fatalf("failed to load config %e", err)
+	}
 
 	db, err := openDb(config)
 
@@ -68,11 +102,12 @@ func main() {
 		WriteTimeout: 30 * time.Second,
 	}
 
+	// TODO maybe should closure this, also it is not working as expected with the signal handling deal on wsl at least
+	// I think it might be because go run is receiving the interruput first see answer in <https://stackoverflow.com/questions/11268943/is-it-possible-to-capture-a-ctrlc-signal-sigint-and-run-a-cleanup-function-i>
+	go srv.ListenAndServe()
 	logger.Printf("Running ok scoring rules on port %d", config.ServerPort)
-	err = srv.ListenAndServe()
-	if err != nil {
-		log.Println(err)
-	}
+
+	createShutdownSignalHandler([]func() error{events.Close, srv.Close})
 }
 
 func openDb(cfg *config.Config) (*sql.DB, error) {
