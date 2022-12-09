@@ -16,8 +16,10 @@ type Events interface {
 
 func NewEvents(stream string, config *config.Config) Events {
 	switch config.EventType {
-	case "kafka":
-		return NewKafkaEvents(stream, config.EventHosts)
+	case "segmentio_kafka":
+		return NewSKafkaEvents(stream, config.EventHosts)
+	case "confluent_kafka":
+		return NewCKafkaEvents(stream, config.EventHosts)
 	default:
 		log.Printf("EventType %s not supported", config.EventType)
 		return nil

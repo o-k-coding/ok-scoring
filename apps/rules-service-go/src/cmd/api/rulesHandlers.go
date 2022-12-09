@@ -61,7 +61,7 @@ func (app *application) favoriteRulesTemplate(w http.ResponseWriter, r *http.Req
 		app.writeAndSendError(w, http.StatusBadRequest, err)
 		return
 	}
-	err = app.favoriteRuleTemplateEvents.Send(favoriteTemplate.PlayerKey, fmt.Sprintf("%s,%s", favoriteTemplate.PlayerKey, favoriteTemplate.RulesTemplateKey))
+	err = app.favoriteRulesTemplateEvents.Send(favoriteTemplate.PlayerKey, fmt.Sprintf("%s,%s", favoriteTemplate.PlayerKey, favoriteTemplate.RulesTemplateKey))
 	if err != nil {
 		app.writeAndSendError(w, http.StatusBadRequest, err)
 		return
@@ -99,6 +99,12 @@ func (app *application) createRulesTemplate(w http.ResponseWriter, r *http.Reque
 	}
 
 	app.writeAndSendJson(w, http.StatusCreated, key, "key")
+
+	err = app.rulesTemplateChangeEvents.Send(key, rulesTemplate.Description)
+
+	if err != nil {
+		app.logger.Printf("error sending create to rulesTemplateChangeEvents %s, search will not be updated!", key)
+	}
 }
 
 func (app *application) updateRulesTemplate(w http.ResponseWriter, r *http.Request) {
@@ -120,7 +126,13 @@ func (app *application) updateRulesTemplate(w http.ResponseWriter, r *http.Reque
 		return
 	}
 
-	app.writeAndSendJson(w, http.StatusCreated, key, "key")
+	app.writeAndSendJson(w, http.StatusOK, key, "key")
+
+	err = app.rulesTemplateChangeEvents.Send(key, rulesTemplate.Description)
+
+	if err != nil {
+		app.logger.Printf("error sending update to rulesTemplateChangeEvents %s, search will not be updated!", key)
+	}
 }
 
 // TODO

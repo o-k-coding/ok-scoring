@@ -22,10 +22,11 @@ const version = "1.0.0"
 
 // TODO create some struct or map to hold all of the event streams the app needs. For now just have one
 type application struct {
-	config                     *config.Config
-	logger                     *log.Logger
-	models                     models.Models
-	favoriteRuleTemplateEvents events.Events
+	config                      *config.Config
+	logger                      *log.Logger
+	models                      models.Models
+	favoriteRulesTemplateEvents events.Events
+	rulesTemplateChangeEvents   events.Events
 }
 
 // based on recommendation from <https://github.com/segmentio/kafka-go#reader->
@@ -73,26 +74,39 @@ func main() {
 		logger.Println("Connected to DB")
 	}
 
-	events := events.NewEvents("favoriterulestemplates", config)
-	err = events.Connect()
+	favoriteRulesTemplatesEvents := events.NewEvents("favoriterulestemplates", config)
+	err = favoriteRulesTemplatesEvents.Connect()
 
 	if err != nil {
 		logger.Fatal(err)
 	} else {
-		logger.Println("Connected to Events")
+		logger.Println("Connected to favoriteRulesTemplatesEvents")
+	}
+
+	rulesTemplateChangeEvents := events.NewEvents("rulestemplatechanges", config)
+	err = rulesTemplateChangeEvents.Connect()
+
+	if err != nil {
+		logger.Fatal(err)
+	} else {
+		logger.Println("Connected to rulesTemplateChangeEvents")
 	}
 
 	defer db.Close()
-	defer events.Close()
+	defer favoriteRulesTemplatesEvents.Close()
+	defer rulesTemplateChangeEvents.Close()
 
 	app := &application{
-		config:                     config,
-		logger:                     logger,
-		models:                     models.NewModels(db),
-		favoriteRuleTemplateEvents: events,
+		config:                      config,
+		logger:                      logger,
+		models:                      models.NewModels(db),
+		favoriteRulesTemplateEvents: favoriteRulesTemplatesEvents,
+		rulesTemplateChangeEvents:   rulesTemplateChangeEvents,
 	}
 
+	// TODO define these handlers somewhere else
 	go app.handleFavoriteRuleTemplateMessages()
+	go app.handleRulesTemplateChangeMessages()
 
 	srv := &http.Server{
 		Addr:         fmt.Sprintf(":%d", config.ServerPort),
@@ -107,7 +121,7 @@ func main() {
 	go srv.ListenAndServe()
 	logger.Printf("Running ok scoring rules on port %d", config.ServerPort)
 
-	createShutdownSignalHandler([]func() error{events.Close, srv.Close})
+	createShutdownSignalHandler([]func() error{favoriteRulesTemplatesEvents.Close, rulesTemplateChangeEvents.Close, srv.Close})
 }
 
 func openDb(cfg *config.Config) (*sql.DB, error) {
@@ -133,14 +147,14 @@ func openDb(cfg *config.Config) (*sql.DB, error) {
 func (app *application) handleFavoriteRuleTemplateMessages() {
 	app.logger.Printf("Started listening for  favoriteRuleTemplateEvents")
 	defer func() {
-		err := app.favoriteRuleTemplateEvents.ConfirmMessageProcessed()
+		err := app.favoriteRulesTemplateEvents.ConfirmMessageProcessed()
 		if err != nil {
 			app.logger.Print("error confirming message processing, possible duplicate message on next startup")
 		}
 	}()
 
 	for {
-		m, err := app.favoriteRuleTemplateEvents.Consume()
+		m, err := app.favoriteRulesTemplateEvents.Consume()
 		if err != nil {
 			break
 		}
@@ -152,9 +166,29 @@ func (app *application) handleFavoriteRuleTemplateMessages() {
 			continue
 		}
 		app.logger.Printf("favorite game saved %s for player %s", keys[1], keys[0])
-		err = app.favoriteRuleTemplateEvents.ConfirmMessageProcessed()
+		err = app.favoriteRulesTemplateEvents.ConfirmMessageProcessed()
 		if err != nil {
 			app.logger.Printf("error confirming message processing, possible duplicate message on next startup %e", err)
 		}
+	}
+}
+
+// TODO new file
+func (app *application) handleRulesTemplateChangeMessages() {
+	app.logger.Printf("Started listening for rulesTemplateChangeEvents")
+	defer func() {
+		err := app.rulesTemplateChangeEvents.ConfirmMessageProcessed()
+		if err != nil {
+			app.logger.Print("error confirming message processing, possible duplicate message on next startup")
+		}
+	}()
+
+	for {
+		m, err := app.rulesTemplateChangeEvents.Consume()
+		if err != nil {
+			break
+		}
+		app.logger.Printf("message received %s", m)
+		// TODO open search stuff?
 	}
 }
