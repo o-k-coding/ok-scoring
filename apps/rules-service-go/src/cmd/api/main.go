@@ -166,6 +166,7 @@ func (app *application) handleFavoriteRuleTemplateMessages() {
 			continue
 		}
 		app.logger.Printf("favorite game saved %s for player %s", keys[1], keys[0])
+		// TODO could configure this to batch messages
 		err = app.favoriteRulesTemplateEvents.ConfirmMessageProcessed()
 		if err != nil {
 			app.logger.Printf("error confirming message processing, possible duplicate message on next startup %e", err)

@@ -36,10 +36,11 @@ func (k *SKafkaEvents) Connect() error {
 	})
 
 	k.consumer = kafka.NewReader(kafka.ReaderConfig{
-		Brokers:   k.brokerAddresses,
-		Topic:     k.topic,
-		GroupID:   "ok-scoring-rules-service",
-		Partition: 0, // TODO partitions... do I need to create 1 reader for each partition?
+		Brokers:     k.brokerAddresses,
+		Topic:       k.topic,
+		GroupID:     "ok-scoring-rules-service",
+		StartOffset: kafka.LastOffset,
+		Partition:   0, // TODO partitions... do I need to create 1 reader for each partition?
 	})
 	return nil
 }
