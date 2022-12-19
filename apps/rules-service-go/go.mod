@@ -15,6 +15,7 @@ require (
 
 require (
 	github.com/confluentinc/confluent-kafka-go v1.9.2
+	github.com/opensearch-project/opensearch-go v1.1.0
 	github.com/spf13/viper v1.14.0
 )
 

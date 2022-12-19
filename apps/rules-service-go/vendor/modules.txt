@@ -63,6 +63,13 @@ github.com/magiconair/properties
 # github.com/mitchellh/mapstructure v1.5.0
 ## explicit; go 1.14
 github.com/mitchellh/mapstructure
+# github.com/opensearch-project/opensearch-go v1.1.0
+## explicit; go 1.11
+github.com/opensearch-project/opensearch-go
+github.com/opensearch-project/opensearch-go/internal/version
+github.com/opensearch-project/opensearch-go/opensearchapi
+github.com/opensearch-project/opensearch-go/opensearchtransport
+github.com/opensearch-project/opensearch-go/signer
 # github.com/pascaldekloe/jwt v1.10.0
 ## explicit; go 1.13
 github.com/pascaldekloe/jwt

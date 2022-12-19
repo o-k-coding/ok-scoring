@@ -2,7 +2,6 @@ package main
 
 import (
 	"encoding/json"
-	"fmt"
 	"net/http"
 
 	"github.com/julienschmidt/httprouter"
@@ -49,23 +48,6 @@ func (app *application) getAllRulesTemplates(w http.ResponseWriter, r *http.Requ
 
 // TODO
 func (app *application) deleteRulesTemplate(w http.ResponseWriter, r *http.Request) {
-}
-
-func (app *application) favoriteRulesTemplate(w http.ResponseWriter, r *http.Request) {
-	// TODO this whole thing seems inefficient, I need to rethink the data format for the request etc.
-	var favoriteTemplate models.FavoriteTemplate
-
-	err := json.NewDecoder(r.Body).Decode(&favoriteTemplate)
-
-	if err != nil {
-		app.writeAndSendError(w, http.StatusBadRequest, err)
-		return
-	}
-	err = app.favoriteRulesTemplateEvents.Send(favoriteTemplate.PlayerKey, fmt.Sprintf("%s,%s", favoriteTemplate.PlayerKey, favoriteTemplate.RulesTemplateKey))
-	if err != nil {
-		app.writeAndSendError(w, http.StatusBadRequest, err)
-		return
-	}
 }
 
 // Could you this, where everything is a string
@@ -133,8 +115,4 @@ func (app *application) updateRulesTemplate(w http.ResponseWriter, r *http.Reque
 	if err != nil {
 		app.logger.Printf("error sending update to rulesTemplateChangeEvents %s, search will not be updated!", key)
 	}
-}
-
-// TODO
-func (app *application) searchRulesTemplates(w http.ResponseWriter, r *http.Request) {
 }

@@ -111,3 +111,7 @@ Ideally, the process for the kafka consumption would be separate, and could have
 Would do some load testing with the DB to figure out what our max could be. and also figure out how many partitions to have.
 
 #### Rules templates sent to opensearch
+
+go client for open search <https://opensearch.org/docs/latest/clients/go/>
+
+docker open search <https://opensearch.org/docs/latest/install-and-configure/install-opensearch/docker/>

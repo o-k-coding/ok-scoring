@@ -1,0 +1,30 @@
+{
+  "mappings": {
+    "properties": {
+      "playerKey": {
+        "type": "text"
+      },
+      "description": {
+        "type": "text"
+      },
+      "validStateSchema": {
+        "type": "object"
+      },
+      "winningSchema": {
+        "type": "object"
+      },
+      "firstToScoreWins": {
+        "type": "boolean"
+      },
+      "dealerSettings": {
+        "type": "text"
+      },
+      "highScoreWins": {
+        "type": "boolean"
+      },
+      "playersMustBeOnSameRound": {
+        "type": "boolean"
+      }
+    }
+  }
+}

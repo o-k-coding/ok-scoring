@@ -8,7 +8,6 @@ import (
 	"net/http"
 	"os"
 	"os/signal"
-	"strings"
 	"syscall"
 	"time"
 
@@ -16,6 +15,7 @@ import (
 	"okscoring.com/rules-service/src/config"
 	"okscoring.com/rules-service/src/events"
 	"okscoring.com/rules-service/src/models"
+	"okscoring.com/rules-service/src/search"
 )
 
 const version = "1.0.0"
@@ -27,6 +27,7 @@ type application struct {
 	models                      models.Models
 	favoriteRulesTemplateEvents events.Events
 	rulesTemplateChangeEvents   events.Events
+	rulesSearch                 search.Search
 }
 
 // based on recommendation from <https://github.com/segmentio/kafka-go#reader->
@@ -92,9 +93,19 @@ func main() {
 		logger.Println("Connected to rulesTemplateChangeEvents")
 	}
 
+	rulesSearch := search.NewSearch("game-rules", config)
+	err = rulesSearch.Connect()
+
+	if err != nil {
+		logger.Fatal(err)
+	} else {
+		logger.Println("Connected to rulesSearch")
+	}
+
 	defer db.Close()
 	defer favoriteRulesTemplatesEvents.Close()
 	defer rulesTemplateChangeEvents.Close()
+	defer rulesSearch.Close()
 
 	app := &application{
 		config:                      config,
@@ -102,6 +113,7 @@ func main() {
 		models:                      models.NewModels(db),
 		favoriteRulesTemplateEvents: favoriteRulesTemplatesEvents,
 		rulesTemplateChangeEvents:   rulesTemplateChangeEvents,
+		rulesSearch:                 rulesSearch,
 	}
 
 	// TODO define these handlers somewhere else
@@ -141,55 +153,4 @@ func openDb(cfg *config.Config) (*sql.DB, error) {
 		return nil, err
 	}
 	return db, nil
-}
-
-// TODO new file
-func (app *application) handleFavoriteRuleTemplateMessages() {
-	app.logger.Printf("Started listening for  favoriteRuleTemplateEvents")
-	defer func() {
-		err := app.favoriteRulesTemplateEvents.ConfirmMessageProcessed()
-		if err != nil {
-			app.logger.Print("error confirming message processing, possible duplicate message on next startup")
-		}
-	}()
-
-	for {
-		m, err := app.favoriteRulesTemplateEvents.Consume()
-		if err != nil {
-			break
-		}
-		app.logger.Printf("message received %s", m)
-		keys := strings.Split(m, ",")
-		err = app.models.DB.FavoriteGame(keys[1], keys[0])
-		if err != nil {
-			app.logger.Printf("error saving favorite game %s for player %s: %e", keys[1], keys[0], err)
-			continue
-		}
-		app.logger.Printf("favorite game saved %s for player %s", keys[1], keys[0])
-		// TODO could configure this to batch messages
-		err = app.favoriteRulesTemplateEvents.ConfirmMessageProcessed()
-		if err != nil {
-			app.logger.Printf("error confirming message processing, possible duplicate message on next startup %e", err)
-		}
-	}
-}
-
-// TODO new file
-func (app *application) handleRulesTemplateChangeMessages() {
-	app.logger.Printf("Started listening for rulesTemplateChangeEvents")
-	defer func() {
-		err := app.rulesTemplateChangeEvents.ConfirmMessageProcessed()
-		if err != nil {
-			app.logger.Print("error confirming message processing, possible duplicate message on next startup")
-		}
-	}()
-
-	for {
-		m, err := app.rulesTemplateChangeEvents.Consume()
-		if err != nil {
-			break
-		}
-		app.logger.Printf("message received %s", m)
-		// TODO open search stuff?
-	}
 }

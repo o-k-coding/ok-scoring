@@ -1,0 +1,30 @@
+# Common docker compose for ok scoring kafka mq service
+
+version: '3.1'
+
+services:
+  ok-scoring-opensearch:
+    container_name: ok-scoring-opensearch
+    image: opensearchproject/opensearch:1.3.7
+    environment:
+      discovery.type: single-node
+      plugins.security.disabled: "true" # disable https and logins
+      compatibility.override_main_response_version: "true"
+    ports:
+      - 9200:9200
+      - 9600:9600 # required for Performance Analyzer
+    volumes:
+      - ok-scoring-opensearch:/usr/share/opensearch/data
+
+  # console at http://localhost:5601/app/dev_tools#/console
+  ok-scoring-opensearch-dashboards:
+    container_name: ok-scoring-opensearch-dashboards
+    image: opensearchproject/opensearch-dashboards:1.3.1
+    ports:
+      - 5601:5601
+    environment:
+      OPENSEARCH_HOSTS: '["http://ok-scoring-opensearch:9200"]'
+      DISABLE_SECURITY_DASHBOARDS_PLUGIN: "true"
+
+volumes:
+  ok-scoring-opensearch:
