@@ -79,7 +79,7 @@ func main() {
 	err = favoriteRulesTemplatesEvents.Connect()
 
 	if err != nil {
-		logger.Fatal(err)
+		logger.Fatalf("Failed to connect to favoriteRulesTemplatesEvents %e", err)
 	} else {
 		logger.Println("Connected to favoriteRulesTemplatesEvents")
 	}
@@ -88,7 +88,7 @@ func main() {
 	err = rulesTemplateChangeEvents.Connect()
 
 	if err != nil {
-		logger.Fatal(err)
+		logger.Fatalf("Failed to connect to rulesTemplateChangeEvents %e", err)
 	} else {
 		logger.Println("Connected to rulesTemplateChangeEvents")
 	}
@@ -97,7 +97,7 @@ func main() {
 	err = rulesSearch.Connect()
 
 	if err != nil {
-		logger.Fatal(err)
+		logger.Fatalf("Failed to connect to rulesSearch %e", err)
 	} else {
 		logger.Println("Connected to rulesSearch")
 	}

@@ -28,7 +28,7 @@ type Config struct {
 func setEnvDefaults() {
 	viper.SetDefault("SERVER_PORT", "4000")
 	viper.SetDefault("SEARCH_TYPE", "opensearch")
-	viper.SetDefault("SEARCH_HOSTS", "localhost:9200")
+	viper.SetDefault("SEARCH_HOSTS", "http://localhost:9200")
 	viper.SetDefault("EVENT_TYPE", "segmentio_kafka")
 	viper.SetDefault("EVENT_HOSTS", "localhost:9093")
 

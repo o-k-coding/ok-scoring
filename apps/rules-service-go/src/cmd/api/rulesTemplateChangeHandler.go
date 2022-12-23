@@ -15,9 +15,13 @@ func (app *application) handleRulesTemplateChangeMessages() {
 			break
 		}
 		app.logger.Printf("rulesTemplateChangeEvents message received %s", m)
+		// TODO does this handle if it was already indexed previously?
+		app.logger.Printf("sending message to be indexed")
 		err = app.rulesSearch.Add(m)
 		if err != nil {
-			app.logger.Printf("error indexing message %s", m)
+			app.logger.Printf("error indexing message %s: %e", m, err)
+			continue
 		}
+		app.logger.Printf("rules template change indexed")
 	}
 }

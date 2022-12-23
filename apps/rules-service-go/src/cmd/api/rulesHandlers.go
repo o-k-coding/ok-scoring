@@ -82,17 +82,20 @@ func (app *application) createRulesTemplate(w http.ResponseWriter, r *http.Reque
 
 	app.writeAndSendJson(w, http.StatusCreated, key, "key")
 
-	err = app.rulesTemplateChangeEvents.Send(key, rulesTemplate.Description)
+	// TODO the key is not here!!
+	message, err := json.Marshal(rulesTemplate)
+	if err != nil {
+		app.logger.Printf("error marshalling created rulesTemplate %s, search will not be updated! %e", key, err)
+	}
+	err = app.rulesTemplateChangeEvents.Send(key, string(message))
 
 	if err != nil {
-		app.logger.Printf("error sending create to rulesTemplateChangeEvents %s, search will not be updated!", key)
+		app.logger.Printf("error sending create to rulesTemplateChangeEvents %s, search will not be updated!, %e", key, err)
 	}
 }
 
 func (app *application) updateRulesTemplate(w http.ResponseWriter, r *http.Request) {
 	var rulesTemplate models.GameRulesTemplate
-
-	app.logger.Println("UPDATE RULES TEMPLATE")
 
 	err := json.NewDecoder(r.Body).Decode(&rulesTemplate)
 
@@ -108,11 +111,14 @@ func (app *application) updateRulesTemplate(w http.ResponseWriter, r *http.Reque
 		return
 	}
 
-	app.writeAndSendJson(w, http.StatusOK, key, "key")
-
-	err = app.rulesTemplateChangeEvents.Send(key, rulesTemplate.Description)
+	// TODO this adds a brand new index instead of replacing the old one... :think: about how we want to handle this. Audit style?? or do we need to replace it?
+	message, err := json.Marshal(rulesTemplate)
+	if err != nil {
+		app.logger.Printf("error marshalling updated rulesTemplate %s, search will not be updated! %e", key, err)
+	}
+	err = app.rulesTemplateChangeEvents.Send(key, string(message))
 
 	if err != nil {
-		app.logger.Printf("error sending update to rulesTemplateChangeEvents %s, search will not be updated!", key)
+		app.logger.Printf("error sending update to rulesTemplateChangeEvents %s, search will not be updated!, %e", key, err)
 	}
 }
