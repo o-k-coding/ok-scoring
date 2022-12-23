@@ -76,16 +76,20 @@ func (k *SKafkaEvents) Send(key string, message string) error {
 	return nil
 }
 
+
 // This set up implements an exactly once processing scheme.
-func (k *SKafkaEvents) Consume() (string, error) {
+func (k *SKafkaEvents) Consume() (*Event, error) {
 	// This will block until a message is available. Make sure this is run on a dedicated go routine :)
 	m, err := k.consumer.FetchMessage(context.Background())
 	if err != nil {
-		return "", err
+		return nil, err
 	}
 	log.Printf("consuming message %s", m.Value)
 	k.pendingMessages = append(k.pendingMessages, m)
-	return string(m.Value), nil
+	return &Event{
+		ID:      string(m.Key),
+		Message: string(m.Value),
+	}, nil
 }
 
 // When commiting the offset, this allows us to make sure the data is saved first, so if the process crashes, on restart the un coommited messages will be re consumed (TODO I believe, this should be tested)

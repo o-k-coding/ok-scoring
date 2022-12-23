@@ -9,7 +9,7 @@ import (
 type Search interface {
 	Connect() error
 	Close() error
-	Add(doc string) error
+	Add(key string, doc string) error
 }
 
 func NewSearch(index string, config *config.Config) Search {

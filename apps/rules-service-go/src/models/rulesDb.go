@@ -161,7 +161,7 @@ func (m *DBModel) InsertRulesTemplate(rulesTemplate *GameRulesTemplate) (string,
 	return key, nil
 }
 
-func (m *DBModel) UpdateRulesTemplate(rulesTemplate *GameRulesTemplate) (string, error) {
+func (m *DBModel) UpdateRulesTemplate(rulesTemplate *GameRulesTemplate) error {
 	ctx, cancel := context.WithTimeout(context.Background(), 3*time.Second)
 	defer cancel()
 
@@ -181,7 +181,6 @@ func (m *DBModel) UpdateRulesTemplate(rulesTemplate *GameRulesTemplate) (string,
 
 	where key = $8
 	`
-	key := uuid.New().String()
 	_, err := m.DB.ExecContext(
 		ctx,
 		statement,
@@ -196,9 +195,9 @@ func (m *DBModel) UpdateRulesTemplate(rulesTemplate *GameRulesTemplate) (string,
 	)
 
 	if err != nil {
-		return "", err
+		return err
 	}
-	return key, nil
+	return nil
 }
 
 func (m *DBModel) FavoriteGame(rulesTemplateKey string, playerKey string) error {

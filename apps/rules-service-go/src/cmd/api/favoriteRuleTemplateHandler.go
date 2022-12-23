@@ -12,12 +12,12 @@ func (app *application) handleFavoriteRuleTemplateMessages() {
 	}()
 
 	for {
-		m, err := app.favoriteRulesTemplateEvents.Consume()
+		event, err := app.favoriteRulesTemplateEvents.Consume()
 		if err != nil {
 			break
 		}
-		app.logger.Printf("message received %s", m)
-		keys := strings.Split(m, ",")
+		app.logger.Printf("message received %s", event.Message)
+		keys := strings.Split(event.Message, ",")
 		err = app.models.DB.FavoriteGame(keys[1], keys[0])
 		if err != nil {
 			app.logger.Printf("error saving favorite game %s for player %s: %e", keys[1], keys[0], err)

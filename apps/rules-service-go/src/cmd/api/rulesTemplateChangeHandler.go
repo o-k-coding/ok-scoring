@@ -10,16 +10,16 @@ func (app *application) handleRulesTemplateChangeMessages() {
 	}()
 
 	for {
-		m, err := app.rulesTemplateChangeEvents.Consume()
+		event, err := app.rulesTemplateChangeEvents.Consume()
 		if err != nil {
 			break
 		}
-		app.logger.Printf("rulesTemplateChangeEvents message received %s", m)
+		app.logger.Printf("rulesTemplateChangeEvents message received %s", event.Message)
 		// TODO does this handle if it was already indexed previously?
 		app.logger.Printf("sending message to be indexed")
-		err = app.rulesSearch.Add(m)
+		err = app.rulesSearch.Add(event.ID, event.Message)
 		if err != nil {
-			app.logger.Printf("error indexing message %s: %e", m, err)
+			app.logger.Printf("error indexing message %s: %e", event.Message, err)
 			continue
 		}
 		app.logger.Printf("rules template change indexed")

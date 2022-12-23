@@ -82,7 +82,7 @@ func (app *application) createRulesTemplate(w http.ResponseWriter, r *http.Reque
 
 	app.writeAndSendJson(w, http.StatusCreated, key, "key")
 
-	// TODO the key is not here!!
+	rulesTemplate.Key = key
 	message, err := json.Marshal(rulesTemplate)
 	if err != nil {
 		app.logger.Printf("error marshalling created rulesTemplate %s, search will not be updated! %e", key, err)
@@ -95,6 +95,8 @@ func (app *application) createRulesTemplate(w http.ResponseWriter, r *http.Reque
 }
 
 func (app *application) updateRulesTemplate(w http.ResponseWriter, r *http.Request) {
+
+	// TODO note that this relies on the key being in the rules template body!!
 	var rulesTemplate models.GameRulesTemplate
 
 	err := json.NewDecoder(r.Body).Decode(&rulesTemplate)
@@ -104,21 +106,20 @@ func (app *application) updateRulesTemplate(w http.ResponseWriter, r *http.Reque
 		return
 	}
 
-	key, err := app.models.DB.UpdateRulesTemplate(&rulesTemplate)
+	err = app.models.DB.UpdateRulesTemplate(&rulesTemplate)
 
 	if err != nil {
 		app.writeAndSendError(w, http.StatusBadRequest, err)
 		return
 	}
 
-	// TODO this adds a brand new index instead of replacing the old one... :think: about how we want to handle this. Audit style?? or do we need to replace it?
 	message, err := json.Marshal(rulesTemplate)
 	if err != nil {
-		app.logger.Printf("error marshalling updated rulesTemplate %s, search will not be updated! %e", key, err)
+		app.logger.Printf("error marshalling updated rulesTemplate %s, search will not be updated! %e", rulesTemplate.Key, err)
 	}
-	err = app.rulesTemplateChangeEvents.Send(key, string(message))
+	err = app.rulesTemplateChangeEvents.Send(rulesTemplate.Key, string(message))
 
 	if err != nil {
-		app.logger.Printf("error sending update to rulesTemplateChangeEvents %s, search will not be updated!, %e", key, err)
+		app.logger.Printf("error sending update to rulesTemplateChangeEvents %s, search will not be updated!, %e", rulesTemplate.Key, err)
 	}
 }

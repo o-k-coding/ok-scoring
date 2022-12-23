@@ -94,7 +94,7 @@ func (k *CKafkaEvents) Send(key string, message string) error {
 }
 
 // This set up implements an exactly once processing scheme.
-func (k *CKafkaEvents) Consume() (string, error) {
+func (k *CKafkaEvents) Consume() (*Event, error) {
 	message := k.consumer.Poll(100)
 	log.Printf("consuming message %s", message.String())
 	switch m := message.(type) {
@@ -105,13 +105,16 @@ func (k *CKafkaEvents) Consume() (string, error) {
 		// On close could we commit whatever we have so far? that could be bad too, we could commit an "unprocessed" record as well
 		// TODO think about this more before actually using batches. Currently we just process and commit one at a time
 		k.pendingMessages = append(k.pendingMessages, m.TopicPartition)
-		return string(m.Value), nil
+		return &Event{
+			ID:      string(m.Key),
+			Message: string(m.Value),
+		}, nil
 	case kafka.Error:
 		fmt.Fprintf(os.Stderr, "%% Error: %v\n", m)
-		return "", m
+		return nil, m
 	default:
 		fmt.Printf("Ignored %v\n", m)
-		return "", nil
+		return nil, nil
 	}
 }
 

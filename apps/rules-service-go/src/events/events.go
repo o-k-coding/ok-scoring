@@ -6,11 +6,16 @@ import (
 	"okscoring.com/rules-service/src/config"
 )
 
+type Event struct {
+	ID      string
+	Message string
+}
+
 type Events interface {
 	Connect() error
 	Close() error
 	Send(key string, message string) error
-	Consume() (string, error)
+	Consume() (*Event, error)
 	ConfirmMessageProcessed() error
 }
 
