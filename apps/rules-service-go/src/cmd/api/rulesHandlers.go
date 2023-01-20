@@ -2,7 +2,6 @@ package main
 
 import (
 	"encoding/json"
-	"fmt"
 	"net/http"
 
 	"github.com/julienschmidt/httprouter"
@@ -51,23 +50,6 @@ func (app *application) getAllRulesTemplates(w http.ResponseWriter, r *http.Requ
 func (app *application) deleteRulesTemplate(w http.ResponseWriter, r *http.Request) {
 }
 
-func (app *application) favoriteRulesTemplate(w http.ResponseWriter, r *http.Request) {
-	// TODO this whole thing seems inefficient, I need to rethink the data format for the request etc.
-	var favoriteTemplate models.FavoriteTemplate
-
-	err := json.NewDecoder(r.Body).Decode(&favoriteTemplate)
-
-	if err != nil {
-		app.writeAndSendError(w, http.StatusBadRequest, err)
-		return
-	}
-	err = app.favoriteRuleTemplateEvents.Send(favoriteTemplate.PlayerKey, fmt.Sprintf("%s,%s", favoriteTemplate.PlayerKey, favoriteTemplate.RulesTemplateKey))
-	if err != nil {
-		app.writeAndSendError(w, http.StatusBadRequest, err)
-		return
-	}
-}
-
 // Could you this, where everything is a string
 // And then create a function to translate the strings into the correct types for each field
 // type GameRulesTemplatePayload struct {
@@ -99,12 +81,23 @@ func (app *application) createRulesTemplate(w http.ResponseWriter, r *http.Reque
 	}
 
 	app.writeAndSendJson(w, http.StatusCreated, key, "key")
+
+	rulesTemplate.Key = key
+	message, err := json.Marshal(rulesTemplate)
+	if err != nil {
+		app.logger.Printf("error marshalling created rulesTemplate %s, search will not be updated! %e", key, err)
+	}
+	err = app.rulesTemplateChangeEvents.Send(key, string(message))
+
+	if err != nil {
+		app.logger.Printf("error sending create to rulesTemplateChangeEvents %s, search will not be updated!, %e", key, err)
+	}
 }
 
 func (app *application) updateRulesTemplate(w http.ResponseWriter, r *http.Request) {
-	var rulesTemplate models.GameRulesTemplate
 
-	app.logger.Println("UPDATE RULES TEMPLATE")
+	// TODO note that this relies on the key being in the rules template body!!
+	var rulesTemplate models.GameRulesTemplate
 
 	err := json.NewDecoder(r.Body).Decode(&rulesTemplate)
 
@@ -113,16 +106,20 @@ func (app *application) updateRulesTemplate(w http.ResponseWriter, r *http.Reque
 		return
 	}
 
-	key, err := app.models.DB.UpdateRulesTemplate(&rulesTemplate)
+	err = app.models.DB.UpdateRulesTemplate(&rulesTemplate)
 
 	if err != nil {
 		app.writeAndSendError(w, http.StatusBadRequest, err)
 		return
 	}
 
-	app.writeAndSendJson(w, http.StatusCreated, key, "key")
-}
+	message, err := json.Marshal(rulesTemplate)
+	if err != nil {
+		app.logger.Printf("error marshalling updated rulesTemplate %s, search will not be updated! %e", rulesTemplate.Key, err)
+	}
+	err = app.rulesTemplateChangeEvents.Send(rulesTemplate.Key, string(message))
 
-// TODO
-func (app *application) searchRulesTemplates(w http.ResponseWriter, r *http.Request) {
+	if err != nil {
+		app.logger.Printf("error sending update to rulesTemplateChangeEvents %s, search will not be updated!, %e", rulesTemplate.Key, err)
+	}
 }

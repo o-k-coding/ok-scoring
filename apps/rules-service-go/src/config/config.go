@@ -7,8 +7,10 @@ import (
 )
 
 type Config struct {
-	ServerPort        int      `mapstructure:"SERVER_PORT"` //.values supported: kafka
-	EventType         string   `mapstructure:"EVENT_TYPE"`  //.values supported: kafka
+	ServerPort        int      `mapstructure:"SERVER_PORT"`
+	SearchType        string   `mapstructure:"SEARCH_TYPE"` //.values supported:opensearch
+	SearchHosts       []string `mapstructure:"SEARCH_HOSTS"`
+	EventType         string   `mapstructure:"EVENT_TYPE"` //.values supported: segmentio_kafka | confluent_kafka
 	EventHosts        []string `mapstructure:"EVENT_HOSTS"`
 	PostgresHost      string   `mapstructure:"POSTGRES_HOST"`
 	PostgresUser      string   `mapstructure:"POSTGRES_USER"`
@@ -25,7 +27,9 @@ type Config struct {
 // Note, these are necessary for the struct marshalling to pick up env variables in the case that the config file does not exist
 func setEnvDefaults() {
 	viper.SetDefault("SERVER_PORT", "4000")
-	viper.SetDefault("EVENT_TYPE", "kafka")
+	viper.SetDefault("SEARCH_TYPE", "opensearch")
+	viper.SetDefault("SEARCH_HOSTS", "http://localhost:9200")
+	viper.SetDefault("EVENT_TYPE", "segmentio_kafka")
 	viper.SetDefault("EVENT_HOSTS", "localhost:9093")
 
 	viper.SetDefault("POSTGRES_HOST", "localhost")

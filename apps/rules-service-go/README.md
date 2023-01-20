@@ -13,6 +13,8 @@ including search functionality
 - Local docker development
 - grpc gateway and other practices from simple bank
 - refactor to be a cli interface for starting and using the different pieces
+- Auth
+- Migrations on startup?
 
 ## Development notes
 
@@ -48,6 +50,8 @@ go get -u github.com/lib/pq
 
 #### Migrations
 
+NOTE, migrations expect the ok-scoring-rules db to already exist in the pg db. This currently needs to be created manually the first time in local development.
+
 Using <https://github.com/golang-migrate/migrate/tree/master/cmd/migrate>
 
 used "Go Toolchain" to install, all other methods failed for me in WSL2 lol.
@@ -57,7 +61,7 @@ go install -tags 'postgres' github.com/golang-migrate/migrate/v4/cmd/migrate@lat
 ```
 
 ```bash
-migrate create -ext sql -dir db/migrations -seq init_schema
+make generatemigration <migration_name>
 ```
 
 note -seq adds a sequence number to the schema.
@@ -67,8 +71,7 @@ to run migrations
 - manually
 
 ```bash
-source .env
-migrate -path db/migrations -database "postgresql://${POSTGRES_USER}:${POSTGRES_PASSWORD}@${POSTGRES_HOST}:${POSTGRES_PORT}/${POSTGRES_DB}?sslmode=disable" -verbose up
+make migratedb
 ```
 
 ### Supabase
@@ -78,3 +81,37 @@ supabase start
 ```
 
 this starts the local dev environment, currently not used
+
+### Kafka
+
+To connect to the container and use the cli
+
+```bash
+docker exec -it ok-scoring-kafka "bash"
+```
+
+Testing consuming messages from the producer
+
+```bash
+kafka-console-consumer.sh --bootstrap-server 127.0.0.1:9093 --topic favoriterulestemplates --group ok-scoring-rules-service
+```
+
+Then use `apps/rules-service-go/test/rules-templates.http` to send a message to the queue
+
+When tearing down, right now I need to run
+
+```bash
+docker-compose -f ./infrastructure/ok-scoring-development/OK.Scoring.kafka.docker-compose.yml rm
+docker volume rm  ok-scoring-development_ok-scoring-kafka
+```
+
+In order for it to work... persistence does not work between sessions.
+
+Ideally, the process for the kafka consumption would be separate, and could have more than 1 process to increase consumer throughput.
+Would do some load testing with the DB to figure out what our max could be. and also figure out how many partitions to have.
+
+#### Rules templates sent to opensearch
+
+go client for open search <https://opensearch.org/docs/latest/clients/go/>
+
+docker open search <https://opensearch.org/docs/latest/install-and-configure/install-opensearch/docker/>

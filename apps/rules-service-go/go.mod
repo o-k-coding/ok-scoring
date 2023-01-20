@@ -5,9 +5,7 @@ go 1.17
 require (
 	github.com/google/uuid v1.3.0
 	github.com/graphql-go/graphql v0.8.0
-	github.com/joho/godotenv v1.4.0
 	github.com/julienschmidt/httprouter v1.3.0
-	github.com/justinas/alice v1.2.0
 	github.com/lib/pq v1.10.4
 	github.com/pascaldekloe/jwt v1.10.0
 	github.com/segmentio/kafka-go v0.4.38
@@ -15,7 +13,11 @@ require (
 	golang.org/x/crypto v0.0.0-20220622213112-05595931fe9d
 )
 
-require github.com/spf13/viper v1.14.0
+require (
+	github.com/confluentinc/confluent-kafka-go v1.9.2
+	github.com/opensearch-project/opensearch-go v1.1.0
+	github.com/spf13/viper v1.14.0
+)
 
 require (
 	github.com/davecgh/go-spew v1.1.1 // indirect
@@ -35,7 +37,6 @@ require (
 	github.com/subosito/gotenv v1.4.1 // indirect
 	golang.org/x/sys v0.0.0-20220908164124-27713097b956 // indirect
 	golang.org/x/text v0.4.0 // indirect
-	gopkg.in/check.v1 v1.0.0-20190902080502-41f04d3bba15 // indirect
 	gopkg.in/ini.v1 v1.67.0 // indirect
 	gopkg.in/yaml.v2 v2.4.0 // indirect
 	gopkg.in/yaml.v3 v3.0.1 // indirect
