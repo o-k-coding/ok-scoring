@@ -115,3 +115,16 @@ Would do some load testing with the DB to figure out what our max could be. and 
 go client for open search <https://opensearch.org/docs/latest/clients/go/>
 
 docker open search <https://opensearch.org/docs/latest/install-and-configure/install-opensearch/docker/>
+
+### Observability
+
+#### Open telemetry
+
+<https://opentelemetry.io/docs/instrumentation/go/getting-started/>
+
+when installing an sdk, install the jaeger exporter
+
+```bash
+go get go.opentelemetry.io/otel/sdk \
+         go.opentelemetry.io/otel/exporters/jaeger
+```

@@ -261,7 +261,6 @@ this is not a package installed, it is already included... the build is just con
 
 <https://github.com/conduktor/kafka-stack-docker-compose>
 
-
 #### Workspace error
 
 If you see this error
@@ -275,7 +274,3 @@ just run the yarn command with `-W` this will work
 ## Authentication/Authorization
 
 OK Scoring uses Auth0 for authentication and authorization.
-
-## Open telemetry
-
-<https://opentelemetry.io/docs/instrumentation/go/getting-started/>

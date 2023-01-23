@@ -7,7 +7,9 @@ import (
 )
 
 type Config struct {
-	ServerPort        int      `mapstructure:"SERVER_PORT"`
+	JaegerAgentPort   string   `mapstructure:"JAEGER_AGENT_PORT"`
+	JaegerAgentHost   string   `mapstructure:"JAEGER_AGENT_HOST"`
+	ServerPort        int      `mapstructure:"SERVER_PORT"` // TODO this is the only non string
 	SearchType        string   `mapstructure:"SEARCH_TYPE"` //.values supported:opensearch
 	SearchHosts       []string `mapstructure:"SEARCH_HOSTS"`
 	EventType         string   `mapstructure:"EVENT_TYPE"` //.values supported: segmentio_kafka | confluent_kafka
@@ -26,6 +28,8 @@ type Config struct {
 
 // Note, these are necessary for the struct marshalling to pick up env variables in the case that the config file does not exist
 func setEnvDefaults() {
+	viper.SetDefault("JAEGER_AGENT_PORT", "6831")
+	viper.SetDefault("JAEGER_AGENT_HOST", "localhost")
 	viper.SetDefault("SERVER_PORT", "4000")
 	viper.SetDefault("SEARCH_TYPE", "opensearch")
 	viper.SetDefault("SEARCH_HOSTS", "http://localhost:9200")

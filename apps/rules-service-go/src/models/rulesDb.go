@@ -6,6 +6,7 @@ import (
 	"time"
 
 	"github.com/google/uuid"
+	"okscoring.com/rules-service/src/observability"
 )
 
 type DBModel struct {
@@ -41,10 +42,12 @@ func ScanGameRulesTemplate(r Scannable) (*GameRulesTemplateDb, error) {
 // DB Methods
 
 // Get returns one rulestemplate if found, and error if any
-func (m *DBModel) GetRulesTemplate(key string) (*GameRulesTemplate, error) {
-	ctx, cancel := context.WithTimeout(context.Background(), 3*time.Second)
+func (m *DBModel) GetRulesTemplate(ctx context.Context, key string) (*GameRulesTemplate, error) {
+	ctx, span := observability.GetNewSpan(ctx, "getOneRulesTemplate")
+	ctx, cancel := context.WithTimeout(ctx, 3*time.Second)
 
 	defer cancel()
+	defer span.End()
 
 	//Note: one way to handle selects with null values would be to use coalesce to have a default value if null... but I feel like that's a bandaid
 	query := `
