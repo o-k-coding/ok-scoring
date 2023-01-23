@@ -275,3 +275,7 @@ just run the yarn command with `-W` this will work
 ## Authentication/Authorization
 
 OK Scoring uses Auth0 for authentication and authorization.
+
+## Open telemetry
+
+<https://opentelemetry.io/docs/instrumentation/go/getting-started/>

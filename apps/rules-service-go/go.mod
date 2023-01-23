@@ -1,6 +1,6 @@
 module okscoring.com/rules-service
 
-go 1.17
+go 1.19
 
 require (
 	github.com/google/uuid v1.3.0
@@ -17,11 +17,15 @@ require (
 	github.com/confluentinc/confluent-kafka-go v1.9.2
 	github.com/opensearch-project/opensearch-go v1.1.0
 	github.com/spf13/viper v1.14.0
+	go.opentelemetry.io/otel v1.11.2
+	go.opentelemetry.io/otel/trace v1.11.2
 )
 
 require (
 	github.com/davecgh/go-spew v1.1.1 // indirect
 	github.com/fsnotify/fsnotify v1.6.0 // indirect
+	github.com/go-logr/logr v1.2.3 // indirect
+	github.com/go-logr/stdr v1.2.2 // indirect
 	github.com/hashicorp/hcl v1.0.0 // indirect
 	github.com/klauspost/compress v1.15.9 // indirect
 	github.com/magiconair/properties v1.8.6 // indirect

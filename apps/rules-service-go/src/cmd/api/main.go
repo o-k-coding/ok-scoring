@@ -12,6 +12,8 @@ import (
 	"time"
 
 	_ "github.com/lib/pq"
+	"go.opentelemetry.io/otel"
+	"go.opentelemetry.io/otel/trace"
 	"okscoring.com/rules-service/src/config"
 	"okscoring.com/rules-service/src/events"
 	"okscoring.com/rules-service/src/models"
@@ -20,10 +22,14 @@ import (
 
 const version = "1.0.0"
 
+// name is the Tracer name used to identify this instrumentation library.
+const tracerName = "ok-rules-service"
+
 // TODO create some struct or map to hold all of the event streams the app needs. For now just have one
 type application struct {
 	config                      *config.Config
 	logger                      *log.Logger
+	tracer                      *trace.Tracer
 	models                      models.Models
 	favoriteRulesTemplateEvents events.Events
 	rulesTemplateChangeEvents   events.Events
@@ -66,6 +72,8 @@ func main() {
 	if err != nil {
 		logger.Fatalf("failed to load config %e", err)
 	}
+
+	tracer := otel.Tracer(tracerName)
 
 	db, err := openDb(config)
 
@@ -110,6 +118,7 @@ func main() {
 	app := &application{
 		config:                      config,
 		logger:                      logger,
+		tracer:                      tracer,
 		models:                      models.NewModels(db),
 		favoriteRulesTemplateEvents: favoriteRulesTemplatesEvents,
 		rulesTemplateChangeEvents:   rulesTemplateChangeEvents,
