@@ -20,7 +20,7 @@ func GetNewSpan(ctx context.Context, spanName string, opts ...api_trace.SpanStar
 	return otel.Tracer(tracerName).Start(ctx, spanName)
 }
 
-func newExporter(config *config.Config) (trace.SpanExporter, error) {
+func NewExporter(config *config.Config) (trace.SpanExporter, error) {
 	return jaeger.New(
 		jaeger.WithAgentEndpoint(
 			jaeger.WithAgentHost(config.JaegerAgentHost),
@@ -30,15 +30,15 @@ func newExporter(config *config.Config) (trace.SpanExporter, error) {
 }
 
 // newResource returns a resource describing this application.
-func newResource() *resource.Resource {
+func NewResource() *resource.Resource {
 	r, _ := resource.Merge(
 		resource.Default(),
 		// TODO the string values should come from config
 		resource.NewWithAttributes(
 			semconv.SchemaURL,
 			semconv.ServiceNameKey.String("ok-rules-service"),
-			semconv.ServiceVersionKey.String("v0.1.0"),
-			attribute.String("environment", "demo"),
+			semconv.ServiceVersionKey.String("v1.0.0"),
+			attribute.String("environment", "dev"),
 		),
 	)
 	return r

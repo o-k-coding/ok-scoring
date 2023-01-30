@@ -12,9 +12,12 @@ import (
 	"time"
 
 	_ "github.com/lib/pq"
+	"go.opentelemetry.io/otel"
+	"go.opentelemetry.io/otel/sdk/trace"
 	"okscoring.com/rules-service/src/config"
 	"okscoring.com/rules-service/src/events"
 	"okscoring.com/rules-service/src/models"
+	"okscoring.com/rules-service/src/observability"
 	"okscoring.com/rules-service/src/search"
 )
 
@@ -66,6 +69,29 @@ func main() {
 	if err != nil {
 		logger.Fatalf("failed to load config %e", err)
 	}
+
+	// Create new exporter that knows how to export tracing data to Jaeger
+	exp, err := observability.NewExporter(config)
+	if err != nil {
+		logger.Fatalf("failed to create tracing exporter %e", err)
+	}
+
+	// Register the exporter with a tracing provider using batches to not overload the system
+	tp := trace.NewTracerProvider(
+		trace.WithBatcher(exp),
+		trace.WithResource(observability.NewResource()),
+	)
+
+	defer func() {
+		// This will flush the exporter provider as well before shutting down. Good practice when stopping a service to avoid missing metrics.
+		// Possibly improvement is a shutdown function for the service that flushes metrics before shutting down other things that could cause metric errors to occur. This is just a note from first hand experience especially in k8s like environments
+		// Where service instances are ephemeral
+		if err := tp.Shutdown(context.Background()); err != nil {
+			logger.Fatalf("Failed to shutdown tracing provider %e", err)
+		}
+	}()
+
+	otel.SetTracerProvider(tp)
 
 	db, err := openDb(config)
 

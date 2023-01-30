@@ -74,6 +74,14 @@ to run migrations
 make migratedb
 ```
 
+If you get an error on applying migrations
+
+```text
+2023/01/30 12:10:49 error: Dirty database version 1. Fix and force version.
+```
+
+you need to...
+
 ### Supabase
 
 ```bash
@@ -128,3 +136,21 @@ when installing an sdk, install the jaeger exporter
 go get go.opentelemetry.io/otel/sdk \
          go.opentelemetry.io/otel/exporters/jaeger
 ```
+
+Basic way to test if tracing is working.
+
+1. start the obs stack locally with docker compose
+
+```bash
+yarn ok-scoring:service:up observability
+```
+
+2. navigate to jaeger UI locally <http://localhost:16686/search>
+3. start the service
+
+```bash
+yarn rules-service:go
+```
+
+4. send a few requests (a few needed because of sampling) to ... this one is instrumented
+5. Wait a bit of time and search in the UI
