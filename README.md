@@ -220,11 +220,42 @@ nx run rules-service-go:go-run
 
 ## Docker containers
 
-ok-scoring postgres db
+any of the local docker containers can be started and stopped using the command.
+
+Simply pass the name of the name of the compose file from `infrastructure/ok-scoring-development`
+
+example
 
 ```bash
-docker compose -f apps/game-service/docker-compose.yml up -d
+yarn ok-scoring:service:up pg
+yarn ok-scoring:service:down pg
 ```
+
+### Postgres
+
+If you are starting from a fresh volume you may (likely) get the following error
+
+```bash
+2023/01/30 11:40:24 error: pq: role "ok-scoring-user" does not exist
+```
+
+Initial setup requires you to create this user currently
+
+connect to the db using the default creds of `postgres/postgres` and create the user.
+
+For each service, a different DB is used, so creat the db as well and grant perms to the user.
+
+```sql
+create user "ok-scoring-user" with password '<password>';
+create database "ok-scoring-rules";
+grant ALL on database "ok-scoring-rules" to "ok-scoring-user";
+CREATE EXTENSION IF NOT EXISTS "uuid-ossp"; -- for rules service
+```
+
+TODO this doesn't work yet. Perms and everything are fucked up and the database doesn't even show up in dbeaver. Need to make ok-scoring-rules the owner of that db
+TODO this should be automated as part of local development start up.
+TODO should also use a role instead.
+TODO need to create a separate role and user for migrations too.
 
 ## Python
 
@@ -261,7 +292,7 @@ this is not a package installed, it is already included... the build is just con
 
 <https://github.com/conduktor/kafka-stack-docker-compose>
 
-#### Workspace error
+### Workspace error
 
 If you see this error
 
