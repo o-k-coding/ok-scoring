@@ -243,19 +243,11 @@ Initial setup requires you to create this user currently
 
 connect to the db using the default creds of `postgres/postgres` and create the user.
 
-For each service, a different DB is used, so creat the db as well and grant perms to the user.
+For each service, a different DB is used, so connect to the db with user and password in `.env.development` and create the db as well
 
 ```sql
-create user "ok-scoring-user" with password '<password>';
 create database "ok-scoring-rules";
-grant ALL on database "ok-scoring-rules" to "ok-scoring-user";
-CREATE EXTENSION IF NOT EXISTS "uuid-ossp"; -- for rules service
 ```
-
-TODO this doesn't work yet. Perms and everything are fucked up and the database doesn't even show up in dbeaver. Need to make ok-scoring-rules the owner of that db
-TODO this should be automated as part of local development start up.
-TODO should also use a role instead.
-TODO need to create a separate role and user for migrations too.
 
 ## Python
 

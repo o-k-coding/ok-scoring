@@ -152,5 +152,13 @@ yarn ok-scoring:service:up observability
 yarn rules-service:go
 ```
 
-4. send a few requests (a few needed because of sampling) to ... this one is instrumented
+4. send a few requests (a few needed because of sampling) to fetch one template this one is instrumented
+
+```bash
+curl -X GET http://localhost:4000/v1/rules/bb7d624f-7a8c-4403-a43e-d1daadcbdb17
+```
+
 5. Wait a bit of time and search in the UI
+
+TODO this is not currently working with jaeger. I am going to follow the tutorial for outputting to a file first.
+Run it like the events etc. have options. Then implement the jaeger version.
