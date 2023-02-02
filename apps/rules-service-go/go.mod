@@ -17,10 +17,11 @@ require (
 	github.com/confluentinc/confluent-kafka-go v1.9.2
 	github.com/opensearch-project/opensearch-go v1.1.0
 	github.com/spf13/viper v1.14.0
-	go.opentelemetry.io/otel v1.11.2
+	go.opentelemetry.io/otel v1.12.0
 	go.opentelemetry.io/otel/exporters/jaeger v1.11.2
-	go.opentelemetry.io/otel/sdk v1.11.2
-	go.opentelemetry.io/otel/trace v1.11.2
+	go.opentelemetry.io/otel/exporters/stdout/stdouttrace v1.12.0
+	go.opentelemetry.io/otel/sdk v1.12.0
+	go.opentelemetry.io/otel/trace v1.12.0
 )
 
 require (

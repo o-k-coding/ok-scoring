@@ -71,15 +71,15 @@ func main() {
 	}
 
 	// Create new exporter that knows how to export tracing data to Jaeger
-	exp, err := observability.NewExporter(config)
+	t := observability.NewTrace(config)
 	if err != nil {
 		logger.Fatalf("failed to create tracing exporter %e", err)
 	}
 
 	// Register the exporter with a tracing provider using batches to not overload the system
 	tp := trace.NewTracerProvider(
-		trace.WithBatcher(exp),
-		trace.WithResource(observability.NewResource()),
+		trace.WithBatcher(t.Exporter.GetSpanExporter()), // TODO should check this cast
+		trace.WithResource(t.Resource),
 	)
 
 	defer func() {
@@ -89,6 +89,7 @@ func main() {
 		if err := tp.Shutdown(context.Background()); err != nil {
 			logger.Fatalf("Failed to shutdown tracing provider %e", err)
 		}
+		t.Exporter.Close()
 	}()
 
 	otel.SetTracerProvider(tp)

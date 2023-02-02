@@ -7,27 +7,31 @@ import (
 )
 
 type Config struct {
-	JaegerAgentPort   string   `mapstructure:"JAEGER_AGENT_PORT"`
-	JaegerAgentHost   string   `mapstructure:"JAEGER_AGENT_HOST"`
-	ServerPort        int      `mapstructure:"SERVER_PORT"` // TODO this is the only non string
-	SearchType        string   `mapstructure:"SEARCH_TYPE"` //.values supported:opensearch
-	SearchHosts       []string `mapstructure:"SEARCH_HOSTS"`
-	EventType         string   `mapstructure:"EVENT_TYPE"` //.values supported: segmentio_kafka | confluent_kafka
-	EventHosts        []string `mapstructure:"EVENT_HOSTS"`
-	PostgresHost      string   `mapstructure:"POSTGRES_HOST"`
-	PostgresUser      string   `mapstructure:"POSTGRES_USER"`
-	PostgresPassword  string   `mapstructure:"POSTGRES_PASSWORD"`
-	PostgresDB        string   `mapstructure:"POSTGRES_DB"`
-	PostgresPort      string   `mapstructure:"POSTGRES_PORT"`
-	PostgresSSLMode   string   `mapstructure:"POSTGRES_SSL_MODE"`
-	DBString          string   `mapstructure:"DB_STRING"`
-	TokenSymmetricKey string   `mapstructure:"TOKEN_SYMMETRIC_KEY"`
-	DummyPasswordHash string   `mapstructure:"DUMMY_PASSWORD_HASH"`
-	JwtSecret         string   `mapstructure:"JWT_SECRET"`
+	TraceType            string   `mapstructure:"TRACE_TYPE"`              //.values supported: jaeger | console
+	ConsoleTraceFilePath string   `mapstructure:"CONSOLE_TRACE_FILE_PATH"` //.path to a file to output trace data
+	JaegerAgentPort      string   `mapstructure:"JAEGER_AGENT_PORT"`
+	JaegerAgentHost      string   `mapstructure:"JAEGER_AGENT_HOST"`
+	ServerPort           int      `mapstructure:"SERVER_PORT"` // TODO this is the only non string
+	SearchType           string   `mapstructure:"SEARCH_TYPE"` //.values supported:opensearch
+	SearchHosts          []string `mapstructure:"SEARCH_HOSTS"`
+	EventType            string   `mapstructure:"EVENT_TYPE"` //.values supported: segmentio_kafka | confluent_kafka
+	EventHosts           []string `mapstructure:"EVENT_HOSTS"`
+	PostgresHost         string   `mapstructure:"POSTGRES_HOST"`
+	PostgresUser         string   `mapstructure:"POSTGRES_USER"`
+	PostgresPassword     string   `mapstructure:"POSTGRES_PASSWORD"`
+	PostgresDB           string   `mapstructure:"POSTGRES_DB"`
+	PostgresPort         string   `mapstructure:"POSTGRES_PORT"`
+	PostgresSSLMode      string   `mapstructure:"POSTGRES_SSL_MODE"`
+	DBString             string   `mapstructure:"DB_STRING"`
+	TokenSymmetricKey    string   `mapstructure:"TOKEN_SYMMETRIC_KEY"`
+	DummyPasswordHash    string   `mapstructure:"DUMMY_PASSWORD_HASH"`
+	JwtSecret            string   `mapstructure:"JWT_SECRET"`
 }
 
 // Note, these are necessary for the struct marshalling to pick up env variables in the case that the config file does not exist
 func setEnvDefaults() {
+	viper.SetDefault("CONSOLE_TRACE_FILE_PATH", "traces.txt")
+	viper.SetDefault("TRACE_TYPE", "console")
 	viper.SetDefault("JAEGER_AGENT_PORT", "6831")
 	viper.SetDefault("JAEGER_AGENT_HOST", "localhost")
 	viper.SetDefault("SERVER_PORT", "4000")

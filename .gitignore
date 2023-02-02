@@ -133,3 +133,6 @@ go.work
 **/supabase/.branches
 **/supabase/.temp
 **/supabase/.env
+
+
+traces.txt

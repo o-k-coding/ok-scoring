@@ -2,10 +2,10 @@ package observability
 
 import (
 	"context"
+	"log"
 
 	"go.opentelemetry.io/otel"
 	"go.opentelemetry.io/otel/attribute"
-	"go.opentelemetry.io/otel/exporters/jaeger"
 	"go.opentelemetry.io/otel/sdk/resource"
 	"go.opentelemetry.io/otel/sdk/trace"
 	semconv "go.opentelemetry.io/otel/semconv/v1.12.0"
@@ -13,20 +13,37 @@ import (
 	"okscoring.com/rules-service/src/config"
 )
 
+type Trace struct {
+	Exporter TraceSpanExporter
+	Resource *resource.Resource
+}
+
+type TraceSpanExporter interface {
+	GetSpanExporter() trace.SpanExporter
+	Close()
+}
+
 // name is the Tracer name used to identify this instrumentation library.
 const tracerName = "ok-rules-service"
 
+// TODO receiver function?
 func GetNewSpan(ctx context.Context, spanName string, opts ...api_trace.SpanStartOption) (context.Context, api_trace.Span) {
 	return otel.Tracer(tracerName).Start(ctx, spanName)
 }
 
-func NewExporter(config *config.Config) (trace.SpanExporter, error) {
-	return jaeger.New(
-		jaeger.WithAgentEndpoint(
-			jaeger.WithAgentHost(config.JaegerAgentHost),
-			jaeger.WithAgentPort(config.JaegerAgentPort),
-		),
-	)
+func NewTrace(config *config.Config) Trace {
+	trace := Trace{}
+	// TODO error handling
+	switch config.TraceType {
+	case "jaeger":
+		trace.Exporter, _ = NewJaegerExporter(config)
+	case "console":
+		trace.Exporter, _ = NewConsoleExporter(config)
+	default:
+		log.Printf("TraceType %s not supported", config.TraceType)
+	}
+	trace.Resource = NewResource()
+	return trace
 }
 
 // newResource returns a resource describing this application.

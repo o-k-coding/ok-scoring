@@ -12,9 +12,6 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-package otel // import "go.opentelemetry.io/otel"
-
-// Version is the current release version of OpenTelemetry in use.
-func Version() string {
-	return "1.12.0"
-}
+// Package stdouttrace contains an OpenTelemetry exporter for tracing
+// telemetry to be written to an output destination as JSON.
+package stdouttrace // import "go.opentelemetry.io/otel/exporters/stdout/stdouttrace"
