@@ -11,7 +11,7 @@ import (
 
 func (app *application) getOneRulesTemplate(w http.ResponseWriter, r *http.Request) {
 	// TODO what to do with the tracing context?
-	ctx, span := observability.GetNewSpan(r.Context(), "getOneRulesTemplate")
+	ctx, span := observability.GetNewSpan(r.Context(), "rulesHandlers.getOneRulesTemplate")
 	defer span.End()
 
 	params := httprouter.ParamsFromContext(ctx)

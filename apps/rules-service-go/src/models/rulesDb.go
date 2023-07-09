@@ -43,7 +43,7 @@ func ScanGameRulesTemplate(r Scannable) (*GameRulesTemplateDb, error) {
 
 // Get returns one rulestemplate if found, and error if any
 func (m *DBModel) GetRulesTemplate(ctx context.Context, key string) (*GameRulesTemplate, error) {
-	ctx, span := observability.GetNewSpan(ctx, "getOneRulesTemplate")
+	ctx, span := observability.GetNewSpan(ctx, "rulesDb.GetRulesTemplate")
 	ctx, cancel := context.WithTimeout(ctx, 3*time.Second)
 
 	defer cancel()

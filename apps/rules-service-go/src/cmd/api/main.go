@@ -12,8 +12,10 @@ import (
 	"time"
 
 	_ "github.com/lib/pq"
+	"github.com/uptrace/opentelemetry-go-extra/otelsql"
 	"go.opentelemetry.io/otel"
 	"go.opentelemetry.io/otel/sdk/trace"
+	semconv "go.opentelemetry.io/otel/semconv/v1.10.0"
 	"okscoring.com/rules-service/src/config"
 	"okscoring.com/rules-service/src/events"
 	"okscoring.com/rules-service/src/models"
@@ -166,7 +168,9 @@ func main() {
 }
 
 func openDb(cfg *config.Config) (*sql.DB, error) {
-	db, err := sql.Open("postgres", cfg.DBString)
+	db, err := otelsql.Open("postgres", cfg.DBString,
+		otelsql.WithAttributes(semconv.DBSystemPostgreSQL),
+		otelsql.WithDBName("ok-scoring-rules"))
 
 	if err != nil {
 		return nil, err
