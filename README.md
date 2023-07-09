@@ -220,10 +220,33 @@ nx run rules-service-go:go-run
 
 ## Docker containers
 
-ok-scoring postgres db
+any of the local docker containers can be started and stopped using the command.
+
+Simply pass the name of the name of the compose file from `infrastructure/ok-scoring-development`
+
+example
 
 ```bash
-docker compose -f apps/game-service/docker-compose.yml up -d
+yarn ok-scoring:service:up pg
+yarn ok-scoring:service:down pg
+```
+
+### Postgres
+
+If you are starting from a fresh volume you may (likely) get the following error
+
+```bash
+2023/01/30 11:40:24 error: pq: role "ok-scoring-user" does not exist
+```
+
+Initial setup requires you to create this user currently
+
+connect to the db using the default creds of `postgres/postgres` and create the user.
+
+For each service, a different DB is used, so connect to the db with user and password in `.env.development` and create the db as well
+
+```sql
+create database "ok-scoring-rules";
 ```
 
 ## Python
@@ -261,8 +284,7 @@ this is not a package installed, it is already included... the build is just con
 
 <https://github.com/conduktor/kafka-stack-docker-compose>
 
-
-#### Workspace error
+### Workspace error
 
 If you see this error
 

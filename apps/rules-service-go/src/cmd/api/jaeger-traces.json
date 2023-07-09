@@ -1,0 +1,41 @@
+{
+  "data": [
+    {
+      "name": "getOneRulesTemplate",
+      "spanContext": {
+        "traceID": "c0ccb5cdfa337747599e0ee470b6d849",
+        "spanID": "710256094f56154d",
+        "traceFlags": "01",
+        "traceState": "",
+        "remote": false
+      },
+      "parent": {
+        "traceID": "c0ccb5cdfa337747599e0ee470b6d849",
+        "spanID": "ea77eb6882716257",
+        "traceFlags": "01",
+        "traceState": "",
+        "remote": false
+      },
+      "spanKind": 1,
+      "startTime": "0001-01-01T00:00:00Z",
+      "endTime": "0001-01-01T00:00:00Z",
+      "attributes": null,
+      "events": null,
+      "links": null,
+      "status": {
+        "code": "Unset",
+        "description": ""
+      },
+      "droppedAttributes": 0,
+      "droppedEvents": 0,
+      "droppedLinks": 0,
+      "childSpanCount": 0,
+      "resource": null,
+      "instrumentationLibrary": {
+        "name": "ok-rules-service",
+        "version": "",
+        "schemaURL": ""
+      }
+    }
+  ]
+}

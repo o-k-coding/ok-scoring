@@ -1,6 +1,6 @@
 module okscoring.com/rules-service
 
-go 1.17
+go 1.19
 
 require (
 	github.com/google/uuid v1.3.0
@@ -9,7 +9,7 @@ require (
 	github.com/lib/pq v1.10.4
 	github.com/pascaldekloe/jwt v1.10.0
 	github.com/segmentio/kafka-go v0.4.38
-	github.com/stretchr/testify v1.8.1
+	github.com/stretchr/testify v1.8.3
 	golang.org/x/crypto v0.0.0-20220622213112-05595931fe9d
 )
 
@@ -17,11 +17,19 @@ require (
 	github.com/confluentinc/confluent-kafka-go v1.9.2
 	github.com/opensearch-project/opensearch-go v1.1.0
 	github.com/spf13/viper v1.14.0
+	github.com/uptrace/opentelemetry-go-extra/otelsql v0.2.2
+	go.opentelemetry.io/otel v1.16.0
+	go.opentelemetry.io/otel/exporters/jaeger v1.11.2
+	go.opentelemetry.io/otel/exporters/stdout/stdouttrace v1.12.0
+	go.opentelemetry.io/otel/sdk v1.12.0
+	go.opentelemetry.io/otel/trace v1.16.0
 )
 
 require (
 	github.com/davecgh/go-spew v1.1.1 // indirect
 	github.com/fsnotify/fsnotify v1.6.0 // indirect
+	github.com/go-logr/logr v1.2.4 // indirect
+	github.com/go-logr/stdr v1.2.2 // indirect
 	github.com/hashicorp/hcl v1.0.0 // indirect
 	github.com/klauspost/compress v1.15.9 // indirect
 	github.com/magiconair/properties v1.8.6 // indirect
@@ -35,7 +43,8 @@ require (
 	github.com/spf13/jwalterweatherman v1.1.0 // indirect
 	github.com/spf13/pflag v1.0.5 // indirect
 	github.com/subosito/gotenv v1.4.1 // indirect
-	golang.org/x/sys v0.0.0-20220908164124-27713097b956 // indirect
+	go.opentelemetry.io/otel/metric v1.16.0 // indirect
+	golang.org/x/sys v0.0.0-20220919091848-fb04ddd9f9c8 // indirect
 	golang.org/x/text v0.4.0 // indirect
 	gopkg.in/ini.v1 v1.67.0 // indirect
 	gopkg.in/yaml.v2 v2.4.0 // indirect

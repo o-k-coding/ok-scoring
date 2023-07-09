@@ -6,15 +6,20 @@ import (
 
 	"github.com/julienschmidt/httprouter"
 	"okscoring.com/rules-service/src/models"
+	"okscoring.com/rules-service/src/observability"
 )
 
 func (app *application) getOneRulesTemplate(w http.ResponseWriter, r *http.Request) {
-	params := httprouter.ParamsFromContext(r.Context())
+	// TODO what to do with the tracing context?
+	ctx, span := observability.GetNewSpan(r.Context(), "rulesHandlers.getOneRulesTemplate")
+	defer span.End()
+
+	params := httprouter.ParamsFromContext(ctx)
 	key := params.ByName("key")
 
 	app.logger.Println("key is ", key)
 
-	rulesTemplate, err := app.models.DB.GetRulesTemplate(key)
+	rulesTemplate, err := app.models.DB.GetRulesTemplate(ctx, key)
 
 	if err != nil {
 		app.writeAndSendError(w, http.StatusBadRequest, err)

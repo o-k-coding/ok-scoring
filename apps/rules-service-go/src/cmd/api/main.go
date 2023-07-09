@@ -12,9 +12,14 @@ import (
 	"time"
 
 	_ "github.com/lib/pq"
+	"github.com/uptrace/opentelemetry-go-extra/otelsql"
+	"go.opentelemetry.io/otel"
+	"go.opentelemetry.io/otel/sdk/trace"
+	semconv "go.opentelemetry.io/otel/semconv/v1.10.0"
 	"okscoring.com/rules-service/src/config"
 	"okscoring.com/rules-service/src/events"
 	"okscoring.com/rules-service/src/models"
+	"okscoring.com/rules-service/src/observability"
 	"okscoring.com/rules-service/src/search"
 )
 
@@ -67,6 +72,30 @@ func main() {
 		logger.Fatalf("failed to load config %e", err)
 	}
 
+	// Create new exporter that knows how to export tracing data to Jaeger
+	t := observability.NewTrace(config)
+	if err != nil {
+		logger.Fatalf("failed to create tracing exporter %e", err)
+	}
+
+	// Register the exporter with a tracing provider using batches to not overload the system
+	tp := trace.NewTracerProvider(
+		trace.WithBatcher(t.Exporter.GetSpanExporter()), // TODO should check this cast
+		trace.WithResource(t.Resource),
+	)
+
+	defer func() {
+		// This will flush the exporter provider as well before shutting down. Good practice when stopping a service to avoid missing metrics.
+		// Possibly improvement is a shutdown function for the service that flushes metrics before shutting down other things that could cause metric errors to occur. This is just a note from first hand experience especially in k8s like environments
+		// Where service instances are ephemeral
+		if err := tp.Shutdown(context.Background()); err != nil {
+			logger.Fatalf("Failed to shutdown tracing provider %e", err)
+		}
+		t.Exporter.Close()
+	}()
+
+	otel.SetTracerProvider(tp)
+
 	db, err := openDb(config)
 
 	if err != nil {
@@ -74,6 +103,8 @@ func main() {
 	} else {
 		logger.Println("Connected to DB")
 	}
+
+	// TODO all the deps need access to the loggers etc too...
 
 	favoriteRulesTemplatesEvents := events.NewEvents("favoriterulestemplates", config)
 	err = favoriteRulesTemplatesEvents.Connect()
@@ -137,7 +168,9 @@ func main() {
 }
 
 func openDb(cfg *config.Config) (*sql.DB, error) {
-	db, err := sql.Open("postgres", cfg.DBString)
+	db, err := otelsql.Open("postgres", cfg.DBString,
+		otelsql.WithAttributes(semconv.DBSystemPostgreSQL),
+		otelsql.WithDBName("ok-scoring-rules"))
 
 	if err != nil {
 		return nil, err

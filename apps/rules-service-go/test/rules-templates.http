@@ -13,7 +13,7 @@ curl -X PUT http://localhost:4000/v1/rules \
 
 ### Fetch a rules template by key
 
-curl -X GET http://localhost:4000/v1/rules/467457b9-7a80-4845-8ffb-2e6c6183c293
+curl -X GET http://localhost:4000/v1/rules/a3f4ca1e-66c8-4cfc-aae8-ee5561d6a872
 
 ### Push a favorite into the message queue
 
