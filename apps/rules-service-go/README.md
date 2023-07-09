@@ -38,7 +38,38 @@ Local development relies on using the development supabase account
 
 ### Local development with docker
 
-First, must make sure that the db `ok-scoring-rules` exists in the DB
+Start the minimum required backing services
+TODO I should create `start-backing-services` target
+
+This service leverages a database (pg), messaging system (kafka or rabbitmq), search system (opensearch) and observability stack (tracing: file or jaeger)
+the DB, message and search systems are required to run the service
+
+```bash
+yarn ok-scoring:service:up pg
+yarn ok-scoring:service:up kafka
+yarn ok-scoring:service:up opensearch
+```
+
+First, must make sure that the user, db and extensions exist in the DB
+
+```sql
+create user "ok-scoring-user" with password <password>;
+create database "ok-scoring-rules";
+grant ALL on database "ok-scoring-rules" to "ok-scoring-user";
+CREATE EXTENSION IF NOT EXISTS "uuid-ossp";
+```
+
+Then run the migrations
+
+```bash
+make migratedb
+```
+
+Then run the service
+
+```bash
+yarn rules-service:go
+```
 
 ### DB
 
@@ -137,7 +168,53 @@ go get go.opentelemetry.io/otel/sdk \
          go.opentelemetry.io/otel/exporters/jaeger
 ```
 
-Basic way to test if tracing is working.
+Basic way to test tracing
+
+##### Save Traces To File
+
+```bash
+TRACE_TYPE=console
+CONSOLE_TRACE_FILE_PATH=traces.txt
+```
+
+By default traces.txt will be saved locally and is in the gitignore file.
+
+1. start the service
+
+  ```bash
+  yarn rules-service:go
+  ```
+
+2. send a few requests (a few needed because of sampling) to fetch one template this one is instrumented
+
+[curl requests](./test/rules-templates.http)
+
+1. Open the [traces.json](./src/cmd/api/traces.json) file
+2. Explore the traces file
+
+TODO I have been exploring
+
+How to convert the file format from open telemetry go into jaegers format
+use the script `convert-trace-json-for-jaeger.js`
+
+relevant links
+
+- <https://github.com/open-telemetry/opentelemetry-go/issues/3588>
+
+Start the observability stack with jaeger
+navigate to the [UI](http://localhost:16686/search) and select `JSON File`
+upload `traces.json`
+profit
+
+##### Save Traces To Jaeger
+
+set env variables
+
+```bash
+TRACE_TYPE=jaeger
+TRACE_AGENT_PORT=6831
+TRACE_AGENT_HOST=localhost
+```
 
 1. start the obs stack locally with docker compose
 
@@ -154,11 +231,9 @@ yarn rules-service:go
 
 4. send a few requests (a few needed because of sampling) to fetch one template this one is instrumented
 
-```bash
-curl -X GET http://localhost:4000/v1/rules/bb7d624f-7a8c-4403-a43e-d1daadcbdb17
-```
+[curl requests](./test/rules-templates.http)
 
-5. Wait a bit of time and search in the UI
+1. Wait a bit of time and search in the UI
 
 TODO this is not currently working with jaeger. I am going to follow the tutorial for outputting to a file first.
 Run it like the events etc. have options. Then implement the jaeger version.

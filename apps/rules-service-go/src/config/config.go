@@ -9,8 +9,8 @@ import (
 type Config struct {
 	TraceType            string   `mapstructure:"TRACE_TYPE"`              //.values supported: jaeger | console
 	ConsoleTraceFilePath string   `mapstructure:"CONSOLE_TRACE_FILE_PATH"` //.path to a file to output trace data
-	JaegerAgentPort      string   `mapstructure:"JAEGER_AGENT_PORT"`
-	JaegerAgentHost      string   `mapstructure:"JAEGER_AGENT_HOST"`
+	TraceAgentPort       string   `mapstructure:"TRACE_AGENT_PORT"`
+	TraceAgentHost       string   `mapstructure:"TRACE_AGENT_HOST"`
 	ServerPort           int      `mapstructure:"SERVER_PORT"` // TODO this is the only non string
 	SearchType           string   `mapstructure:"SEARCH_TYPE"` //.values supported:opensearch
 	SearchHosts          []string `mapstructure:"SEARCH_HOSTS"`
@@ -30,10 +30,13 @@ type Config struct {
 
 // Note, these are necessary for the struct marshalling to pick up env variables in the case that the config file does not exist
 func setEnvDefaults() {
-	viper.SetDefault("CONSOLE_TRACE_FILE_PATH", "traces.txt")
 	viper.SetDefault("TRACE_TYPE", "console")
-	viper.SetDefault("JAEGER_AGENT_PORT", "6831")
-	viper.SetDefault("JAEGER_AGENT_HOST", "localhost")
+	// If TRACE_TYPE == console, this must be set
+	viper.SetDefault("CONSOLE_TRACE_FILE_PATH", "traces.json")
+	// If TRACE_TYPE supports an agent, use these configurations
+	viper.SetDefault("TRACE_AGENT_PORT", "6831")
+	viper.SetDefault("TRACE_AGENT_HOST", "localhost")
+
 	viper.SetDefault("SERVER_PORT", "4000")
 	viper.SetDefault("SEARCH_TYPE", "opensearch")
 	viper.SetDefault("SEARCH_HOSTS", "http://localhost:9200")

@@ -13,18 +13,22 @@ type JaegerSpanExporter struct {
 }
 
 func NewJaegerExporter(config *config.Config) (*JaegerSpanExporter, error) {
-	s, err := jaeger.New(
+	exp, err := jaeger.New(
 		jaeger.WithAgentEndpoint(
-			jaeger.WithAgentHost(config.JaegerAgentHost),
-			jaeger.WithAgentPort(config.JaegerAgentPort),
+			jaeger.WithAgentHost(config.TraceAgentHost),
+			jaeger.WithAgentPort(config.TraceAgentPort),
 		),
 	)
+
+	// exp, err := jaeger.New(jaeger.WithCollectorEndpoint(jaeger.WithEndpoint(
+	// 	"http://localhost:6831/api/traces",
+	// )))
 
 	if err != nil {
 		return nil, err
 	}
 	e := JaegerSpanExporter{
-		spanExporter: s,
+		spanExporter: exp,
 	}
 	return &e, nil
 }

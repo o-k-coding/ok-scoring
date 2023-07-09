@@ -135,4 +135,4 @@ go.work
 **/supabase/.env
 
 
-traces.txt
+traces.json
