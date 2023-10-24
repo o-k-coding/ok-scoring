@@ -28,6 +28,9 @@
       "@ok-scoring/components/react/timer-provider": [
         "libs/components/react/timer-provider/src/index.ts"
       ],
+      "@ok-scoring/components/react/web": [
+        "libs/components/react/web/src/index.ts"
+      ],
       "@ok-scoring/data/fauna": ["libs/data/fauna/src/index.ts"],
       "@ok-scoring/data/game-entities": [
         "libs/data/game-entities/src/index.ts"
@@ -42,6 +45,7 @@
       "@ok-scoring/data/generate-uuid": [
         "libs/data/generate-uuid/src/index.ts"
       ],
+      "@ok-scoring/data/redis": ["libs/data/redis/src/index.ts"],
       "@ok-scoring/data/sqlite-fns": ["libs/data/sqlite-fns/src/index.ts"],
       "@ok-scoring/features/game-rules-fns": [
         "libs/features/game-rules-fns/src/index.ts"

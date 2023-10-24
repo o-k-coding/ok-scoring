@@ -77,6 +77,31 @@
       },
       "tags": []
     },
+    "components-react-web": {
+      "root": "libs/components/react/web",
+      "sourceRoot": "libs/components/react/web/src",
+      "projectType": "library",
+      "tags": [],
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "outputs": ["{options.outputFile}"],
+          "options": {
+            "lintFilePatterns": [
+              "libs/components/react/web/**/*.{ts,tsx,js,jsx}"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/components/react/web"],
+          "options": {
+            "jestConfig": "libs/components/react/web/jest.config.ts",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
     "data-fauna": {
       "$schema": "../../../node_modules/nx/schemas/project-schema.json",
       "root": "libs/data/fauna",
@@ -192,6 +217,29 @@
           "outputs": ["coverage/libs/data/generate-uuid"],
           "options": {
             "jestConfig": "libs/data/generate-uuid/jest.config.ts",
+            "passWithNoTests": true
+          }
+        }
+      },
+      "tags": []
+    },
+    "data-redis": {
+      "root": "libs/data/redis",
+      "sourceRoot": "libs/data/redis/src",
+      "projectType": "library",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "outputs": ["{options.outputFile}"],
+          "options": {
+            "lintFilePatterns": ["libs/data/redis/**/*.ts"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/data/redis"],
+          "options": {
+            "jestConfig": "libs/data/redis/jest.config.ts",
             "passWithNoTests": true
           }
         }

@@ -32,15 +32,6 @@ yarn start player-stats-service
 
 ## Tasks
 
-Phase 1, get the code I have working and deployed
-
-- Move Ok Scoring PY into this repo []
-- Figure out deployments for the APIs []
-
-Phase 2 improve code I have working
-
-Phase 3 transition/duplication
-
 - Port models from python [x]
 - Connect typeorm entities to a db...
 - Port e2e API tests from python
@@ -59,6 +50,8 @@ Phase 3 transition/duplication
 - Update color scheme to rose pine??
 - Chakra UI for rules UI
 - Create an grpc gateway API, and create a test using ghz, along with graphing.
+- deploying everything
+- port landing page to astro or svelte
 
 ## Using fastify generators
 
@@ -103,7 +96,7 @@ npm i fastify --save
 
 typeorm and pg
 
-```
+```bash
 npm install typeorm pg reflect-metadata --save
 ```
 
@@ -297,3 +290,46 @@ just run the yarn command with `-W` this will work
 ## Authentication/Authorization
 
 OK Scoring uses Auth0 for authentication and authorization.
+
+## Data
+
+Currently data for the mobile app is stored in a local sqlite db.
+data for the services is stored in postgres, running in supabase or faunadb
+caching is done in redis and can be used by any of the apps, or services.
+
+to generate a new library for data access
+
+```bash
+nx g @nrwl/node:lib data/redis
+```
+
+## UI Components
+
+to generate a new library for components
+
+```bash
+nx g @nrwl/react:lib components/react/web
+```
+
+## OK Scoring Mobile
+
+## OK Scoring Web
+
+This is a nextjs web application that is used as a web interface for game scoring.
+The data layer for game scores uses redis and postgres.
+postgres being the source of truth for game scores and redis being a cache layer that can be used by other applications as well.
+
+To add a new react component that can be shared across the react based apps, run the following command.
+
+If the component belongs specifically to ok-scoring-web, use the `--project ok-scoring-web` flag.
+
+```bash
+nx g @nrwl/react:component xyz --project ui
+```
+
+## OK Scoring Rules UI
+
+This is a remix web application that is used as a web interface for game rules.
+It uses the rules-service as a backend, which uses postgres as a data source.
+
+## OK Scoring Rules Service
