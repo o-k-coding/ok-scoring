@@ -200,6 +200,8 @@ sudo gem install cocoapods -v 1.11.3
 
 First install android studio
 
+Currently we rely on NDK (side by side), so fo to apps/ok-scoring-mobile/android/build.gradle to find the correct version, and make sure you have that installed in the SDK Tools section of android studio SDK manager
+
 ## Generator history
 
 Generating backend entity library. This is considered a data library because it is low level specifics of defining the data access and validation for backend game data
