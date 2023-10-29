@@ -180,6 +180,14 @@ yarn ok-scoring:ios
 yarn ok-scoring:android
 ```
 
+If everything is bonkers trying to build and run the mobile apps (especially on a fresh environment or with updated deps)
+
+try upgrading
+
+```bash
+nx generate @nx/react-native:upgrade-native ok-scoring-mobile
+```
+
 #### IOS
 
 requires cocoapods, I specify an erlier version because newer ones don't work with the built in ruby version on my current macbook
