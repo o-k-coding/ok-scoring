@@ -11,7 +11,7 @@ function CustomApp({ Component, pageProps }: AppProps) {
       <div className="app">
         <header className="flex">
           {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src="/nx-logo-white.svg" alt="Nx logo" width="75" height="50" />
+          <img src="/icon-adaptive.png" alt="OK Scoring logo" width="75" height="75" />
           <h1>Welcome to ok-scoring-web!</h1>
         </header>
         <main>

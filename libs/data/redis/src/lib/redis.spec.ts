@@ -1,4 +1,4 @@
-import { dataRedis } from './data-redis';
+import { dataRedis } from './redis';
 
 describe('dataRedis', () => {
   it('should work', () => {

@@ -126,6 +126,29 @@
       },
       "tags": []
     },
+    "data-game-data": {
+      "root": "libs/data/game-data",
+      "sourceRoot": "libs/data/game-data/src",
+      "projectType": "library",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "outputs": ["{options.outputFile}"],
+          "options": {
+            "lintFilePatterns": ["libs/data/game-data/**/*.ts"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/data/game-data"],
+          "options": {
+            "jestConfig": "libs/data/game-data/jest.config.ts",
+            "passWithNoTests": true
+          }
+        }
+      },
+      "tags": []
+    },
     "data-game-entities": {
       "$schema": "../../../node_modules/nx/schemas/project-schema.json",
       "root": "libs/data/game-entities",

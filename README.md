@@ -1,5 +1,17 @@
 # Ok Scoring web mono repo
 
+## Updating nx
+
+most nx major versions require migrations of configurations etc.
+
+https://nx.dev/recipes/tips-n-tricks/advanced-update
+
+```bash
+yarn nx migrate latest
+yarn nx migrate --run-migrations
+# remove migrations.json and commit
+```
+
 ## Contributions
 
 This project uses yarn, if you do not have it installed then please do so!
@@ -159,12 +171,26 @@ Guide blog post
 
 ### Running Ok scoring mobile
 
+TODO list
+
+- need to convert all touchable opacity to pressable in mobile app... Also take a look at animations for those.
+
 ```bash
-npx nx run-ios ok-scoring-mobile
-npx nx run-android ok-scoring-mobile
+yarn ok-scoring:ios
+yarn ok-scoring:android
 ```
 
-TODO need to convert all touchable opacity to pressable in mobile app... Also take a look at animations for those.
+#### IOS
+
+requires cocoapods, I specify an erlier version because newer ones don't work with the built in ruby version on my current macbook
+
+```bash
+sudo gem install cocoapods -v 1.11.3
+```
+
+#### Android
+
+First install android studio
 
 ## Generator history
 
