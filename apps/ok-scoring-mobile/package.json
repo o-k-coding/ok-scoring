@@ -12,7 +12,7 @@
     "@testing-library/react-native": "*",
     "ajv": "*",
     "date-fns": "*",
-    "expo": "*",
+    "expo": "^49.0.0",
     "expo-font": "*",
     "expo-sqlite": "*",
     "mobx": "*",
