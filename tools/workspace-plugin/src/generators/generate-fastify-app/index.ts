@@ -4,7 +4,7 @@ import { GenerateFastityAppSchema } from './schema';
 
 export default function (schema: GenerateFastityAppSchema): Rule {
   return chain([
-    externalSchematic('@nrwl/node', 'app', {
+    externalSchematic('@nx/node', 'app', {
       name: schema.name,
     }),
     generateFastifyApp(schema),

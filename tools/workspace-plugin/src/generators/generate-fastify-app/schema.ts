@@ -1,3 +1,3 @@
 export interface GenerateFastityAppSchema {
-    name: string;
+  name: string;
 }

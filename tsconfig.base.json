@@ -58,7 +58,8 @@
         "libs/features/player-score-history-fns/src/index.ts"
       ],
       "@ok-scoring/styles": ["libs/styles/index.ts"],
-      "@ok-scoring/utils/array-fns": ["libs/utils/array-fns/src/index.ts"]
+      "@ok-scoring/utils/array-fns": ["libs/utils/array-fns/src/index.ts"],
+      "workspace-plugin": ["tools/workspace-plugin/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

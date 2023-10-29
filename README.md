@@ -69,7 +69,7 @@ yarn start player-stats-service
 
 ## Creating a fastify ts backend with nx
 
-nx generate @nrwl/node:app myapp
+nx generate @nx/node:app myapp
 npm install fastify-cli --global
 npm i fastify --save
 
@@ -155,7 +155,7 @@ nx g lib my-lib
 React
 
 ```bash
-nx g @nrwl/react:library
+nx g @nx/react:library
 ```
 
 ## React Native
@@ -220,7 +220,7 @@ Creating a Go application for example
 First create a blank node application
 
 ```bash
-npx nx g @nrwl/node:app app-name
+npx nx g @nx/node:app app-name
 ```
 
 clean out the folder
@@ -326,7 +326,7 @@ caching is done in redis and can be used by any of the apps, or services.
 to generate a new library for data access
 
 ```bash
-nx g @nrwl/node:lib data/redis
+nx g @nx/node:lib data/redis
 ```
 
 ## UI Components
@@ -334,7 +334,7 @@ nx g @nrwl/node:lib data/redis
 to generate a new library for components
 
 ```bash
-nx g @nrwl/react:lib components/react/web
+nx g @nx/react:lib components/react/web
 ```
 
 ## OK Scoring Mobile
@@ -350,7 +350,7 @@ To add a new react component that can be shared across the react based apps, run
 If the component belongs specifically to ok-scoring-web, use the `--project ok-scoring-web` flag.
 
 ```bash
-nx g @nrwl/react:component xyz --project ui
+nx g @nx/react:component xyz --project ui
 ```
 
 ## OK Scoring Rules UI

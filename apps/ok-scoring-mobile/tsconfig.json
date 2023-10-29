@@ -10,8 +10,8 @@
     "resolveJsonModule": true
   },
   "files": [
-    "../../node_modules/@nrwl/react-native/typings/svg.d.ts",
-    "../../node_modules/@nrwl/react-native/typings/svg.d.ts"
+    "../../node_modules/@nx/react-native/typings/svg.d.ts",
+    "../../node_modules/@nx/react-native/typings/svg.d.ts"
   ],
   "include": [],
   "references": [

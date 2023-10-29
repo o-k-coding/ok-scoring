@@ -136,3 +136,5 @@ go.work
 
 
 traces.json
+
+.nx/cache
