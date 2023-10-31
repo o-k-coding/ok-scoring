@@ -138,3 +138,6 @@ go.work
 traces.json
 
 .nx/cache
+
+# Next.js
+.next

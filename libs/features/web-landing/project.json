@@ -1,0 +1,16 @@
+{
+  "name": "features-web-landing",
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/features/web-landing/src",
+  "projectType": "library",
+  "tags": [],
+  "targets": {
+    "lint": {
+      "executor": "@nx/eslint:lint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["libs/features/web-landing/**/*.{ts,tsx,js,jsx}"]
+      }
+    }
+  }
+}

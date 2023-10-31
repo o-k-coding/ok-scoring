@@ -1,14 +1,9 @@
 import styles from './index.module.css';
-
+import { FeaturesWebLanding } from '@ok-scoring/features/web-landing';
 export function Index() {
-  /*
-   * Replace the elements below with your own.
-   *
-   * Note: The corresponding styles are in the ./index.css file.
-   */
   return (
     <div className={styles.page}>
-      <h2>Hello world</h2>
+      <FeaturesWebLanding></FeaturesWebLanding>
     </div>
   );
 }
