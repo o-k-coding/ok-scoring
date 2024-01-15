@@ -55,7 +55,7 @@ const selectOne = <T>(sql: string, args: any[] = []) => {
       args,
       (_, result) => {
         const results = unwrapResult(result);
-        resolve(!!results ? results[0] : null);
+        resolve(results ? results[0] : null);
       },
       (_, err): boolean => {
         reject(err);
@@ -219,11 +219,11 @@ export const fetchPlayers = (playerKeys?: string[]): Promise<Player[]> => {
 
 export const fetchGameStates = async (): Promise<GameState[]> => {
   const gameStates: GameState[] = await fetchGames();
-  for (let gameState of gameStates) {
+  for (const gameState of gameStates) {
     const playerScores = await fetchPlayerScores(gameState.key);
     const players = await fetchPlayers(playerScores.map(p => p.playerKey));
     gameState.date = parseInt(gameState.date.toString(), 10);
-    gameState.scoreHistoryMap = playerScores.reduce(
+    gameState.scoreHistory = playerScores.reduce(
       (history, playerScore) => ({
         ...history,
         [playerScore.playerKey]: {

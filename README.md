@@ -1,5 +1,17 @@
 # Ok Scoring web mono repo
 
+## Updating nx
+
+most nx major versions require migrations of configurations etc.
+
+https://nx.dev/recipes/tips-n-tricks/advanced-update
+
+```bash
+yarn nx migrate latest
+yarn nx migrate --run-migrations
+# remove migrations.json and commit
+```
+
 ## Contributions
 
 This project uses yarn, if you do not have it installed then please do so!
@@ -32,15 +44,6 @@ yarn start player-stats-service
 
 ## Tasks
 
-Phase 1, get the code I have working and deployed
-
-- Move Ok Scoring PY into this repo []
-- Figure out deployments for the APIs []
-
-Phase 2 improve code I have working
-
-Phase 3 transition/duplication
-
 - Port models from python [x]
 - Connect typeorm entities to a db...
 - Port e2e API tests from python
@@ -59,12 +62,14 @@ Phase 3 transition/duplication
 - Update color scheme to rose pine??
 - Chakra UI for rules UI
 - Create an grpc gateway API, and create a test using ghz, along with graphing.
+- deploying everything
+- port landing page to astro or svelte
 
 ## Using fastify generators
 
 ## Creating a fastify ts backend with nx
 
-nx generate @nrwl/node:app myapp
+nx generate @nx/node:app myapp
 npm install fastify-cli --global
 npm i fastify --save
 
@@ -103,7 +108,7 @@ npm i fastify --save
 
 typeorm and pg
 
-```
+```bash
 npm install typeorm pg reflect-metadata --save
 ```
 
@@ -150,7 +155,7 @@ nx g lib my-lib
 React
 
 ```bash
-nx g @nrwl/react:library
+nx g @nx/react:library
 ```
 
 ## React Native
@@ -166,12 +171,36 @@ Guide blog post
 
 ### Running Ok scoring mobile
 
+TODO list
+
+- need to convert all touchable opacity to pressable in mobile app... Also take a look at animations for those.
+
 ```bash
-npx nx run-ios ok-scoring-mobile
-npx nx run-android ok-scoring-mobile
+yarn ok-scoring:ios
+yarn ok-scoring:android
 ```
 
-TODO need to convert all touchable opacity to pressable in mobile app... Also take a look at animations for those.
+If everything is bonkers trying to build and run the mobile apps (especially on a fresh environment or with updated deps)
+
+try upgrading
+
+```bash
+nx generate @nx/react-native:upgrade-native ok-scoring-mobile
+```
+
+#### IOS
+
+requires cocoapods, I specify an erlier version because newer ones don't work with the built in ruby version on my current macbook
+
+```bash
+sudo gem install cocoapods -v 1.11.3
+```
+
+#### Android
+
+First install android studio
+
+Currently we rely on NDK (side by side), so fo to apps/ok-scoring-mobile/android/build.gradle to find the correct version, and make sure you have that installed in the SDK Tools section of android studio SDK manager
 
 ## Generator history
 
@@ -201,7 +230,7 @@ Creating a Go application for example
 First create a blank node application
 
 ```bash
-npx nx g @nrwl/node:app app-name
+npx nx g @nx/node:app app-name
 ```
 
 clean out the folder
@@ -297,3 +326,52 @@ just run the yarn command with `-W` this will work
 ## Authentication/Authorization
 
 OK Scoring uses Auth0 for authentication and authorization.
+
+## Data
+
+Currently data for the mobile app is stored in a local sqlite db.
+data for the services is stored in postgres, running in supabase or faunadb
+caching is done in redis and can be used by any of the apps, or services.
+
+to generate a new library for data access
+
+```bash
+nx g @nx/node:lib data/redis
+```
+
+## UI Components
+
+to generate a new library for components
+
+```bash
+nx g @nx/react:lib components/react/web
+```
+
+## OK Scoring Mobile
+
+## OK Scoring Web
+
+This is a nextjs web application that is used as a web interface for game scoring.
+The data layer for game scores uses redis and postgres.
+postgres being the source of truth for game scores and redis being a cache layer that can be used by other applications as well.
+
+To add a new react component that can be shared across the react based apps, run the following command.
+
+If the component belongs specifically to ok-scoring-web, use the `--project ok-scoring-web` flag.
+
+```bash
+nx g @nx/react:component xyz --project ui
+```
+
+## OK Scoring Rules UI
+
+This is a remix web application that is used as a web interface for game rules.
+It uses the rules-service as a backend, which uses postgres as a data source.
+
+To run dev server locally
+
+```bash
+yarn nx dev ok-scoring-rules-ui
+```
+
+## OK Scoring Rules Service

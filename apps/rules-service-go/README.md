@@ -237,3 +237,13 @@ yarn rules-service:go
 
 TODO this is not currently working with jaeger. I am going to follow the tutorial for outputting to a file first.
 Run it like the events etc. have options. Then implement the jaeger version.
+
+### Caching
+
+Uses redis labs for a simple instance <https://app.redislabs.com/>
+
+Connect using redis-cli, can get the username and password from the DB page
+
+```bash
+redis-cli -u redis://<password>@redis-11311.c238.us-central1-2.gce.cloud.redislabs.com:11311
+```
