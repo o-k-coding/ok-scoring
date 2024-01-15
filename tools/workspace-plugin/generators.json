@@ -1,0 +1,9 @@
+{
+  "generators": {
+    "generate-fastify-app": {
+      "implementation": "./src/generators/generate-fastify-app",
+      "schema": "./src/generators/generate-fastify-app/schema.json",
+      "description": "Generator generate-fastify-app"
+    }
+  }
+}

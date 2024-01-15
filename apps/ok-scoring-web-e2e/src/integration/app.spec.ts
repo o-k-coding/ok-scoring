@@ -1,6 +1,6 @@
 import { getGreeting } from '../support/app.po';
 
-describe('ok-scoring-web', () => {
+describe('ok-scoring-web-e2e', () => {
   beforeEach(() => cy.visit('/'));
 
   it('should display welcome message', () => {
@@ -8,6 +8,6 @@ describe('ok-scoring-web', () => {
     cy.login('my-email@something.com', 'myPassword');
 
     // Function helper example, see `../support/app.po.ts` file
-    getGreeting().contains('Welcome to ok-scoring-web!');
+    getGreeting().contains(/Welcome/);
   });
 });

@@ -1,20 +1,10 @@
 {
-  "extends": [
-    "plugin:@nrwl/nx/react-typescript",
-    "../../.eslintrc.json",
-    "next",
-    "next/core-web-vitals"
-  ],
+  "extends": ["../../.eslintrc.json"],
   "ignorePatterns": ["!**/*"],
   "overrides": [
     {
       "files": ["*.ts", "*.tsx", "*.js", "*.jsx"],
-      "rules": {
-        "@next/next/no-html-link-for-pages": [
-          "error",
-          "apps/ok-scoring-web/pages"
-        ]
-      }
+      "rules": {}
     },
     {
       "files": ["*.ts", "*.tsx"],
@@ -24,8 +14,5 @@
       "files": ["*.js", "*.jsx"],
       "rules": {}
     }
-  ],
-  "env": {
-    "jest": true
-  }
+  ]
 }

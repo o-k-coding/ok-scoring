@@ -1,0 +1,60 @@
+{
+  "name": "game-service",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "apps/game-service/src",
+  "projectType": "application",
+  "prefix": "game-service",
+  "generators": {},
+  "targets": {
+    "build": {
+      "executor": "@nx/webpack:webpack",
+      "options": {
+        "outputPath": "dist/apps/game-service",
+        "main": "apps/game-service/src/main.ts",
+        "tsConfig": "apps/game-service/tsconfig.app.json",
+        "assets": ["apps/game-service/src/assets"],
+        "compiler": "tsc",
+        "target": "node"
+      },
+      "configurations": {
+        "production": {
+          "optimization": true,
+          "extractLicenses": true,
+          "inspect": false,
+          "fileReplacements": [
+            {
+              "replace": "apps/game-service/src/environments/environment.ts",
+              "with": "apps/game-service/src/environments/environment.prod.ts"
+            }
+          ]
+        }
+      },
+      "outputs": ["{options.outputPath}"]
+    },
+    "serve": {
+      "executor": "@nx/js:node",
+      "options": {
+        "buildTarget": "game-service:build"
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:lint",
+      "options": {
+        "linter": "eslint",
+        "tsConfig": [
+          "apps/game-service/tsconfig.app.json",
+          "apps/game-service/tsconfig.spec.json"
+        ],
+        "exclude": ["**/node_modules/**", "!apps/game-service/**/*"]
+      }
+    },
+    "test": {
+      "executor": "@nx/jest:jest",
+      "options": {
+        "jestConfig": "apps/game-service/jest.config.ts",
+        "passWithNoTests": true
+      },
+      "outputs": ["{workspaceRoot}/coverage/apps/game-service"]
+    }
+  }
+}

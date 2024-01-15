@@ -28,7 +28,11 @@
       "@ok-scoring/components/react/timer-provider": [
         "libs/components/react/timer-provider/src/index.ts"
       ],
+      "@ok-scoring/components/react/web": [
+        "libs/components/react/web/src/index.ts"
+      ],
       "@ok-scoring/data/fauna": ["libs/data/fauna/src/index.ts"],
+      "@ok-scoring/data/game-data": ["libs/data/game-data/src/index.ts"],
       "@ok-scoring/data/game-entities": [
         "libs/data/game-entities/src/index.ts"
       ],
@@ -42,6 +46,7 @@
       "@ok-scoring/data/generate-uuid": [
         "libs/data/generate-uuid/src/index.ts"
       ],
+      "@ok-scoring/data/redis": ["libs/data/redis/src/index.ts"],
       "@ok-scoring/data/sqlite-fns": ["libs/data/sqlite-fns/src/index.ts"],
       "@ok-scoring/features/game-rules-fns": [
         "libs/features/game-rules-fns/src/index.ts"
@@ -53,7 +58,14 @@
         "libs/features/player-score-history-fns/src/index.ts"
       ],
       "@ok-scoring/styles": ["libs/styles/index.ts"],
-      "@ok-scoring/utils/array-fns": ["libs/utils/array-fns/src/index.ts"]
+      "@ok-scoring/utils/array-fns": ["libs/utils/array-fns/src/index.ts"],
+      "@ok-scoring/features/scoring-web-landing": [
+        "libs/features/scoring-web-landing/src/index.ts"
+      ],
+      "@ok-scoring/features/scoring-web-landing/server": [
+        "libs/features/scoring-web-landing/src/server.ts"
+      ],
+      "workspace-plugin": ["tools/workspace-plugin/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]
