@@ -223,6 +223,15 @@ npx nx g @nrwl/remix:setup
 npx nx g @nrwl/remix:app ok-scoring-rules-ui
 ```
 
+Had to add `scripts` to the app package.json
+
+```json
+    "build": "npx remix build",
+    "dev": "npx remix dev",
+    "postinstall": "npx remix setup node",
+    "start": "npx remix-serve build"
+```
+
 ## Creating a non JS/TS application
 
 Creating a Go application for example
@@ -351,16 +360,15 @@ nx g @nx/react:lib components/react/web
 
 ## OK Scoring Web
 
-This is a nextjs web application that is used as a web interface for game scoring.
-The data layer for game scores uses redis and postgres.
-postgres being the source of truth for game scores and redis being a cache layer that can be used by other applications as well.
-
-To add a new react component that can be shared across the react based apps, run the following command.
-
-If the component belongs specifically to ok-scoring-web, use the `--project ok-scoring-web` flag.
+Remix web app
 
 ```bash
-nx g @nx/react:component xyz --project ui
+yarn nx g @nx/remix:app ok-scoring-web --directory apps/ok-scoring-web
+yarn nx g @nx/remix:lib scoring-web-landing --directory=libs/features/scoring-web-landing
+yarn nx g @nx/remix:lib scoring-web-landing --directory=libs/features/scoring-web-game
+yarn nx g @nx/remix:lib scoring-web-landing --directory=libs/features/scoring-web-rules
+
+yarn nx serve ok-scoring-web
 ```
 
 ## OK Scoring Rules UI

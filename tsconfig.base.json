@@ -57,14 +57,14 @@
       "@ok-scoring/features/player-score-history-fns": [
         "libs/features/player-score-history-fns/src/index.ts"
       ],
-      "@ok-scoring/features/web-landing": [
-        "libs/features/web-landing/src/index.ts"
-      ],
-      "@ok-scoring/features/web-landing/server": [
-        "libs/features/web-landing/src/server.ts"
-      ],
       "@ok-scoring/styles": ["libs/styles/index.ts"],
       "@ok-scoring/utils/array-fns": ["libs/utils/array-fns/src/index.ts"],
+      "@ok-scoring/features/scoring-web-landing": [
+        "libs/features/scoring-web-landing/src/index.ts"
+      ],
+      "@ok-scoring/features/scoring-web-landing/server": [
+        "libs/features/scoring-web-landing/src/server.ts"
+      ],
       "workspace-plugin": ["tools/workspace-plugin/src/index.ts"]
     }
   },

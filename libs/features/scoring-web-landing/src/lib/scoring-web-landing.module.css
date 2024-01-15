@@ -8,3 +8,13 @@
 .videoPlayer {
   border: none;
 }
+
+.title {
+  display: flex;
+  align-items: center;
+}
+
+.logoImage {
+  margin-right: 2em;
+  height: 2em;
+}
