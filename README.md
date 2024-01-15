@@ -368,4 +368,10 @@ nx g @nx/react:component xyz --project ui
 This is a remix web application that is used as a web interface for game rules.
 It uses the rules-service as a backend, which uses postgres as a data source.
 
+To run dev server locally
+
+```bash
+yarn nx dev ok-scoring-rules-ui
+```
+
 ## OK Scoring Rules Service
