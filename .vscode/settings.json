@@ -21,6 +21,5 @@
     "titleBar.inactiveForeground": "#15202b99",
     "commandCenter.border": "#15202b99"
   },
-  "peacock.remoteColor": "#e68e7c",
-  "eslint.validate": ["json"]
+  "peacock.remoteColor": "#e68e7c"
 }

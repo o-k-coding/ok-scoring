@@ -1,13 +1,6 @@
 {
-  "testRunner": {
-    "args": {
-      "$0": "jest",
-      "config": "./jest.config.json"
-    },
-    "jest": {
-      "setupTimeout": 120000
-    }
-  },
+  "testRunner": "jest",
+  "runnerConfig": "jest.config.json",
   "apps": {
     "ios.debug": {
       "type": "ios.app",

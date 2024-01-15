@@ -1,12 +1,5 @@
 {
-  "presets": [
-    [
-      "@nrwl/js/babel",
-      {
-        "useBuiltIns": "usage"
-      }
-    ]
-  ],
+  "presets": [["@nrwl/web/babel", { "useBuiltIns": "usage" }]],
   "plugins": [
     [
       "@babel/plugin-proposal-decorators",
