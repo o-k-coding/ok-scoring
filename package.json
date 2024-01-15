@@ -86,7 +86,7 @@
     "mobx-react": "^7.2.0",
     "netlify-cms-app": "^2.14.14",
     "netlify-identity-widget": "^1.9.1",
-    "next": "12.1.6",
+    "next": "13.5.0",
     "pg": "^8.3.0",
     "prismjs": "^1.23.0",
     "prop-types": "15.7.2",
