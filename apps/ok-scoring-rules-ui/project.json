@@ -1,7 +1,0 @@
-{
-  "name": "ok-scoring-rules-ui",
-  "$schema": "../../node_modules/nx/schemas/project-schema.json",
-  "sourceRoot": "apps/ok-scoring-rules-ui",
-  "projectType": "application",
-  "tags": []
-}

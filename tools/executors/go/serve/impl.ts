@@ -1,8 +1,8 @@
-import { ExecutorContext } from '@nx/devkit';
+import { ExecutorContext } from '@nrwl/devkit';
 import { execSync } from 'child_process';
 
 export interface ServeExecutorSchema {
-  main: string;
+  main: string,
 }
 
 export default async function goServeExecutor(
@@ -18,11 +18,11 @@ export default async function goServeExecutor(
 
   const command = `go run ${mainFile}`;
   try {
-    console.log(`Executing command: ${command}`);
-    execSync(command, { cwd: sourceRoot, stdio: [0, 1, 2] });
-    return { success: true };
+    console.log(`Executing command: ${command}`)
+    execSync(command, { cwd: sourceRoot, stdio: [0, 1, 2] })
+    return { success: true }
   } catch (e) {
-    console.error(`Failed to execute command: ${command}`, e);
-    return { success: false };
+    console.error(`Failed to execute command: ${command}`, e)
+    return { success: false }
   }
 }
