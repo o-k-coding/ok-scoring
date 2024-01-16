@@ -30,7 +30,7 @@
     "@types/react-dom": "^18.2.0",
     "eslint": "^8.38.0",
     "typescript": "^5.1.6",
-    "wrangler": "3.8.0"
+    "wrangler": "3.19.0"
   },
   "engines": {
     "node": ">=14"
