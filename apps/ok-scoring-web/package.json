@@ -5,12 +5,15 @@
   "license": "",
   "scripts": {
     "build": "npx remix build",
-    "dev": "npx remix dev",
+    "dev": "npx remix dev --manual -c \"yarn start\"",
+    "start": "wrangler pages dev --compatibility-date=2023-06-21 ./public",
     "postinstall": "npx remix setup node",
-    "start": "npx remix-serve build/index.js"
+    "pages:deploy": "npm run build && wrangler pages deploy ./public"
   },
   "type": "module",
   "dependencies": {
+    "@remix-run/cloudflare": "^2.3.0",
+    "@remix-run/cloudflare-pages": "^2.3.0",
     "@remix-run/node": "^2.3.0",
     "@remix-run/react": "^2.3.0",
     "@remix-run/css-bundle": "2.3.0",
@@ -19,13 +22,15 @@
     "react-dom": "^18.2.0"
   },
   "devDependencies": {
+    "@cloudflare/workers-types": "^4.20230518.0",
     "@remix-run/dev": "^2.3.0",
     "@remix-run/serve": "^2.3.0",
     "@remix-run/eslint-config": "^2.3.0",
     "@types/react": "^18.2.0",
     "@types/react-dom": "^18.2.0",
     "eslint": "^8.38.0",
-    "typescript": "^5.1.6"
+    "typescript": "^5.1.6",
+    "wrangler": "3.8.0"
   },
   "engines": {
     "node": ">=14"
