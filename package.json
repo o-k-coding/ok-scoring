@@ -154,7 +154,7 @@
     "@vitest/coverage-v8": "~0.34.6",
     "@vitest/ui": "~0.34.6",
     "babel-jest": "29.4.3",
-    "babel-plugin-module-resolver": "4.0.0",
+    "babel-plugin-module-resolver": "5.0.0",
     "cypress": "^4.1.0",
     "detox": "20.13.3",
     "dotenv": "10.0.0",
