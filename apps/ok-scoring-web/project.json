@@ -11,6 +11,12 @@
         "cwd": "apps/ok-scoring-web"
       }
     },
+    "dev": {
+      "command": "npm run dev",
+      "options": {
+        "cwd": "apps/ok-scoring-web"
+      }
+    },
     "serve": {
       "executor": "@nx/remix:serve",
       "options": {
