@@ -4380,7 +4380,7 @@
     minimatch "3.0.5"
     tslib "^2.3.0"
 
-"@nx/remix@17.2.8":
+"@nx/remix@17.2.8", "@nx/remix@^17.2.8":
   version "17.2.8"
   resolved "https://registry.yarnpkg.com/@nx/remix/-/remix-17.2.8.tgz#bfe7f3f6e31db9d91ad0bf2f4a564ce26775de31"
   integrity sha512-mLpF1DneINPiU7/yItPMm1I1MoGDOj7N0ht6TzApCoVEbm1uJiTHSHHXh9fxrOGD1COkdFmrf9HvqT5iQZQa8Q==

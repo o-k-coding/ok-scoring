@@ -7,7 +7,9 @@
   "targets": {
     "build": {
       "executor": "@nx/remix:build",
-      "outputs": ["{options.outputPath}"],
+      "outputs": [
+        "{options.outputPath}"
+      ],
       "options": {
         "outputPath": "dist/apps/ok-scoring-web"
       }
@@ -15,13 +17,15 @@
     "serve": {
       "executor": "@nx/remix:serve",
       "options": {
-        "command": "yarn remix-serve build/index.js",
+        "command": "yarn start",
         "manual": true,
         "port": 4200
       }
     },
     "start": {
-      "dependsOn": ["build"],
+      "dependsOn": [
+        "build"
+      ],
       "command": "remix-serve build/index.js",
       "options": {
         "cwd": "apps/ok-scoring-web"
@@ -35,14 +39,18 @@
     },
     "test": {
       "executor": "@nx/vite:test",
-      "outputs": ["{options.reportsDirectory}"],
+      "outputs": [
+        "{options.reportsDirectory}"
+      ],
       "options": {
         "reportsDirectory": "../../coverage/apps/ok-scoring-web"
       }
     },
     "lint": {
       "executor": "@nx/eslint:lint",
-      "outputs": ["{options.outputFile}"]
+      "outputs": [
+        "{options.outputFile}"
+      ]
     },
     "serve-static": {
       "executor": "@nx/web:file-server",
