@@ -6,12 +6,9 @@
   "tags": [],
   "targets": {
     "build": {
-      "executor": "@nx/remix:build",
-      "outputs": [
-        "{options.outputPath}"
-      ],
+      "command": "npm run build",
       "options": {
-        "outputPath": "dist/apps/ok-scoring-web"
+        "cwd": "apps/ok-scoring-web"
       }
     },
     "serve": {
