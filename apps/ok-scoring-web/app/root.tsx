@@ -1,6 +1,7 @@
 import type { MetaFunction, LinksFunction } from '@remix-run/cloudflare';
 import {
   Links,
+  Link,
   LiveReload,
   Meta,
   Outlet,
@@ -11,6 +12,7 @@ import {
 import { cssBundleHref } from '@remix-run/css-bundle';
 
 import rootStyles from "./styles/index.css";
+import logo from './images/icon-adaptive.png';
 
 // Note you can add a links function with stylesheets to any route btw
 export const links: LinksFunction = () => [
@@ -37,6 +39,21 @@ export default function App() {
         <Links />
       </head>
       <body>
+        <nav className='header'>
+          <Link to={`/`}>
+            <h1 className='title'>
+              <img className='logoImage' src={logo} alt='OK Enterprises Mountain Logo'></img>
+              OK Scoring
+            </h1>
+          </Link>
+
+          <ul className='navLinks'>
+            <li><Link to={`game`}>Game Scoring</Link></li>
+            <li><Link to={`rules`}> Rules Builder</Link></li>
+          </ul>
+
+
+        </nav>
         <Outlet />
         <ScrollRestoration />
         <Scripts />

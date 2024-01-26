@@ -367,6 +367,8 @@ yarn nx g @nx/remix:lib scoring-web-landing --directory=libs/features/scoring-we
 yarn nx serve ok-scoring-web
 ```
 
+deployed on cloudflare manually. This is because the root ofthe project relies on the functions dir being there. I could either change the root... or move it to the root. If I change the root, then I need to change the build command to not use nx? or maybe it would still work. Need to experiment.
+
 ## OK Scoring Rules UI
 
 This is a remix web application that is used as a web interface for game rules.

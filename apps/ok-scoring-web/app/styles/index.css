@@ -1,3 +1,37 @@
 body {
   font-family: Quicksand;
 }
+
+a:hover {
+  opacity: 0.7;
+}
+
+a:link, a:visited {
+  text-decoration: none;
+  color: black;
+}
+
+.header, .title {
+  display: flex;
+  align-items: center;
+}
+
+.header {
+  justify-content: space-between;
+}
+
+.logoImage {
+  margin-right: 1em;
+  margin-left: 0.5em;
+  height: 2em;
+}
+
+.navLinks {
+  display: flex;
+  list-style-type: none;
+}
+
+.navLinks a {
+    margin-left: 1em;
+    margin-right: 1em;
+  }

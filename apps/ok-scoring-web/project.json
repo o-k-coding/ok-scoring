@@ -11,6 +11,12 @@
         "cwd": "apps/ok-scoring-web"
       }
     },
+    "deploy": {
+      "command": "npm run pages:deploy",
+      "options": {
+        "cwd": "apps/ok-scoring-web"
+      }
+    },
     "dev": {
       "command": "npm run dev",
       "options": {
